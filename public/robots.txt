@@ -1,0 +1,17 @@
+User-agent: *
+
+Disallow: /admin
+Disallow: /admin/products
+Disallow: /admin/bundles
+Disallow: /admin/promotions
+Disallow: /admin/coupons
+Disallow: /admin/analytics
+Disallow: /admin/categories
+Disallow: /admin/orders
+Disallow: /admin/add/product
+Disallow: /admin/add/bundle
+Disallow: /admin/add/promotion
+Disallow: /admin/add/banner
+Disallow: /admin/add/coupon
+
+Sitemap: https://canadacannabyss.com/sitemap.xml
