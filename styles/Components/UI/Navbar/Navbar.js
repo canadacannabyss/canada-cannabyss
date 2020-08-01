@@ -340,7 +340,7 @@ export const TabButtonUser = styled.button`
     }
   }
   @media (max-width: 768px) {
-    padding: 0 10px;
+    padding: 0;
     margin-right: 0;
   }
 `;

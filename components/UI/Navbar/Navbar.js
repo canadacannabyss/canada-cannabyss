@@ -356,36 +356,24 @@ const Navbar = () => {
                   </>
                 )}
               {user.loading && (
-                <UserDivFlex>
-                  {/* <LoadingUserButton /> */}
-                  <UserButtonNameLoading />
-
-                  <TabButtonUser onClick={handleToggleCart}>
-                    {cart.fetched && !_.isEmpty(cart.data) && (
-                      <>
-                        {cart.data.items.length > 0 && (
-                          <CartItemsAmount>
-                            <p>{cart.data.items.length}</p>
-                          </CartItemsAmount>
-                        )}
-                      </>
-                    )}
+                <>
+                  <TabButtonUser>
                     <FaShoppingCart />
                   </TabButtonUser>
-                </UserDivFlex>
+                  <UserButtonNameLoading />
+                </>
               )}
               {_.isEmpty(user.data) &&
                 !user.loading &&
                 !user.error &&
                 !user.fetched && (
                   <>
+                    <TabButtonUser onClick={handleToggleCart}>
+                      <FaShoppingCart />
+                    </TabButtonUser>
                     <SignInButton onClick={handleToggleRegister}>
                       Sign In
                     </SignInButton>
-
-                    <TabButton onClick={handleToggleCart}>
-                      <FaShoppingCart />
-                    </TabButton>
                   </>
                 )}
               {_.isEmpty(user.data) &&
@@ -393,9 +381,9 @@ const Navbar = () => {
                 user.error &&
                 !user.fetched && (
                   <>
-                    <TabButton onClick={handleToggleCart}>
+                    <TabButtonUser onClick={handleToggleCart}>
                       <FaShoppingCart />
-                    </TabButton>
+                    </TabButtonUser>
                     <SignInButton onClick={handleToggleRegister}>
                       Sign In
                     </SignInButton>
