@@ -27,7 +27,7 @@ export const TopGroupWapper = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
     width: 90%;
   }
 `;
@@ -75,6 +75,9 @@ export const BottomGroupWrapper = styled.div`
   background: #f1f1f1;
   display: flex;
   flex-direction: row;
+  @media (max-width: 991px) {
+    width: 90%;
+  }
 `;
 
 export const Nav = styled.div`

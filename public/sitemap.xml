@@ -85,7 +85,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
+    <loc>https://canadacannabyss.com/bundles/index</loc>
   </url>
 
   <url>
@@ -117,7 +117,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundles/index</loc>
+    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
@@ -142,10 +142,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/product/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/products/index</loc>
   </url>
 
   <url>
@@ -181,7 +177,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
+    <loc>https://canadacannabyss.com/products/index</loc>
   </url>
 
   <url>
@@ -190,6 +186,10 @@
 
   <url>
     <loc>https://canadacannabyss.com/admin/reset-password/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
   </url>
 
   <url>
@@ -205,11 +205,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/edit/bundle/[slug]</loc>
+    <loc>https://canadacannabyss.com/admin/edit/coupon/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/edit/coupon/[slug]</loc>
+    <loc>https://canadacannabyss.com/admin/edit/bundle/[slug]</loc>
   </url>
 
   <url>
