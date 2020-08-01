@@ -1,13 +1,80 @@
 import styled from 'styled-components';
-import { fadeText } from '../../../Animations/Animations';
+import { fadeText, spin } from '../../../Animations/Animations';
 
 export const Navigation = styled.nav`
+  width: 100%;
+  height: 96px;
+  background: #fff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
   @media (max-width: 768px) {
     position: sticky;
     top: 0;
     background: #fff;
     z-index: 99999999;
+    height: 56px;
   }
+`;
+
+export const TopGroup = styled.div`
+  width: 100%;
+  height: 56px;
+  background: #fff;
+`;
+
+export const TopGroupWapper = styled.div`
+  width: 80%;
+  height: 56px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`;
+
+export const UserWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px;
+  @media (max-width: 768px) {
+    width: unset;
+  }
+`;
+
+export const CartDiv = styled.div`
+  button {
+    background: #fff;
+    border: none;
+    margin-right: 15px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    svg {
+      color: #18840f;
+      font-size: 18px;
+    }
+  }
+`;
+
+export const BottomGroup = styled.div`
+  width: 100%;
+  height: 40px;
+  background: #f1f1f1;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const BottomGroupWrapper = styled.div`
+  width: 80%;
+  height: 40px;
+  margin: 0 auto;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Nav = styled.div`
@@ -40,14 +107,53 @@ export const Nav = styled.div`
   }
 `;
 
+export const BrandFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 15px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const BrandFlexMobile = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+`;
+
 export const Brand = styled.img`
-  height: 30px;
-  width: 30px;
-  margin: 0 auto;
+  height: 35px;
+  width: 35px;
   cursor: pointer;
   @media (max-width: 400px) {
     height: 35px;
     width: 35px;
+  }
+  @media (max-width: 286px) {
+    display: none;
+  }
+`;
+
+export const BrandName = styled.div`
+  margin-left: 5px;
+  p {
+    color: #18840f;
+    line-height: 15px;
+    @media (max-width: 242px) {
+      text-align: center;
+    }
+    span {
+      color: #b01129;
+      font-weight: 900;
+    }
   }
 `;
 
@@ -68,6 +174,39 @@ export const LinkTo = styled.a`
 `;
 
 export const TabButton = styled.button`
+  color: #5a5a5a;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  padding: 3px 6px;
+  text-align: center;
+  font-size: 15px;
+  width: auto;
+  margin-right: 15px;
+  &:focus {
+    outline: none;
+  }
+  svg {
+    margin-left: 4px;
+    font-size: 12px;
+    @media (max-width: 768px) {
+      font-size: 21px;
+      margin: 0;
+      display: flex;
+      align-self: center;
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
+`;
+
+export const SignInButton = styled.button`
   color: #18840f;
   cursor: pointer;
   background: transparent;
@@ -80,6 +219,7 @@ export const TabButton = styled.button`
   padding: 3px 6px;
   text-align: center;
   font-size: 15px;
+  width: 65px;
   &:focus {
     outline: none;
   }
@@ -94,6 +234,7 @@ export const TabButton = styled.button`
   }
   @media (max-width: 768px) {
     padding: 0 10px;
+    display: none;
   }
 `;
 
@@ -112,6 +253,60 @@ export const CartItemsAmount = styled.div`
   justify-items: center;
   p {
     margin-left: 2px;
+  }
+`;
+
+export const UserButtonName = styled.button`
+  background: #fff;
+  border: none;
+  text-align: left;
+  width: auto;
+  border: 0px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background: #f1f1f1;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    background: #f1f1f1;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.23);
+  }
+  &:focus {
+    outline: none;
+  }
+  .account {
+    color: #18840f;
+    font-weight: 900;
+  }
+  p {
+    color: #5a5a5a;
+    span {
+      color: #18840f;
+    }
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const UserButtonNameLoading = styled.button`
+  background: #f1f1f1;
+  border: none;
+  text-align: left;
+  width: 100px;
+  height: 38px;
+  border: 0px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  min-width: 100px;
+  cursor: pointer;
+  animation: ${fadeText} 1s infinite;
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -143,6 +338,7 @@ export const TabButtonUser = styled.button`
   }
   @media (max-width: 768px) {
     padding: 0 10px;
+    margin-right: 0;
   }
 `;
 
@@ -154,18 +350,33 @@ export const BarsCartDiv = styled.div`
   }
 `;
 
+export const SearchBarFlex = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
 export const SearchBar = styled.div`
-  display: grid;
-  grid-template-columns: 87% 13%;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: end;
+  -ms-flex-pack: end;
   justify-content: end;
-  border-radius: 50px;
-  background: #f2f2f2;
-  padding: 0 4px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #18840f;
+  width: 65%;
+  box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
   input {
     border: none;
     background: transparent;
     padding: 12px 0px 12px 14px;
     color: #18840f;
+    width: 100%;
     &:focus {
       outline: none;
     }
@@ -177,7 +388,7 @@ export const SearchBar = styled.div`
     background: transparent;
     border: none;
     color: #18840f;
-    padding: 0;
+    padding: 0 15px;
     cursor: pointer;
     &:focus {
       outline: none;

@@ -10,8 +10,11 @@ import { addOneToCount } from '../../../store/actions/loginRequestCount/loginReq
 import { openLoginTab } from '../../../store/actions/navbar';
 import {
   BarsCartDiv,
+  BrandFlexMobile,
+  BrandFlex,
   Brand,
   BrandDiv,
+  BrandName,
   BrandSearchDiv,
   DrawerBtn,
   Li,
@@ -20,12 +23,22 @@ import {
   MenuDiv,
   Nav,
   Navigation,
+  TopGroup,
+  TopGroupWapper,
+  BottomGroup,
+  BottomGroupWrapper,
+  UserButtonNameLoading,
+  SearchBarFlex,
   SearchBar,
+  UserWrapper,
+  CartDiv,
   CartItemsAmount,
   TabButton,
   TabButtonUser,
+  UserButtonName,
   Ul,
   UserButton,
+  SignInButton,
   LoadingUserButton,
   UserDiv,
   UserDivFlex,
@@ -271,63 +284,81 @@ const Navbar = () => {
         handleToggleLogout={handleToggleLogout}
       />
       <Navigation>
-        <Nav>
-          <BrandSearchDiv>
-            <BrandDiv>
-              <Link href='/' as='/'>
-                <Brand
-                  src={Logo}
-                  alt='Canada Cannabyss'
-                  title='Canada Cannabyss'
-                />
-              </Link>
-            </BrandDiv>
-            <TabButton className='search'>
-              <FaSearch />
-            </TabButton>
-          </BrandSearchDiv>
-          <SearchBar>
-            <input type='text' placeholder='Looking for something?' />
-            <button>
-              <FaSearch />
-            </button>
-          </SearchBar>
-          <MenuDiv>
-            <Ul>
-              <Li>
+        <TopGroup>
+          <TopGroupWapper>
+            <DrawerBtn type='button' onClick={handleToggleDrawer}>
+              <FaBars />
+            </DrawerBtn>
+            <BrandFlex>
+              <BrandDiv>
                 <Link href='/' as='/'>
-                  <LinkTo>Home</LinkTo>
+                  <Brand
+                    src={Logo}
+                    alt='Canada Cannabyss'
+                    title='Canada Cannabyss'
+                  />
                 </Link>
-              </Li>
-              <Li>
-                <TabButton onClick={handleToggleProduct}>
-                  Products
-                  <FaSortDown />
-                </TabButton>
-              </Li>
-              <Li>
-                <TabButton onClick={handleToggleBundles}>
-                  Bundles
-                  <FaSortDown />
-                </TabButton>
-              </Li>
-              <Li>
-                <TabButton onClick={handleToggleHelp}>
-                  Help
-                  <FaSortDown />
-                </TabButton>
-              </Li>
-            </Ul>
-          </MenuDiv>
-          <UserDiv>
-            {!_.isEmpty(user.data) &&
-              user.fetched &&
-              !user.loading &&
-              !user.error && (
+              </BrandDiv>
+              <BrandName>
+                <p>
+                  Canada <span>Cannabyss</span>
+                </p>
+              </BrandName>
+            </BrandFlex>
+            <BrandFlexMobile>
+              <BrandDiv>
+                <Link href='/' as='/'>
+                  <Brand
+                    src={Logo}
+                    alt='Canada Cannabyss'
+                    title='Canada Cannabyss'
+                  />
+                </Link>
+              </BrandDiv>
+              <BrandName>
+                <p>
+                  Canada <span>Cannabyss</span>
+                </p>
+              </BrandName>
+            </BrandFlexMobile>
+            <SearchBarFlex>
+              <SearchBar>
+                <input type='text' placeholder='Looking for something?' />
+                <button>
+                  <FaSearch />
+                </button>
+              </SearchBar>
+            </SearchBarFlex>
+            <UserWrapper>
+              {!_.isEmpty(user.data) &&
+                user.fetched &&
+                !user.loading &&
+                !user.error && (
+                  <>
+                    <TabButtonUser onClick={handleToggleCart}>
+                      {cart.fetched && !_.isEmpty(cart.data) && (
+                        <>
+                          {cart.data.items.length > 0 && (
+                            <CartItemsAmount>
+                              <p>{cart.data.items.length}</p>
+                            </CartItemsAmount>
+                          )}
+                        </>
+                      )}
+                      <FaShoppingCart />
+                    </TabButtonUser>
+                    <UserButtonName onClick={handleToggleUserMenu}>
+                      <p>
+                        Hello, <span>{user.data.names.firstName}</span>
+                      </p>
+                      <p className='account'>Account</p>
+                    </UserButtonName>
+                  </>
+                )}
+              {user.loading && (
                 <UserDivFlex>
-                  <UserButton onClick={handleToggleUserMenu}>
-                    <img src={user.data.profileImage.url} />
-                  </UserButton>
+                  {/* <LoadingUserButton /> */}
+                  <UserButtonNameLoading />
 
                   <TabButtonUser onClick={handleToggleCart}>
                     {cart.fetched && !_.isEmpty(cart.data) && (
@@ -343,81 +374,52 @@ const Navbar = () => {
                   </TabButtonUser>
                 </UserDivFlex>
               )}
-            {user.loading && (
-              <UserDivFlex>
-                <LoadingUserButton />
+              {_.isEmpty(user.data) &&
+                !user.loading &&
+                !user.error &&
+                !user.fetched && (
+                  <>
+                    <SignInButton onClick={handleToggleRegister}>
+                      Sign In
+                    </SignInButton>
 
-                <TabButtonUser onClick={handleToggleCart}>
-                  {cart.fetched && !_.isEmpty(cart.data) && (
-                    <>
-                      {cart.data.items.length > 0 && (
-                        <CartItemsAmount>
-                          <p>{cart.data.items.length}</p>
-                        </CartItemsAmount>
-                      )}
-                    </>
-                  )}
-                  <FaShoppingCart />
-                </TabButtonUser>
-              </UserDivFlex>
-            )}
-            {_.isEmpty(user.data) &&
-              !user.loading &&
-              !user.error &&
-              !user.fetched && (
-                <UserDiv>
-                  <Ul>
-                    <LiUser>
-                      <TabButton onClick={handleToggleRegister}>
-                        Sign In
-                      </TabButton>
-                    </LiUser>
-                    <LiUser>
-                      <TabButton onClick={handleToggleCart}>
-                        <FaShoppingCart />
-                      </TabButton>
-                    </LiUser>
-                  </Ul>
-                </UserDiv>
-              )}
-            {_.isEmpty(user.data) &&
-              !user.loading &&
-              user.error &&
-              !user.fetched && (
-                <UserDiv>
-                  <Ul>
-                    <LiUser>
-                      <TabButton onClick={handleToggleRegister}>
-                        Sign In
-                      </TabButton>
-                    </LiUser>
-                    <LiUser>
-                      <TabButton onClick={handleToggleCart}>
-                        <FaShoppingCart />
-                      </TabButton>
-                    </LiUser>
-                  </Ul>
-                </UserDiv>
-              )}
-          </UserDiv>
-          <BarsCartDiv>
-            <TabButton onClick={handleToggleCart}>
-              {cart.fetched && !_.isEmpty(cart.data) && (
-                <>
-                  {cart.data.items.length > 0 && (
-                    <CartItemsAmount>
-                      <p>{cart.data.items.length}</p>
-                    </CartItemsAmount>
-                  )}
-                </>
-              )}
-              <FaShoppingCart />
+                    <TabButton onClick={handleToggleCart}>
+                      <FaShoppingCart />
+                    </TabButton>
+                  </>
+                )}
+              {_.isEmpty(user.data) &&
+                !user.loading &&
+                user.error &&
+                !user.fetched && (
+                  <>
+                    <TabButton onClick={handleToggleCart}>
+                      <FaShoppingCart />
+                    </TabButton>
+                    <SignInButton onClick={handleToggleRegister}>
+                      Sign In
+                    </SignInButton>
+                  </>
+                )}
+            </UserWrapper>
+          </TopGroupWapper>
+        </TopGroup>
+        <BottomGroup>
+          <BottomGroupWrapper>
+            <TabButton onClick={handleToggleProduct}>
+              Products
+              <FaSortDown />
             </TabButton>
-            <DrawerBtn type='button' onClick={handleToggleDrawer}>
-              <FaBars />
-            </DrawerBtn>
-          </BarsCartDiv>
-        </Nav>
+            <TabButton onClick={handleToggleBundles}>
+              Bundles
+              <FaSortDown />
+            </TabButton>
+            <TabButton onClick={handleToggleHelp}>
+              Help
+              <FaSortDown />
+            </TabButton>
+          </BottomGroupWrapper>
+        </BottomGroup>
         {toggleUserMenu && user.fetched && !_.isEmpty(user.data) && (
           <OutsideAlerter handleClose={handleToggleUserMenu}>
             <UserMenu
