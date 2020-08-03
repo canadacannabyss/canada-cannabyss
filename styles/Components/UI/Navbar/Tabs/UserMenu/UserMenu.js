@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   z-index: 9999999999;
   position: absolute;
   background: #fff;
-  width: 130px;
+  width: 110px;
   color: #000;
   top: 55px;
   right: 10%;
@@ -13,6 +13,9 @@ export const Wrapper = styled.div`
   box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
   hr {
     margin: 0;
+  }
+  @media (max-width: 991px) {
+    right: 5%;
   }
 `;
 
@@ -70,15 +73,15 @@ export const MenuOpitionUl = styled.ul`
 export const MenuOpitionLi = styled.li`
   display: table;
   width: 100%;
-  color: #000;
+  color: #18840f;
   font-size: 13px;
+  padding: 7px 10px 7px 7px;
+  border-left: 4px solid #f1f1f1;
   transition: 0.2s all ease-in-out;
   cursor: pointer;
   &:hover {
-    background: #18840f;
-    a {
-      color: #fff !important;
-    }
+    background: #18840f1f;
+    border-left: 4px solid #18840f33;
   }
   .last {
     border-bottom-left-radius: 2px;
@@ -87,9 +90,8 @@ export const MenuOpitionLi = styled.li`
 `;
 
 export const LinkTo = styled.a`
-  color: #000;
-  text-align: center;
-  padding: 7px 0;
+  color: #18840f;
+  text-align: left;
   display: block;
   font-size: 15px;
   &:hover {

@@ -25,7 +25,7 @@ const UserMenu = (props) => {
   return (
     <>
       <Wrapper>
-        <ProfileDiv>
+        {/* <ProfileDiv>
           <Link href='/account' as='/account'>
             <Profile onClick={handleToggleUserMenu}>
               <p>
@@ -36,7 +36,7 @@ const UserMenu = (props) => {
             </Profile>
           </Link>
         </ProfileDiv>
-        <hr />
+        <hr /> */}
         <MenuOpitionUl>
           <MenuOpitionLi>
             {isAdmin && (

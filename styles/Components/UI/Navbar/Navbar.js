@@ -5,7 +5,7 @@ export const Navigation = styled.nav`
   width: 100%;
   height: 96px;
   background: #fff;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
   @media (max-width: 768px) {
     position: sticky;
     top: 0;
@@ -115,6 +115,11 @@ export const BrandFlex = styled.div`
   flex-direction: row;
   align-items: center;
   margin-right: 15px;
+  a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+  }
   @media (max-width: 768px) {
     display: none;
   }

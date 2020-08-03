@@ -1,5 +1,6 @@
 import { Editor } from '@tinymce/tinymce-react';
 import Router from 'next/router';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import slugify from 'slugify';
 import {
@@ -362,6 +363,9 @@ const Bundle = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Add Bundle | Administrator - Canada Cannabyss</title>
+      </Head>
       <Wrapper>
         <ProductListDiv>
           <ProductsList
