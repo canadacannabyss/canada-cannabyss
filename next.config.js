@@ -18,16 +18,16 @@ module.exports = withImage(
         }
         return config;
       },
-      // env: {
-      //   userApiEndpoint: 'http://localhost:5002',
-      //   mainApiEndpoint: 'http://localhost:5000',
-      //   mainDomain: 'http://localhost:3000',
-      // },
       env: {
-        userApiEndpoint: 'https://api.user.canadacannabyss.com',
-        mainApiEndpoint: 'https://api.store.canadacannabyss.com',
-        mainDomain: 'https://canadacannabyss.com',
+        userApiEndpoint: 'http://localhost:5002',
+        mainApiEndpoint: 'http://localhost:5000',
+        mainDomain: 'http://localhost:3000',
       },
+      // env: {
+      //   userApiEndpoint: 'https://api.user.canadacannabyss.com',
+      //   mainApiEndpoint: 'https://api.store.canadacannabyss.com',
+      //   mainDomain: 'https://canadacannabyss.com',
+      // },
     })
   )
 );

@@ -26,6 +26,8 @@ export const Ul = styled.ul`
   background: #f1f1f1;
   overflow-y: scroll;
   height: 350px;
+  scrollbar-color: #d6d6d6 transparent;
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
     width: 4px;
     background-color: transparent;
@@ -37,6 +39,7 @@ export const Ul = styled.ul`
   &::-webkit-scrollbar-thumb:active {
     background-color: #5a5a5a;
   }
+
   li {
     list-style: none;
     color: #5a5a5a;
@@ -75,6 +78,7 @@ export const ProductsDiv = styled.div`
   ul {
     height: 350px;
     overflow-y: scroll;
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }

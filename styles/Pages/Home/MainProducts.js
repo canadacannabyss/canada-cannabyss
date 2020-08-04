@@ -6,7 +6,7 @@ import { loadingTiles, fadeText } from '../../Animations/Animations';
 
 export const TopProduct = styled.div`
   width: 80%;
-  margin: 0 auto 30px auto;
+  margin: 20px auto 30px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 7px;

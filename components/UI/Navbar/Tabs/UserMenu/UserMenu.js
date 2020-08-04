@@ -25,25 +25,18 @@ const UserMenu = (props) => {
   return (
     <>
       <Wrapper>
-        {/* <ProfileDiv>
-          <Link href='/account' as='/account'>
-            <Profile onClick={handleToggleUserMenu}>
-              <p>
-                Signed in as
-                <br />
-                <strong>{names.firstName}</strong>
-              </p>
-            </Profile>
-          </Link>
-        </ProfileDiv>
-        <hr /> */}
         <MenuOpitionUl>
-          <MenuOpitionLi>
-            {isAdmin && (
+          {isAdmin && (
+            <MenuOpitionLi>
               <Link href='/admin/index' as='/admin'>
                 <LinkTo onClick={handleToggleUserMenu}>Admin</LinkTo>
               </Link>
-            )}
+            </MenuOpitionLi>
+          )}
+          <MenuOpitionLi>
+            <Link href='/account' as='/account'>
+              <LinkTo onClick={handleToggleUserMenu}>Account</LinkTo>
+            </Link>
           </MenuOpitionLi>
           <MenuOpitionLi>
             <Link href='/account/orders' as='/account/orders'>
