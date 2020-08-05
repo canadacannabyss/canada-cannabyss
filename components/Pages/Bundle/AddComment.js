@@ -10,12 +10,13 @@ import {
 const AddComment = (props) => {
   const comments = useSelector((state) => state.post.comments);
   const [comment, setComment] = useState('');
+  const [stars, setStars] = useState(5);
   const { user, bundle } = props;
   const dispatch = useDispatch();
 
   const handleSendComment = async (e) => {
     e.preventDefault();
-    dispatch(postCommentBundle(user._id, bundle, comment));
+    dispatch(postCommentBundle(user._id, bundle, comment, stars));
     setComment('');
   };
 
@@ -27,9 +28,9 @@ const AddComment = (props) => {
     <>
       <Form onSubmit={handleSendComment}>
         <TextArea
-          placeholder="Comment..."
+          placeholder='Comment...'
           onChange={handleTextArea}
-          id="comment-textarea"
+          id='comment-textarea'
           value={comment}
         />
         <SendButton>Send</SendButton>

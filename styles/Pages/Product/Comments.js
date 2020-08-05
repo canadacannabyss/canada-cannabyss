@@ -29,7 +29,6 @@ export const UserInfoWrapper = styled.div`
 `;
 
 export const LinkToProfile = styled.a`
-  cursor: pointer;
   &:hover {
     color: #333;
     text-decoration: none;

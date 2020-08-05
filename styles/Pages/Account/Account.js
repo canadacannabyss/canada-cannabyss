@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin: 40px auto 20px auto;
+  margin: 40px auto;
   width: 80%;
   @media (max-width: 991px) {
     width: 90%;
@@ -136,6 +136,7 @@ export const CopyToClipBoard = styled.button`
 
 export const MenusGrid = styled.div`
   display: grid;
+  grid-gap: 25px;
   grid-template-columns: repeat(5, 1fr);
   @media (max-width: 1199px) {
     grid-template-columns: repeat(4, 1fr);
@@ -147,22 +148,30 @@ export const MenusGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 460px) {
+    grid-gap: 15px;
     grid-template-columns: repeat(1, 1fr);
   }
 `;
 
 export const Menu = styled.div`
-  margin-bottom: 15px;
+  border-radius: 7px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  padding: 15px 17px;
   h3 {
     font-size: 15px;
     color: #000;
     font-weight: 900;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   ul {
     li {
       list-style: none;
       margin-bottom: 0.5rem;
+      .disabled {
+        padding: 4px 0px;
+        text-decoration: none;
+        color: #5a5a5a;
+      }
       a {
         padding: 4px 0px;
         text-decoration: none;

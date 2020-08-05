@@ -26,13 +26,14 @@ export function getCommentsProduct(productId) {
   };
 }
 
-export function postComment(userId, productId, comment) {
+export function postComment(userId, productId, comment, stars) {
   return {
     type: 'REQUEST_POST_COMMENT',
     payload: {
       userId,
       productId,
       comment,
+      stars,
     },
   };
 }

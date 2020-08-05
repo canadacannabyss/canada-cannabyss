@@ -51,24 +51,18 @@ const Comments = (props) => {
               <UserInfoWrapper>
                 <ul>
                   <li className='img-li'>
-                    <Link
-                      href='/user/[username]'
-                      as={`/user/${comment.user.username}`}
-                    >
-                      <LinkToProfile>
-                        <AuthorPicture src={comment.user.profileImage.url} />
-                      </LinkToProfile>
-                    </Link>
+                    <LinkToProfile>
+                      <AuthorPicture src={comment.user.profileImage.url} />
+                    </LinkToProfile>
                   </li>
                   <li className='user-info'>
-                    <Link
-                      href='/user/[username]'
-                      as={`/user/${comment.user.username}`}
-                    >
-                      <LinkToProfile>
-                        <AuthorName>{comment.user.name}</AuthorName>
-                      </LinkToProfile>
-                    </Link>
+                    <LinkToProfile>
+                      {/* <AuthorName>
+                        {comment.user.names.firstName}{' '}
+                        {comment.user.names.lastName}
+                      </AuthorName> */}
+                    </LinkToProfile>
+
                     <PostedOn>
                       {formatter.formatDateFullDate(comment.publishedOn)}
                     </PostedOn>

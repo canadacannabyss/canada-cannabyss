@@ -1,7 +1,7 @@
 import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
-async function postCommentBundleApi(userId, bundleId, comment) {
+async function postCommentBundleApi(userId, bundleId, comment, stars) {
   console.log('bundleId:', bundleId);
   const res = await fetch(
     `${process.env.mainApiEndpoint}/customers/bundle/comment/post`,
@@ -13,7 +13,7 @@ async function postCommentBundleApi(userId, bundleId, comment) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userId, bundleId, content: comment }),
+      body: JSON.stringify({ userId, bundleId, content: comment, stars }),
     }
   );
   const data = await res.json(res);
@@ -26,7 +26,8 @@ export default function* asyncPostCommentBundleApi(action) {
       postCommentBundleApi,
       action.payload.userId,
       action.payload.bundleId,
-      action.payload.comment
+      action.payload.comment,
+      action.payload.stars
     );
 
     yield put({

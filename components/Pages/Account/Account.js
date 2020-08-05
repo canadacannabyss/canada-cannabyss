@@ -100,19 +100,22 @@ const Account = (props) => {
             <h3>Payments</h3>
             <ul>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>Credit Card</a>
-                </Link>
+                {/* <Link
+                  href='/account/payment/credit-card'
+                  as='/account/credit-card'
+                > */}
+                <a className='disabled'>Credit Card</a>
+                {/* </Link> */}
               </li>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>Cryptocurrency</a>
-                </Link>
+                {/* <Link href='/account/payment/cryptocurrency' as='/account/payment/cryptocurrency'> */}
+                <a className='disabled'>Cryptocurrency</a>
+                {/* </Link> */}
               </li>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>e-Tranfer</a>
-                </Link>
+                {/* <Link href='/account/payment/e-transfer' as='/account/payment/e-transfer'> */}
+                <a className='disabled'>e-Tranfer</a>
+                {/* </Link> */}
               </li>
             </ul>
           </Menu>
@@ -125,7 +128,7 @@ const Account = (props) => {
                 </Link>
               </li>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
+                <Link href='/account/returns' as='/account/returns'>
                   <a>Returns</a>
                 </Link>
               </li>
@@ -135,7 +138,7 @@ const Account = (props) => {
             <h3>Miscellaneous</h3>
             <ul>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
+                <Link href='/account/reviews' as='/account/reviews'>
                   <a>Reviews</a>
                 </Link>
               </li>

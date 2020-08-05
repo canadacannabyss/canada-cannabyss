@@ -26,13 +26,14 @@ export function getCommentsBundle(bundleId) {
   };
 }
 
-export function postCommentBundle(userId, bundleId, comment) {
+export function postCommentBundle(userId, bundleId, comment, stars) {
   return {
     type: 'REQUEST_POST_COMMENT_BUNDLE',
     payload: {
       userId,
       bundleId,
       comment,
+      stars,
     },
   };
 }

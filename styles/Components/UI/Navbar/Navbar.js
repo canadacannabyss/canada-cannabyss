@@ -374,7 +374,7 @@ export const SearchBar = styled.div`
   -webkit-justify-content: end;
   -ms-flex-pack: end;
   justify-content: end;
-  border-radius: 5px;
+  border-radius: 50px;
   background: #fff;
   border: 1px solid #18840f;
   width: 65%;
