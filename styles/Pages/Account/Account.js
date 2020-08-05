@@ -22,7 +22,7 @@ export const Sep = styled.div`
   background: #e0e0e0;
   width: 100px;
   display: block;
-  margin: 20px 0;
+  margin: 30px 0;
   @media (max-width: 520px) {
     display: table;
     margin: 20px auto;

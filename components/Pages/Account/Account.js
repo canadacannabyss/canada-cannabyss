@@ -85,13 +85,13 @@ const Account = (props) => {
             <h3>Billings & Shipping</h3>
             <ul>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>Billing Information</a>
+                <Link href='/account/billing' as='/account/billing'>
+                  <a>Billing List</a>
                 </Link>
               </li>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>Shipping Information</a>
+                <Link href='/account/shipping' as='/account/shipping'>
+                  <a>Shipping List</a>
                 </Link>
               </li>
             </ul>
