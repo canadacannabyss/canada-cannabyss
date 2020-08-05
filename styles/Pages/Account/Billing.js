@@ -20,6 +20,7 @@ export const DeleteBtn = styled.button`
   background: transparent !important;
   border: none;
   padding: 0 !important;
+  cursor: pointer;
   svg {
     color: #5a5a5a;
     transform: rotate(45deg);
@@ -29,6 +30,9 @@ export const DeleteBtn = styled.button`
     svg {
       color: #e41111;
     }
+  }
+  &:focus {
+    outline: none;
   }
 `;
 
@@ -67,8 +71,12 @@ export const CloseBtn = styled.button`
   transform: rotate(45deg);
   font-size: 22px;
   background: transparent !important;
+  cursor: pointer;
   svg {
     color: #5a5a5a;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 
@@ -100,18 +108,6 @@ export const Container = styled.div`
     margin-bottom: 0.5rem;
     font-size: 16px;
   }
-  button {
-    background: #5a5a5a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    &:focus {
-      outline: none;
-    }
-  }
 `;
 
 export const ContainerEdit = styled.div`
@@ -131,17 +127,19 @@ export const ContainerEdit = styled.div`
     margin-bottom: 0.5rem;
     font-size: 16px;
   }
-  button {
-    background: #5a5a5a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    &:focus {
-      outline: none;
-    }
+`;
+
+export const SubmitButton = styled.button`
+  background: #5a5a5a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  &:focus {
+    outline: none;
   }
 `;
 

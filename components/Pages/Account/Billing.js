@@ -7,6 +7,7 @@ import {
   Wrapper,
   Grid,
   Container,
+  SubmitButton,
   ContainerEdit,
   InputEdit,
   SelectEdit,
@@ -325,15 +326,23 @@ const Billing = (props) => {
             )}
           </>
         )}
-
         {!_.isEmpty(billingList.data) &&
           !billingList.loading &&
           !billingList.errors &&
           billingList.fetched && (
             <>
-              {toggleEdit ? (
+              {toggleEdit && (
                 <ContainerEdit>
-                  <label>First Name</label>
+                  <FirstNameDeleteBtnDiv>
+                    <label>First Name</label>
+                    <DeleteBtn
+                      onClick={() => {
+                        onToggleEditBilling();
+                      }}
+                    >
+                      <FaPlus />
+                    </DeleteBtn>
+                  </FirstNameDeleteBtnDiv>
                   <InputEdit
                     onChange={onChangeFirstName}
                     value={billingFirstName}
@@ -394,152 +403,140 @@ const Billing = (props) => {
                     onChange={onChangePostalCode}
                     value={billingPostalCode}
                   />
-                  <FlexDivBtns>
-                    <button
-                      onClick={() => {
-                        onSubmitEdit();
-                        onToggleEditBilling();
-                      }}
-                    >
-                      Done
-                    </button>
-                    <CloseBtn
-                      onClick={() => {
-                        onToggleEditBilling();
-                      }}
-                    >
-                      <FaPlus />
-                    </CloseBtn>
-                  </FlexDivBtns>
+                  <SubmitButton
+                    onClick={() => {
+                      onSubmitEdit();
+                      onToggleEditBilling();
+                    }}
+                  >
+                    Done
+                  </SubmitButton>
                 </ContainerEdit>
-              ) : (
-                <>
-                  {toggleAdd ? (
-                    <ContainerEdit>
-                      <label>First Name</label>
-                      <InputEdit
-                        onChange={onChangeFirstName}
-                        value={billingFirstName}
-                      />
-                      <label>Last Name</label>
-                      <InputEdit
-                        onChange={onChangeLastName}
-                        value={billingLastName}
-                      />
-                      <label>Country</label>
-                      <SelectEdit
-                        onChange={handleBillingCountrySelect}
-                        value={billingCountry}
-                        id='billing_country'
-                      >
-                        <option value='-'>CHOOSE COUNTRY</option>
-                        <option value='CA'>CANADA</option>
-                        {/* <option value="US">UNITED STATES</option> */}
-                      </SelectEdit>
-                      <label>Province / State</label>
-                      <SelectEdit
-                        onChange={handleBillingProvinceStateSelect}
-                        value={billingProvinceState}
-                        id='billing_province_state'
-                      >
-                        <option value='-'>PROVINCE/STATE</option>
-                        {billingProvincesStatesList.map((province) => (
-                          <option key={province.abbr} value={province.abbr}>
-                            {province.name}
-                          </option>
-                        ))}
-                      </SelectEdit>
-                      <label>City</label>
-                      <SelectEdit
-                        onChange={handleBillingCitySelect}
-                        value={billingCity}
-                        id='billing_city'
-                      >
-                        <option value='-'>CITY</option>
-                        {billingCitiesList.map((city) => (
-                          <option key={city} value={city}>
-                            {city}
-                          </option>
-                        ))}
-                      </SelectEdit>
-                      <label>Address Line 1</label>
-                      <InputEdit
-                        onChange={onChangeAddressLine1}
-                        value={billingAddressLine1}
-                      />
-                      <label>Address Line 2</label>
-                      <InputEdit
-                        onChange={onChangeAddressLine2}
-                        value={billingAddressLine2}
-                      />
-                      <label>Postal Code</label>
-                      <InputEdit
-                        onChange={onChangePostalCode}
-                        value={billingPostalCode}
-                      />
-                      <FlexDivBtns>
-                        <button
-                          onClick={() => {
-                            onSubmitAdd();
-                          }}
-                        >
-                          Add
-                        </button>
-                        <CloseBtn
-                          onClick={() => {
-                            onToggleAddBilling();
-                          }}
-                        >
-                          <FaPlus />
-                        </CloseBtn>
-                      </FlexDivBtns>
-                      {warning && <Warning>{warningText}</Warning>}
-                    </ContainerEdit>
-                  ) : (
-                    <Grid>
-                      {billingList.data.map((billing) => (
-                        <Container>
-                          <FirstNameDeleteBtnDiv>
-                            <label>First Name</label>
-                            <DeleteBtn
-                              onClick={() => {
-                                onDeleteBillingAddress(billing._id);
-                              }}
-                            >
-                              <FaPlus />
-                            </DeleteBtn>
-                          </FirstNameDeleteBtnDiv>
-                          <p>{billing.name.first}</p>
-                          <label>Last Name</label>
-                          <p>{billing.name.last}</p>
-                          <label>Country</label>
-                          <p>{billing.country}</p>
-                          <label>Province / State</label>
-                          <p>{billing.provinceState}</p>
-                          <label>City</label>
-                          <p>{billing.city}</p>
-                          <label>Address Line 1</label>
-                          <p>{billing.addressLine1}</p>
-                          <label>Address Line 2</label>
-                          <p>{billing.addressLine2}</p>
-                          <label>Postal Code</label>
-                          <p>{billing.postalCode}</p>
-                          <button
-                            onClick={() => {
-                              onToggleEditBilling();
-                              onEditBilling(billing);
-                            }}
-                          >
-                            Edit
-                          </button>
-                        </Container>
-                      ))}
-                    </Grid>
-                  )}
-                </>
               )}
             </>
           )}
+        {!_.isEmpty(billingList.data) &&
+          !billingList.loading &&
+          !billingList.errors &&
+          billingList.fetched &&
+          !toggleEdit &&
+          !toggleAdd && (
+            <Grid>
+              {billingList.data.map((billing) => (
+                <Container>
+                  <FirstNameDeleteBtnDiv>
+                    <label>First Name</label>
+                    <DeleteBtn
+                      onClick={() => {
+                        onDeleteBillingAddress(billing._id);
+                      }}
+                    >
+                      <FaPlus />
+                    </DeleteBtn>
+                  </FirstNameDeleteBtnDiv>
+                  <p>{billing.name.first}</p>
+                  <label>Last Name</label>
+                  <p>{billing.name.last}</p>
+                  <label>Country</label>
+                  <p>{billing.country}</p>
+                  <label>Province / State</label>
+                  <p>{billing.provinceState}</p>
+                  <label>City</label>
+                  <p>{billing.city}</p>
+                  <label>Address Line 1</label>
+                  <p>{billing.addressLine1}</p>
+                  <label>Address Line 2</label>
+                  <p>{billing.addressLine2}</p>
+                  <label>Postal Code</label>
+                  <p>{billing.postalCode}</p>
+                  <SubmitButton
+                    onClick={() => {
+                      onToggleEditBilling();
+                      onEditBilling(billing);
+                    }}
+                  >
+                    Edit
+                  </SubmitButton>
+                </Container>
+              ))}
+            </Grid>
+          )}
+        {toggleAdd && (
+          <ContainerEdit>
+            <FirstNameDeleteBtnDiv>
+              <label>First Name</label>
+              <DeleteBtn
+                onClick={() => {
+                  onToggleAddBilling();
+                }}
+              >
+                <FaPlus />
+              </DeleteBtn>
+            </FirstNameDeleteBtnDiv>
+            <InputEdit onChange={onChangeFirstName} value={billingFirstName} />
+            <label>Last Name</label>
+            <InputEdit onChange={onChangeLastName} value={billingLastName} />
+            <label>Country</label>
+            <SelectEdit
+              onChange={handleBillingCountrySelect}
+              value={billingCountry}
+              id='billing_country'
+            >
+              <option value='-'>CHOOSE COUNTRY</option>
+              <option value='CA'>CANADA</option>
+              {/* <option value="US">UNITED STATES</option> */}
+            </SelectEdit>
+            <label>Province / State</label>
+            <SelectEdit
+              onChange={handleBillingProvinceStateSelect}
+              value={billingProvinceState}
+              id='billing_province_state'
+            >
+              <option value='-'>PROVINCE/STATE</option>
+              {billingProvincesStatesList.map((province) => (
+                <option key={province.abbr} value={province.abbr}>
+                  {province.name}
+                </option>
+              ))}
+            </SelectEdit>
+            <label>City</label>
+            <SelectEdit
+              onChange={handleBillingCitySelect}
+              value={billingCity}
+              id='billing_city'
+            >
+              <option value='-'>CITY</option>
+              {billingCitiesList.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </SelectEdit>
+            <label>Address Line 1</label>
+            <InputEdit
+              onChange={onChangeAddressLine1}
+              value={billingAddressLine1}
+            />
+            <label>Address Line 2</label>
+            <InputEdit
+              onChange={onChangeAddressLine2}
+              value={billingAddressLine2}
+            />
+            <label>Postal Code</label>
+            <InputEdit
+              onChange={onChangePostalCode}
+              value={billingPostalCode}
+            />
+            <SubmitButton
+              onClick={() => {
+                onSubmitAdd();
+              }}
+            >
+              Add
+            </SubmitButton>
+            {warning && <Warning>{warningText}</Warning>}
+          </ContainerEdit>
+        )}
       </Wrapper>
     </Layout>
   );

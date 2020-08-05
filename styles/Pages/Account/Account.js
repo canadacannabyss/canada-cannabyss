@@ -162,7 +162,7 @@ export const Menu = styled.div`
   ul {
     li {
       list-style: none;
-      margin-bottom: 7px;
+      margin-bottom: 0.5rem;
       a {
         padding: 4px 0px;
         text-decoration: none;

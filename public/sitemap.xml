@@ -49,6 +49,10 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/account/billing</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/account/change-password</loc>
   </url>
 
@@ -70,10 +74,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/account/update</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
@@ -114,6 +114,10 @@
 
   <url>
     <loc>https://canadacannabyss.com/admin/register</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
@@ -197,11 +201,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/edit/banner/[slug]</loc>
+    <loc>https://canadacannabyss.com/products/category/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/products/category/[slug]</loc>
+    <loc>https://canadacannabyss.com/admin/edit/banner/[slug]</loc>
   </url>
 
   <url>
