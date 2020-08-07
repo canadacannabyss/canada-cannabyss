@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   font-size: 18px;
+  margin-bottom: 0.5rem;
 `;

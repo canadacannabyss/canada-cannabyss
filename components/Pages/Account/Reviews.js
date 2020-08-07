@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
+import _ from 'lodash';
 import { FaSpinner, FaSadTear } from 'react-icons/fa';
 import { Wrapper, Title } from '../../../styles/Pages/Account/Reviews';
 import Layout from '../../Layout';
@@ -13,14 +14,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const Orders = (props) => {
+const Reviews = (props) => {
   const { user } = props;
 
   const [reviews, setReviews] = useState([]);
 
   const fetchAllUserReviews = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/billing/create`,
+      `${process.env.mainApiEndpoint}/customers/comments/user/${user.data._id}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -29,7 +30,6 @@ const Orders = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(billingObj),
       }
     );
     const data = await response.json();
@@ -37,7 +37,7 @@ const Orders = (props) => {
   };
 
   useEffect(() => {
-    // fetchAllUserReviews()
+    fetchAllUserReviews();
   }, []);
 
   return (
@@ -47,10 +47,10 @@ const Orders = (props) => {
       </Head>
       <Wrapper>
         <Title>Reviews</Title>
-        <ReviewsList reviews={reviews} />
+        {!_.isEmpty(reviews) && <ReviewsList reviews={reviews} />}
       </Wrapper>
     </Layout>
   );
 };
 
-export default connect(mapStateToProps)(Orders);
+export default connect(mapStateToProps)(Reviews);

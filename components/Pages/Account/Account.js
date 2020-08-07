@@ -128,9 +128,9 @@ const Account = (props) => {
                 </Link>
               </li>
               <li>
-                <Link href='/account/returns' as='/account/returns'>
-                  <a>Returns</a>
-                </Link>
+                {/* <Link href='/account/returns' as='/account/returns'> */}
+                <a className='disabled'>Returns</a>
+                {/* </Link> */}
               </li>
             </ul>
           </Menu>
@@ -143,9 +143,9 @@ const Account = (props) => {
                 </Link>
               </li>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>Invite friend</a>
-                </Link>
+                {/* <Link href='/account/orders' as='/account/orders'> */}
+                <a className='disabled'>Invite friend</a>
+                {/* </Link> */}
               </li>
             </ul>
           </Menu>
@@ -153,9 +153,9 @@ const Account = (props) => {
             <h3>Support</h3>
             <ul>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
-                  <a>Message support</a>
-                </Link>
+                {/* <Link href='/account/orders' as='/account/orders'> */}
+                <a className='disabled'>Message support</a>
+                {/* </Link> */}
               </li>
             </ul>
           </Menu>
