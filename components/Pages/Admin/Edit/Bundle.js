@@ -191,7 +191,7 @@ const Bundle = () => {
   };
 
   const fetchAllProducts = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/products/`, {
+    const res = await fetch(`${process.env.mainApiEndpoint}/admin/products`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',

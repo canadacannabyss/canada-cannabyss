@@ -49,15 +49,18 @@ const Products = () => {
   };
 
   const fetchAllProducts = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/products/`, {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const res = await fetch(
+      `${process.env.mainApiEndpoint}/products?page=2&limit=12`,
+      {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     const data = await res.json();
     setProductList(data);
   };
@@ -185,10 +188,12 @@ const Products = () => {
             </ProductsUl>
           </Div>
           <DivProduct>
-            <ProductsList
-              products={productList}
-              handleGetElement={handleGetElement}
-            />
+            {!_.isEmpty(productList) && productList.results !== undefined && (
+              <ProductsList
+                products={productList.results}
+                handleGetElement={handleGetElement}
+              />
+            )}
           </DivProduct>
         </GridDiv>
       </Wrapper>

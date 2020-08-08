@@ -5,7 +5,7 @@ import { getProducts } from '../../store/actions/products/products';
 class ProductsIndex extends Component {
   static async getInitialProps(props) {
     const { store, isServer, asPath } = props.ctx;
-    store.dispatch(getProducts());
+    store.dispatch(getProducts(1, 12));
     return { isServer };
   }
   render() {

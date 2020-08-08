@@ -7,7 +7,7 @@ class BundlesCategoryIndex extends Component {
     const { store, isServer, asPath } = props.ctx;
     const slug = asPath.substring(18, asPath.length);
     console.log('slug:', slug);
-    store.dispatch(getBundlesCategory(slug));
+    store.dispatch(getBundlesCategory(slug, 1, 1));
     return { isServer };
   }
   render() {

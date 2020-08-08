@@ -1,7 +1,11 @@
 /* eslint-disable import/prefer-default-export */
-export function getBundles() {
+export function getBundles(page, limit) {
   return {
     type: 'REQUEST_GET_BUNDLES',
+    payload: {
+      page,
+      limit,
+    },
   };
 }
 
@@ -20,11 +24,13 @@ export function updateHowManyViewed(slug) {
   };
 }
 
-export function getBundlesCategory(category) {
+export function getBundlesCategory(category, page, limit) {
   return {
     type: 'REQUEST_GET_BUNDLES_CATEGORY',
     payload: {
       category: category,
+      page,
+      limit,
     },
   };
 }

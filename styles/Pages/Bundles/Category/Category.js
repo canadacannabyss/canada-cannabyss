@@ -2,33 +2,21 @@ import styled from 'styled-components';
 import { fadeText } from '../../../Animations/Animations';
 
 export const Wrapper = styled.div`
-  margin: 20px auto 50px auto;
+  margin: 20px auto;
   width: 80%;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 25px;
-  @media (max-width: 1199px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-  }
   @media (max-width: 991px) {
     width: 90%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
   }
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-  }
-  @media (max-width: 575px) {
-    grid-gap: 10px;
-  }
-  @media (max-width: 440px) {
-    grid-template-columns: unset;
-    grid-template-rows: unset;
-    grid-gap: 15px;
-  }
+`;
+
+export const DivGrid = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-content: flex-end;
+  align-items: flex-start;
 `;
 
 export const LoadingBundleContainer = styled.div`
@@ -43,5 +31,45 @@ export const LoadingBundleContainer = styled.div`
     margin-left: 0px;
     margin-right: 0px;
     width: 100%;
+  }
+`;
+
+export const WrapperPage = styled.div`
+  display: table;
+  margin: 20px auto 0 auto;
+  .current {
+    padding: 6px 10px;
+    font-size: 16px;
+    margin: 0 3px;
+    border: none;
+    background: #18840f;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    &:focus {
+      outline: none;
+    }
+  }
+`;
+
+export const Pages = styled.button`
+  padding: 6px 10px;
+  font-size: 16px;
+  margin: 0 3px;
+  border: none;
+  background: #18840f33;
+  color: #18840f;
+  font-size: 16px;
+  border: 1px solid #18840f66;
+  border-radius: 4px;
+  -webkit-transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  &:focus {
+    outline: none;
   }
 `;

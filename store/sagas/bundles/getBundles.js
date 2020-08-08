@@ -1,16 +1,19 @@
 import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
-async function getBundleApi() {
-  const res = await fetch(`${process.env.mainApiEndpoint}/bundles/`, {
-    method: 'GET',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+async function getBundleApi(page, limit) {
+  const res = await fetch(
+    `${process.env.mainApiEndpoint}/bundles?page=${page}&limit=${limit}`,
+    {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
   const data = await res.json();
   return data;
 }
@@ -35,7 +38,11 @@ const getRelatedProductApi = async (category, slug) => {
 
 export default function* asyncGetBundlesApi(action) {
   try {
-    const response = yield call(getBundleApi);
+    const response = yield call(
+      getBundleApi,
+      action.payload.page,
+      action.payload.limit
+    );
     // const responseRelatedPosts = yield call(
     //   getRelatedProductApi,
     //   response.category,

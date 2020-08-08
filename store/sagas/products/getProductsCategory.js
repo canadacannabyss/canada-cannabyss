@@ -1,9 +1,9 @@
 import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
-async function getProductsCategory(category) {
+async function getProductsCategory(category, page, limit) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/products/get/products/category/${category}`,
+    `${process.env.mainApiEndpoint}/products/get/products/category/${category}?page=${page}&limit=${limit}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -20,10 +20,12 @@ async function getProductsCategory(category) {
 
 export default function* asyncGetProductsCategoryApi(action) {
   try {
-    console.log('action.payload.category:', action.payload.category);
-    const response = yield call(getProductsCategory, action.payload.category);
-
-    console.log('getProductsCategroy:', response);
+    const response = yield call(
+      getProductsCategory,
+      action.payload.category,
+      action.payload.page,
+      action.payload.limit
+    );
 
     yield put({
       type: 'SUCCESS_GET_PRODUCTS_CATEGORY',

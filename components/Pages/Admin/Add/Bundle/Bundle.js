@@ -112,8 +112,8 @@ const Bundle = () => {
     }
   };
 
-  const fetchAllProducts = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/products/`, {
+  const fetchAllProducts = async (page, limit) => {
+    const res = await fetch(`${process.env.mainApiEndpoint}/admin/products`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -127,7 +127,7 @@ const Bundle = () => {
   };
 
   useEffect(() => {
-    fetchAllProducts();
+    fetchAllProducts(1, 12);
   }, []);
 
   useEffect(() => {

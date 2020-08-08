@@ -6,7 +6,7 @@ class ProductsCategoryIndex extends Component {
   static async getInitialProps(props) {
     const { store, isServer, asPath } = props.ctx;
     const slug = asPath.substring(19, asPath.length);
-    store.dispatch(getProductsCategory(slug));
+    store.dispatch(getProductsCategory(slug, 1, 12));
     return { isServer };
   }
   render() {
