@@ -336,6 +336,16 @@ const Product = (props) => {
       imagesArrayObj.push(image.data._id);
     });
     if (allFieldsFilled) {
+      let extraInfoObj = {};
+      if (extraInfo.length === 1) {
+        if (extraInfo[0].title.length === 0) {
+          extraInfoObj.title = '';
+        }
+        if (extraInfo[0].description.length === 0) {
+          extraInfoObj.description = '';
+        }
+      }
+      console.log('extraInfoObj:', extraInfoObj);
       const productInfo = {
         isSlugValid: isSlugValid,
         media: imagesArrayObj,
@@ -350,7 +360,7 @@ const Product = (props) => {
         },
         taxableProduct: taxableProduct,
         description: description,
-        extraInfo: extraInfo,
+        extraInfo: extraInfoObj,
         inventory: {
           sku: sku,
           barcode: barcode,

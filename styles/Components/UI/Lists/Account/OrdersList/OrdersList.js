@@ -87,10 +87,12 @@ export const OrderId = styled.div`
   .id {
     color: #18840f;
     font-size: 18px;
+    word-break: break-all;
   }
 `;
 
 export const OrderDate = styled.div`
+  text-align: right;
   span {
     color: #000;
     font-size: 16px;

@@ -64,6 +64,18 @@ const SideDrawer = (props) => {
               </label>
               <article className='ac-large'>
                 <Ul>
+                  {user.data.isAdmin && (
+                    <li>
+                      <Link href='/admin' as='/admin'>
+                        <a>Admin</a>
+                      </Link>
+                    </li>
+                  )}
+                  <li>
+                    <Link href='/account' as='/account'>
+                      <a>Account</a>
+                    </Link>
+                  </li>
                   <li>
                     <Link href='/account/orders' as='/account/orders'>
                       <a>Orders</a>

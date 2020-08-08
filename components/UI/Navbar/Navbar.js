@@ -308,20 +308,22 @@ const Navbar = () => {
               </Link>
             </BrandFlex>
             <BrandFlexMobile>
-              <BrandDiv>
-                <Link href='/' as='/'>
-                  <Brand
-                    src={Logo}
-                    alt='Canada Cannabyss'
-                    title='Canada Cannabyss'
-                  />
-                </Link>
-              </BrandDiv>
-              <BrandName>
-                <p>
-                  Canada <span>Cannabyss</span>
-                </p>
-              </BrandName>
+              <Link href='/' as='/'>
+                <a>
+                  <BrandDiv>
+                    <Brand
+                      src={Logo}
+                      alt='Canada Cannabyss'
+                      title='Canada Cannabyss'
+                    />
+                  </BrandDiv>
+                  <BrandName>
+                    <p>
+                      Canada <span>Cannabyss</span>
+                    </p>
+                  </BrandName>
+                </a>
+              </Link>
             </BrandFlexMobile>
             <SearchBarFlex>
               <SearchBar>

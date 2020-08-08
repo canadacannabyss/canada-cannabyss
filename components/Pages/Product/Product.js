@@ -456,7 +456,14 @@ const Product = (props) => {
                   )}
                 </ProductDetailsDiv>
               </ProductDetailsWrapper>
-              <ExtraInfo extraInfoArray={product.data.extraInfo} />
+              {/* {product.data.extraInfo.length > 0 && (
+                <>
+                  {product.data.extraInfo[0].title !== '' &&
+                    product.data.extraInfo[0].description !== '' && (
+                      <ExtraInfo extraInfoArray={product.data.extraInfo} />
+                    )}
+                </>
+              )} */}
               <ShareButtons
                 path={`https://canadacannabyss.com${props.pathname}`}
                 size={32}

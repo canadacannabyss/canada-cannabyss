@@ -134,6 +134,12 @@ export const BrandFlexMobile = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    a {
+      display: flex;
+      flex-direction: row;
+      text-decoration: none;
+      align-items: center;
+    }
   }
 `;
 

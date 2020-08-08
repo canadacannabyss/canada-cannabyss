@@ -60,6 +60,7 @@ export const AuthorPicture = styled.img`
 export const Content = styled.p`
   font-size: 16px;
   line-height: 22px;
+  word-break: break-all;
 `;
 
 export const CommentsTitle = styled.h4`
