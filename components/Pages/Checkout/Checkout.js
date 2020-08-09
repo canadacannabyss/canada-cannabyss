@@ -2,7 +2,13 @@ import _ from 'lodash';
 import Router from 'next/router';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { FaPlus, FaSpinner } from 'react-icons/fa';
+import {
+  FaPlus,
+  FaSpinner,
+  FaCreditCard,
+  FaStream,
+  FaFile,
+} from 'react-icons/fa';
 import { connect, useDispatch } from 'react-redux';
 import {
   createBillingCheckout,
@@ -19,6 +25,8 @@ import {
 import { getBillingAddresses } from '../../../store/actions/billing/billingList';
 import { getShippingAddresses } from '../../../store/actions/shipping/shippingList';
 import {
+  CheckoutProcessStep,
+  CheckoutFlex,
   AddressesListWrapper,
   Button,
   CheckoutDiv,
@@ -424,6 +432,28 @@ const Checkout = (props) => {
         <title>Address | Checkout - Canada Cannabysss</title>
       </Head>
       <Wrapper>
+        <CheckoutProcessStep>
+          <CheckoutFlex>
+            <div className='div'>
+              <div className='current'>
+                <FaStream />
+              </div>
+              <p className='letter'>Billing | Shipping</p>
+            </div>
+            <div className='div'>
+              <div className='step'>
+                <FaCreditCard />
+              </div>
+              <p className='letter'>Payment Method</p>
+            </div>
+            <div className='div'>
+              <div className='step'>
+                <FaFile />
+              </div>
+              <p className='letter'>Review Order</p>
+            </div>
+          </CheckoutFlex>
+        </CheckoutProcessStep>
         <CheckoutDiv>
           <Div id='firstDiv'>
             {shippingList.loading ? (
@@ -438,7 +468,8 @@ const Checkout = (props) => {
                 !shippingNewAddress &&
                 Array.isArray(shippingList.data) ? (
                   <AddressesListWrapper>
-                    <Label>Shipping List</Label>
+                    <ShippingBillingH2>Shipping Address</ShippingBillingH2>
+                    <br />
                     {shippingList.data.map((address) => (
                       <BillingShippingButton
                         key={address._id}
@@ -594,7 +625,8 @@ const Checkout = (props) => {
                 !billingNewAddress &&
                 Array.isArray(billingList.data) ? (
                   <AddressesListWrapper>
-                    <Label>Billing List</Label>
+                    <ShippingBillingH2>Billing List</ShippingBillingH2>
+                    <br />
                     {billingList.data.map((address) => (
                       <BillingShippingButton
                         key={address._id}

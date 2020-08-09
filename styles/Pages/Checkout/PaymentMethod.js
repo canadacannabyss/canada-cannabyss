@@ -8,41 +8,115 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const CheckoutProcessStep = styled.div`
+  margin: 30px auto;
+  display: table;
+`;
+
+export const CheckoutFlex = styled.div`
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  .div {
+    align-self: flex-start;
+  }
+  @media (max-width: 400px) {
+    grid-gap: 5px;
+  }
+  .current {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    border-radius: 40px;
+    background: #18840f;
+    margin: 0 auto;
+    border: 1px solid #18840f;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 440px) {
+      height: 40px;
+      width: 40px;
+    }
+    svg {
+      color: #fff;
+      font-size: 21px;
+      @media (max-width: 400px) {
+        font-size: 19px;
+      }
+    }
+  }
+  .step {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    border-radius: 40px;
+    background: #f1f1f1;
+    margin: 0 auto;
+    border: 1px solid #d0d0d0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 440px) {
+      height: 40px;
+      width: 40px;
+    }
+    svg {
+      color: #5a5a5a;
+      font-size: 21px;
+      @media (max-width: 400px) {
+        font-size: 19px;
+      }
+    }
+  }
+  .letter {
+    font-size: 13px;
+    margin: 5px 0;
+    text-align: center;
+    @media (max-width: 400px) {
+      font-size: 12px;
+    }
+  }
+  .sep {
+    background: #18840f;
+    display: block;
+    width: 10px;
+    height: 2px;
+    margin: 0 6px;
+  }
+`;
+
 export const PaymentMethodList = styled.div`
   display: table;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 35px auto;
   div {
     display: flex;
-    border-radius: 4px;
     background: #fff;
-    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
     button {
+      -webkit-align-content: space-between;
+      -ms-flex-line-pack: space-between;
       align-content: space-between;
       cursor: pointer;
       background: #fff;
-      border: none;
+      /* border: none; */
       padding: 8px 10px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease-in-out;
       &:focus {
         outline: none;
       }
-      &:active {
-        background: #18840f;
-        svg {
-          color: #fff;
-        }
-        p {
-          color: #fff;
-        }
+      &:hover {
+        background: #f1f1f1;
       }
     }
     .selected {
-      background: #18840f;
-      svg {
-        color: #fff;
-      }
-      p {
-        color: #fff;
-      }
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 2px solid #18840f;
     }
     svg {
       font-size: 25px;
@@ -55,7 +129,6 @@ export const PaymentMethodList = styled.div`
     }
     p {
       font-size: 14px;
-      margin-top: 5px;
       color: #18840f;
     }
   }
@@ -64,13 +137,13 @@ export const PaymentMethodList = styled.div`
 export const PaymentForm = styled.form`
   width: ${(props) => `${props.width}px`};
   padding: 8px 10px;
-  background: #fff;
+  background: #f1f1f1;
+  color: #5a5a5a;
   border-radius: 4px;
   display: ${(props) => `${props.display}`};
   grid-template-columns: 55% 45%;
   margin: 25px auto 20px auto;
-  border: 1px solid #18840f;
-  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid #d0d0d0;
   &:focus {
     outline: none;
   }
@@ -114,30 +187,39 @@ export const ETransferStatement = styled.div`
   color: #777;
   display: grid;
   grid-template-columns: 60% 40%;
+  word-break: break-all;
   p {
     margin-bottom: 0.5rem;
+    word-break: break-all;
+    line-height: 1.5;
   }
   span {
     color: #18840f;
     font-weight: 900;
+    word-break: break-all;
   }
   a {
     color: #18840f;
     text-decoration: none;
     font-weight: 900;
+    word-break: break-all;
   }
   ol {
     margin-bottom: 0.5rem;
     padding-left: 15px !important;
+    word-break: break-all;
     li {
       line-height: 1.5rem;
+      word-break: break-all;
     }
   }
   ul {
     margin-bottom: 0.5rem;
     padding-left: 15px !important;
+    word-break: break-all;
     li {
       line-height: 1.5rem;
+      word-break: break-all;
     }
   }
   @media (max-width: 991px) {
@@ -171,17 +253,38 @@ export const ETransferStatementEmail = styled.span`
 export const ETransferStatementVideo = styled.div`
   display: table;
   margin: 15px auto 10px auto;
+  iframe {
+    width: 360px;
+    height: 200px;
+    @media (max-width: 400px) {
+      width: 300px;
+      height: 160px;
+    }
+    @media (max-width: 340px) {
+      width: 260px;
+      height: 140px;
+    }
+  }
 `;
 
 export const ChoosePaymentBtn = styled.button`
   display: table;
-  margin: 15px auto 10px auto;
-  background: #18840f;
-  color: #fff;
+  margin: 40px auto;
+  background: #18840f33;
+  border: 1px solid #18840f;
+  border-radius: 4px;
+  color: #18840f;
   font-size: 16px;
-  padding: 7px 10px;
-  border: none;
+  padding: 10px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: #fff;
+    background: #18840f;
+  }
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const Ol = styled.ol`

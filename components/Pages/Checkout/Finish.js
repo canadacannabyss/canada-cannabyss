@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import { FaPen, FaSpinner } from 'react-icons/fa';
+import {
+  FaPen,
+  FaSpinner,
+  FaCreditCard,
+  FaStream,
+  FaFile,
+} from 'react-icons/fa';
 import { connect, useDispatch } from 'react-redux';
 import {
   updateCompletedOrder,
@@ -17,6 +23,8 @@ import Layout from '../../Layout';
 
 import {
   Wrapper,
+  CheckoutFlex,
+  CheckoutProcessStep,
   FinishPricesDiv,
   FinishDiv,
   PricesDiv,
@@ -75,6 +83,28 @@ const Finish = (props) => {
         <title>Finish | Checkout - Canada Cannabyss</title>
       </Head>
       <Wrapper>
+        <CheckoutProcessStep>
+          <CheckoutFlex>
+            <div className='div'>
+              <div className='step'>
+                <FaStream />
+              </div>
+              <p className='letter'>Billing | Shipping</p>
+            </div>
+            <div className='div'>
+              <div className='step'>
+                <FaCreditCard />
+              </div>
+              <p className='letter'>Payment Method</p>
+            </div>
+            <div className='div'>
+              <div className='current'>
+                <FaFile />
+              </div>
+              <p className='letter'>Review Order</p>
+            </div>
+          </CheckoutFlex>
+        </CheckoutProcessStep>
         <FinishPricesDiv>
           <FinishDiv>
             <Div id='div-shipping'>

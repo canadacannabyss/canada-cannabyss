@@ -3,11 +3,13 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { FaBitcoin, FaCreditCard } from 'react-icons/fa';
+import { FaBitcoin, FaCreditCard, FaStream, FaFile } from 'react-icons/fa';
 import { connect, useDispatch } from 'react-redux';
 import InteracLogo from '../../../assets/img/interac.svg';
 import {
   ChoosePaymentMethod,
+  CheckoutFlex,
+  CheckoutProcessStep,
   ETransferStatement,
   ETransferStatementEmail,
   ETransferStatementH2,
@@ -166,18 +168,37 @@ const PaymentMethodCheckout = (props) => {
         <title>Payment Method | Checkout - Canada Cannabysss</title>
       </Head>
       <Wrapper>
+        <CheckoutProcessStep>
+          <CheckoutFlex>
+            <div className='div'>
+              <div className='step'>
+                <FaStream />
+              </div>
+              <p className='letter'>Billing | Shipping</p>
+            </div>
+            <div className='div'>
+              <div className='current'>
+                <FaCreditCard />
+              </div>
+              <p className='letter'>Payment Method</p>
+            </div>
+            <div className='div'>
+              <div className='step'>
+                <FaFile />
+              </div>
+              <p className='letter'>Review Order</p>
+            </div>
+          </CheckoutFlex>
+        </CheckoutProcessStep>
         <PaymentMethodList>
           <div>
             <button id='cryptoBtn' onClick={handleCryptoCurrencyMethod}>
-              <FaBitcoin />
               <p>Crypto Currency</p>
             </button>
             <button id='creditCardBtn' onClick={handleCreditCardMethod}>
-              <FaCreditCard />
               <p>Credit Card</p>
             </button>
             <button id='eTransfer' onClick={handleETransfer}>
-              <img src={InteracLogo} />
               <p>e-Transfer</p>
             </button>
           </div>
@@ -312,8 +333,6 @@ const PaymentMethodCheckout = (props) => {
               <div>
                 <ETransferStatementVideo>
                   <iframe
-                    width='360'
-                    height='200'
                     src='https://www.youtube.com/embed/zL9yoZZXyOE'
                     frameborder='0'
                     allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'

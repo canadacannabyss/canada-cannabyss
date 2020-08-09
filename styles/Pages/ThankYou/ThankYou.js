@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   margin: 20px auto 50px auto;
@@ -37,9 +37,8 @@ export const GridDiv = styled.div`
 `;
 
 export const ThankYouPlate = styled.div`
-  background: #fff;
-  border: 1px solid #18840f;
-  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
+  background: #f1f1f1;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   width: 400px;
   margin: 0 auto;
@@ -50,7 +49,7 @@ export const ThankYouPlate = styled.div`
 `;
 
 export const ThankYouTitle = styled.h1`
-  color: #18840f;
+  color: #5a5a5a;
   font-size: 22px;
   text-align: center;
   @media (max-width: 768px) {
@@ -62,5 +61,5 @@ export const MoreProduct = styled.h2`
   text-align: center;
   font-size: 16px;
   color: #777;
-  margin-top: 25px;
+  margin: 25px 0 10px 0;
 `;

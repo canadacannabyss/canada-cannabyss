@@ -2,16 +2,22 @@ import React, { Fragment } from 'react';
 import Link from 'next/link';
 
 import {
-  ProductLinkTo,
   Details,
   ProductImage,
+  ProductLinkTo,
   ProductName,
   ProductPrice,
+  DiscountPricesDiv,
+  ProductNewPriceDiscount,
+  ProductOldPriceDiscount,
+  DiscountPercentage,
   ViewDiv,
 } from '../../../../styles/Components/UI/Lists/ThankYou/ThankYouList';
+import RoundFloatNumber from '../../../../utils/Calculate/roundFloatNumber';
 
 const ThankYouList = (props) => {
   const { products } = props;
+  const roundFloatNumber = new RoundFloatNumber();
 
   return (
     <>
@@ -19,6 +25,18 @@ const ThankYouList = (props) => {
         <Fragment key={product._id}>
           <Link href='/product/[slug]' as={`/product/${product.slug}`}>
             <ProductLinkTo>
+              {product.prices.compareTo !== null &&
+                product.prices.compareTo > 0 && (
+                  <DiscountPercentage>
+                    <p>
+                      {roundFloatNumber.calculateDiscountPercentage(
+                        product.prices.price,
+                        product.prices.compareTo
+                      )}
+                      %
+                    </p>
+                  </DiscountPercentage>
+                )}
               <ProductImage
                 style={{
                   backgroundImage: `url('${product.media[0].url}')`,
@@ -26,7 +44,19 @@ const ThankYouList = (props) => {
               />
               <Details>
                 <ProductName>{product.productName}</ProductName>
-                <ProductPrice>C$ {product.prices.price}</ProductPrice>
+                {product.prices.compareTo !== null &&
+                product.prices.compareTo > 0 ? (
+                  <DiscountPricesDiv>
+                    <ProductOldPriceDiscount>
+                      C$ {product.prices.compareTo}
+                    </ProductOldPriceDiscount>
+                    <ProductNewPriceDiscount>
+                      C$ {product.prices.price}
+                    </ProductNewPriceDiscount>
+                  </DiscountPricesDiv>
+                ) : (
+                  <ProductPrice>{product.prices.price}</ProductPrice>
+                )}
               </Details>
               <ViewDiv />
             </ProductLinkTo>
