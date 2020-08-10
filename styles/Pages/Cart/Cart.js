@@ -20,19 +20,16 @@ export const CartSubTotal = styled.div`
 
 export const CartDiv = styled.div`
   margin: 0 auto;
-  height: 400px;
   width: 100%;
-  border-radius: 7px;
-  border: 1px solid #18840f;
-  overflow-y: scroll;
-  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const SubTotalDiv = styled.div`
   width: 100%;
+  height: fit-content;
+  top: 35px;
+  position: sticky;
+  padding-left: 35px;
+  border-left: 1px solid #5a5a5a;
 `;
 
 export const Values = styled.p`
@@ -44,18 +41,16 @@ export const ProceedLink = styled.div`
   margin: 10px 0;
   cursor: pointer;
   a {
-    background: #fff;
-    color: #18840f;
-    padding: 7px 10px;
-    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
+    background: #5a5a5a;
+    color: #fff;
     border-radius: 4px;
-    border: 1px solid #18840f;
+    border: 1px solid #5a5a5a;
     font-size: 16px;
+    padding: 7px 10px;
+    margin: 15px 0;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    &:hover {
-      color: #fff;
-      background: #18840f;
-    }
   }
 `;
 
