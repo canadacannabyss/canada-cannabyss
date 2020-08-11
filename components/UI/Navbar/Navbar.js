@@ -361,18 +361,20 @@ const Navbar = () => {
             </BrandFlexMobile>
             <SearchBar />
             <UserWrapper>
+              <MobileDiv>
+                <MobileSearch
+                  onClick={() => {
+                    handleToggleSearch();
+                  }}
+                >
+                  <FaSearch />
+                </MobileSearch>
+              </MobileDiv>
               {!_.isEmpty(user.data) &&
                 user.fetched &&
                 !user.loading &&
                 !user.error && (
-                  <MobileDiv>
-                    <MobileSearch
-                      onClick={() => {
-                        handleToggleSearch();
-                      }}
-                    >
-                      <FaSearch />
-                    </MobileSearch>
+                  <>
                     <TabButtonUser onClick={handleToggleCart}>
                       {cart.fetched && !_.isEmpty(cart.data) && (
                         <>
@@ -391,7 +393,7 @@ const Navbar = () => {
                       </p>
                       <p className='account'>Account</p>
                     </UserButtonName>
-                  </MobileDiv>
+                  </>
                 )}
               {user.loading && (
                 <>
