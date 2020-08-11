@@ -123,8 +123,7 @@ export const CouponForm = styled.form`
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 6px;
-  width: 95%;
-  margin: 0 auto;
+  width: 98%;
   input {
     width: 100%;
     font-size: 16px;
@@ -155,8 +154,7 @@ export const CouponFormDisable = styled.div`
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 6px;
-  width: 95%;
-  margin: 0 auto;
+  width: 98%;
   input {
     width: 100%;
     font-size: 16px;

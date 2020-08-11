@@ -26,10 +26,9 @@ import {
   TopGroup,
   TopGroupWapper,
   BottomGroup,
+  BottomGroupSearch,
   BottomGroupWrapper,
   UserButtonNameLoading,
-  SearchBarFlex,
-  SearchBar,
   UserWrapper,
   CartDiv,
   CartItemsAmount,
@@ -42,6 +41,9 @@ import {
   LoadingUserButton,
   UserDiv,
   UserDivFlex,
+  MobileDiv,
+  MobileSearch,
+  BottomGroupWrapperSearch,
 } from '../../../styles/Components/UI/Navbar/Navbar';
 import OutsideAlerter from '../../../utils/OutsideAlerter';
 import Bundles from './Tabs/Bundles/Bundles';
@@ -52,6 +54,8 @@ import Products from './Tabs/Products/Products';
 import Register from './Tabs/Register/Register';
 import SideDrawer from './Tabs/SideDrawer/SideDrawer';
 import UserMenu from './Tabs/UserMenu/UserMenu';
+import SearchBar from './Tabs/SearchBar/SearchBar';
+import SearchBarMobile from './Tabs/SearchBar/SearchBarMobile';
 
 let count = 0;
 let countRecalculateSubtotal = 0;
@@ -65,6 +69,7 @@ const Navbar = () => {
   const [toggleRegister, setToggleRegister] = useState(false);
   const [toggleLogin, setToggleLogin] = useState(false);
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
+  const [toggleSearch, setToggleSearch] = useState(false);
   const [localStorageChange, setLocalStorageChange] = useState(false);
 
   const user = useSelector((state) => state.user);
@@ -123,8 +128,20 @@ const Navbar = () => {
     }
   };
 
+  const handleToggleSearch = () => {
+    setToggleSearch(!toggleSearch);
+    setToggleHelp(false);
+    setToggleProduct(false);
+    setToggleRegister(false);
+    setToggleBundles(false);
+    setToggleLogin(false);
+    setToggleCart(false);
+    setToggleDrawer(false);
+  };
+
   const handleToggleHelp = () => {
     setToggleHelp(!toggleHelp);
+    setToggleSearch(false);
     setToggleProduct(false);
     setToggleRegister(false);
     setToggleBundles(false);
@@ -136,6 +153,7 @@ const Navbar = () => {
   const handleToggleProduct = () => {
     setToggleHelp(false);
     setToggleProduct(!toggleProduct);
+    setToggleSearch(false);
     setToggleRegister(false);
     setToggleBundles(false);
     setToggleLogin(false);
@@ -147,6 +165,7 @@ const Navbar = () => {
     setToggleHelp(false);
     setToggleProduct(false);
     setToggleBundles(!toggleBundles);
+    setToggleSearch(false);
     setToggleRegister(false);
     setToggleLogin(false);
     setToggleCart(false);
@@ -157,6 +176,7 @@ const Navbar = () => {
     setToggleHelp(false);
     setToggleProduct(false);
     setToggleCart(!toggleCart);
+    setToggleSearch(false);
     setToggleBundles(false);
     setToggleRegister(false);
     setToggleLogin(false);
@@ -169,6 +189,7 @@ const Navbar = () => {
       setToggleProduct(false);
       setToggleBundles(false);
       // setToggleRegister(!toggleRegister);
+      setToggleSearch(false);
       dispatch(openLoginTab());
       setToggleLogin(false);
       setToggleCart(false);
@@ -183,6 +204,7 @@ const Navbar = () => {
     setToggleBundles(false);
     setToggleRegister(false);
     setToggleLogin(!toggleLogin);
+    setToggleSearch(false);
     setToggleCart(false);
     setToggleDrawer(false);
     handleCloseSideDrawer();
@@ -198,6 +220,7 @@ const Navbar = () => {
     setToggleRegister(false);
     setToggleLogin(false);
     setToggleBundles(false);
+    setToggleSearch(false);
     setToggleCart(false);
     setToggleDrawer(false);
     setToggleUserMenu(!toggleUserMenu);
@@ -214,6 +237,17 @@ const Navbar = () => {
       sideDrawer.classList.add('hideSideDrawer');
       sideBackgroundDrawer.classList.add('hideBackgroundSideDrawer');
     }
+  };
+
+  const handleCloseSearch = () => {
+    setToggleHelp(false);
+    setToggleProduct(false);
+    setToggleSearch(false);
+    setToggleRegister(false);
+    setToggleLogin(false);
+    setToggleCart(false);
+    setToggleBundles(false);
+    setToggleDrawer(false);
   };
 
   const handleCloseRegister = () => {
@@ -325,20 +359,20 @@ const Navbar = () => {
                 </a>
               </Link>
             </BrandFlexMobile>
-            <SearchBarFlex>
-              <SearchBar>
-                <input type='text' placeholder='Looking for something?' />
-                <button>
-                  <FaSearch />
-                </button>
-              </SearchBar>
-            </SearchBarFlex>
+            <SearchBar />
             <UserWrapper>
               {!_.isEmpty(user.data) &&
                 user.fetched &&
                 !user.loading &&
                 !user.error && (
-                  <>
+                  <MobileDiv>
+                    <MobileSearch
+                      onClick={() => {
+                        handleToggleSearch();
+                      }}
+                    >
+                      <FaSearch />
+                    </MobileSearch>
                     <TabButtonUser onClick={handleToggleCart}>
                       {cart.fetched && !_.isEmpty(cart.data) && (
                         <>
@@ -357,7 +391,7 @@ const Navbar = () => {
                       </p>
                       <p className='account'>Account</p>
                     </UserButtonName>
-                  </>
+                  </MobileDiv>
                 )}
               {user.loading && (
                 <>
@@ -396,6 +430,15 @@ const Navbar = () => {
             </UserWrapper>
           </TopGroupWapper>
         </TopGroup>
+        {toggleSearch && (
+          <OutsideAlerter handleClose={handleCloseSearch}>
+            <BottomGroupSearch>
+              <BottomGroupWrapperSearch>
+                <SearchBarMobile />
+              </BottomGroupWrapperSearch>
+            </BottomGroupSearch>
+          </OutsideAlerter>
+        )}
         <BottomGroup>
           <BottomGroupWrapper>
             <TabButton onClick={handleToggleProduct}>

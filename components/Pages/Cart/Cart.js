@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, { unset } from 'lodash';
 import Link from 'next/link';
 import Head from 'next/head';
 import React from 'react';
@@ -88,7 +88,12 @@ const Cart = (props) => {
               </>
             )}
             <SubTotalDiv />
-            <Coupons order={order} />
+            <Coupons
+              style={{
+                margin: unset,
+              }}
+              order={order}
+            />
             <br />
             {!_.isEmpty(cart.data) && cart.data.items.length ? (
               <Link href='/checkout' as='/checkout'>

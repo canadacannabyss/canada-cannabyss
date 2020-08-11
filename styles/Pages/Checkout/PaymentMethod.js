@@ -105,11 +105,13 @@ export const PaymentMethodList = styled.div`
       border-right: none;
       border-bottom: 2px solid transparent;
       transition: all 0.2s ease-in-out;
+      border-bottom: 2px solid #e0e0e0;
       &:focus {
         outline: none;
       }
       &:hover {
-        background: #f1f1f1;
+        background: #18840f33;
+        border-bottom: 2px solid #18840f;
       }
     }
     .selected {

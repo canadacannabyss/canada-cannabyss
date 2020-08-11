@@ -116,6 +116,12 @@ export const SubTotalDiv = styled.div`
   height: fit-content;
   padding: 12px 0px 12px 25px;
   border-left: 1px solid rgba(0, 0, 0, 0.2);
+  @media (max-width: 1199px) {
+    padding-left: 25px;
+  }
+  @media (max-width: 991px) {
+    padding-left: 20px;
+  }
 `;
 
 export const Values = styled.p`

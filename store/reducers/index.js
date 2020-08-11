@@ -24,6 +24,7 @@ import publicProfile from './user/publicProfile';
 import user from './user/user';
 import loginRequestCount from './loginRequestCount/loginRequestCount';
 import thankYou from './thankYou/thankYou';
+import search from './search/search';
 
 export default combineReducers({
   billing,
@@ -51,4 +52,5 @@ export default combineReducers({
   user,
   loginRequestCount,
   thankYou,
+  search,
 });

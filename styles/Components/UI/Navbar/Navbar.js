@@ -39,7 +39,7 @@ export const UserWrapper = styled.div`
   justify-content: flex-end;
   width: 300px;
   @media (max-width: 768px) {
-    width: unset;
+    width: 90px;
   }
 `;
 
@@ -68,9 +68,31 @@ export const BottomGroup = styled.div`
   }
 `;
 
+export const BottomGroupSearch = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 53px;
+    background: #f1f1f1;
+    display: block;
+  }
+`;
+
 export const BottomGroupWrapper = styled.div`
   width: 80%;
   height: 40px;
+  margin: 0 auto;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 991px) {
+    width: 90%;
+  }
+`;
+
+export const BottomGroupWrapperSearch = styled.div`
+  width: 80%;
+  height: 53px;
   margin: 0 auto;
   background: #f1f1f1;
   display: flex;
@@ -161,7 +183,7 @@ export const BrandName = styled.div`
   p {
     color: #18840f;
     line-height: 15px;
-    @media (max-width: 242px) {
+    @media (max-width: 286px) {
       text-align: center;
     }
     span {
@@ -364,61 +386,6 @@ export const BarsCartDiv = styled.div`
   }
 `;
 
-export const SearchBarFlex = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-export const SearchBar = styled.div`
-  display: flex;
-  flex-direction: row;
-  -webkit-box-pack: end;
-  -webkit-justify-content: end;
-  -ms-flex-pack: end;
-  justify-content: end;
-  border-radius: 50px;
-  background: #fff;
-  border: 1px solid #18840f;
-  width: 65%;
-  box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
-  input {
-    border: none;
-    background: transparent;
-    padding: 12px 0px 12px 14px;
-    color: #18840f;
-    width: 100%;
-    &:focus {
-      outline: none;
-    }
-    &::placeholder {
-      color: #18840f;
-    }
-  }
-  button {
-    background: transparent;
-    border: none;
-    color: #18840f;
-    padding: 0 15px;
-    cursor: pointer;
-    &:focus {
-      outline: none;
-    }
-    svg {
-      transform: translateY(3px);
-    }
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
-  @media (max-width: 400px) {
-    width: 70%;
-  }
-`;
-
 export const UserDiv = styled.div`
   align-self: center;
   @media (max-width: 768px) {
@@ -507,11 +474,41 @@ export const DrawerBtn = styled.div`
     display: flex;
     justify-self: center;
     cursor: pointer;
+    width: 90px;
   }
   svg {
     font-size: 21px;
     color: #18840f;
     display: flex;
     align-self: center;
+  }
+`;
+
+export const MobileDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+`;
+
+export const MobileSearch = styled.button`
+  display: none;
+  border: none;
+  background: #fff;
+  &:focus {
+    outline: none;
+  }
+  svg {
+    color: #18840f;
+    font-size: 21px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;

@@ -30,6 +30,12 @@ export const SubTotalDiv = styled.div`
   position: sticky;
   padding-left: 35px;
   border-left: 1px solid #5a5a5a;
+  @media (max-width: 1199px) {
+    padding-left: 25px;
+  }
+  @media (max-width: 991px) {
+    padding-left: 20px;
+  }
 `;
 
 export const Values = styled.p`

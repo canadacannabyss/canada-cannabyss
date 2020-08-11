@@ -73,6 +73,7 @@ import UpdateTotalOrder from './order/updateTotalOrder';
 import UpdateOrderValues from './order/updateOrderValues';
 import TakeAmountOfItemsPurchase from './cart/takeAmountOfItemsPurchased';
 import ApplyCouponOrder from './order/applyCouponOrder';
+import GetSearchItem from './search/getSearchItem';
 
 export default function* root() {
   yield all([
@@ -177,5 +178,6 @@ export default function* root() {
       TakeAmountOfItemsPurchase
     ),
     takeLatest('REQUEST_APPLY_COUPON_ORDER', ApplyCouponOrder),
+    takeLatest('REQUEST_SEARCH_ITEM', GetSearchItem),
   ]);
 }
