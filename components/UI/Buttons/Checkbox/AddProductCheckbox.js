@@ -1,5 +1,5 @@
-import React from "react";
-import { CheckboxDiv } from "../../../../styles/Components/UI/Buttons/Checkbox/AddProductCheckbox";
+import React from 'react';
+import { CheckboxDiv } from '../../../../styles/Components/UI/Buttons/Checkbox/AddProductCheckbox';
 
 const AddProductCheckbox = (props) => {
   const { handleCheckColor, handleCheckFlavour, handleCheckSize } = props;
@@ -21,37 +21,39 @@ const AddProductCheckbox = (props) => {
 
   return (
     <CheckboxDiv>
-      <ul className="unstyled centered">
+      <ul className='unstyled centered'>
         <li>
           <input
-            className="styled-checkbox"
-            id="styled-checkbox-2"
-            type="checkbox"
-            value="value2"
+            tabIndex='-1'
+            className='styled-checkbox'
+            id='styled-checkbox-2'
+            type='checkbox'
+            value='value2'
           />
-          <label htmlFor="styled-checkbox-2" onClick={handleToggleColor}>
+          <label htmlFor='styled-checkbox-2' onClick={handleToggleColor}>
             Color
           </label>
         </li>
         <li>
           <input
-            className="styled-checkbox"
-            id="styled-checkbox-3"
-            type="checkbox"
-            value="value2"
+            tabIndex='-1'
+            className='styled-checkbox'
+            id='styled-checkbox-3'
+            type='checkbox'
+            value='value2'
           />
-          <label htmlFor="styled-checkbox-3" onClick={handleToggleFlavour}>
+          <label htmlFor='styled-checkbox-3' onClick={handleToggleFlavour}>
             Flavour
           </label>
         </li>
         <li>
           <input
-            className="styled-checkbox"
-            id="styled-checkbox-4"
-            type="checkbox"
-            value="value3"
+            className='styled-checkbox'
+            id='styled-checkbox-4'
+            type='checkbox'
+            value='value3'
           />
-          <label htmlFor="styled-checkbox-4" onClick={handleToggleSize}>
+          <label htmlFor='styled-checkbox-4' onClick={handleToggleSize}>
             Size
           </label>
         </li>

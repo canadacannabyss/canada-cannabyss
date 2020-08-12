@@ -27,16 +27,6 @@ const Variants = (props) => {
   const [combinedValues, setCombinedValues] = useState([]);
   const [modifiableOptionValues, setModifiableValues] = useState([]);
 
-  // useEffect(() => {
-  //   console.log(
-  //     'optionFields.length === 1 && optionFields[0].optionName === ',
-  //     optionFields.length === 1 && optionFields[0].optionName === ''
-  //   );
-  //   if (optionFields.length === 1 && optionFields[0].optionName === '') {
-  //     handleGetVariantsOptionNames();
-  //   }
-  // }, [optionFields, modifiableOptionValues]);
-
   useEffect(() => {
     handleGetVariants(modifiableOptionValues);
   }, [modifiableOptionValues]);

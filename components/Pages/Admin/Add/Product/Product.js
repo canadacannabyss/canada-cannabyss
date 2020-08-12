@@ -83,7 +83,7 @@ const Product = (props) => {
       slug.length > 0 &&
       productName.length > 0 &&
       price > 0 &&
-      compareTo > 0 &&
+      !isNaN(compareTo) &&
       (taxableProduct || !taxableProduct) &&
       description.length > 0 &&
       sku.length > 0 &&
@@ -336,16 +336,6 @@ const Product = (props) => {
       imagesArrayObj.push(image.data._id);
     });
     if (allFieldsFilled) {
-      let extraInfoObj = {};
-      if (extraInfo.length === 1) {
-        if (extraInfo[0].title.length === 0) {
-          extraInfoObj.title = '';
-        }
-        if (extraInfo[0].description.length === 0) {
-          extraInfoObj.description = '';
-        }
-      }
-      console.log('extraInfoObj:', extraInfoObj);
       const productInfo = {
         isSlugValid: isSlugValid,
         media: imagesArrayObj,
@@ -360,7 +350,7 @@ const Product = (props) => {
         },
         taxableProduct: taxableProduct,
         description: description,
-        extraInfo: extraInfoObj,
+        extraInfo: extraInfo,
         inventory: {
           sku: sku,
           barcode: barcode,

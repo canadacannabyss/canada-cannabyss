@@ -17,15 +17,16 @@ const FeaturedCheckbox = (props) => {
     <>
       {featured ? (
         <CheckboxDivChecked>
-          <ul className="unstyled centered">
+          <ul className='unstyled centered'>
             <li>
               <input
-                className="styled-checkbox"
-                id="styled-checkbox-5"
-                type="checkbox"
-                value="value5"
+                tabIndex='-1'
+                className='styled-checkbox'
+                id='styled-checkbox-5'
+                type='checkbox'
+                value='value5'
               />
-              <label htmlFor="styled-checkbox-5" onClick={handleToggleFeatured}>
+              <label htmlFor='styled-checkbox-5' onClick={handleToggleFeatured}>
                 Featured
               </label>
             </li>
@@ -33,15 +34,16 @@ const FeaturedCheckbox = (props) => {
         </CheckboxDivChecked>
       ) : (
         <CheckboxDiv>
-          <ul className="unstyled centered">
+          <ul className='unstyled centered'>
             <li>
               <input
-                className="styled-checkbox"
-                id="styled-checkbox-5"
-                type="checkbox"
-                value="value5"
+                tabIndex='-1'
+                className='styled-checkbox'
+                id='styled-checkbox-5'
+                type='checkbox'
+                value='value5'
               />
-              <label htmlFor="styled-checkbox-5" onClick={handleToggleFeatured}>
+              <label htmlFor='styled-checkbox-5' onClick={handleToggleFeatured}>
                 Featured
               </label>
             </li>

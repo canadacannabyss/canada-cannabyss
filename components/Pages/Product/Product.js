@@ -375,59 +375,68 @@ const Product = (props) => {
                     product.fetched &&
                     !product.loading &&
                     !product.error && (
-                      <ProductVariantSelectGrid
-                        variantsLength={
-                          product.data.variants.variantsOptionNames.length
-                        }
-                      >
-                        {product.data.variants.uniqueValues.map(
-                          (value, index) => (
-                            <div>
-                              <ProductVariantSelectLabel
-                                htmlFor={
-                                  product.data.variants.variantsOptionNames[
-                                    index
-                                  ]
-                                }
-                              >
-                                {`${product.data.variants.variantsOptionNames[
-                                  index
-                                ]
-                                  .substring(0, 1)
-                                  .toUpperCase()}${product.data.variants.variantsOptionNames[
-                                  index
-                                ].substring(
-                                  1,
-                                  product.data.variants.variantsOptionNames[
-                                    index
-                                  ].length
-                                )}`}
-                              </ProductVariantSelectLabel>
-                              <ProductVariantSelect
-                                id={
-                                  product.data.variants.variantsOptionNames[
-                                    index
-                                  ]
-                                }
-                                onChange={(e) => {
-                                  onChangeSelectVariant(e, index);
-                                }}
-                              >
-                                {value.map((row) => (
-                                  <>
-                                    <option value={row}>{`${row
+                      <>
+                        {!(
+                          product.data.variants.variantsOptionNames.length ===
+                            1 &&
+                          product.data.variants.variantsOptionNames[0] === '' &&
+                          product.data.variants.values.length === 0
+                        ) && (
+                          <ProductVariantSelectGrid
+                            variantsLength={
+                              product.data.variants.variantsOptionNames.length
+                            }
+                          >
+                            {product.data.variants.uniqueValues.map(
+                              (value, index) => (
+                                <div>
+                                  <ProductVariantSelectLabel
+                                    htmlFor={
+                                      product.data.variants.variantsOptionNames[
+                                        index
+                                      ]
+                                    }
+                                  >
+                                    {`${product.data.variants.variantsOptionNames[
+                                      index
+                                    ]
                                       .substring(0, 1)
-                                      .toUpperCase()}${row.substring(
+                                      .toUpperCase()}${product.data.variants.variantsOptionNames[
+                                      index
+                                    ].substring(
                                       1,
-                                      row.length
-                                    )}`}</option>
-                                  </>
-                                ))}
-                              </ProductVariantSelect>
-                            </div>
-                          )
+                                      product.data.variants.variantsOptionNames[
+                                        index
+                                      ].length
+                                    )}`}
+                                  </ProductVariantSelectLabel>
+                                  <ProductVariantSelect
+                                    id={
+                                      product.data.variants.variantsOptionNames[
+                                        index
+                                      ]
+                                    }
+                                    onChange={(e) => {
+                                      onChangeSelectVariant(e, index);
+                                    }}
+                                  >
+                                    {value.map((row) => (
+                                      <>
+                                        <option value={row}>{`${row
+                                          .substring(0, 1)
+                                          .toUpperCase()}${row.substring(
+                                          1,
+                                          row.length
+                                        )}`}</option>
+                                      </>
+                                    ))}
+                                  </ProductVariantSelect>
+                                </div>
+                              )
+                            )}
+                          </ProductVariantSelectGrid>
                         )}
-                      </ProductVariantSelectGrid>
+                      </>
                     )}
                   <ProductQuantityP>Quantity</ProductQuantityP>
                   <ProductQuantityDiv>
@@ -456,14 +465,14 @@ const Product = (props) => {
                   )}
                 </ProductDetailsDiv>
               </ProductDetailsWrapper>
-              {/* {product.data.extraInfo.length > 0 && (
+              {product.data.extraInfo.length > 0 && (
                 <>
                   {product.data.extraInfo[0].title !== '' &&
                     product.data.extraInfo[0].description !== '' && (
                       <ExtraInfo extraInfoArray={product.data.extraInfo} />
                     )}
                 </>
-              )} */}
+              )}
               <ShareButtons
                 path={`https://canadacannabyss.com${props.pathname}`}
                 size={32}

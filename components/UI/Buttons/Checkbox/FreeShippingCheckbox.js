@@ -20,6 +20,7 @@ const FreeShippingCheckbox = (props) => {
           <ul className='unstyled centered'>
             <li>
               <input
+                tabIndex='-1'
                 className='styled-checkbox'
                 id='styled-checkbox-5'
                 type='checkbox'
@@ -39,6 +40,7 @@ const FreeShippingCheckbox = (props) => {
           <ul className='unstyled centered'>
             <li>
               <input
+                tabIndex='-1'
                 className='styled-checkbox'
                 id='styled-checkbox-5'
                 type='checkbox'

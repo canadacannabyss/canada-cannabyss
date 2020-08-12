@@ -137,10 +137,6 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/category/[slug]</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/checkout/finish</loc>
   </url>
 
@@ -153,11 +149,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/confirmation/[token]</loc>
+    <loc>https://canadacannabyss.com/category/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/product/[slug]</loc>
+    <loc>https://canadacannabyss.com/confirmation/[token]</loc>
   </url>
 
   <url>
@@ -166,10 +162,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/promotion/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
   </url>
 
   <url>
@@ -198,6 +190,14 @@
 
   <url>
     <loc>https://canadacannabyss.com/admin/add/promotion</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/product/[slug]</loc>
   </url>
 
   <url>

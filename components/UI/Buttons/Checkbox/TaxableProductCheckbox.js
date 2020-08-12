@@ -19,6 +19,7 @@ const AddProductCheckbox = (props) => {
           <ul className='unstyled centered'>
             <li>
               <input
+                tabIndex='-1'
                 className='styled-checkbox'
                 id='styled-checkbox-1'
                 type='checkbox'
@@ -35,6 +36,7 @@ const AddProductCheckbox = (props) => {
           <ul className='unstyled centered'>
             <li>
               <input
+                tabIndex='-1'
                 className='styled-checkbox'
                 id='styled-checkbox-1'
                 type='checkbox'

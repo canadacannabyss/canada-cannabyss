@@ -19,6 +19,7 @@ const PhysicalProduct = (props) => {
           <ul className='unstyled centered'>
             <li>
               <input
+                tabIndex='-1'
                 className='styled-checkbox'
                 id='styled-checkbox-6'
                 type='checkbox'
@@ -38,6 +39,7 @@ const PhysicalProduct = (props) => {
           <ul className='unstyled centered'>
             <li>
               <input
+                tabIndex='-1'
                 className='styled-checkbox'
                 id='styled-checkbox-6'
                 type='checkbox'
