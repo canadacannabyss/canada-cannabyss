@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function getAllOrders() {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/admin/orders/get/orders/all`,
+    `${process.env.MAIN_API_ENDPOINT}/admin/orders/get/orders/all`,
     {
       method: 'GET',
       mode: 'cors',

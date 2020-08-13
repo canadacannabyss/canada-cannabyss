@@ -53,7 +53,7 @@ const Coupon = () => {
   // }, []);
 
   const fetchAllProducts = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/products/`, {
+    const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/products/`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -67,7 +67,7 @@ const Coupon = () => {
   };
 
   const fetchAllBunlde = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/bundles/`, {
+    const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/bundles/`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -86,7 +86,7 @@ const Coupon = () => {
 
   const fetchValidateCouponName = async () => {
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/coupons/validate/couponName/${couponCode}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/coupons/validate/couponName/${couponCode}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -108,7 +108,7 @@ const Coupon = () => {
       setItemsOnCoupon([]);
       const fetchAllProductsBundlesCategoriesOnChange = async () => {
         const resProducts = await fetch(
-          `${process.env.mainApiEndpoint}/products/`,
+          `${process.env.MAIN_API_ENDPOINT}/products/`,
           {
             method: 'GET',
             mode: 'cors',
@@ -121,7 +121,7 @@ const Coupon = () => {
         );
 
         const resBundles = await fetch(
-          `${process.env.mainApiEndpoint}/bundles/`,
+          `${process.env.MAIN_API_ENDPOINT}/bundles/`,
           {
             method: 'GET',
             mode: 'cors',
@@ -145,7 +145,7 @@ const Coupon = () => {
       setBundlesList([]);
       setItemsOnCoupon([]);
       const fetchAllProductsOnChange = async () => {
-        const res = await fetch(`${process.env.mainApiEndpoint}/products/`, {
+        const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/products/`, {
           method: 'GET',
           mode: 'cors',
           cache: 'no-cache',
@@ -164,7 +164,7 @@ const Coupon = () => {
       setBundlesList([]);
       setItemsOnCoupon([]);
       const fetchAllBundlesOnChange = async () => {
-        const res = await fetch(`${process.env.mainApiEndpoint}/bundles/`, {
+        const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/bundles/`, {
           method: 'GET',
           mode: 'cors',
           cache: 'no-cache',
@@ -280,7 +280,7 @@ const Coupon = () => {
 
   const fetchNewCoupon = async (couponObj) => {
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/coupons/create`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/coupons/create`,
       {
         method: 'POST',
         mode: 'cors',

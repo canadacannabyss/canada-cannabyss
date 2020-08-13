@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getCommentsProductApi(productId) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/products/get/comments/${productId}`,
+    `${process.env.MAIN_API_ENDPOINT}/products/get/comments/${productId}`,
     {
       method: 'GET',
       mode: 'cors',

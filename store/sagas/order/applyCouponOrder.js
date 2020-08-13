@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function applyCouponOrder(orderId, couponName) {
   // const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/coupon/apply`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/coupon/apply`,
     {
       method: 'PUT',
       mode: 'cors',

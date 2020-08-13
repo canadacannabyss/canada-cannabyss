@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getNewestApi() {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/home/main/newest/products`,
+    `${process.env.MAIN_API_ENDPOINT}/home/main/newest/products`,
     {
       method: 'GET',
       mode: 'cors',

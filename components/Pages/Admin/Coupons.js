@@ -30,7 +30,7 @@ const Coupons = () => {
 
   const fetchAllCoupons = async () => {
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/coupons/get/all`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/coupons/get/all`,
       {
         method: 'GET',
         mode: 'cors',

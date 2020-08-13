@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function resetShippingHandlingOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/reset/shipping/handling`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/reset/shipping/handling`,
     {
       method: 'PUT',
       mode: 'cors',

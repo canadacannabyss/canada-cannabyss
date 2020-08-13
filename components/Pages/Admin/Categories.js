@@ -116,7 +116,7 @@ const Categories = () => {
 
   const fetchCategories = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/panel/get/all`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/panel/get/all`,
       {
         method: 'GET',
         mode: 'cors',
@@ -137,7 +137,7 @@ const Categories = () => {
 
   const getCategory = async (slug) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/panel/get/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/panel/get/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -234,7 +234,7 @@ const Categories = () => {
       title: categoryName,
     };
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/set/global-variable`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/set/global-variable`,
       {
         method: 'POST',
         mode: 'cors',
@@ -251,7 +251,7 @@ const Categories = () => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/validation/slug/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -268,7 +268,7 @@ const Categories = () => {
 
   const editCategory = async (category) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/update/${categoryId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/update/${categoryId}`,
       {
         method: 'PUT',
         mode: 'cors',
@@ -286,7 +286,7 @@ const Categories = () => {
 
   const syncCategory = async (category) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/sync`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/sync`,
       {
         method: 'GET',
         mode: 'cors',
@@ -303,7 +303,7 @@ const Categories = () => {
 
   const deleteCategoryMedia = async (imageId) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/delete/media/${imageId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/delete/media/${imageId}`,
       {
         method: 'DELETE',
         mode: 'cors',
@@ -533,7 +533,7 @@ const Categories = () => {
                         isDragAcceptColor='#18840f'
                         isDragRejectColor='#ff0000'
                         multipleFiles={false}
-                        apiEndpoint={`${process.env.mainApiEndpoint}/admin/category/publish/media`}
+                        apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/category/publish/media`}
                       />
                     </div>
                     <CategoryDescription>

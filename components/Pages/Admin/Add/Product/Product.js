@@ -265,7 +265,7 @@ const Product = (props) => {
       title: productName,
     };
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/set/global-variable`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/set/global-variable`,
       {
         method: 'POST',
         mode: 'cors',
@@ -282,7 +282,7 @@ const Product = (props) => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/validation/slug/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -299,7 +299,7 @@ const Product = (props) => {
 
   const publishProduct = async (product) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/publish`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/publish`,
       {
         method: 'POST',
         mode: 'cors',
@@ -406,7 +406,7 @@ const Product = (props) => {
                 isDragAcceptColor='#18840f'
                 isDragRejectColor='#ff0000'
                 multipleFiles={true}
-                apiEndpoint={`${process.env.mainApiEndpoint}/admin/products/publish/media`}
+                apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/products/publish/media`}
               />
             </CarouselAdd>
             <ProductDetailsDiv>

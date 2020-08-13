@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function getCart(userId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/cart/get/cart/user/${userId}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/cart/get/cart/user/${userId}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -23,7 +23,7 @@ async function createCart(userId) {
   console.log('userId:', userId);
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/cart/create/cart`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/cart/create/cart`,
     {
       method: 'POST',
       mode: 'cors',
@@ -44,7 +44,7 @@ async function getCartLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const cartId = localStorage.getItem('cartId');
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/cart/get/cart/${cartId}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/cart/get/cart/${cartId}`,
     {
       method: 'GET',
       mode: 'cors',

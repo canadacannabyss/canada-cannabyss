@@ -2,22 +2,25 @@ import _ from 'lodash';
 import { call, put } from 'redux-saga/effects';
 
 async function getLoginApi() {
-  const res = await fetch(`${process.env.userApiEndpoint}/auth/decode/token`, {
-    method: 'GET',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  const res = await fetch(
+    `${process.env.USER_API_ENDPOINT}/auth/decode/token`,
+    {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
   const data = await res.json();
   return data;
 }
 
 async function getLoginLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
-  const res = await fetch(`${process.env.userApiEndpoint}/auth/user/token`, {
+  const res = await fetch(`${process.env.USER_API_ENDPOINT}/auth/user/token`, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',

@@ -33,7 +33,7 @@ const Products = () => {
 
   const fetchCategories = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/categories/products`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/categories/products`,
       {
         method: 'GET',
         mode: 'cors',
@@ -49,7 +49,7 @@ const Products = () => {
   };
 
   const fetchAllProducts = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/admin/products`, {
+    const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/admin/products`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -69,7 +69,7 @@ const Products = () => {
 
   const getProductsByCategory = async (category) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/products/by/category/${category}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/products/by/category/${category}`,
       {
         method: 'GET',
         mode: 'cors',

@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getMostRecentVideosApi() {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/blog/home/most-recent-videos`,
+    `${process.env.MAIN_API_ENDPOINT}/blog/home/most-recent-videos`,
     {
       method: 'GET',
       mode: 'cors',

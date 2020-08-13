@@ -62,7 +62,7 @@ const Banner = () => {
 
   const fetchAllPromotions = async () => {
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/get/all`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/get/all`,
       {
         method: 'GET',
         mode: 'cors',
@@ -103,7 +103,7 @@ const Banner = () => {
       title: bannerName,
     };
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/set/global-variable`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/set/global-variable`,
       {
         method: 'POST',
         mode: 'cors',
@@ -120,7 +120,7 @@ const Banner = () => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/validation/slug/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -174,7 +174,7 @@ const Banner = () => {
 
   const publishBanner = async (promotion) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/banners/publish`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/banners/publish`,
       {
         method: 'POST',
         mode: 'cors',

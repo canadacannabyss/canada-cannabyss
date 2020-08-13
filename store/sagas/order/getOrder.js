@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function getOrder(userId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/get/order/user/${userId}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/get/order/user/${userId}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -23,7 +23,7 @@ async function createOrder(userId, cartId) {
   console.log('userId:', userId);
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/create/order`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/create/order`,
     {
       method: 'POST',
       mode: 'cors',
@@ -44,7 +44,7 @@ async function getOrderLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const orderId = localStorage.getItem('orderId');
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/get/order/${orderId}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/get/order/${orderId}`,
     {
       method: 'GET',
       mode: 'cors',

@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getMainBlogPostsApi() {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/blog/home/main-post`,
+    `${process.env.MAIN_API_ENDPOINT}/blog/home/main-post`,
     {
       method: 'GET',
       mode: 'cors',

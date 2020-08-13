@@ -85,7 +85,7 @@ const Product = () => {
 
   const getProductSlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/panel/get/${pathname}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/panel/get/${pathname}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -364,7 +364,7 @@ const Product = () => {
       title: productName,
     };
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/set/global-variable`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/set/global-variable`,
       {
         method: 'POST',
         mode: 'cors',
@@ -381,7 +381,7 @@ const Product = () => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/validation/slug/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -398,7 +398,7 @@ const Product = () => {
 
   const editProduct = async (product) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/update/${id}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/update/${id}`,
       {
         method: 'PUT',
         mode: 'cors',
@@ -416,7 +416,7 @@ const Product = () => {
 
   const deleteProductImage = async (imageId) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/products/delete/cover/${imageId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/products/delete/cover/${imageId}`,
       {
         method: 'DELETE',
         mode: 'cors',
@@ -592,7 +592,7 @@ const Product = () => {
                 isDragAcceptColor='#18840f'
                 isDragRejectColor='#ff0000'
                 multipleFiles={true}
-                apiEndpoint={`${process.env.mainApiEndpoint}/admin/products/publish/media`}
+                apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/products/publish/media`}
               />
             </CarouselAdd>
             <ProductDetailsDiv>

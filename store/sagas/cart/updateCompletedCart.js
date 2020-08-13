@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function updateCartCompleted(cartId) {
   // const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/cart/update/completed`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/cart/update/completed`,
     {
       method: 'PUT',
       mode: 'cors',

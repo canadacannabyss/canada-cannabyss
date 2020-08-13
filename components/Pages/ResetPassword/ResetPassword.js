@@ -37,7 +37,7 @@ const ResetPassword = (props) => {
     const fetchValidationToken = async () => {
       setLoading(true);
       const response = await fetch(
-        `${process.env.userApiEndpoint}/auth/reset-password/validating/token/${token}`,
+        `${process.env.USER_API_ENDPOINT}/auth/reset-password/validating/token/${token}`,
         {
           method: 'GET',
           mode: 'cors',
@@ -70,7 +70,7 @@ const ResetPassword = (props) => {
 
   const fetchUpdatePassword = async () => {
     const response = await fetch(
-      `${process.env.userApiEndpoint}/auth/reset-password`,
+      `${process.env.USER_API_ENDPOINT}/auth/reset-password`,
       {
         method: 'POST',
         mode: 'cors',

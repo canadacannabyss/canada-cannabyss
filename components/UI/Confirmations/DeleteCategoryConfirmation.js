@@ -24,7 +24,7 @@ const DeleteConfirmationModal = (props) => {
   const handleDeleteCategory = async () => {
     console.log('clicked');
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/category/delete/category/${categoryId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/category/delete/category/${categoryId}`,
       {
         method: 'DELETE',
         mode: 'cors',

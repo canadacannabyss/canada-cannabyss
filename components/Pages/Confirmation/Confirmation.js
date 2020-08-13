@@ -28,7 +28,7 @@ const Confirmation = (props) => {
     const fetchConfirmAccount = async () => {
       setLoading(true);
       const response = await fetch(
-        `${process.env.userApiEndpoint}/auth/confirmation/${token}`,
+        `${process.env.USER_API_ENDPOINT}/auth/confirmation/${token}`,
         {
           method: 'GET',
           mode: 'cors',

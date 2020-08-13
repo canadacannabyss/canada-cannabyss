@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function updateOrderPaymentMethod(orderId, paymentMethodId) {
   // const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/payment-method`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/payment-method`,
     {
       method: 'PUT',
       mode: 'cors',

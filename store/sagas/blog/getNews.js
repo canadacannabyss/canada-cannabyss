@@ -2,7 +2,7 @@ import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
 async function getNewsApi() {
-  const res = await fetch(`${process.env.mainApiEndpoint}/blog/home/news`, {
+  const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/blog/home/news`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

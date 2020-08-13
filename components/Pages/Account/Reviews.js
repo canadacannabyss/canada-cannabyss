@@ -21,7 +21,7 @@ const Reviews = (props) => {
 
   const fetchAllUserReviews = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/comments/user/${user.data._id}`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/comments/user/${user.data._id}`,
       {
         method: 'GET',
         mode: 'cors',

@@ -25,7 +25,7 @@ const DeleteConfirmationModal = (props) => {
   const handleDeleteBanner = async () => {
     console.log('bannersId:', bannerId);
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/banners/delete/banner/${bannerId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/banners/delete/banner/${bannerId}`,
       {
         method: 'DELETE',
         mode: 'cors',

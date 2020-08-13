@@ -28,7 +28,7 @@ const ResetPassword = (props) => {
   const handleSendResetPasswordEmail = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `${process.env.userApiEndpoint}/admin/auth/reset-password/sent`,
+      `${process.env.USER_API_ENDPOINT}/admin/auth/reset-password/sent`,
       {
         method: 'POST',
         mode: 'cors',

@@ -64,7 +64,7 @@ const RegisterAdmin = (props) => {
       title: adminUser,
     };
     const response = await fetch(
-      `${process.env.userApiEndpoint}/admin/auth/set/global-variable`,
+      `${process.env.USER_API_ENDPOINT}/admin/auth/set/global-variable`,
       {
         method: 'POST',
         mode: 'cors',
@@ -81,7 +81,7 @@ const RegisterAdmin = (props) => {
 
   const verifyAdminUser = async () => {
     const response = await fetch(
-      `${process.env.userApiEndpoint}/admin/auth/verify/admin/username/${adminUser}`,
+      `${process.env.USER_API_ENDPOINT}/admin/auth/verify/admin/username/${adminUser}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -98,7 +98,7 @@ const RegisterAdmin = (props) => {
 
   const LoginSU = async (userInfo) => {
     const response = await fetch(
-      `${process.env.userApiEndpoint}/admin/auth/verify/su`,
+      `${process.env.USER_API_ENDPOINT}/admin/auth/verify/su`,
       {
         method: 'POST',
         mode: 'cors',
@@ -116,7 +116,7 @@ const RegisterAdmin = (props) => {
 
   const fetchRegisterAdminUser = async (userInfoObj) => {
     const response = await fetch(
-      `${process.env.userApiEndpoint}/admin/auth/register`,
+      `${process.env.USER_API_ENDPOINT}/admin/auth/register`,
       {
         method: 'POST',
         mode: 'cors',

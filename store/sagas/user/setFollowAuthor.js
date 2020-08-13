@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function setFollowAuthorApi(userId, authorId) {
   const res = await fetch(
-    `${process.env.userApiEndpoint}/users/update/follow/author`,
+    `${process.env.USER_API_ENDPOINT}/users/update/follow/author`,
     {
       method: 'PUT',
       mode: 'cors',

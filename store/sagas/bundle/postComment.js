@@ -4,7 +4,7 @@ import { call, put } from 'redux-saga/effects';
 async function postCommentBundleApi(userId, bundleId, comment, stars) {
   console.log('bundleId:', bundleId);
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/bundle/comment/post`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/bundle/comment/post`,
     {
       method: 'POST',
       mode: 'cors',

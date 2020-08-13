@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function updateHowManyViewedApi(slug) {
   const response = fetch(
-    `${process.env.mainApiEndpoint}/products/update/how-many-viewed`,
+    `${process.env.MAIN_API_ENDPOINT}/products/update/how-many-viewed`,
     {
       method: 'PUT',
       mode: 'cors',

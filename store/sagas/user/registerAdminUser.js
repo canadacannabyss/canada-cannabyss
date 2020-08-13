@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function registerAdminUserApi(adminRegisterInfo, profilePictureId) {
   const response = await fetch(
-    `${process.env.userApiEndpoint}/admin/auth/register/admin`,
+    `${process.env.USER_API_ENDPOINT}/admin/auth/register/admin`,
     {
       method: 'POST',
       mode: 'cors',
@@ -23,7 +23,7 @@ async function registerAdminUserApi(adminRegisterInfo, profilePictureId) {
 }
 
 async function loginUserApi(id) {
-  const res = await fetch(`${process.env.userApiEndpoint}/auth/user/${id}`, {
+  const res = await fetch(`${process.env.USER_API_ENDPOINT}/auth/user/${id}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
@@ -38,7 +38,7 @@ async function loginUserApi(id) {
 
 async function getLoginLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('accessToken')}`;
-  const res = await fetch(`${process.env.userApiEndpoint}/auth/user/token`, {
+  const res = await fetch(`${process.env.USER_API_ENDPOINT}/auth/user/token`, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',

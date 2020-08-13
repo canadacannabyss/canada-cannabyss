@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getLogoutApi() {
   const bearerToken = `Bearer ${localStorage.getItem('accessToken')}`;
-  const res = await fetch(`${process.env.userApiEndpoint}/auth/logout`, {
+  const res = await fetch(`${process.env.USER_API_ENDPOINT}/auth/logout`, {
     method: 'DELETE',
     mode: 'cors',
     cache: 'no-cache',

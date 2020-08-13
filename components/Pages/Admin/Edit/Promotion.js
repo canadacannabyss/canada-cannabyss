@@ -58,7 +58,7 @@ const Promotion = () => {
 
   const getPromotionSlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/panel/get/${pathname}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/panel/get/${pathname}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -160,7 +160,7 @@ const Promotion = () => {
   }, [imagesArray]);
 
   const fetchAllProducts = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/products/`, {
+    const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/products/`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -179,7 +179,7 @@ const Promotion = () => {
       title: promotionName,
     };
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/set/global-variable`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/set/global-variable`,
       {
         method: 'POST',
         mode: 'cors',
@@ -299,7 +299,7 @@ const Promotion = () => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/validation/slug/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -316,7 +316,7 @@ const Promotion = () => {
 
   const editPromotion = async (promotion) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/update/${id}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/update/${id}`,
       {
         method: 'PUT',
         mode: 'cors',
@@ -334,7 +334,7 @@ const Promotion = () => {
 
   const deletePromotionImage = async (imageId) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/delete/cover/${imageId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/delete/cover/${imageId}`,
       {
         method: 'DELETE',
         mode: 'cors',
@@ -479,7 +479,7 @@ const Promotion = () => {
           isDragAcceptColor='#18840f'
           isDragRejectColor='#ff0000'
           multipleFiles={false}
-          apiEndpoint={`${process.env.mainApiEndpoint}/admin/promotions/publish/media`}
+          apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/promotions/publish/media`}
         />
         <ProductListDiv>
           <ProductsList

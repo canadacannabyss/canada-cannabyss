@@ -38,7 +38,7 @@ const Bundles = (props) => {
 
   const fetchAllBundles = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/bundles/navbar/all`,
+      `${process.env.MAIN_API_ENDPOINT}/bundles/navbar/all`,
       {
         method: 'GET',
         mode: 'cors',
@@ -56,7 +56,7 @@ const Bundles = (props) => {
   const fetchAllBundlesCategory = async (categoryId) => {
     console.log('categoryId:', categoryId);
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/bundles/navbar/category/${categoryId}`,
+      `${process.env.MAIN_API_ENDPOINT}/bundles/navbar/category/${categoryId}`,
       {
         method: 'GET',
         mode: 'cors',

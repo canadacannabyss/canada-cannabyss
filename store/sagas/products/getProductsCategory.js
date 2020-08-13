@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getProductsCategory(category, page, limit) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/products/get/products/category/${category}?page=${page}&limit=${limit}`,
+    `${process.env.MAIN_API_ENDPOINT}/products/get/products/category/${category}?page=${page}&limit=${limit}`,
     {
       method: 'GET',
       mode: 'cors',

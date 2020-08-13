@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function fetchLoginAdminUserApi(userInfo) {
   const response = await fetch(
-    `${process.env.userApiEndpoint}/admin/auth/login`,
+    `${process.env.USER_API_ENDPOINT}/admin/auth/login`,
     {
       method: 'POST',
       mode: 'cors',
@@ -21,17 +21,22 @@ async function fetchLoginAdminUserApi(userInfo) {
 
 async function fetchLoginLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('accessToken')}`;
-  const res = await fetch(`${process.env.userApiEndpoint}/auth/decode/token`, {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: bearerToken,
-    },
-    body: JSON.stringify({ accessToken: localStorage.getItem('accessToken') }),
-  });
+  const res = await fetch(
+    `${process.env.USER_API_ENDPOINT}/auth/decode/token`,
+    {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: bearerToken,
+      },
+      body: JSON.stringify({
+        accessToken: localStorage.getItem('accessToken'),
+      }),
+    }
+  );
   const data = await res.json();
   return data;
 }

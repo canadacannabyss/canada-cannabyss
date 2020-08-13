@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function updateTotalOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/total`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/total`,
     {
       method: 'PUT',
       mode: 'cors',

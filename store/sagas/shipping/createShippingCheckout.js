@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function createShippingCheckout(shippingAddressInfo) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/shipping/create`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/shipping/create`,
     {
       method: 'POST',
       mode: 'cors',
@@ -23,7 +23,7 @@ async function createShippingCheckout(shippingAddressInfo) {
 async function updateOrderShippingAddress(orderId, shippingAddressId) {
   // const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/shipping`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/shipping`,
     {
       method: 'PUT',
       mode: 'cors',

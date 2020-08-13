@@ -32,7 +32,7 @@ const Bundles = () => {
 
   const fetchCategories = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/categories/bundles`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/categories/bundles`,
       {
         method: 'GET',
         mode: 'cors',
@@ -48,7 +48,7 @@ const Bundles = () => {
   };
 
   const fetchAllBundles = async () => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/admin/bundles`, {
+    const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/admin/bundles`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -68,7 +68,7 @@ const Bundles = () => {
 
   const getProductsByCategory = async (category) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/bundles/by/category/${category}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/bundles/by/category/${category}`,
       {
         method: 'GET',
         mode: 'cors',

@@ -4,7 +4,7 @@ import { updateBeforeTaxOrder } from '../../actions/order/order';
 async function updateSubtotalOrder(orderId, subtotal) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/subtotal`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/subtotal`,
     {
       method: 'PUT',
       mode: 'cors',
@@ -24,7 +24,7 @@ async function updateSubtotalOrder(orderId, subtotal) {
 async function updateShippingHandlingOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/shipping/handling`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/shipping/handling`,
     {
       method: 'PUT',
       mode: 'cors',
@@ -44,7 +44,7 @@ async function updateShippingHandlingOrder(orderId) {
 async function updateTotalBeforeTaxOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/total/before-tax`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/total/before-tax`,
     {
       method: 'PUT',
       mode: 'cors',
@@ -64,7 +64,7 @@ async function updateTotalBeforeTaxOrder(orderId) {
 async function updateGstHstTaxOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/tax/gsthst`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/tax/gsthst`,
     {
       method: 'PUT',
       mode: 'cors',
@@ -84,7 +84,7 @@ async function updateGstHstTaxOrder(orderId) {
 async function updatePstRstTaxOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/tax/pstrst`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/tax/pstrst`,
     {
       method: 'PUT',
       mode: 'cors',
@@ -104,7 +104,7 @@ async function updatePstRstTaxOrder(orderId) {
 async function updateTotalOrder(orderId) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/total`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/total`,
     {
       method: 'PUT',
       mode: 'cors',

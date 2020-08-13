@@ -175,7 +175,7 @@ const Shipping = (props) => {
 
   const fetchEditShipping = async (shippingObj) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/shipping/edit/${shippingObj._id}`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/shipping/edit/${shippingObj._id}`,
       {
         method: 'PUT',
         mode: 'cors',
@@ -193,7 +193,7 @@ const Shipping = (props) => {
 
   const fetchAddShipping = async (shippingObj) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/shipping/create`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/shipping/create`,
       {
         method: 'POST',
         mode: 'cors',
@@ -211,7 +211,7 @@ const Shipping = (props) => {
 
   const fetchDeleteShipping = async (id) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/shipping/delete/${id}`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/shipping/delete/${id}`,
       {
         method: 'DELETE',
         mode: 'cors',

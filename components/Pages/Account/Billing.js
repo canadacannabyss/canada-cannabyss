@@ -174,7 +174,7 @@ const Billing = (props) => {
 
   const fetchEditBilling = async (billingObj) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/billing/edit/${billingObj._id}`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/billing/edit/${billingObj._id}`,
       {
         method: 'PUT',
         mode: 'cors',
@@ -192,7 +192,7 @@ const Billing = (props) => {
 
   const fetchAddBilling = async (billingObj) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/billing/create`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/billing/create`,
       {
         method: 'POST',
         mode: 'cors',
@@ -210,7 +210,7 @@ const Billing = (props) => {
 
   const fetchDeleteBilling = async (id) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/customers/billing/delete/${id}`,
+      `${process.env.MAIN_API_ENDPOINT}/customers/billing/delete/${id}`,
       {
         method: 'DELETE',
         mode: 'cors',

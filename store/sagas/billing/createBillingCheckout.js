@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 async function createBillingCheckout(billingAddressInfo) {
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/billing/create`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/billing/create`,
     {
       method: 'POST',
       mode: 'cors',
@@ -24,7 +24,7 @@ async function updateOrderBillingAddress(orderId, billingAddressId) {
   // const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   console.log('billingAddressId:', billingAddressId);
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/order/update/billing`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/update/billing`,
     {
       method: 'PUT',
       mode: 'cors',

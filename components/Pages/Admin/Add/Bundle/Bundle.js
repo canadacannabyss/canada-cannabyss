@@ -113,7 +113,7 @@ const Bundle = () => {
   };
 
   const fetchAllProducts = async (page, limit) => {
-    const res = await fetch(`${process.env.mainApiEndpoint}/admin/products`, {
+    const res = await fetch(`${process.env.MAIN_API_ENDPOINT}/admin/products`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -150,7 +150,7 @@ const Bundle = () => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/bundles/validation/slug/${slug}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/bundles/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -287,7 +287,7 @@ const Bundle = () => {
 
   const uploadBundle = async (bundle) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/bundles/publish`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/bundles/publish`,
       {
         method: 'POST',
         mode: 'cors',

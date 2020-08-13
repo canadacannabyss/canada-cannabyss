@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getBundlesCategory(category, page, limit) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/bundles/get/bundles/category/${category}?page=${page}&limit=${limit}`,
+    `${process.env.MAIN_API_ENDPOINT}/bundles/get/bundles/category/${category}?page=${page}&limit=${limit}`,
     {
       method: 'GET',
       mode: 'cors',

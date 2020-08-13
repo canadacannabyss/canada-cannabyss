@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getBundleApi(slug) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/bundles/get/bundle/${slug}`,
+    `${process.env.MAIN_API_ENDPOINT}/bundles/get/bundle/${slug}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -21,7 +21,7 @@ async function getBundleApi(slug) {
 const getRelatedBundleApi = async (category, slug) => {
   const dates = slug.split('/');
   const response = await fetch(
-    `${process.env.mainApiEndpoint}/bundle/get/category/newest/${category}/${dates[0]}/${dates[1]}/${dates[2]}/${dates[3]}`,
+    `${process.env.MAIN_API_ENDPOINT}/bundle/get/category/newest/${category}/${dates[0]}/${dates[1]}/${dates[2]}/${dates[3]}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -38,7 +38,7 @@ const getRelatedBundleApi = async (category, slug) => {
 
 async function getCommentsBundleApi(bundleId) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/bundles/get/comments/${bundleId}`,
+    `${process.env.MAIN_API_ENDPOINT}/bundles/get/comments/${bundleId}`,
     {
       method: 'GET',
       mode: 'cors',

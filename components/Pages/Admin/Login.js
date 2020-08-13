@@ -35,7 +35,7 @@ const RegisterAdmin = (props) => {
 
   const LoginSU = async (userInfo) => {
     const response = await fetch(
-      `${process.env.userApiEndpoint}/admin/auth/verify/su`,
+      `${process.env.USER_API_ENDPOINT}/admin/auth/verify/su`,
       {
         method: 'POST',
         mode: 'cors',

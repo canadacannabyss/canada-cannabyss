@@ -40,7 +40,7 @@ const Promotions = () => {
 
   const fetchAllCategories = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/categories/promotion`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/categories/promotion`,
       {
         method: 'GET',
         mode: 'cors',
@@ -57,7 +57,7 @@ const Promotions = () => {
 
   const fetchAllPromotions = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/all/promotions`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/all/promotions`,
       {
         method: 'GET',
         mode: 'cors',
@@ -75,7 +75,7 @@ const Promotions = () => {
 
   const fetchAllBanners = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/all/banners`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/all/banners`,
       {
         method: 'GET',
         mode: 'cors',
@@ -93,7 +93,7 @@ const Promotions = () => {
 
   const getPromotionsByCategory = async (category) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/promotions/by/category/${category}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/promotions/by/category/${category}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -110,7 +110,7 @@ const Promotions = () => {
 
   const getBannersByCategory = async (category) => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/admin/panel/get/banners/by/category/${category}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/panel/get/banners/by/category/${category}`,
       {
         method: 'GET',
         mode: 'cors',

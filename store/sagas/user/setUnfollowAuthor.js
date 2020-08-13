@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function setUnfollowAuthorApi(userId, authorId) {
   const res = await fetch(
-    `${process.env.userApiEndpoint}/users/update/unfollow/author`,
+    `${process.env.USER_API_ENDPOINT}/users/update/unfollow/author`,
     {
       method: 'PUT',
       mode: 'cors',

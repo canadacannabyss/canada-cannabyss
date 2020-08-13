@@ -4,7 +4,7 @@ async function addItemToCart(item, cartId) {
   console.log('carting:', cartId);
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/cart/add/item`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/cart/add/item`,
     {
       method: 'PUT',
       mode: 'cors',

@@ -38,7 +38,7 @@ const Products = (props) => {
 
   const fetchAllProducts = async () => {
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/products/navbar/all`,
+      `${process.env.MAIN_API_ENDPOINT}/products/navbar/all`,
       {
         method: 'GET',
         mode: 'cors',
@@ -56,7 +56,7 @@ const Products = (props) => {
   const fetchAllProductsCategory = async (categoryId) => {
     console.log('categoryId:', categoryId);
     const response = await fetch(
-      `${process.env.mainApiEndpoint}/products/navbar/category/${categoryId}`,
+      `${process.env.MAIN_API_ENDPOINT}/products/navbar/category/${categoryId}`,
       {
         method: 'GET',
         mode: 'cors',

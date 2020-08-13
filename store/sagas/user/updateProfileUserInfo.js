@@ -2,7 +2,7 @@ import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
 async function updateProfileUserInfoApi(updateObj) {
-  const res = await fetch(`${process.env.userApiEndpoint}/users/update`, {
+  const res = await fetch(`${process.env.USER_API_ENDPOINT}/users/update`, {
     method: 'PUT',
     mode: 'cors',
     cache: 'no-cache',

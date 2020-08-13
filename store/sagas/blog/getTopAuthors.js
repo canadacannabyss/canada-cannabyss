@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getTopAuthorsApi() {
   const response = await fetch(
-    `${process.env.userApiEndpoint}/users/blog/get/top-authors`,
+    `${process.env.USER_API_ENDPOINT}/users/blog/get/top-authors`,
     {
       method: 'GET',
       mode: 'cors',

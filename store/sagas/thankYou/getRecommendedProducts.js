@@ -4,7 +4,7 @@ import { call, put } from 'redux-saga/effects';
 async function getRecommendedProductsApi() {
   console.log('getRecommendedProductsApi');
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/recommended/products`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/recommended/products`,
     {
       method: 'GET',
       mode: 'cors',

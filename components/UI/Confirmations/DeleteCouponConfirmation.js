@@ -25,7 +25,7 @@ const DeleteConfirmationModal = (props) => {
   const handleDeleteCoupon = async () => {
     console.log('clicked');
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/coupons/delete/coupon/${couponId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/coupons/delete/coupon/${couponId}`,
       {
         method: 'DELETE',
         mode: 'cors',

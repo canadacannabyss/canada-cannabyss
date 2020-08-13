@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getProductsApi(page, limit) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/products?page=${page}&limit=${limit}`,
+    `${process.env.MAIN_API_ENDPOINT}/products?page=${page}&limit=${limit}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -21,7 +21,7 @@ async function getProductsApi(page, limit) {
 const getRelatedProductApi = async (category, slug) => {
   const dates = slug.split('/');
   const response = await fetch(
-    `${process.env.mainApiEndpoint}/blog/get/category/newest/${category}/${dates[0]}/${dates[1]}/${dates[2]}/${dates[3]}`,
+    `${process.env.MAIN_API_ENDPOINT}/blog/get/category/newest/${category}/${dates[0]}/${dates[1]}/${dates[2]}/${dates[3]}`,
     {
       method: 'GET',
       mode: 'cors',

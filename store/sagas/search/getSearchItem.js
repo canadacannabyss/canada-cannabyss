@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getSearchItemApi(query) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/search?query=${query}`,
+    `${process.env.MAIN_API_ENDPOINT}/search?query=${query}`,
     {
       method: 'GET',
       mode: 'cors',

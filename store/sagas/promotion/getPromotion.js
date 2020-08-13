@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getPromotionApi(slug) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/promotions/get/slug/${slug}`,
+    `${process.env.MAIN_API_ENDPOINT}/promotions/get/slug/${slug}`,
     {
       method: 'GET',
       mode: 'cors',

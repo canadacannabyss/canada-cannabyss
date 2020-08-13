@@ -4,7 +4,7 @@ async function removeItemFromCart(item, cartId) {
   console.log('carting:', cartId);
   const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/cart/remove/item`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/cart/remove/item`,
     {
       method: 'PUT',
       mode: 'cors',

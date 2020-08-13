@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function getRecentCategoriesApi(number) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/blog/get/categories/newest/${number}`,
+    `${process.env.MAIN_API_ENDPOINT}/blog/get/categories/newest/${number}`,
     {
       method: 'GET',
       mode: 'cors',

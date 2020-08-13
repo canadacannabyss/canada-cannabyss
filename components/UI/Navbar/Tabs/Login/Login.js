@@ -38,7 +38,7 @@ const LoginModal = (props) => {
           <ul>
             <SocialMediaButton
               backgroundColor='#4166b2'
-              endpoint={`${process.env.userApiEndpoint}/auth/facebook`}
+              endpoint={`${process.env.USER_API_ENDPOINT}/auth/facebook`}
               icon={<FaFacebookF />}
             />
             {/* <SocialMediaButton
@@ -48,7 +48,7 @@ const LoginModal = (props) => {
             /> */}
             <SocialMediaButton
               backgroundColor='#4184f4'
-              endpoint={`${process.env.userApiEndpoint}/auth/google`}
+              endpoint={`${process.env.USER_API_ENDPOINT}/auth/google`}
               icon={<FaGoogle />}
             />
           </ul>

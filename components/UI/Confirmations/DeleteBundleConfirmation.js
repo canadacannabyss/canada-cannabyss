@@ -25,7 +25,7 @@ const DeleteConfirmationModal = (props) => {
   const handleDeleteBundle = async () => {
     console.log('clicked');
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/bundles/delete/bundle/${bundleId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/bundles/delete/bundle/${bundleId}`,
       {
         method: 'DELETE',
         mode: 'cors',

@@ -25,7 +25,7 @@ const DeleteConfirmationModal = (props) => {
   const handleDeleteProduct = async () => {
     console.log('promotionsId:', promotionId);
     const res = await fetch(
-      `${process.env.mainApiEndpoint}/admin/promotions/delete/promotion/${promotionId}`,
+      `${process.env.MAIN_API_ENDPOINT}/admin/promotions/delete/promotion/${promotionId}`,
       {
         method: 'DELETE',
         mode: 'cors',

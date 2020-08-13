@@ -2,7 +2,7 @@ class ListLocation {
   async mapThroughtCanadaProvinces() {
     const handleGetAllProvincesCanada = async () => {
       const res = await fetch(
-        `${process.env.mainApiEndpoint}/addresses/get/all/provinces`,
+        `${process.env.MAIN_API_ENDPOINT}/addresses/get/all/provinces`,
         {
           method: 'GET',
           mode: 'cors',
@@ -35,7 +35,7 @@ class ListLocation {
     console.log('province selected:', province);
     const handleGetAllCitiesFromProvinceCanada = async () => {
       const res = await fetch(
-        `${process.env.mainApiEndpoint}/addresses/get/all/cities/from/${province}`,
+        `${process.env.MAIN_API_ENDPOINT}/addresses/get/all/cities/from/${province}`,
         {
           method: 'GET',
           mode: 'cors',

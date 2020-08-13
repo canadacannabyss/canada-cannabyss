@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function setPaymentMethodByUserApi(userId) {
   const res = await fetch(
-    `${process.env.mainApiEndpoint}/customers/payment-method/e-transfer/get/by/user/${userId}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/payment-method/e-transfer/get/by/user/${userId}`,
     {
       method: 'GET',
       mode: 'cors',
