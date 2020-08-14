@@ -72,7 +72,7 @@ const Account = (props) => {
                         onCopyToClipboard();
                       }}
                     >
-                      {`${process.env.MAIN_DOMAIN}/register?referral=123456789`}
+                      {`${process.env.MAIN_DOMAIN}/register?referral=${user.data.referral._id}`}
                     </span>
                   </ReferralLink>
                 </UserInfoImageName>

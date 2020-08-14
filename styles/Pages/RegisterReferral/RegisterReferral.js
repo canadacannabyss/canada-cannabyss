@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin: 20px auto 50px auto;
+  margin: 50px auto;
   width: 80%;
   @media (max-width: 991px) {
     width: 90%;
@@ -24,7 +24,7 @@ export const Title = styled.h1`
 
 export const Form = styled.form`
   display: table;
-  margin: 0 auto;
+  margin: 25px auto 0 auto;
   width: 350px;
   padding: 15px;
   background: #fff;
@@ -158,5 +158,20 @@ export const EmailSentToMessage = styled.div`
     span {
       font-weight: 900;
     }
+  }
+`;
+
+export const InvitationMessage = styled.div`
+  color: #5a5a5a;
+  font-size: 16px;
+  text-align: center;
+  background: #f1f1f1;
+  border: 1px solid #e0e0e0;
+  padding: 5px 7px;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: table;
+  span {
+    font-weight: 900;
   }
 `;

@@ -4,10 +4,9 @@ import { searchItem } from '../store/actions/search/search';
 
 class SearchIndex extends Component {
   static async getInitialProps(props) {
-    const { store, isServer, asPath } = props.ctx;
-    const slug = asPath.substring(14, asPath.length);
-    console.log('slug:', slug);
-    store.dispatch(searchItem(slug));
+    const { store, isServer, asPath, query } = props.ctx;
+    const { query: queryString, type } = query;
+    store.dispatch(searchItem(queryString, type));
 
     return { isServer, asPath };
   }

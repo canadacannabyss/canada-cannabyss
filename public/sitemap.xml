@@ -49,46 +49,6 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/analytics</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/bundles</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/categories</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/coupons</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/index</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/login</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/orders</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/products</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/promotions</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/register</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/account/address</loc>
   </url>
 
@@ -126,6 +86,46 @@
 
   <url>
     <loc>https://canadacannabyss.com/account/update</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/analytics</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/bundles</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/categories</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/coupons</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/login</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/orders</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/products</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/promotions</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/register</loc>
   </url>
 
   <url>

@@ -258,7 +258,7 @@ export const TitleMain = styled.h5`
   color: #fff;
   font-size: 16px;
   font-weight: 900;
-  padding: 6px;
+  padding: 6px 6px 6px 0px;
   transition: all 0.2s ease-in-out;
   @media (max-width: 1199px) {
     font-size: 20px;
@@ -271,15 +271,14 @@ export const TitleMain = styled.h5`
 export const Title = styled.h5`
   font-size: 16px;
   font-weight: 900;
-  padding: 6px;
+  padding: 6px 6px 6px 0px;
   color: #fff;
   transition: all 0.2s ease-in-out;
   @media (max-width: 1199px) {
     font-size: 14px;
   }
   @media (max-width: 991px) {
-    font-size: 12px;
-    max-height: 30px;
+    font-size: 13px;
     overflow-y: hidden;
   }
   @media (max-width: 576px) {

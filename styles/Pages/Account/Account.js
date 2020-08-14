@@ -91,7 +91,6 @@ export const ReferralLink = styled.div`
     background: #f7f7f7;
     border-radius: 4px;
     padding: 2px 4px;
-    user-select: none;
     word-break: break-all;
     cursor: pointer;
     &:active {

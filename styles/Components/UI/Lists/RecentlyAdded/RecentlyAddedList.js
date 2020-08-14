@@ -89,16 +89,18 @@ export const Bg = styled.div`
 export const Title = styled.h5`
   font-size: 16px;
   font-weight: 900;
-  padding: 6px;
+  padding: 6px 6px 6px 0px;
   color: #fff;
   transition: all 0.2s ease-in-out;
   @media (max-width: 1199px) {
     font-size: 14px;
   }
   @media (max-width: 991px) {
-    font-size: 12px;
-    max-height: 30px;
+    font-size: 13px;
     overflow-y: hidden;
+  }
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
   @media (max-width: 576px) {
     width: unset;
@@ -107,7 +109,10 @@ export const Title = styled.h5`
     color: #fff;
   }
   @media (max-width: 440px) {
-    font-size: 15px;
+    font-size: 14px;
+  }
+  @media (max-width: 330px) {
+    font-size: 13px;
   }
 `;
 
@@ -119,7 +124,10 @@ export const Price = styled.h6`
   color: #fff;
   transition: all 0.2s ease-in-out;
   @media (max-width: 440px) {
-    font-size: 17px;
+    font-size: 16px;
+  }
+  @media (max-width: 330px) {
+    font-size: 15px;
   }
 `;
 
@@ -133,18 +141,28 @@ export const ProductOldPriceDiscount = styled.span`
   color: #fff;
   margin-right: 10px;
   display: table;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: line-through;
   font-weight: 100;
-  margin-bottom: 1rem;
+  @media (max-width: 440px) {
+    font-size: 16px;
+  }
+  @media (max-width: 330px) {
+    font-size: 15px;
+  }
 `;
 
 export const ProductNewPriceDiscount = styled.span`
   color: #fff;
   display: table;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 100;
-  margin-bottom: 1rem;
+  @media (max-width: 440px) {
+    font-size: 16px;
+  }
+  @media (max-width: 330px) {
+    font-size: 15px;
+  }
 `;
 
 export const LinkTo = styled.a`
@@ -245,7 +263,15 @@ export const DiscountPercentage = styled.div`
   position: absolute;
   transform: translate(10px, 10px) rotate(-15deg);
   transition: all 0.2s ease-in-out;
-  p {
-    font-size: 16px;
+  font-size: 16px;
+  @media (max-width: 440px) {
+    height: 45px;
+    width: 45px;
+    font-size: 14px;
+  }
+  @media (max-width: 330px) {
+    height: 40px;
+    width: 40px;
+    font-size: 13px;
   }
 `;
