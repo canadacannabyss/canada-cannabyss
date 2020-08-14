@@ -22,6 +22,7 @@ module.exports = withImage(
         USER_API_ENDPOINT: process.env.USER_API_ENDPOINT,
         MAIN_API_ENDPOINT: process.env.MAIN_API_ENDPOINT,
         MAIN_DOMAIN: process.env.MAIN_DOMAIN,
+        SECURED_MAIN_DOMAIN: process.env.SECURED_MAIN_DOMAIN,
       },
     })
   )

@@ -37,6 +37,10 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/register</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/search</loc>
   </url>
 
@@ -46,46 +50,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/thank-you</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/address</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/billing</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/change-password</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/index</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/orders</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/payment-methods</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/preferences</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/reviews</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/shipping</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/account/update</loc>
   </url>
 
   <url>
@@ -129,6 +93,46 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/account/address</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/billing</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/change-password</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/orders</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/payment-methods</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/preferences</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/reviews</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/shipping</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/account/update</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
@@ -161,11 +165,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/products/index</loc>
+    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
+    <loc>https://canadacannabyss.com/products/index</loc>
   </url>
 
   <url>
