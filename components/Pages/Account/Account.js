@@ -143,9 +143,9 @@ const Account = (props) => {
                 </Link>
               </li>
               <li>
-                {/* <Link href='/account/orders' as='/account/orders'> */}
-                <a className='disabled'>Invite friend</a>
-                {/* </Link> */}
+                <Link href='/account/invite' as='/account/invite'>
+                  <a>Invite friend</a>
+                </Link>
               </li>
             </ul>
           </Menu>

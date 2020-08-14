@@ -153,8 +153,8 @@ export const MenusGrid = styled.div`
 `;
 
 export const Menu = styled.div`
-  border-radius: 7px;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 0px 2px rgba(0, 0, 0, 0.15);
   padding: 15px 17px;
   h3 {
     font-size: 15px;
