@@ -117,3 +117,8 @@ export const CommentedOn = styled.div`
     }
   }
 `;
+
+export const NotVerified = styled.p`
+  font-size: 16px;
+  color: #e41111;
+`;

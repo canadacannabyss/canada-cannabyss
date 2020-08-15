@@ -74,17 +74,19 @@ const InviteFriends = (props) => {
         <HeaderDiv>
           <div>
             <Title>Invite Friends</Title>
-            <ReferralLink>
-              <p>Share this referral link to a friend:</p>
-              <span
-                id='referral'
-                onClick={() => {
-                  onCopyToClipboard();
-                }}
-              >
-                {`${process.env.SECURED_MAIN_DOMAIN}/register?referral=${user.data.referral._id}`}
-              </span>
-            </ReferralLink>
+            {!_.isEmpty(user.data) && (
+              <ReferralLink>
+                <p>Share this referral link to a friend:</p>
+                <span
+                  id='referral'
+                  onClick={() => {
+                    onCopyToClipboard();
+                  }}
+                >
+                  {`${process.env.SECURED_MAIN_DOMAIN}/register?referral=${user.data.referral._id}`}
+                </span>
+              </ReferralLink>
+            )}
           </div>
           <Credits>
             <div className='creditP'>

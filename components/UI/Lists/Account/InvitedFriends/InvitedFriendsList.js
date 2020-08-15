@@ -14,6 +14,7 @@ import {
   UserInfoWrapper,
   CommentedOn,
   Wrapper,
+  NotVerified,
 } from '../../../../../styles/Components/UI/Lists/Account/InvitedFriendsList/InvitedFriendsList';
 import DateFormatter from '../../../../../utils/DateFormatter';
 
@@ -44,6 +45,9 @@ const InvitedFriendsList = (props) => {
                     <PostedOn>
                       {formatter.formatDateFullDate(user.createdOn)}
                     </PostedOn>
+                    {!user.isVerified && (
+                      <NotVerified>Not verified</NotVerified>
+                    )}
                   </li>
                 </ul>
               </UserInfoWrapper>
