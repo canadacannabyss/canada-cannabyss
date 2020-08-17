@@ -28,7 +28,7 @@ const Confirmation = (props) => {
     const fetchConfirmAccount = async () => {
       setLoading(true);
       const response = await fetch(
-        `${process.env.USER_API_ENDPOINT}/admin/auth/confirmation/${token}`,
+        `${process.env.USER_API_ENDPOINT}/resellers/confirmation/${token}`,
         {
           method: 'GET',
           mode: 'cors',
@@ -63,7 +63,7 @@ const Confirmation = (props) => {
   return (
     <Layout>
       <Head>
-        <title>Account Confirmation - Canada Cannabyss</title>
+        <title>Reseller Account Confirmation - Canada Cannabyss</title>
       </Head>
       <Wrapper>
         <Title>Account Confirmation</Title>

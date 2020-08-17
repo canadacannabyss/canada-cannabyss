@@ -50,6 +50,11 @@ const AdminPages = (props) => {
             <a>Orders</a>
           </Link>
         </li>
+        <li>
+          <Link href='/admin/resellers' as='/admin/resellers'>
+            <a>Resellers</a>
+          </Link>
+        </li>
       </Ul>
     </Div>
   );
