@@ -353,6 +353,12 @@ const Promotion = () => {
             isDragRejectColor='#ff0000'
             textColor='#18840f'
             textSize='18px'
+            onDragMessage='Drop the file here'
+            defaultMessage='Allowed files dimensions'
+            fileDimensions={{
+              width: '960px',
+              height: '540px',
+            }}
             multipleFiles={false}
             apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/promotions/publish/media`}
           />

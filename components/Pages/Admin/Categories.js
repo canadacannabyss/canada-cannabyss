@@ -534,6 +534,12 @@ const Categories = () => {
                         isDragRejectColor='#ff0000'
                         textColor='#18840f'
                         textSize='18px'
+                        onDragMessage='Drop the file here'
+                        defaultMessage='Allowed files dimensions'
+                        fileDimensions={{
+                          width: '540px',
+                          height: '960px',
+                        }}
                         multipleFiles={false}
                         apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/category/publish/media`}
                       />

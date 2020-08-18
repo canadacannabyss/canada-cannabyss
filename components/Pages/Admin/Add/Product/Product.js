@@ -407,6 +407,12 @@ const Product = (props) => {
                 isDragRejectColor='#ff0000'
                 textColor='#18840f'
                 textSize='18px'
+                onDragMessage='Drop the files here'
+                defaultMessage={`Allowed files dimensions`}
+                fileDimensions={{
+                  width: '640px',
+                  height: '640px',
+                }}
                 multipleFiles={true}
                 apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/products/publish/media`}
               />
