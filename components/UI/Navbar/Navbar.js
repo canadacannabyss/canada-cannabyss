@@ -460,6 +460,7 @@ const Navbar = () => {
         {toggleUserMenu && user.fetched && !_.isEmpty(user.data) && (
           <OutsideAlerter handleClose={handleToggleUserMenu}>
             <UserMenu
+              user={user}
               names={user.data.names}
               handleToggleUserMenu={handleToggleUserMenu}
               isAdmin={user.data.isAdmin}

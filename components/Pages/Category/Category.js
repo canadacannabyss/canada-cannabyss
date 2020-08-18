@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import {
   BtnsWrapper,
   Wrapper,
+  WrapperProduct,
   ToggleBtnsList,
   ToggleBtn,
+  Grid,
   LoadingProductContainer,
 } from '../../../styles/Pages/Category/Category';
 import Layout from '../../Layout';
@@ -60,7 +62,7 @@ const Category = (props) => {
       <Head>
         <title>{`${categoryTitle} | Category - Canada Cannabyss`}</title>
       </Head>
-      <BtnsWrapper>
+      <Wrapper>
         <ToggleBtnsList>
           <ToggleBtn
             className='selected'
@@ -78,30 +80,40 @@ const Category = (props) => {
             Bundles
           </ToggleBtn>
         </ToggleBtnsList>
-      </BtnsWrapper>
-      <Wrapper>
+
         {products.loading && (
           <>
-            <LoadingProductContainer />
-            <LoadingProductContainer />
-            <LoadingProductContainer />
-            <LoadingProductContainer />
-            <LoadingProductContainer />
-            <LoadingProductContainer />
-            <LoadingProductContainer />
-            <LoadingProductContainer />
+            <WrapperProduct>
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+              <LoadingProductContainer />
+            </WrapperProduct>
           </>
         )}
         {toggleProductsList &&
           products.fetched &&
           !products.error &&
           !_.isEmpty(products.data) &&
-          !products.loading && <ProductsList products={products.data} />}
-        {toggleBundlesList &&
-          bundles.fetched &&
-          !bundles.error &&
-          !bundles.loading &&
-          !_.isEmpty(bundles.data) && <BundlesList bundles={bundles.data} />}
+          !products.loading && (
+            <WrapperProduct>
+              <ProductsList products={products.data.results} />
+            </WrapperProduct>
+          )}
+
+        <Grid>
+          {toggleBundlesList &&
+            bundles.fetched &&
+            !bundles.error &&
+            !bundles.loading &&
+            !_.isEmpty(bundles.data) && (
+              <BundlesList bundles={bundles.data.results} />
+            )}
+        </Grid>
       </Wrapper>
     </Layout>
   );

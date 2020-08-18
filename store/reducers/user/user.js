@@ -8,6 +8,7 @@ const initialState = {
 };
 
 export default function user(state = initialState, action) {
+  console.log('user reducer action.type:', action.type);
   switch (action.type) {
     case 'REQUEST_FETCH_LOGIN_USER':
       return {
@@ -30,7 +31,6 @@ export default function user(state = initialState, action) {
         fetched: false,
         error: true,
       };
-
     case 'REQUEST_FETCH_LOGIN_ADMIN_USER':
       return {
         ...state,
@@ -52,7 +52,28 @@ export default function user(state = initialState, action) {
         fetched: false,
         error: true,
       };
-
+    case 'REQUEST_FETCH_LOGIN_RESELLER_USER':
+      console.log('reducer reseller');
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'SUCCESS_FETCH_LOGIN_RESELLER_USER':
+      return {
+        ...state,
+        data: action.payload.data,
+        loading: false,
+        fetched: true,
+        error: false,
+      };
+    case 'FAILURE_FETCH_LOGIN_RESELLER_USER':
+      return {
+        ...state,
+        data: {},
+        loading: false,
+        fetched: false,
+        error: true,
+      };
     case 'REQUEST_REGISTER_ADMIN_USER':
       return {
         ...state,
@@ -88,6 +109,27 @@ export default function user(state = initialState, action) {
         error: false,
       };
     case 'FAILURE_LOGIN_ADMIN_USER':
+      return {
+        ...state,
+        data: {},
+        loading: false,
+        fetched: true,
+        error: true,
+      };
+    case 'REQUEST_LOGIN_RESELLER_USER':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'SUCCESS_LOGIN_RESELLER_USER':
+      return {
+        ...state,
+        data: action.payload.data,
+        loading: false,
+        fetched: true,
+        error: false,
+      };
+    case 'FAILURE_LOGIN_RESELLER_USER':
       return {
         ...state,
         data: {},

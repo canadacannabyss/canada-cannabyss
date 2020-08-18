@@ -9,6 +9,26 @@ export function loginUser(userInfo) {
   };
 }
 
+export function loginAdminUser(username, password) {
+  return {
+    type: 'REQUEST_LOGIN_ADMIN_USER',
+    payload: {
+      username,
+      password,
+    },
+  };
+}
+
+export function loginResellerUser(username, password) {
+  return {
+    type: 'REQUEST_LOGIN_RESELLER_USER',
+    payload: {
+      username,
+      password,
+    },
+  };
+}
+
 export function fetchLoginUser(userInfo) {
   return {
     type: 'REQUEST_FETCH_LOGIN_USER',
@@ -28,20 +48,20 @@ export function fetchLoginAdminUser(userInfo) {
   };
 }
 
+export function fetchLoginResellerUser(userInfo) {
+  return {
+    type: 'REQUEST_FETCH_LOGIN_RESELLER_USER',
+    payload: {
+      userInfo,
+    },
+  };
+}
+
 export function refreshUserData(id) {
   return {
     type: 'REQUEST_REFRESH_USER_DATA',
     payload: {
       id,
-    },
-  };
-}
-
-export function updateUserInfo(updateObj) {
-  return {
-    type: 'REQUEST_UPDATE_USER_INFO',
-    payload: {
-      updateObj,
     },
   };
 }
@@ -104,16 +124,6 @@ export function registerAdminUser(adminRegisterInfo) {
     type: 'REQUEST_REGISTER_ADMIN_USER',
     payload: {
       adminRegisterInfo,
-    },
-  };
-}
-
-export function loginAdminUser(username, password) {
-  return {
-    type: 'REQUEST_LOGIN_ADMIN_USER',
-    payload: {
-      username,
-      password,
     },
   };
 }

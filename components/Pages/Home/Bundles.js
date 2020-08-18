@@ -32,7 +32,7 @@ const Bundles = (props) => {
         !bundles.error && (
           <>
             <H1>Bundles</H1>
-            <DivGrid>
+            <DivGrid bundlesLength={bundles.data.length}>
               <CombosList bundles={bundles.data} />
             </DivGrid>
             <Link href='/bundles' as='/bundles'>

@@ -591,6 +591,8 @@ const Product = () => {
                 isDragNotAcceptColor='rgba(0, 0, 0, 0.3)'
                 isDragAcceptColor='#18840f'
                 isDragRejectColor='#ff0000'
+                textColor='#18840f'
+                textSize='18px'
                 multipleFiles={true}
                 apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/products/publish/media`}
               />

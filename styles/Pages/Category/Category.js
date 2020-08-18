@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import { fadeText } from '../../Animations/Animations';
 
-export const BtnsWrapper = styled.div`
-  margin: 20px auto 50px auto;
+export const Wrapper = styled.div`
+  margin: 20px auto 40px auto;
   width: 80%;
+  @media (max-width: 991px) {
+    width: 90%;
+  }
 `;
 
-export const Wrapper = styled.div`
-  margin: 20px auto 50px auto;
-  width: 80%;
+export const WrapperProduct = styled.div`
   display: grid;
+  margin-top: 40px;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 25px;
@@ -82,4 +84,15 @@ export const LoadingProductContainer = styled.div`
   @media (max-width: 470px) {
     height: 238px;
   }
+`;
+
+export const Grid = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-content: flex-end;
 `;

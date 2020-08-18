@@ -46,6 +46,8 @@ const Promotion = () => {
   const [imagesArrayLength, setImagesArrayLength] = useState(0);
   const [uploddHegiht, setUploadHeight] = useState('350px');
 
+  console.log('productList:', productList);
+
   const handleSetImagesArray = (images) => {
     setImagesArray(images);
   };
@@ -349,12 +351,14 @@ const Promotion = () => {
             isDragNotAcceptColor='rgba(0, 0, 0, 0.3)'
             isDragAcceptColor='#18840f'
             isDragRejectColor='#ff0000'
+            textColor='#18840f'
+            textSize='18px'
             multipleFiles={false}
             apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/admin/promotions/publish/media`}
           />
           <ProductListDiv>
             <ProductsList
-              products={productList}
+              products={productList.results}
               handleGetElement={handleGetElement}
             />
           </ProductListDiv>

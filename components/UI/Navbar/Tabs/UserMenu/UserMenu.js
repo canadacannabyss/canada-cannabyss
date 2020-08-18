@@ -13,7 +13,7 @@ import {
 } from '../../../../../styles/Components/UI/Navbar/Tabs/UserMenu/UserMenu';
 
 const UserMenu = (props) => {
-  const { names, handleToggleUserMenu, isAdmin } = props;
+  const { handleToggleUserMenu, user } = props;
 
   const dispatch = useDispatch();
 
@@ -26,10 +26,17 @@ const UserMenu = (props) => {
     <>
       <Wrapper>
         <MenuOpitionUl>
-          {isAdmin && (
+          {user.data.isAdmin && (
             <MenuOpitionLi>
               <Link href='/admin/index' as='/admin'>
                 <LinkTo onClick={handleToggleUserMenu}>Admin</LinkTo>
+              </Link>
+            </MenuOpitionLi>
+          )}
+          {user.data.isReseller && (
+            <MenuOpitionLi>
+              <Link href='/reseller/index' as='/reseller'>
+                <LinkTo onClick={handleToggleUserMenu}>Reseller</LinkTo>
               </Link>
             </MenuOpitionLi>
           )}

@@ -16,11 +16,11 @@ const CategoriesList = (props) => {
         <Fragment key={category._id}>
           <Link href='/category/[slug]' as={`/category/${category.slug}`}>
             <LinkTo>
-              <Wrapper>
+              <Wrapper bgImage={category.media.url}>
                 <CategoryName>
                   <span>{category.categoryName}</span>
                 </CategoryName>
-                <CategoryImage className='bgImage' src={category.media.url} />
+                <CategoryImage className='bgImage' bgImg={category.media.url} />
               </Wrapper>
             </LinkTo>
           </Link>

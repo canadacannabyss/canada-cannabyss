@@ -32,14 +32,17 @@ import GetShipping from './shipping/getShipping';
 import GetShippingAddresses from './shipping/getShippingAddresses';
 import SetShippingAddress from './shipping/setShippingAddress';
 import UpdateShipping from './shipping/updateShipping';
+
 import LoginAdminUserApi from './user/loginAdminUser';
 import LoginUserApi from './user/loginUser';
 import FetchLoginUserApi from './user/fetchLoginUser';
 import FetchLoginAdminUserApi from './user/fetchLoginAdminUser';
+import FetchLoginResellerUserApi from './user/fetchLoginResellerUser';
 import LoginUserProviderApi from './user/loginUserProvider';
 import LogoutUserApi from './user/logoutUser';
 import RefreshUserData from './user/refreshUserData';
 import RegisterAdminUserApi from './user/registerAdminUser';
+
 import GetBundlesCategoriesApi from './bundles/getBundlesCategories';
 import CreatePaymentMethodETransfer from './paymentMethod/createPaymentMethodETransfer';
 import SetPaymentMethodETransfer from './paymentMethod/setPaymentMethodETransfer';
@@ -75,6 +78,8 @@ import TakeAmountOfItemsPurchase from './cart/takeAmountOfItemsPurchased';
 import ApplyCouponOrder from './order/applyCouponOrder';
 import GetSearchItem from './search/getSearchItem';
 
+import GetCategories from './categories/getCategories';
+
 export default function* root() {
   yield all([
     takeLatest('REQUEST_GET_PRODUCT', GetProductApi),
@@ -88,6 +93,7 @@ export default function* root() {
     takeLatest('REQUEST_LOGIN_USER', LoginUserApi),
     takeLatest('REQUEST_FETCH_LOGIN_USER', FetchLoginUserApi),
     takeLatest('REQUEST_FETCH_LOGIN_ADMIN_USER', FetchLoginAdminUserApi),
+    takeLatest('REQUEST_FETCH_LOGIN_RESELLER_USER', FetchLoginResellerUserApi),
     takeLatest('REQUEST_LOGIN_USER_PROVIDER', LoginUserProviderApi),
     takeLatest('REQUEST_LOGOUT_USER', LogoutUserApi),
     takeLatest('REQUEST_REFRESH_USER_DATA', RefreshUserData),
@@ -179,5 +185,6 @@ export default function* root() {
     ),
     takeLatest('REQUEST_APPLY_COUPON_ORDER', ApplyCouponOrder),
     takeLatest('REQUEST_SEARCH_ITEM', GetSearchItem),
+    takeLatest('REQUEST_GET_CATEGORIES', GetCategories),
   ]);
 }

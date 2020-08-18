@@ -10,9 +10,10 @@ export const Wrapper = styled.div`
   height: 400px;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
+  position: relative;
   &:hover {
     .bgImage {
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
   @media (max-width: 1199px) {
@@ -26,23 +27,28 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const CategoryImage = styled.img`
+export const CategoryImage = styled.div`
   display: table;
   margin: 0 auto;
   width: 100%;
-  transform: translateY(-400px);
+  height: 100%;
+  background-image: ${(props) => `url('${props.bgImg}')`};
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   transition: all 0.2s ease-in-out;
+
   @media (max-width: 1199px) {
     height: 350px;
-    transform: translateY(-350px);
+    /* transform: translateY(-350px); */
   }
   @media (max-width: 575px) {
     height: 200px;
-    transform: translateY(-200px);
+    /* transform: translateY(-200px); */
   }
   @media (max-width: 440px) {
     height: 160px;
-    transform: translateY(-160px);
+    /* transform: translateY(-160px); */
   }
 `;
 
@@ -50,9 +56,11 @@ export const CategoryName = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  position: relative;
+  position: absolute;
   justify-content: center;
   align-items: center;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.2);
   span {
     position: absolute;
     top: 50%;
@@ -66,6 +74,5 @@ export const CategoryName = styled.div`
     background: #fff;
     z-index: 0;
     text-align: center;
-    box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.3);
   }
 `;

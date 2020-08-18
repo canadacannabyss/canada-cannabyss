@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { fadeText } from '../../Animations/Animations';
 
 export const Wrapper = styled.div`
-  margin: 50px auto;
+  margin: 40px auto 50px auto;
   width: 80%;
   @media (max-width: 991px) {
     width: 90%;
@@ -53,6 +53,7 @@ export const ListDiv = styled.div`
   }
   @media (max-width: 575px) {
     grid-template-columns: unset;
+    grid-template-rows: unset;
     grid-gap: 4px;
   }
 `;

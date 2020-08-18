@@ -9,6 +9,7 @@ import bundle from './bundle/bundle';
 import bundles from './bundles/bundles';
 import bundlesCategories from './bundles/bundlesCategories';
 import cart from './cart/cart';
+import categories from './categories/categories';
 import home from './home/home';
 import navbar from './navbar';
 import order from './order/order';
@@ -33,6 +34,7 @@ export default combineReducers({
   bundles,
   bundlesCategories,
   cart,
+  categories,
   home,
   navbar,
   order,
