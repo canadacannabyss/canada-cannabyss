@@ -337,24 +337,24 @@ const Coupon = () => {
             {applyCouponOn === 'items' && (
               <>
                 <ProductsList
-                  products={productsList}
+                  products={productsList.results}
                   handleGetElement={handleGetElement}
                 />
                 <BundlesList
-                  bundles={bundlesList}
+                  bundles={bundlesList.results}
                   handleGetElement={handleGetElement}
                 />
               </>
             )}
             {applyCouponOn === 'products' && (
               <ProductsList
-                products={productsList}
+                products={productsList.results}
                 handleGetElement={handleGetElement}
               />
             )}
             {applyCouponOn === 'bundles' && (
               <BundlesList
-                bundles={bundlesList}
+                bundles={bundlesList.results}
                 handleGetElement={handleGetElement}
               />
             )}

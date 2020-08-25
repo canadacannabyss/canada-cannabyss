@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import {
   Container,
   Delete,
@@ -21,23 +22,27 @@ const BundlesList = (props) => {
 
   return (
     <>
-      {bundles.map((bundle) => (
-        <Container
-          key={bundle._id}
-          id={bundle._id}
-          onClick={handleSelectProduct}
-        >
-          <Div>
-            {bundle.products.length > 0 && (
-              <DivImage
-                key={bundle._id}
-                backgroundImage={bundle.products[0].media[0].url}
-              />
-            )}
-          </Div>
-          <ProductName>{bundle.bundleName}</ProductName>
-        </Container>
-      ))}
+      {!_.isEmpty(bundles) && (
+        <>
+          {bundles.map((bundle) => (
+            <Container
+              key={bundle._id}
+              id={bundle._id}
+              onClick={handleSelectProduct}
+            >
+              <Div>
+                {bundle.products.length > 0 && (
+                  <DivImage
+                    key={bundle._id}
+                    backgroundImage={bundle.products[0].media[0].url}
+                  />
+                )}
+              </Div>
+              <ProductName>{bundle.bundleName}</ProductName>
+            </Container>
+          ))}
+        </>
+      )}
     </>
   );
 };

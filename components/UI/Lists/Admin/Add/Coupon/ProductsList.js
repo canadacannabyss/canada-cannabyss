@@ -15,16 +15,20 @@ const ProductsList = (props) => {
 
   return (
     <>
-      {products.map((product) => (
-        <Container
-          key={product._id}
-          id={product._id}
-          onClick={handleSelectProduct}
-        >
-          <ProductImage src={product.media[0].url} />
-          <ProductName>{product.productName}</ProductName>
-        </Container>
-      ))}
+      {!_.isEmpty(products) && (
+        <>
+          {products.map((product) => (
+            <Container
+              key={product._id}
+              id={product._id}
+              onClick={handleSelectProduct}
+            >
+              <ProductImage src={product.media[0].url} />
+              <ProductName>{product.productName}</ProductName>
+            </Container>
+          ))}
+        </>
+      )}
     </>
   );
 };
