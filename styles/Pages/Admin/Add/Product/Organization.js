@@ -10,10 +10,13 @@ export const Wrapper = styled.div`
 
 export const OrganizationDiv = styled.div`
   border: 1px solid #18840f66;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
   margin: 25px 0;
   padding: 10px 15px;
+  @media (max-width: 340px) {
+    border-radius: 0px;
+  }
 `;
 
 export const OrganizationH2 = styled.h2`

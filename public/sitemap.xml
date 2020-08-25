@@ -97,6 +97,10 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/account/address</loc>
   </url>
 
@@ -138,10 +142,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/account/update</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
