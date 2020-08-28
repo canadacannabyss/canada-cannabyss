@@ -25,6 +25,7 @@ import GetProductApi from './product/getProduct';
 import PostComment from './product/postComment';
 import UpdateHowManyViewedProductApi from './product/updateHowManyViewed';
 import GetProductsApi from './products/getProducts';
+
 import CreateShipping from './shipping/createShipping';
 import CreateShippingCheckout from './shipping/createShippingCheckout';
 import DeleteShipping from './shipping/deleteShipping';
@@ -32,6 +33,7 @@ import GetShipping from './shipping/getShipping';
 import GetShippingAddresses from './shipping/getShippingAddresses';
 import SetShippingAddress from './shipping/setShippingAddress';
 import UpdateShipping from './shipping/updateShipping';
+import ResetShipping from './shipping/resetShipping';
 
 import LoginAdminUserApi from './user/loginAdminUser';
 import LoginUserApi from './user/loginUser';
@@ -68,7 +70,6 @@ import GetRecommendedProducts from './thankYou/getRecommendedProducts';
 import UpdateShippingHandlingOrder from './order/updateShippingHandlingOrder';
 import ResetShippingHandlingOrder from './order/resetShippingHandlingOrder';
 import ResetBilling from './billing/resetBilling';
-import ResetShipping from './shipping/resetShipping';
 import UpdateTotalBeforeTaxOrder from './order/updateTotalBeforeTaxOrder';
 import UpdateGstHstTaxOrder from './order/updateGstHstTaxOrder';
 import UpdatePstRstTaxOrder from './order/updatePstRstTaxOrder';

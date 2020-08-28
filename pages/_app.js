@@ -8,9 +8,6 @@ import Logo from '../assets/img/canada-cannabyss-logo.svg';
 import createStore from '../store';
 import { loginUser } from '../store/actions/user/user';
 import '../styles/_app.css';
-
-let count = 0;
-
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -20,12 +17,6 @@ class MyApp extends App {
     }
 
     const { store } = ctx;
-
-    if (count === 0) {
-      console.log('count');
-      // store.dispatch(loginUser());
-      count++;
-    }
 
     return { pageProps };
   }
