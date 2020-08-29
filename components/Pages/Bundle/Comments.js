@@ -64,7 +64,7 @@ const Comments = (props) => {
                     </LinkToProfile>
 
                     <PostedOn>
-                      {formatter.formatDateFullDate(comment.publishedOn)}
+                      {formatter.formatDateFullDate(comment.createdOn)}
                     </PostedOn>
                   </li>
                 </ul>

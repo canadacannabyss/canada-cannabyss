@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Head from 'next/head';
+import Link from 'next/link';
 import Carousel from 'nuka-carousel';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
@@ -29,6 +30,7 @@ import {
   QuantityInput,
   DisabledAddToCart,
   Wrapper,
+  TagsDiv,
   LoadingProductName,
   LoadingProductPrice,
   LoadingProductDescription,
@@ -477,6 +479,15 @@ const Product = (props) => {
                 path={`https://canadacannabyss.com${props.pathname}`}
                 size={32}
               />
+              <TagsDiv>
+                {product.data.organization.tags.map((tag) => (
+                  <Link href='/tag/[slug]' as={`/tag/${tag.slug}`}>
+                    <a>
+                      <p>{tag.tagName}</p>
+                    </a>
+                  </Link>
+                ))}
+              </TagsDiv>
               <Comments productId={product.data._id} />
             </Wrapper>
           </>

@@ -1,8 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   margin: 25px auto;
-  width: 80%;
+  width: 1200px;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
+  @media (max-width: 991px) {
+    width: 90%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -10,7 +16,7 @@ export const Title = styled.h1`
   text-align: center;
   margin-bottom: 10px;
   &::after {
-    content: "";
+    content: '';
     height: 2px;
     width: 50px;
     background: #18840f;

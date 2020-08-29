@@ -3,7 +3,10 @@ import { spin } from '../../Animations/Animations';
 
 export const Wrapper = styled.div`
   margin: 40px auto;
-  width: 80%;
+  width: 1200px;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 991px) {
     width: 90%;
   }

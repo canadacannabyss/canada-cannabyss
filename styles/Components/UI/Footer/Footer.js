@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterDiv = styled.footer`
   position: relative;
@@ -9,9 +9,12 @@ export const FooterDiv = styled.footer`
 
 export const FooterGrid = styled.div`
   margin: 0 auto;
-  width: 80%;
+  width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 991px) {
     width: 90%;
     grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;

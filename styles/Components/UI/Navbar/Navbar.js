@@ -22,11 +22,14 @@ export const TopGroup = styled.div`
 `;
 
 export const TopGroupWapper = styled.div`
-  width: 80%;
+  width: 1200px;
   height: 56px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 991px) {
     width: 90%;
   }
@@ -79,12 +82,15 @@ export const BottomGroupSearch = styled.div`
 `;
 
 export const BottomGroupWrapper = styled.div`
-  width: 80%;
+  width: 1200px;
   height: 40px;
   margin: 0 auto;
   background: #f1f1f1;
   display: flex;
   flex-direction: row;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 991px) {
     width: 90%;
   }
@@ -106,9 +112,12 @@ export const Nav = styled.div`
   display: grid;
   grid-template-columns: 6% 32% 37% 23%;
   margin: 0 auto;
-  width: 80%;
+  width: 1200px;
   padding: 13px 0;
   grid-gap: 5px;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 1199px) {
     grid-template-columns: 6% 32% 37% 23%;
   }

@@ -173,11 +173,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
+    <loc>https://canadacannabyss.com/products/index</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/products/index</loc>
+    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
   </url>
 
   <url>

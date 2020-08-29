@@ -3,7 +3,10 @@ import { fadeText } from '../../Animations/Animations';
 
 export const Wrapper = styled.div`
   margin: 40px auto 20px auto;
-  width: 80%;
+  width: 1200px;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 991px) {
     width: 90%;
   }
@@ -359,6 +362,26 @@ export const DisabledAddToCart = styled.button`
   cursor: pointer;
   &:focus {
     outline: none;
+  }
+`;
+
+export const TagsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  a {
+    text-decoration: none;
+    border-radius: 2px;
+    background: #f1f1f1;
+    padding: 6px 8px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    p {
+      color: #5a5a5a;
+      font-size: 16px;
+    }
   }
 `;
 

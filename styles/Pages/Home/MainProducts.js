@@ -5,11 +5,14 @@ import styled from 'styled-components';
 import { loadingTiles, fadeText } from '../../Animations/Animations';
 
 export const TopProduct = styled.div`
-  width: 80%;
+  width: 1200px;
   margin: 20px auto 30px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 7px;
+  @media (max-width: 1460px) {
+    width: 80%;
+  }
   @media (max-width: 991px) {
     width: 90%;
   }

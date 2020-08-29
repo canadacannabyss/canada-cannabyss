@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import Font from '../utils/fontLoader';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -12,6 +13,10 @@ export default class MyDocument extends Document {
     const styleTags = sheet.getStyleElement();
 
     return { ...page, styleTags };
+  }
+
+  componentDidMount() {
+    Font();
   }
 
   render() {
