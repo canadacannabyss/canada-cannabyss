@@ -111,8 +111,12 @@ export const PromotionHeader = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
+  width: 1200px;
   height: 200px;
+  margin: 0 auto;
+  @media (max-width: 1460px) {
+    width: 100%;
+  }
 `;
 
 export const LoadingPromotionHeader = styled.div`

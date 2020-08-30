@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import {
   Wrapper,
+  WrapperList,
   WrapperHeader,
   PromotionHeader,
   PromotionHeaderBg,
@@ -59,28 +60,30 @@ const Promotion = (props) => {
           </PromotionHeader>
         )}
       <Wrapper>
-        {promotion.loading && (
-          <>
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-            <LoadingPromotionHeader />
-          </>
-        )}
-        {promotion.fetched &&
-          !_.isEmpty(promotion.data) &&
-          !promotion.error &&
-          !promotion.loading && (
-            <ProductsList products={promotion.data.products} />
+        <WrapperList>
+          {promotion.loading && (
+            <>
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+              <LoadingPromotionHeader />
+            </>
           )}
+          {promotion.fetched &&
+            !_.isEmpty(promotion.data) &&
+            !promotion.error &&
+            !promotion.loading && (
+              <ProductsList products={promotion.data.products} />
+            )}
+        </WrapperList>
       </Wrapper>
     </Layout>
   );

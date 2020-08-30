@@ -34,7 +34,7 @@ const ProductsList = (props) => {
               </a>
             </Link>
           </Div>
-          <ProductName>{product.productName}</ProductName>
+          <ProductName className='name'>{product.productName}</ProductName>
           <DivButtons>
             <div>
               <Link
