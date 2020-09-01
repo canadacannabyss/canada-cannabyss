@@ -50,6 +50,7 @@ import Layout from '../../Layout';
 import ShareButtons from '../../UI/Buttons/ShareButtons/ShareButtons';
 import Comments from './Comments';
 import ExtraInfo from './ExtraInfo';
+import ProductsUser from './ProductsUser';
 
 let count = 0;
 
@@ -57,13 +58,14 @@ const mapStateToProps = (state) => {
   const { product, user, cart } = state;
   return {
     product: product.product,
+    resellerProducts: product.resellerProducts,
     user,
     cart,
   };
 };
 
 const Product = (props) => {
-  const { product, user, cart } = props;
+  const { product, resellerProducts, user, cart } = props;
   const dispatch = useDispatch();
   const roundFloatNumber = new RoundFloatNumber();
 
@@ -488,6 +490,12 @@ const Product = (props) => {
                   </Link>
                 ))}
               </TagsDiv>
+              {product.data.user.isReseller && (
+                <ProductsUser
+                  user={product.data.user}
+                  resellerProducts={resellerProducts}
+                />
+              )}
               <Comments productId={product.data._id} />
             </Wrapper>
           </>

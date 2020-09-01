@@ -6,6 +6,7 @@ import {
   DiscountPricesDiv,
   BundleNewPriceDiscount,
   BundleOldPriceDiscount,
+  DivScroll,
   Grid,
   LinkTo,
   DiscountPercentage,
@@ -39,13 +40,15 @@ const BundlesList = (props) => {
                     </DiscountPercentage>
                   )}
                 {bundle.products.length > 0 ? (
-                  <Grid productLength={bundle.length}>
-                    {bundle.products.map((product) => (
-                      <div key={product._id}>
-                        <ProductImage src={product.media[0].url} />
-                      </div>
-                    ))}
-                  </Grid>
+                  <DivScroll>
+                    <Grid productLength={bundle.length}>
+                      {bundle.products.map((product) => (
+                        <div key={product._id}>
+                          <ProductImage src={product.media[0].url} />
+                        </div>
+                      ))}
+                    </Grid>
+                  </DivScroll>
                 ) : (
                   <EmptyProducts>
                     <p>No products</p>

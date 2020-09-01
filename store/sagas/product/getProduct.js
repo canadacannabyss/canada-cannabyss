@@ -54,6 +54,23 @@ async function getCommentsProductApi(productId) {
   return data;
 }
 
+async function getResellerProductsApi(userId) {
+  const res = await fetch(
+    `${process.env.MAIN_API_ENDPOINT}/resellers/product/products/${userId}`,
+    {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  const data = await res.json();
+  return data;
+}
+
 export default function* asyncGetProductApi(action) {
   try {
     const response = yield call(getProductApi, action.payload.slug);
@@ -62,16 +79,19 @@ export default function* asyncGetProductApi(action) {
     const responseComments = yield call(getCommentsProductApi, response._id);
     console.log('comments:', responseComments);
 
-    // const responseRelatedPosts = yield call(
-    //   getRelatedProductApi,
-    //   response.category,
-    //   action.payload.slug
-    // );
+    const responseReseller = yield call(
+      getResellerProductsApi,
+      response.user._id
+    );
 
     yield put({ type: 'SUCCESS_GET_PRODUCT', payload: { data: response } });
     yield put({
       type: 'SUCCESS_GET_ALL_COMMENTS_PRODUCT',
       payload: { data: responseComments },
+    });
+    yield put({
+      type: 'SUCCESS_GET_RESELLER_PRODUCTS',
+      payload: { data: responseReseller },
     });
   } catch (err) {
     console.log('err:', err);

@@ -7,6 +7,12 @@ const initialState = {
     fetched: false,
     error: false,
   },
+  resellerProducts: {
+    data: [],
+    loading: false,
+    fetched: false,
+    error: false,
+  },
   relatedPosts: {
     data: [],
     loading: false,
@@ -124,6 +130,28 @@ export default function product(state = initialState, action) {
     case 'FAILURE_POST_COMMENT':
       return update(state, {
         comments: {
+          fetched: { $set: true },
+          error: { $set: true },
+        },
+      });
+    case 'REQUEST_GET_RESELLER_PRODUCTS':
+      return update(state, {
+        resellerProducts: {
+          loading: { $set: true },
+        },
+      });
+    case 'SUCCESS_GET_RESELLER_PRODUCTS':
+      return update(state, {
+        resellerProducts: {
+          data: { $set: action.payload.data },
+          loading: { $set: false },
+          fetched: { $set: true },
+          error: { $set: false },
+        },
+      });
+    case 'FAILURE_GET_RESELLER_PRODUCTS':
+      return update(state, {
+        resellerProducts: {
           fetched: { $set: true },
           error: { $set: true },
         },

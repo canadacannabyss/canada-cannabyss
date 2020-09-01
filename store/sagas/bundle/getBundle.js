@@ -54,24 +54,42 @@ async function getCommentsBundleApi(bundleId) {
   return data;
 }
 
+async function getResellerBundlesApi(userId) {
+  const res = await fetch(
+    `${process.env.MAIN_API_ENDPOINT}/resellers/bundle/bundles/${userId}`,
+    {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  const data = await res.json();
+  return data;
+}
+
 export default function* asyncGetBundleApi(action) {
   try {
     const response = yield call(getBundleApi, action.payload.slug);
-    console.log('product id:', response);
 
     const responseComments = yield call(getCommentsBundleApi, response._id);
-    console.log('comments:', responseComments);
 
-    // const responseRelatedPosts = yield call(
-    //   getRelatedBundleApi,
-    //   response.category,
-    //   action.payload.slug
-    // );
+    const responseReseller = yield call(
+      getResellerBundlesApi,
+      response.user._id
+    );
 
     yield put({ type: 'SUCCESS_GET_BUNDLE', payload: { data: response } });
     yield put({
       type: 'SUCCESS_GET_ALL_COMMENTS_BUNDLE',
       payload: { data: responseComments },
+    });
+    yield put({
+      type: 'SUCCESS_GET_RESELLER_BUNDLES',
+      payload: { data: responseReseller },
     });
   } catch (err) {
     console.log('err:', err);

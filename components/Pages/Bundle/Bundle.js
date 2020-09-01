@@ -45,18 +45,20 @@ import Layout from '../../Layout';
 import ExtraInfo from '../../Pages/Product/ExtraInfo';
 import ShareButtons from '../../UI/Buttons/ShareButtons/ShareButtons';
 import Comments from '../Bundle/Comments';
+import BundlesUser from './BundlesUser';
 
 const mapStateToProps = (state) => {
   const { bundle, cart, user } = state;
   return {
     bundle: bundle.bundle,
+    resellerBundles: bundle.resellerBundles,
     cart,
     user,
   };
 };
 
 const Bundle = (props) => {
-  const { pathname, bundle, cart, user } = props;
+  const { pathname, resellerBundles, bundle, cart, user } = props;
   const dispatch = useDispatch();
   const roundFloatNumber = new RoundFloatNumber();
 
@@ -258,6 +260,13 @@ const Bundle = (props) => {
                 path={`https://canadacannabyss.com${pathname}`}
                 size={32}
               />
+
+              {bundle.data.user.isReseller && (
+                <BundlesUser
+                  user={bundle.data.user}
+                  resellerBundles={resellerBundles}
+                />
+              )}
               <Comments bundleId={bundle.data._id} />
             </Wrapper>
           </>

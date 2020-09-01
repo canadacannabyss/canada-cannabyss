@@ -37,3 +37,12 @@ export function postComment(userId, productId, comment, stars) {
     },
   };
 }
+
+export function getResellerProducts(userId) {
+  return {
+    type: 'REQUEST_GET_RESELLER_PRODUCTS',
+    payload: {
+      userId,
+    },
+  };
+}

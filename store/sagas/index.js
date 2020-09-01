@@ -78,12 +78,14 @@ import UpdateOrderValues from './order/updateOrderValues';
 import TakeAmountOfItemsPurchase from './cart/takeAmountOfItemsPurchased';
 import ApplyCouponOrder from './order/applyCouponOrder';
 import GetSearchItem from './search/getSearchItem';
+import GetResellerProducts from './product/getResellerProducts';
 
 import GetCategories from './categories/getCategories';
 
 export default function* root() {
   yield all([
     takeLatest('REQUEST_GET_PRODUCT', GetProductApi),
+    takeLatest('REQUEST_GET_RESELLER_PRODUCTS', GetResellerProducts),
     takeLatest('REQUEST_GET_PRODUCTS', GetProductsApi),
     takeLatest('REQUEST_GET_PRODUCTS_CATEGORIES', GetProductsCategoriesApi),
     takeLatest('REQUEST_GET_BUNDLES', GetBundlesApi),

@@ -41,6 +41,10 @@ export const LoadingH1 = styled.h1`
   }
 `;
 
+export const DivScroll = styled.div`
+  height: 300px;
+`;
+
 export const DivGrid = styled.div`
   display: flex;
   justify-content: space-evenly;

@@ -20,6 +20,14 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const DivScroll = styled.div`
+  max-height: 275px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const Grid = styled.div`
   display: flex;
   align-items: center;
@@ -44,7 +52,7 @@ export const EmptyProducts = styled.div`
 
 export const ComboName = styled.h3`
   font-size: 16px;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 `;
 
 export const ComboPrice = styled.p`

@@ -37,3 +37,12 @@ export function postCommentBundle(userId, bundleId, comment, stars) {
     },
   };
 }
+
+export function getResellerBundles(userId) {
+  return {
+    type: 'REQUEST_GET_RESELLER_BUNDLES',
+    payload: {
+      userId,
+    },
+  };
+}

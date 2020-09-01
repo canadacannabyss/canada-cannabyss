@@ -7,6 +7,12 @@ const initialState = {
     fetched: false,
     error: false,
   },
+  resellerBundles: {
+    data: [],
+    loading: false,
+    fetched: false,
+    error: false,
+  },
   relatedBundles: {
     data: [],
     loading: false,
@@ -124,6 +130,28 @@ export default function bundle(state = initialState, action) {
     case 'FAILURE_POST_COMMENT_BUNDLES':
       return update(state, {
         comments: {
+          fetched: { $set: true },
+          error: { $set: true },
+        },
+      });
+    case 'REQUEST_GET_RESELLER_BUNDLES':
+      return update(state, {
+        resellerBundles: {
+          loading: { $set: true },
+        },
+      });
+    case 'SUCCESS_GET_RESELLER_BUNDLES':
+      return update(state, {
+        resellerBundles: {
+          data: { $set: action.payload.data },
+          loading: { $set: false },
+          fetched: { $set: true },
+          error: { $set: false },
+        },
+      });
+    case 'FAILURE_GET_RESELLER_BUNDLES':
+      return update(state, {
+        resellerBundles: {
           fetched: { $set: true },
           error: { $set: true },
         },
