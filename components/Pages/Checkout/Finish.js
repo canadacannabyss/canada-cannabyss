@@ -18,6 +18,7 @@ import {
   removeCart,
   takeAmountOfItemsPurchase,
 } from '../../../store/actions/cart/cart';
+import CartList from '../../UI/Lists/Checkout/CartList';
 
 import Layout from '../../Layout';
 
@@ -69,6 +70,9 @@ const Finish = (props) => {
     if (order.data.completed && cart.data.completed) {
       Router.push('/thank-you');
     }
+    if (_.isEmpty(cart.data.items)) {
+      Router.push('/');
+    }
   }, [order, cart]);
 
   const handleCompleteOrder = () => {
@@ -107,6 +111,52 @@ const Finish = (props) => {
         </CheckoutProcessStep>
         <FinishPricesDiv>
           <FinishDiv>
+            <Div id='div-cart'>
+              <TitleDiv>
+                <ShippingBillingPaymentMethodH2>
+                  Items on cart
+                </ShippingBillingPaymentMethodH2>
+                {!order.loading && <FaPen />}
+              </TitleDiv>
+              {order.loading ? (
+                <>
+                  <LoadingLabel width='75px' />
+                  <LoadingP />
+                  <LoadingLabel width='75px' />
+                  <LoadingP />
+                  <LoadingLabel width='65px' />
+                  <LoadingP />
+                  <LoadingLabel width='100px' />
+                  <LoadingP />
+                  <LoadingLabel width='35px' />
+                  <LoadingP />
+                  <LoadingLabel width='85px' />
+                  <LoadingP />
+                  <LoadingLabel width='85px' />
+                  <LoadingP />
+                  <LoadingLabel width='80px' />
+                  <LoadingP />
+                </>
+              ) : (
+                <>
+                  {order.fetched && (
+                    <>
+                      {!_.isEmpty(cart.data) ? (
+                        <>
+                          <CartList items={cart.data.items} />
+                        </>
+                      ) : (
+                        <>
+                          <P>
+                            <strong>Error</strong>
+                          </P>
+                        </>
+                      )}
+                    </>
+                  )}
+                </>
+              )}
+            </Div>
             <Div id='div-shipping'>
               <TitleDiv>
                 <ShippingBillingPaymentMethodH2>

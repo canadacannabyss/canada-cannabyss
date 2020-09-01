@@ -97,10 +97,6 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/admin/analytics</loc>
   </url>
 
@@ -142,6 +138,10 @@
 
   <url>
     <loc>https://canadacannabyss.com/admin/resellers</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
@@ -189,6 +189,18 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/reset-password/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/reset-password/[token]</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/admin/add/banner</loc>
   </url>
 
@@ -217,15 +229,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/reset-password/index</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/reset-password/[token]</loc>
+    <loc>https://canadacannabyss.com/products/category/[slug]</loc>
   </url>
 
   <url>
@@ -234,10 +238,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/products/category/[slug]</loc>
   </url>
 
   <url>
