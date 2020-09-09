@@ -56,7 +56,7 @@ const RegisterReferral = (props) => {
 
   const verifyReferralApi = async () => {
     const res = await fetch(
-      `${process.env.USER_API_ENDPOINT}/referral/verify?referral=${referral}`,
+      `${process.env.USER_API_ENDPOINT}/referral/customer/verify?referral=${referral}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -75,7 +75,7 @@ const RegisterReferral = (props) => {
 
   const getReferralUser = async () => {
     const res = await fetch(
-      `${process.env.USER_API_ENDPOINT}/referral/user?referral=${referral}`,
+      `${process.env.USER_API_ENDPOINT}/referral/customer?referral=${referral}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -94,7 +94,7 @@ const RegisterReferral = (props) => {
 
   const fetchRegisterUserReferral = async (userInfoObj) => {
     const response = await fetch(
-      `${process.env.USER_API_ENDPOINT}/auth/register/referral`,
+      `${process.env.USER_API_ENDPOINT}/customers/auth/register/referral`,
       {
         method: 'POST',
         mode: 'cors',

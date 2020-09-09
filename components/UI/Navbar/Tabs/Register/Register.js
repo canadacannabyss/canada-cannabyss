@@ -123,7 +123,7 @@ const RegisterModal = (props) => {
 
   const fetchRegisterUser = async (userInfoObj) => {
     const response = await fetch(
-      `${process.env.USER_API_ENDPOINT}/auth/register`,
+      `${process.env.USER_API_ENDPOINT}/customers/auth/register`,
       {
         method: 'POST',
         mode: 'cors',
@@ -160,7 +160,7 @@ const RegisterModal = (props) => {
   const handleSendResetPasswordEmail = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `${process.env.USER_API_ENDPOINT}/auth/reset-password/sent`,
+      `${process.env.USER_API_ENDPOINT}/customers/auth/reset-password/sent`,
       {
         method: 'POST',
         mode: 'cors',
@@ -193,7 +193,7 @@ const RegisterModal = (props) => {
 
   const checkValidUser = async (userInfoObj) => {
     const response = await fetch(
-      `${process.env.USER_API_ENDPOINT}/auth/register`,
+      `${process.env.USER_API_ENDPOINT}/customers/auth/register`,
       {
         method: 'POST',
         mode: 'cors',

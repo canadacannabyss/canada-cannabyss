@@ -141,11 +141,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundles/index</loc>
+    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
+    <loc>https://canadacannabyss.com/bundles/index</loc>
   </url>
 
   <url>
@@ -169,14 +169,6 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/product/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/products/index</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/promotion/[slug]</loc>
   </url>
 
@@ -185,7 +177,35 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/products/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/product/[slug]</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/reset-password/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/reset-password/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/reset-password/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
   </url>
 
   <url>
@@ -217,31 +237,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/confirmation/[token]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/reset-password/index</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/reset-password/[token]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
+    <loc>https://canadacannabyss.com/reseller/registration/[token]</loc>
   </url>
 
   <url>
     <loc>https://canadacannabyss.com/products/category/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/reseller/registration/[token]</loc>
   </url>
 
   <url>

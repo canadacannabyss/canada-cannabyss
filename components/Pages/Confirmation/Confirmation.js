@@ -28,7 +28,7 @@ const Confirmation = (props) => {
     const fetchConfirmAccount = async () => {
       setLoading(true);
       const response = await fetch(
-        `${process.env.USER_API_ENDPOINT}/auth/confirmation/${token}`,
+        `${process.env.USER_API_ENDPOINT}/customers/auth/confirmation/${token}`,
         {
           method: 'GET',
           mode: 'cors',
@@ -40,28 +40,6 @@ const Confirmation = (props) => {
         }
       );
       const data = await response.json();
-      // if (
-      //   data.error !== null ||
-      //   data.error !== undefined ||
-      //   data.error.length > 0
-      // ) {
-      //   setWarning(true);
-      //   setServerErrorMessage(data.error);
-      // } else if (
-      //   data.notValid !== null ||
-      //   data.notValid !== undefined ||
-      //   data.notValid.length > 0
-      // ) {
-      //   setWarning(true);
-      //   setServerErrorMessage(data.notValid);
-      // } else {
-      //   if (_.isEmpty(data)) {
-      //     setWarning(true);
-      //   } else {
-      //     setWarning(false);
-      //   }
-      // }
-      // setUser(data);
       if (data._id) {
         setSuccess(true);
         setUser(data);

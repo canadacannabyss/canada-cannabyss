@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function refreshUserDataApi(id) {
   const res = await fetch(
-    `${process.env.USER_API_ENDPOINT}/auth/user/refresh`,
+    `${process.env.USER_API_ENDPOINT}/customers/auth/user/refresh`,
     {
       method: 'POST',
       mode: 'cors',

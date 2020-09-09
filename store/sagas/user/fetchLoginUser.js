@@ -2,16 +2,19 @@ import _ from 'lodash';
 import { call, put } from 'redux-saga/effects';
 
 async function fetchLoginUserApi(userInfo) {
-  const response = await fetch(`${process.env.USER_API_ENDPOINT}/auth/login`, {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userInfo),
-  });
+  const response = await fetch(
+    `${process.env.USER_API_ENDPOINT}/customers/auth/login`,
+    {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    }
+  );
   const data = await response.json();
   return data;
 }
@@ -19,7 +22,7 @@ async function fetchLoginUserApi(userInfo) {
 async function fetchLoginLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('accessToken')}`;
   const res = await fetch(
-    `${process.env.USER_API_ENDPOINT}/auth/decode/token`,
+    `${process.env.USER_API_ENDPOINT}/customers/auth/decode/token`,
     {
       method: 'POST',
       mode: 'cors',
