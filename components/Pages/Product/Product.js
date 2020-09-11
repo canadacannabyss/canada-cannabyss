@@ -490,12 +490,13 @@ const Product = (props) => {
                   </Link>
                 ))}
               </TagsDiv>
-              {product.data.user.isReseller && (
-                <ProductsUser
-                  user={product.data.user}
-                  resellerProducts={resellerProducts}
-                />
-              )}
+              {product.data.reseller &&
+                !product.data.reseller.isCanadaCannabyssTeam && (
+                  <ProductsUser
+                    user={product.data.reseller}
+                    resellerProducts={resellerProducts}
+                  />
+                )}
               <Comments productId={product.data._id} />
             </Wrapper>
           </>

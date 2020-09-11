@@ -27,7 +27,6 @@ const ProductUser = (props) => {
 
   return (
     <Wrapper>
-      <SellerTitle>Seller:</SellerTitle>
       <Seller>
         <div
           className='image'

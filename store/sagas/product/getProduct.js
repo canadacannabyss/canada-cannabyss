@@ -74,15 +74,17 @@ async function getResellerProductsApi(userId) {
 export default function* asyncGetProductApi(action) {
   try {
     const response = yield call(getProductApi, action.payload.slug);
-    console.log('product id:', response);
 
     const responseComments = yield call(getCommentsProductApi, response._id);
     console.log('comments:', responseComments);
 
+    console.log('response reseller:', response);
     const responseReseller = yield call(
       getResellerProductsApi,
-      response.user._id
+      response.reseller._id
     );
+
+    console.log('reseller prodyct response:', responseReseller);
 
     yield put({ type: 'SUCCESS_GET_PRODUCT', payload: { data: response } });
     yield put({

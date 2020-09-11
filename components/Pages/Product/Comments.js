@@ -52,14 +52,14 @@ const Comments = (props) => {
                 <ul>
                   <li className='img-li'>
                     <LinkToProfile>
-                      <AuthorPicture src={comment.user.profileImage.url} />
+                      <AuthorPicture src={comment.customer.profileImage.url} />
                     </LinkToProfile>
                   </li>
                   <li className='user-info'>
                     <LinkToProfile>
                       <AuthorName>
-                        {comment.user.names.firstName}{' '}
-                        {comment.user.names.lastName}
+                        {comment.customer.names.firstName}{' '}
+                        {comment.customer.names.lastName}
                       </AuthorName>
                     </LinkToProfile>
 
