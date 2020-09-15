@@ -46,9 +46,15 @@ import RefreshUserData from './user/refreshUserData';
 import RegisterAdminUserApi from './user/registerAdminUser';
 
 import GetBundlesCategoriesApi from './bundles/getBundlesCategories';
+
 import CreatePaymentMethodETransfer from './paymentMethod/createPaymentMethodETransfer';
 import SetPaymentMethodETransfer from './paymentMethod/setPaymentMethodETransfer';
 import GetPaymentMethodETransfer from './paymentMethod/getPaymentMethodETransfer';
+
+import CreatePaymentMethodCryptocurrency from './paymentMethod/createPaymentMethodCryptocurrency';
+import SetPaymentMethodCryptocurrency from './paymentMethod/setPaymentMethodCryptocurrency';
+import GetPaymentMethodCryptocurrency from './paymentMethod/getPaymentMethodCryptocurrency';
+
 import UpdatePaymentMethodOrder from './order/updatePaymentMethod';
 import UpdateCompletedOrder from './order/updateCompletedOrder';
 import UpdateCompletedCart from './cart/updateCompletedCart';
@@ -145,6 +151,18 @@ export default function* root() {
     takeLatest(
       'REQUEST_GET_E_TRANSFER_AS_PAYMENT_METHOD',
       GetPaymentMethodETransfer
+    ),
+    takeLatest(
+      'REQUEST_CREATE_CRYPTO_CURRENCY_AS_PAYMENT_METHOD',
+      CreatePaymentMethodCryptocurrency
+    ),
+    takeLatest(
+      'REQUEST_SET_CRYPTO_CURRENCY_AS_PAYMENT_METHOD',
+      SetPaymentMethodCryptocurrency
+    ),
+    takeLatest(
+      'REQUEST_GET_CRYPTO_CURRENCY_AS_PAYMENT_METHOD',
+      GetPaymentMethodCryptocurrency
     ),
     takeLatest('REQUEST_UPDATE_PAYMENT_METHOD_ORDER', UpdatePaymentMethodOrder),
     takeLatest('REQUEST_UPDATE_COMPLETED_ORDER', UpdateCompletedOrder),

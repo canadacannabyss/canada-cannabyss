@@ -53,7 +53,47 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundles/index</loc>
+    <loc>https://canadacannabyss.com/admin/analytics</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/bundles</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/categories</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/coupons</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/login</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/orders</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/products</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/promotions</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/register</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/admin/resellers</loc>
   </url>
 
   <url>
@@ -101,51 +141,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/admin/analytics</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/bundles</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/categories</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/coupons</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/index</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/login</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/orders</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/products</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/promotions</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/register</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/admin/resellers</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/bundle/[slug]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/bundles/index</loc>
   </url>
 
   <url>
@@ -173,11 +173,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
+    <loc>https://canadacannabyss.com/products/index</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/products/index</loc>
+    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
   </url>
 
   <url>
@@ -186,10 +186,6 @@
 
   <url>
     <loc>https://canadacannabyss.com/reset-password/[token]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
   </url>
 
   <url>
@@ -230,6 +226,10 @@
 
   <url>
     <loc>https://canadacannabyss.com/admin/reset-password/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
   </url>
 
   <url>

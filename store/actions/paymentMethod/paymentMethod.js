@@ -29,12 +29,32 @@ export function setCreditCardAsPaymentMethod(orderId, billingId) {
   };
 }
 
+export function createCryptoCurrencyAsPaymentMethod(userId, cryptocurrency) {
+  return {
+    type: 'REQUEST_CREATE_CRYPTO_CURRENCY_AS_PAYMENT_METHOD',
+    payload: {
+      userId,
+      cryptocurrency,
+    },
+  };
+}
+
 export function setCryptoCurrencyAsPaymentMethod(orderId, billingId) {
   return {
     type: 'REQUEST_SET_CRYPTO_CURRENCY_AS_PAYMENT_METHOD',
     payload: {
       orderId,
       billingId,
+    },
+  };
+}
+
+export function getCryptoCurrencyAsPaymentMethod(userId, cryptocurrency) {
+  return {
+    type: 'REQUEST_GET_CRYPTO_CURRENCY_AS_PAYMENT_METHOD',
+    payload: {
+      userId,
+      cryptocurrency,
     },
   };
 }

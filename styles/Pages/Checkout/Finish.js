@@ -127,7 +127,7 @@ export const SubTotalDiv = styled.div`
   }
 `;
 
-export const Values = styled.p`
+export const ValuesP = styled.p`
   margin-bottom: 1rem;
 `;
 

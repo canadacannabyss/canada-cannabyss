@@ -32,9 +32,9 @@ const OrderDetails = (props) => {
             order.paymentMethod.card.id !== null && (
               <Status>Credit Card</Status>
             )}
-          {order.paymentMethod.cryptoCurrency.currency !== null &&
-            order.paymentMethod.cryptoCurrency.id && (
-              <Status>Crypto Currency</Status>
+          {order.paymentMethod.cryptocurrency.symbol !== null &&
+            order.paymentMethod.cryptocurrency.address && (
+              <Status>Cryptocurrency</Status>
             )}
           {order.paymentMethod.eTransfer && <Status>e-Transfer</Status>}
           <Label>Payment Status</Label>

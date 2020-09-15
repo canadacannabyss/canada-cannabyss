@@ -27,47 +27,25 @@ const mapStateToProps = (state) => {
   };
 };
 
-const ThankYouPage = (props) => {
-  const { order, cart, thankYou } = props;
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (
-      order.fetched &&
-      !_.isEmpty(order.data) &&
-      cart.fetched &&
-      !_.isEmpty(cart.data)
-    ) {
-      if (order.data.completed && cart.data.completed) {
-        dispatch(removeOrder());
-        dispatch(removeCart());
-        dispatch(resetBilling());
-        dispatch(resetShipping());
-      }
-    }
-  }, []);
-
-  return (
-    <Layout>
-      <Head>
-        <title>Thank you for your order</title>
-      </Head>
-      <Wrapper>
-        <ThankYouPlate>
-          <ThankYouTitle>Thank you for your order</ThankYouTitle>
-        </ThankYouPlate>
-        <MoreProduct>
-          Here it is a few more things you might like as well
-        </MoreProduct>
-        <GridDiv>
-          {thankYou.fetched && !_.isEmpty(thankYou.data) && !thankYou.error && (
-            <ThankYouList products={thankYou.data} />
-          )}
-        </GridDiv>
-      </Wrapper>
-    </Layout>
-  );
-};
+const ThankYouPage = ({ order, cart, thankYou }) => (
+  <Layout>
+    <Head>
+      <title>Thank you for your order</title>
+    </Head>
+    <Wrapper>
+      <ThankYouPlate>
+        <ThankYouTitle>Thank you for your order</ThankYouTitle>
+      </ThankYouPlate>
+      <MoreProduct>
+        Here it is a few more things you might like as well
+      </MoreProduct>
+      <GridDiv>
+        {thankYou.fetched && !_.isEmpty(thankYou.data) && !thankYou.error && (
+          <ThankYouList products={thankYou.data} />
+        )}
+      </GridDiv>
+    </Wrapper>
+  </Layout>
+);
 
 export default connect(mapStateToProps)(ThankYouPage);

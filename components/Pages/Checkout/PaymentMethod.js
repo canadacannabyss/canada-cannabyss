@@ -3,23 +3,15 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { FaBitcoin, FaCreditCard, FaStream, FaFile } from 'react-icons/fa';
+import { FaCreditCard, FaStream, FaFile } from 'react-icons/fa';
 import { connect, useDispatch } from 'react-redux';
-import InteracLogo from '../../../assets/img/interac.svg';
 import {
   ChoosePaymentMethod,
   CheckoutFlex,
   CheckoutProcessStep,
-  ETransferStatement,
-  ETransferStatementEmail,
-  ETransferStatementH2,
-  ETransferStatementH3,
-  ETransferStatementVideo,
   CommingSoon,
-  ChoosePaymentBtn,
   PaymentForm,
   PaymentMethodList,
-  Ol,
   Wrapper,
 } from '../../../styles/Pages/Checkout/PaymentMethod';
 import PaymentFormFunc from '../../../utils/PaymentForm/PaymentForm';
@@ -29,8 +21,14 @@ import {
   createETranferAsPaymentMethod,
   setETranferAsPaymentMethod,
   getETranferAsPaymentMethod,
+  createCryptoCurrencyAsPaymentMethod,
+  setCryptoCurrencyAsPaymentMethod,
+  getCryptoCurrencyAsPaymentMethod,
+  setCreditCardAsPaymentMethod,
 } from '../../../store/actions/paymentMethod/paymentMethod';
 import { updatePaymentMethodOrder } from '../../../store/actions/order/order';
+import ETranfer from './ETransfer/ETransfer';
+import Cryptocurrency from './Cryptocurrency/Cryptocurrency';
 
 let count = 0;
 
@@ -52,6 +50,7 @@ const PaymentMethodCheckout = (props) => {
   const [cryptoCurrencyMethod, setCryptoCurrencyMethod] = useState(false);
   const [creditCardMethod, setCreditCardMethod] = useState(false);
   const [eTransferMethod, setETranferMethod] = useState(false);
+
   const [creditCardInfo, setCreditCardInfo] = useState({
     cvc: '',
     expiry: '',
@@ -59,12 +58,16 @@ const PaymentMethodCheckout = (props) => {
     name: '',
     number: '',
   });
-
   const [cardCvc, setCardCvc] = useState('');
   const [cardExpiry, setCardExpiry] = useState('');
   const [cardFocus, setFocus] = useState('');
   const [cardName, setCardName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
+
+  const [
+    cryptocurrencyWalletAddress,
+    setCryptocurrencyWalletAddress,
+  ] = useState('');
 
   useEffect(() => {
     if (
@@ -75,6 +78,21 @@ const PaymentMethodCheckout = (props) => {
     ) {
       dispatch(createETranferAsPaymentMethod(user.data._id));
     }
+
+    if (
+      cryptoCurrencyMethod &&
+      paymentMethod.fetched &&
+      !paymentMethod.loading &&
+      _.isEmpty(paymentMethod.data)
+    ) {
+      dispatch(
+        createCryptoCurrencyAsPaymentMethod(user.data._id, {
+          symbol: 'ETH',
+          address: cryptocurrencyWalletAddress,
+        })
+      );
+    }
+
     if (
       eTransferMethod &&
       paymentMethod.fetched &&
@@ -85,8 +103,38 @@ const PaymentMethodCheckout = (props) => {
       dispatch(setETranferAsPaymentMethod(user.data._id));
       count += 1;
     }
+
+    if (
+      cryptoCurrencyMethod &&
+      paymentMethod.fetched &&
+      !paymentMethod.loading &&
+      !_.isEmpty(paymentMethod.data) &&
+      count === 0
+    ) {
+      dispatch(
+        setCryptoCurrencyAsPaymentMethod(user.data._id, {
+          symbol: 'ETH',
+          address: cryptocurrencyWalletAddress,
+        })
+      );
+      count += 1;
+    }
+
     if (
       eTransferMethod &&
+      paymentMethod.fetched &&
+      !paymentMethod.loading &&
+      !_.isEmpty(paymentMethod.data)
+    ) {
+      if (paymentMethod.data._id.length > 0) {
+        dispatch(
+          updatePaymentMethodOrder(order.data._id, paymentMethod.data._id)
+        );
+      }
+    }
+
+    if (
+      cryptoCurrencyMethod &&
       paymentMethod.fetched &&
       !paymentMethod.loading &&
       !_.isEmpty(paymentMethod.data)
@@ -162,6 +210,20 @@ const PaymentMethodCheckout = (props) => {
     dispatch(getETranferAsPaymentMethod(user.data._id));
   };
 
+  const onChangeCryptocurrencyWalletAddress = (e) => {
+    setCryptocurrencyWalletAddress(e.target.value);
+  };
+
+  const handleChooseCryptocurrency = () => {
+    console.log('clicked crypto');
+    dispatch(
+      getCryptoCurrencyAsPaymentMethod(user.data._id, {
+        symbol: 'ETH',
+        address: cryptocurrencyWalletAddress,
+      })
+    );
+  };
+
   return (
     <Layout>
       <Head>
@@ -193,7 +255,7 @@ const PaymentMethodCheckout = (props) => {
         <PaymentMethodList>
           <div>
             <button id='cryptoBtn' onClick={handleCryptoCurrencyMethod}>
-              <p>Crypto Currency</p>
+              <p>Cryptocurrency</p>
             </button>
             <button id='creditCardBtn' onClick={handleCreditCardMethod}>
               <p>Credit Card</p>
@@ -205,149 +267,25 @@ const PaymentMethodCheckout = (props) => {
         </PaymentMethodList>
         {/* {cryptoCurrencyMethod && <CoinbaseBtn />}
         {creditCardMethod && <PaymentFormFunc />} */}
-        {cryptoCurrencyMethod && <CommingSoon>Coming Soon</CommingSoon>}
+        {cryptoCurrencyMethod && (
+          <>
+            <Cryptocurrency
+              cryptocurrencyWalletAddress={cryptocurrencyWalletAddress}
+              onChangeCryptocurrencyWalletAddress={
+                onChangeCryptocurrencyWalletAddress
+              }
+              handleChooseCryptocurrency={handleChooseCryptocurrency}
+            />
+          </>
+        )}
         {creditCardMethod && <CommingSoon>Coming Soon</CommingSoon>}
         {eTransferMethod && (
           <>
-            <ETransferStatement>
-              <div>
-                <p>
-                  You can check the status of your package on{' '}
-                  <Link href='/account/orders' as='/account/orders'>
-                    <a>Orders</a>
-                  </Link>{' '}
-                  section.
-                </p>
-                <br />
-                <p>In order to successful make the payment following steps:</p>
-                <Ol>
-                  <li>
-                    Make sure to email us as the right email sender:{' '}
-                    <ETransferStatementEmail>
-                      {user.data.email}
-                    </ETransferStatementEmail>
-                  </li>
-                  <li>
-                    Send the money to the following email:{' '}
-                    <ETransferStatementEmail>
-                      payments@canadacannabyss.com
-                    </ETransferStatementEmail>
-                  </li>
-                  <li>
-                    Before finally send it make sure to write the order ID as a
-                    message in the e-Tranfer email:{' '}
-                    <ETransferStatementEmail>
-                      {order.data._id}
-                    </ETransferStatementEmail>
-                  </li>
-                </Ol>
-                <br />
-                <ETransferStatementH2>
-                  HOW TO SEND AN E-TRANSFER
-                </ETransferStatementH2>
-                <ETransferStatementH3>Send money today:</ETransferStatementH3>
-                <Ol>
-                  <li>
-                    Log in to you banks online website or mobile banking app and
-                    navigate to Interac e-Transfer Send Money
-                  </li>
-                  <li>
-                    Select the account you would like funds to be sent from
-                  </li>
-                  <li>
-                    Add or select a contact and fill out the name and e-mail
-                    address or mobile phone number of the person you wish to
-                    send money to.
-                  </li>
-                  <li>
-                    Type in the specified amount you are sending, along with a
-                    personalized message (please write order number here). Enter
-                    a security question and answer.
-                  </li>
-                  <li>
-                    We will receive a notification and will deposit the funds to
-                    our account.
-                  </li>
-                </Ol>
-                <ETransferStatementH2>
-                  What banks offer Interac e-Transfer?
-                </ETransferStatementH2>
-                <div>
-                  <p>
-                    You can see the full list here:{' '}
-                    <a
-                      href='http://interac.ca/en/interac-e-transfer-consumer.html'
-                      target='_blank'
-                    >
-                      http://interac.ca/en/interac-e-transfer-consumer.html
-                    </a>
-                  </p>
-                </div>
-                <ETransferStatementH2>
-                  We have picked out some of the popular banks and instructional
-                  pages for your convenience.
-                </ETransferStatementH2>
-                <ul class='banks-list'>
-                  <li>
-                    <a
-                      href='https://www.bmo.com/main/personal/bank-accounts/banking-services#transfer-money'
-                      target='_blank'
-                    >
-                      Bank of Montreal
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href='https://www.cibc.com/en/personal-banking/ways-to-bank/how-to/send-interac-e-transfer.html'
-                      target='_blank'
-                    >
-                      CIBC
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href='https://www.desjardins.com/ca/personal/accounts-services/ways-to-bank/online/transfer-money-between-accounts/index.jsp'
-                      target='_blank'
-                    >
-                      Desjardins
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href='http://www.rbcroyalbank.com/products/deposits/interac-e-transfer.html'
-                      target='_blank'
-                    >
-                      RBC
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href='https://www.td.com/ca/en/personal-banking/solutions/ways-to-pay-and-send-money/?tdtab=interac-etransfer'
-                      target='_blank'
-                    >
-                      TD Canada Trust
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <ETransferStatementVideo>
-                  <iframe
-                    src='https://www.youtube.com/embed/zL9yoZZXyOE'
-                    frameborder='0'
-                    allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-                    allowfullscreen
-                  ></iframe>
-                </ETransferStatementVideo>
-              </div>
-            </ETransferStatement>
-            <ChoosePaymentBtn
-              onClick={() => {
-                handleChooseETranfer();
-              }}
-            >
-              Choose e-Transfer
-            </ChoosePaymentBtn>
+            <ETranfer
+              user={user}
+              order={order}
+              handleChooseETranfer={handleChooseETranfer}
+            />
           </>
         )}
         {!creditCardMethod && !cryptoCurrencyMethod && !eTransferMethod && (

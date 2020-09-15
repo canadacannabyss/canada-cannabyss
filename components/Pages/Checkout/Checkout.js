@@ -415,6 +415,7 @@ const Checkout = (props) => {
       } else {
         dispatch(setShippingAddress(order.data._id, shippingAddressInfo._id));
       }
+
       if (billingNewAddress) {
         dispatch(createBillingCheckout(order.data._id, billingAddressInfo));
       } else {

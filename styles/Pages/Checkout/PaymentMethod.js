@@ -292,6 +292,21 @@ export const ChoosePaymentBtn = styled.button`
   }
 `;
 
+export const ChoosePaymentBtnDisabled = styled.button`
+  margin: 40px auto;
+  background: #f1f1f1;
+  color: #5a5a5a;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  font-size: 16px;
+  padding: 10px;
+  display: table;
+  cursor: not-allowed;
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const Ol = styled.ol`
   margin-left: 15px;
   li {
@@ -309,4 +324,92 @@ export const CommingSoon = styled.p`
   margin: 30px auto 15px auto;
   border: 1px solid #18840f;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+`;
+
+export const CryptocurrencyFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 45px 0;
+  .selected {
+    svg {
+      color: #18840f;
+    }
+    p {
+      color: #18840f;
+    }
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 15px;
+    border: 4px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px,
+        rgba(0, 0, 0, 0.15) 0px 0px 2px;
+    }
+    svg {
+      color: #5a5a5a;
+      font-size: 25px;
+      margin-right: 5px;
+    }
+    p {
+      font-size: 20px;
+      color: #5a5a5a;
+    }
+  }
+`;
+
+export const CryptoAddress = styled.div`
+  display: table;
+  margin: 0 auto;
+  max-width: 370px;
+  p {
+    font-size: 15px;
+    color: #777;
+    margin-bottom: 0.5rem;
+    strong {
+      color: #18840f;
+    }
+  }
+  .price {
+    margin: 15px 0 !important;
+    font-size: 16px;
+    color: #777;
+    strong {
+      font-size: 15px;
+      color: #18840f;
+    }
+  }
+  h4 {
+    font-size: 16px;
+    color: #18840f;
+  }
+  input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    -webkit-letter-spacing: 0.04em;
+    -moz-letter-spacing: 0.04em;
+    -ms-letter-spacing: 0.04em;
+    letter-spacing: 0.04em;
+    border: 1px solid rgb(184, 196, 194);
+    border-image: initial;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      border-color: #18840f;
+      outline: none;
+    }
+    &::placeholder {
+      color: 1px solid rgb(184, 196, 194);
+    }
+  }
 `;
