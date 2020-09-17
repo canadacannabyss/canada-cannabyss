@@ -57,19 +57,28 @@ const MainPostList = (props) => {
                 <PostInfoDiv
                   onMouseOver={() => {
                     const card = document.querySelector(`#card-${index}`);
-                    card.querySelector(
-                      `#discountPercentage-${index}`
-                    ).style.opacity = '0';
-
+                    if (
+                      product.prices.compareTo !== null &&
+                      product.prices.compareTo > 0
+                    ) {
+                      card.querySelector(
+                        `#discountPercentage-${index}`
+                      ).style.opacity = '0';
+                    }
                     card.querySelector(`#price-${index}`).style.opacity = '0';
                     card.querySelector(`#productName-${index}`).style.opacity =
                       '0';
                   }}
                   onMouseOut={() => {
                     const card = document.querySelector(`#card-${index}`);
-                    card.querySelector(
-                      `#discountPercentage-${index}`
-                    ).style.opacity = '1';
+                    if (
+                      product.prices.compareTo !== null &&
+                      product.prices.compareTo > 0
+                    ) {
+                      card.querySelector(
+                        `#discountPercentage-${index}`
+                      ).style.opacity = '1';
+                    }
                     card.querySelector(`#price-${index}`).style.opacity = '1';
                     card.querySelector(`#productName-${index}`).style.opacity =
                       '1';
@@ -78,8 +87,7 @@ const MainPostList = (props) => {
                   <Title id={`productName-${index}`}>
                     {product.productName}
                   </Title>
-                  {product.prices.compareTo !== null &&
-                  product.prices.compareTo > 0 ? (
+                  {product.prices.compareTo > 0 ? (
                     <>
                       <DiscountPricesDiv id={`price-${index}`}>
                         <ProductOldPriceDiscount>
@@ -91,9 +99,9 @@ const MainPostList = (props) => {
                       </DiscountPricesDiv>
                     </>
                   ) : (
-                    <SmallPrice id={`price-${index}`}>
+                    <ProductNewPriceDiscount id={`price-${index}`}>
                       C$ {product.prices.price}
-                    </SmallPrice>
+                    </ProductNewPriceDiscount>
                   )}
                 </PostInfoDiv>
               </Cover>
@@ -137,18 +145,28 @@ const MainPostList = (props) => {
               <PostInfoDivMain
                 onMouseOver={() => {
                   const card = document.querySelector(`#card-${index}`);
-                  card.querySelector(
-                    `#discountPercentage-${index}`
-                  ).style.opacity = '0';
+                  if (
+                    product.prices.compareTo !== null &&
+                    product.prices.compareTo > 0
+                  ) {
+                    card.querySelector(
+                      `#discountPercentage-${index}`
+                    ).style.opacity = '0';
+                  }
                   card.querySelector(`#price-${index}`).style.opacity = '0';
                   card.querySelector(`#productName-${index}`).style.opacity =
                     '0';
                 }}
                 onMouseOut={() => {
                   const card = document.querySelector(`#card-${index}`);
-                  card.querySelector(
-                    `#discountPercentage-${index}`
-                  ).style.opacity = '1';
+                  if (
+                    product.prices.compareTo !== null &&
+                    product.prices.compareTo > 0
+                  ) {
+                    card.querySelector(
+                      `#discountPercentage-${index}`
+                    ).style.opacity = '1';
+                  }
                   card.querySelector(`#price-${index}`).style.opacity = '1';
                   card.querySelector(`#productName-${index}`).style.opacity =
                     '1';
@@ -170,6 +188,11 @@ const MainPostList = (props) => {
                     </DiscountPricesMainDiv>
                   </>
                 ) : (
+                  <MainPrice id={`price-${index}`}>
+                    C$ {product.prices.price}
+                  </MainPrice>
+                )}
+                {product.prices.compareTo === 0 && (
                   <MainPrice id={`price-${index}`}>
                     C$ {product.prices.price}
                   </MainPrice>

@@ -69,6 +69,7 @@ import GetAllOrders from './orders/getAllOrders';
 import UpdateShippingStatus from './orders/updateShippingStatus';
 import UpdatePaymentStatus from './orders/updatePaymentStatus';
 import GetProductsCategory from './products/getProductsCategory';
+import GetProductsTag from './products/getProductsTag';
 import GetBundlesCategory from './bundles/getBundlesCategory';
 import GetBanners from './home/getBanners';
 import GetPromotion from './promotion/getPromotion';
@@ -178,6 +179,7 @@ export default function* root() {
     takeLatest('REQUEST_UPDATE_SHIPPING_STATUS', UpdateShippingStatus),
     takeLatest('REQUEST_UPDATE_PAYMENT_STATUS', UpdatePaymentStatus),
     takeLatest('REQUEST_GET_PRODUCTS_CATEGORY', GetProductsCategory),
+    takeLatest('REQUEST_GET_PRODUCTS_TAG', GetProductsTag),
     takeLatest('REQUEST_GET_BUNDLES_CATEGORY', GetBundlesCategory),
     takeLatest('REQUEST_GET_BANNERS', GetBanners),
     takeLatest('REQUEST_GET_PROMOTION', GetPromotion),

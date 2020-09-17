@@ -54,7 +54,7 @@ const ProductsList = (props) => {
                     </ProductNewPriceDiscount>
                   </DiscountPricesDiv>
                 ) : (
-                  <ProductPrice>{product.prices.price}</ProductPrice>
+                  <ProductPrice>C$ {product.prices.price}</ProductPrice>
                 )}
               </Details>
               <ViewDiv />

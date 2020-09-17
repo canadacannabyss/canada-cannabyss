@@ -25,3 +25,14 @@ export function getProductsCategory(category, page, limit) {
     },
   };
 }
+
+export function getProductsTag(tag, page, limit) {
+  return {
+    type: 'REQUEST_GET_PRODUCTS_TAG',
+    payload: {
+      tag,
+      page,
+      limit,
+    },
+  };
+}

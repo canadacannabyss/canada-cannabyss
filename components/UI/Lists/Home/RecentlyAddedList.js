@@ -43,10 +43,11 @@ const RecentlyAddedList = (props) => {
                     const card = document.querySelector(
                       `#recentlyAddedCard-${key}`
                     );
-                    card.querySelector(
-                      `#recentlyAddedDiscountPercentage-${key}`
-                    ).style.opacity = '0';
-
+                    if (product.prices.compareTo > 0) {
+                      card.querySelector(
+                        `#recentlyAddedDiscountPercentage-${key}`
+                      ).style.opacity = '0';
+                    }
                     card.querySelector(
                       `#recentlyAddedPrice-${key}`
                     ).style.opacity = '0';
@@ -58,9 +59,11 @@ const RecentlyAddedList = (props) => {
                     const card = document.querySelector(
                       `#recentlyAddedCard-${key}`
                     );
-                    card.querySelector(
-                      `#recentlyAddedDiscountPercentage-${key}`
-                    ).style.opacity = '1';
+                    if (product.prices.compareTo > 0) {
+                      card.querySelector(
+                        `#recentlyAddedDiscountPercentage-${key}`
+                      ).style.opacity = '1';
+                    }
                     card.querySelector(
                       `#recentlyAddedPrice-${key}`
                     ).style.opacity = '1';

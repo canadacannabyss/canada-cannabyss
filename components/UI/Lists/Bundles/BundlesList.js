@@ -66,7 +66,7 @@ const BundlesList = (props) => {
                     </BundleNewPriceDiscount>
                   </DiscountPricesDiv>
                 ) : (
-                  <BundlePrice>{bundle.prices.price}</BundlePrice>
+                  <BundlePrice>C$ {bundle.prices.price}</BundlePrice>
                 )}
               </Wrapper>
             </LinkTo>

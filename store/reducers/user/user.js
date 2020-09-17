@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export default function user(state = initialState, action) {
-  console.log('user reducer action.type:', action.type);
   switch (action.type) {
     case 'REQUEST_FETCH_LOGIN_USER':
       return {

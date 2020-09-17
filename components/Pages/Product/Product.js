@@ -258,9 +258,46 @@ const Product = (props) => {
             </Head>
             <Wrapper>
               <ProductDetailsWrapper>
-                {product.data.prices.compareTo !== null &&
-                  product.data.prices.compareTo && (
-                    <DiscountPercentageMobile>
+                {product.data.prices.compareTo > 0 && (
+                  <DiscountPercentageMobile>
+                    <p>
+                      {!_.isEmpty(product.data) &&
+                        product.fetched &&
+                        !product.loading &&
+                        !product.error && (
+                          <>
+                            {product.data.variants.variantsOptionNames.length >
+                              0 &&
+                            product.data.variants.values.length > 0 &&
+                            product.data.variants.uniqueValues.length > 0 ? (
+                              <>
+                                {roundFloatNumber.calculateDiscountPercentage(
+                                  variantPrice,
+                                  variantCompareTo
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                {roundFloatNumber.calculateDiscountPercentage(
+                                  product.data.prices.price,
+                                  product.data.prices.compareTo
+                                )}
+                              </>
+                            )}
+                          </>
+                        )}
+                      %
+                    </p>
+                  </DiscountPercentageMobile>
+                )}
+                <Carousel autoplay>
+                  {product.data.media.map((media) => (
+                    <ProductImage src={media.url} key={media.name} />
+                  ))}
+                </Carousel>
+                <ProductDetailsDiv>
+                  {product.data.prices.compareTo > 0 && (
+                    <DiscountPercentage>
                       <p>
                         {!_.isEmpty(product.data) &&
                           product.fetched &&
@@ -289,51 +326,10 @@ const Product = (props) => {
                           )}
                         %
                       </p>
-                    </DiscountPercentageMobile>
+                    </DiscountPercentage>
                   )}
-                <Carousel autoplay>
-                  {product.data.media.map((media) => (
-                    <ProductImage src={media.url} key={media.name} />
-                  ))}
-                </Carousel>
-                <ProductDetailsDiv>
-                  {product.data.prices.compareTo !== null &&
-                    product.data.prices.compareTo && (
-                      <DiscountPercentage>
-                        <p>
-                          {!_.isEmpty(product.data) &&
-                            product.fetched &&
-                            !product.loading &&
-                            !product.error && (
-                              <>
-                                {product.data.variants.variantsOptionNames
-                                  .length > 0 &&
-                                product.data.variants.values.length > 0 &&
-                                product.data.variants.uniqueValues.length >
-                                  0 ? (
-                                  <>
-                                    {roundFloatNumber.calculateDiscountPercentage(
-                                      variantPrice,
-                                      variantCompareTo
-                                    )}
-                                  </>
-                                ) : (
-                                  <>
-                                    {roundFloatNumber.calculateDiscountPercentage(
-                                      product.data.prices.price,
-                                      product.data.prices.compareTo
-                                    )}
-                                  </>
-                                )}
-                              </>
-                            )}
-                          %
-                        </p>
-                      </DiscountPercentage>
-                    )}
                   <ProductName>{product.data.productName}</ProductName>
-                  {product.data.prices.compareTo !== null &&
-                  product.data.prices.compareTo > 0 ? (
+                  {product.data.prices.compareTo > 0 ? (
                     <>
                       <DiscountPricesDiv>
                         {!_.isEmpty(product.data) &&

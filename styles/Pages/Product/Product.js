@@ -281,26 +281,27 @@ export const ProductQuantityP = styled.strong`
 `;
 
 export const QuantityBtn = styled.button`
-  background: #fff;
+  background: #18840f33;
   color: #18840f;
-  border: 1px solid #18840f;
+  border: 1px solid #18840f66;
   height: 40px;
   width: 40px;
   cursor: pointer;
   font-size: 23px;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
-  &:focus {
-    outline: none;
-    background: #eee;
+  &:hover {
+    background: #18840f40;
   }
   &:active {
-    background: #18840f;
-    color: #fff;
+    background: #18840f54;
+  }
+  &:focus {
+    outline: none;
   }
 `;
 
 export const QuantityInput = styled.input`
-  background: #e5e5e5;
+  background: #efefef;
   color: #18840f;
   border: none;
   font-size: 20px;
@@ -336,15 +337,23 @@ export const LoadingQuantityInput = styled.div`
 `;
 
 export const AddToCart = styled.button`
-  background: #18840f;
-  color: #fff;
-  font-size: 18px;
-  text-align: center;
-  width: 200px;
-  border: none;
-  padding: 12px 0;
   margin: 20px 0;
+  background: #18840f33;
+  color: #18840f;
+  width: 200px;
+  font-size: 16px;
+  padding: 13px 17px;
+  border: 1px solid #18840f66;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   cursor: pointer;
+  &:hover {
+    background: #18840f40;
+  }
+  &:active {
+    background: #18840f54;
+  }
   &:focus {
     outline: none;
   }

@@ -165,18 +165,17 @@ const Bundle = (props) => {
             </Head>
             <Wrapper>
               <ProductDetailsWrapper>
-                {bundle.data.prices.compareTo !== null &&
-                  bundle.data.prices.compareTo && (
-                    <DiscountPercentageMobile>
-                      <p>
-                        {roundFloatNumber.calculateDiscountPercentage(
-                          bundle.data.prices.price,
-                          bundle.data.prices.compareTo
-                        )}
-                        %
-                      </p>
-                    </DiscountPercentageMobile>
-                  )}
+                {bundle.data.prices.compareTo > 0 && (
+                  <DiscountPercentageMobile>
+                    <p>
+                      {roundFloatNumber.calculateDiscountPercentage(
+                        bundle.data.prices.price,
+                        bundle.data.prices.compareTo
+                      )}
+                      %
+                    </p>
+                  </DiscountPercentageMobile>
+                )}
                 {medias.length > 0 ? (
                   <Carousel autoplay>
                     {medias.map((media) => (
@@ -189,18 +188,17 @@ const Bundle = (props) => {
                   </EmptyMedias>
                 )}
                 <ProductDetailsDiv>
-                  {bundle.data.prices.compareTo !== null &&
-                    bundle.data.prices.compareTo && (
-                      <DiscountPercentage>
-                        <p>
-                          {roundFloatNumber.calculateDiscountPercentage(
-                            bundle.data.prices.price,
-                            bundle.data.prices.compareTo
-                          )}
-                          %
-                        </p>
-                      </DiscountPercentage>
-                    )}
+                  {bundle.data.prices.compareTo > 0 && (
+                    <DiscountPercentage>
+                      <p>
+                        {roundFloatNumber.calculateDiscountPercentage(
+                          bundle.data.prices.price,
+                          bundle.data.prices.compareTo
+                        )}
+                        %
+                      </p>
+                    </DiscountPercentage>
+                  )}
                   <ProductName>
                     <span className='bundleName'>
                       {bundle.data.bundleName}:
@@ -213,8 +211,7 @@ const Bundle = (props) => {
                       }
                     })}
                   </ProductName>
-                  {bundle.data.prices.compareTo !== null &&
-                  bundle.data.prices.compareTo > 0 ? (
+                  {bundle.data.prices.compareTo > 0 ? (
                     <>
                       <DiscountPricesDiv>
                         <ProductOldPriceDiscount>
@@ -261,12 +258,13 @@ const Bundle = (props) => {
                 size={32}
               />
 
-              {bundle.data.user.isReseller && (
-                <BundlesUser
-                  user={bundle.data.user}
-                  resellerBundles={resellerBundles}
-                />
-              )}
+              {bundle.data.reseller &&
+                !bundle.data.reseller.isCanadaCannabyssTeam && (
+                  <BundlesUser
+                    user={bundle.data.reseller}
+                    resellerBundles={resellerBundles}
+                  />
+                )}
               <Comments bundleId={bundle.data._id} />
             </Wrapper>
           </>

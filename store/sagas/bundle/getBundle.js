@@ -74,12 +74,13 @@ async function getResellerBundlesApi(userId) {
 export default function* asyncGetBundleApi(action) {
   try {
     const response = yield call(getBundleApi, action.payload.slug);
+    console.log('res bundle:', response);
 
     const responseComments = yield call(getCommentsBundleApi, response._id);
 
     const responseReseller = yield call(
       getResellerBundlesApi,
-      response.user._id
+      response.reseller._id
     );
 
     yield put({ type: 'SUCCESS_GET_BUNDLE', payload: { data: response } });

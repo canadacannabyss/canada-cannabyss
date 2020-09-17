@@ -40,6 +40,22 @@ export default function products(state = initialState, action) {
         fetched: { $set: true },
         error: { $set: true },
       });
+    case 'REQUEST_GET_PRODUCTS_TAG':
+      return update(state, {
+        loading: { $set: true },
+      });
+    case 'SUCCESS_GET_PRODUCTS_TAG':
+      return update(state, {
+        data: { $set: action.payload.data },
+        loading: { $set: false },
+        fetched: { $set: true },
+        error: { $set: false },
+      });
+    case 'FAILURE_GET_PRODUCTS_TAG':
+      return update(state, {
+        fetched: { $set: true },
+        error: { $set: true },
+      });
     default:
       return state;
   }

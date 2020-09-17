@@ -120,7 +120,6 @@ export const Price = styled.h6`
   font-size: 18px;
   display: table;
   font-weight: 500;
-  padding: 6px;
   color: #fff;
   transition: all 0.2s ease-in-out;
   @media (max-width: 440px) {

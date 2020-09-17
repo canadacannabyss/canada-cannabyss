@@ -472,7 +472,7 @@ export const MainPrice = styled.h6`
   font-size: 22px;
   display: table;
   color: #fff;
-  padding: 6px;
+  /* padding: 6px; */
   transition: all 0.2s ease-in-out;
   @media (max-width: 440px) {
     display: table;

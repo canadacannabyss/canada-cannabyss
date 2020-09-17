@@ -75,6 +75,8 @@ export default function* asyncGetProductApi(action) {
   try {
     const response = yield call(getProductApi, action.payload.slug);
 
+    console.log('res product:', response);
+
     const responseComments = yield call(getCommentsProductApi, response._id);
     console.log('comments:', responseComments);
 
