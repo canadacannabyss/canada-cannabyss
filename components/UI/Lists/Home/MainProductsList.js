@@ -192,11 +192,6 @@ const MainPostList = (props) => {
                     C$ {product.prices.price}
                   </MainPrice>
                 )}
-                {product.prices.compareTo === 0 && (
-                  <MainPrice id={`price-${index}`}>
-                    C$ {product.prices.price}
-                  </MainPrice>
-                )}
               </PostInfoDivMain>
             </CoverMain>
           </CardTopMain>

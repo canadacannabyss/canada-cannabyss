@@ -212,7 +212,7 @@ const Billing = (props) => {
     const response = await fetch(
       `${process.env.MAIN_API_ENDPOINT}/customers/billing/delete/${id}`,
       {
-        method: 'DELETE',
+        method: 'PUT',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',

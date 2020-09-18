@@ -469,7 +469,7 @@ const Checkout = (props) => {
                 !shippingNewAddress &&
                 Array.isArray(shippingList.data) ? (
                   <AddressesListWrapper>
-                    <ShippingBillingH2>Shipping Address</ShippingBillingH2>
+                    <ShippingBillingH2>Shipping Addresses</ShippingBillingH2>
                     <br />
                     {shippingList.data.map((address) => (
                       <BillingShippingButton
@@ -626,7 +626,7 @@ const Checkout = (props) => {
                 !billingNewAddress &&
                 Array.isArray(billingList.data) ? (
                   <AddressesListWrapper>
-                    <ShippingBillingH2>Billing List</ShippingBillingH2>
+                    <ShippingBillingH2>Billing Addresses</ShippingBillingH2>
                     <br />
                     {billingList.data.map((address) => (
                       <BillingShippingButton

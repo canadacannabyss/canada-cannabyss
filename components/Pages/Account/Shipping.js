@@ -213,7 +213,7 @@ const Shipping = (props) => {
     const response = await fetch(
       `${process.env.MAIN_API_ENDPOINT}/customers/shipping/delete/${id}`,
       {
-        method: 'DELETE',
+        method: 'PUT',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',
