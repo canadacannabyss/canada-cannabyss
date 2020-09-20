@@ -133,6 +133,10 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/reseller/login</loc>
   </url>
 
@@ -141,15 +145,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/promotion/[slug]</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/tag/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
   </url>
 
   <url>
@@ -158,6 +154,10 @@
 
   <url>
     <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
   </url>
 
   <url>
