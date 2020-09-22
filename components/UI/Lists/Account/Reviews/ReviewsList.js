@@ -32,14 +32,14 @@ const ReviewsList = (props) => {
                   <ul>
                     <li className='img-li'>
                       <LinkToProfile>
-                        <AuthorPicture src={review.user.profileImage.url} />
+                        <AuthorPicture src={review.customer.profileImage.url} />
                       </LinkToProfile>
                     </li>
                     <li className='user-info'>
                       <LinkToProfile>
                         <AuthorName>
-                          {review.user.names.firstName}{' '}
-                          {review.user.names.lastName}
+                          {review.customer.names.firstName}{' '}
+                          {review.customer.names.lastName}
                         </AuthorName>
                       </LinkToProfile>
 
