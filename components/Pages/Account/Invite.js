@@ -33,7 +33,7 @@ const InviteFriends = (props) => {
 
   const fetchAllUserInvitedFriends = async () => {
     const response = await fetch(
-      `${process.env.USER_API_ENDPOINT}/referral/get/invited-friends/${user.data._id}`,
+      `${process.env.USER_API_ENDPOINT}/referral/customer/get/invited-friends/${user.data._id}`,
       {
         method: 'GET',
         mode: 'cors',
