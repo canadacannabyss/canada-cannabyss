@@ -111,11 +111,12 @@ export function updatePaymentMethodOrder(orderId, paymentMethodId) {
   };
 }
 
-export function updateCompletedOrder(orderId) {
+export function updateCompletedOrder(orderId, imageObj) {
   return {
     type: 'REQUEST_UPDATE_COMPLETED_ORDER',
     payload: {
       orderId,
+      imageObj,
     },
   };
 }

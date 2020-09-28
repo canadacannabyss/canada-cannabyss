@@ -131,6 +131,25 @@ export const ValuesP = styled.p`
   margin-bottom: 1rem;
 `;
 
+export const TransferReceipt = styled.p`
+  margin-bottom: 1rem;
+  font-size: 15px;
+  button {
+    height: 20px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    svg {
+      font-size: 16px;
+      color: #18840f;
+      transform: translateY(2px);
+    }
+  }
+`;
+
 export const Div = styled.div`
   display: block;
   margin-bottom: 2rem;
@@ -171,16 +190,34 @@ export const NotApplied = styled.p`
   font-size: 16px;
 `;
 
-export const FinishCheckoutBtn = styled.button`
-  background: #5a5a5a;
-  color: #fff;
+export const FinishCheckoutBtnDisable = styled.button`
+  background: #f1f1f1;
+  color: #5a5a5a;
   border-radius: 4px;
-  border: 1px solid #5a5a5a;
+  border: 1px solid #d0d0d0;
   font-size: 16px;
-  padding: 7px 10px;
+  padding: 10px;
   margin: 15px 0;
+  display: table;
+  cursor: not-allowed;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const FinishCheckoutBtn = styled.button`
+  margin: 15px 0;
+  background: #18840f33;
+  color: #18840f;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #18840f66;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   &:focus {
     outline: none;
   }
