@@ -141,11 +141,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/reset-password/[token]</loc>
+    <loc>https://canadacannabyss.com/tag/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/tag/[slug]</loc>
+    <loc>https://canadacannabyss.com/reset-password/[token]</loc>
   </url>
 
   <url>
