@@ -45,7 +45,7 @@ import Shipping from './Finish/Shipping';
 import Billing from './Finish/Billing';
 import PaymentMethod from './Finish/PaymentMethod';
 import Values from './Finish/Values';
-import { set } from 'lodash';
+import AcceptTermsOfUse from '../../UI/Buttons/Checkbox/AcceptTermsOfUse';
 
 const payment = {
   method: 'Credit Card',
@@ -77,10 +77,12 @@ const Finish = (props) => {
 
   const [toggleETransferModal, setToggleETransferModal] = useState(false);
 
+  const [acceptTermsOfUse, setAcceptTermsOfUse] = useState(false);
+
   const childRef = useRef();
 
   const disabledSubmitButton = () => {
-    if (imagesArray.length === 1) {
+    if (imagesArray.length === 1 && acceptTermsOfUse) {
       setAllFieldsFilled(true);
     } else {
       setAllFieldsFilled(false);
@@ -89,7 +91,7 @@ const Finish = (props) => {
 
   useEffect(() => {
     disabledSubmitButton();
-  }, [imagesArray]);
+  }, [imagesArray, acceptTermsOfUse]);
 
   const handleSetImagesArray = (images) => {
     setImagesArray(images);
@@ -148,6 +150,10 @@ const Finish = (props) => {
     setToggleETransferModal(!toggleETransferModal);
   };
 
+  const handleCheckAcceptTermsOfUse = () => {
+    setAcceptTermsOfUse(!acceptTermsOfUse);
+  };
+
   return (
     <Layout>
       {toggleETransferModal && (
@@ -198,7 +204,7 @@ const Finish = (props) => {
                 <>
                   {order.data.paymentMethod.eTransfer && (
                     <TransferReceipt>
-                      Transfer Receipt{' '}
+                      e-Transfer Receipt{' '}
                       <button
                         onClick={() => {
                           handleToggleETransfer();
@@ -208,6 +214,22 @@ const Finish = (props) => {
                       </button>
                     </TransferReceipt>
                   )}
+                  {order.data.paymentMethod.cryptocurrency.symbol !== null &&
+                    order.data.paymentMethod.cryptocurrency.address !==
+                      null && (
+                      <>
+                        <TransferReceipt>
+                          ETH Transfer Receipt{' '}
+                          <button
+                            onClick={() => {
+                              handleToggleETransfer();
+                            }}
+                          >
+                            <FaInfoCircle />
+                          </button>
+                        </TransferReceipt>
+                      </>
+                    )}
                   <ImageUploader
                     ref={childRef}
                     width='100%'
@@ -223,6 +245,11 @@ const Finish = (props) => {
                     onDragMessage='Drop files here'
                     defaultMessage='Drag and Drop the payment receipt'
                     apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/customers/order/create/payment-receipt`}
+                  />
+                  <br />
+                  <AcceptTermsOfUse
+                    handleCheckAcceptTermsOfUse={handleCheckAcceptTermsOfUse}
+                    acceptTermsOfUse={acceptTermsOfUse}
                   />
                 </>
               )}

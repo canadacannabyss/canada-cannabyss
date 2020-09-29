@@ -191,15 +191,17 @@ export const NotApplied = styled.p`
 `;
 
 export const FinishCheckoutBtnDisable = styled.button`
+  margin: 15px 0;
   background: #f1f1f1;
   color: #5a5a5a;
-  border-radius: 4px;
-  border: 1px solid #d0d0d0;
   font-size: 16px;
+  border-radius: 4px;
   padding: 10px;
-  margin: 15px 0;
-  display: table;
-  cursor: not-allowed;
+  border: 1px solid #d0d0d0;
+  -webkit-transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
   &:focus {
     outline: none;
   }
