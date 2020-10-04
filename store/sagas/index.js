@@ -81,6 +81,7 @@ import UpdateTotalBeforeTaxOrder from './order/updateTotalBeforeTaxOrder';
 import UpdateGstHstTaxOrder from './order/updateGstHstTaxOrder';
 import UpdatePstRstTaxOrder from './order/updatePstRstTaxOrder';
 import UpdateTotalOrder from './order/updateTotalOrder';
+import UpdateTotalInCryptocurrencyOrder from './order/updateTotalInCryptocurrencyOrder';
 import UpdateOrderValues from './order/updateOrderValues';
 import TakeAmountOfItemsPurchase from './cart/takeAmountOfItemsPurchased';
 import ApplyCouponOrder from './order/applyCouponOrder';
@@ -88,6 +89,9 @@ import GetSearchItem from './search/getSearchItem';
 import GetResellerProducts from './product/getResellerProducts';
 
 import GetCategories from './categories/getCategories';
+
+import getAcceptedCryptocurrenciesPaymentMethod from './acceptedPaymentMethods/getAcceptedCryptocurrenciesPaymentMethod';
+import getAcceptedETransfersPaymentMethod from './acceptedPaymentMethods/getAcceptedETransfersPaymentMethod';
 
 export default function* root() {
   yield all([
@@ -201,6 +205,10 @@ export default function* root() {
     takeLatest('REQUEST_UPDATE_GST_HST_TAX_ORDER', UpdateGstHstTaxOrder),
     takeLatest('REQUEST_UPDATE_PST_RST_TAX_ORDER', UpdatePstRstTaxOrder),
     takeLatest('REQUEST_UPDATE_TOTAL_ORDER', UpdateTotalOrder),
+    takeLatest(
+      'REQUEST_UPDATE_TOTAL_IN_CRYPTOCURRENCY_ORDER',
+      UpdateTotalInCryptocurrencyOrder
+    ),
     takeLatest('REQUEST_UPDATE_ORDER_VALUES', UpdateOrderValues),
     takeLatest(
       'REQUEST_TAKE_AMOUNT_OF_ITEMS_PURCHASED',
@@ -209,5 +217,14 @@ export default function* root() {
     takeLatest('REQUEST_APPLY_COUPON_ORDER', ApplyCouponOrder),
     takeLatest('REQUEST_SEARCH_ITEM', GetSearchItem),
     takeLatest('REQUEST_GET_CATEGORIES', GetCategories),
+
+    takeLatest(
+      'REQUEST_GET_CRYPTOCURRECIES_PAYMENT_METHODS',
+      getAcceptedCryptocurrenciesPaymentMethod
+    ),
+    takeLatest(
+      'REQUEST_GET_E_TRANSFERS_PAYMENT_METHODS',
+      getAcceptedETransfersPaymentMethod
+    ),
   ]);
 }

@@ -121,6 +121,21 @@ export function updateCompletedOrder(orderId, imageObj) {
   };
 }
 
+export function updateTotalInCryptocurrencyOrder(
+  orderId,
+  totalInFiat,
+  cryptocurrencySymbol
+) {
+  return {
+    type: 'REQUEST_UPDATE_TOTAL_IN_CRYPTOCURRENCY_ORDER',
+    payload: {
+      orderId,
+      totalInFiat,
+      cryptocurrencySymbol,
+    },
+  };
+}
+
 export function removeOrder() {
   return {
     type: 'REQUEST_REMOVE_ORDER',

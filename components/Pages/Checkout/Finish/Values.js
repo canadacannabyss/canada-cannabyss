@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -12,7 +12,7 @@ import {
   Label,
   ValuesP,
 } from '../../../../styles/Pages/Checkout/Finish';
-const Values = ({ order }) => {
+const Values = ({ order, totalInFiat }) => {
   return (
     <>
       {!_.isEmpty(order.data) &&
@@ -47,6 +47,16 @@ const Values = ({ order }) => {
             <ValuesP>
               <b>Total:</b> C$ {order.data.total}
             </ValuesP>
+            {!order.data.paymentMethod.eTransfer.isETransfer &&
+              order.data.paymentMethod.cryptocurrency.symbol !== null &&
+              order.data.paymentMethod.cryptocurrency.address !== null && (
+                <ValuesP>
+                  <b>
+                    Total in {order.data.paymentMethod.cryptocurrency.symbol}:
+                  </b>{' '}
+                  {totalInFiat}
+                </ValuesP>
+              )}
           </>
         )}
     </>

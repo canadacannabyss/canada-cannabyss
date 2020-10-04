@@ -255,6 +255,19 @@ export const ETransferStatementEmail = styled.span`
   margin-bottom: 1rem;
 `;
 
+export const ETransferStatementEmailSelect = styled.select`
+  font-size: 17px;
+  color: #18840f;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 5px 7px;
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const ETransferStatementVideo = styled.div`
   display: table;
   margin: 15px auto 10px auto;
@@ -329,9 +342,13 @@ export const CommingSoon = styled.p`
 export const CryptocurrencyFlex = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 45px 0;
   .selected {
+    img {
+      filter: grayscale(0%);
+    }
     svg {
       color: #18840f;
     }
@@ -354,6 +371,12 @@ export const CryptocurrencyFlex = styled.div`
       color: #5a5a5a;
       font-size: 25px;
       margin-right: 5px;
+    }
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      filter: grayscale(100%);
     }
     p {
       font-size: 20px;

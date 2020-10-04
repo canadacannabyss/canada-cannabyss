@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { FaEthereum } from 'react-icons/fa';
+import { FaEthereum, FaBitcoin } from 'react-icons/fa';
 import {
   CryptocurrencyFlex,
   CryptoAddress,
@@ -10,17 +10,25 @@ import {
 
 const Cryptocurrency = (props) => {
   const {
-    cryptocurrencyWalletAddress,
-    onChangeCryptocurrencyWalletAddress,
+    cryptocurrencies,
     handleChooseCryptocurrency,
+    handleSetCryptoLogoSelected,
+    cryptoLogoSelected,
+    handleSetCryptoSymbolSelected,
+    cryptoSymbolSelected,
+    handleSetCryptoNameSelected,
+    cryptoNameSelected,
+    handleonChangeCryptoWalletSelectedCustomer,
+    selectedCryptocurrencyWalletCustomer,
+    handleonChangeCryptoWalletSelectedCompany,
   } = props;
 
-  const [ethereumSelected, setEthereumSelected] = useState(false);
-  const [currentEthereumPrice, setCurrentEthereumPrice] = useState('');
+  const [cryptoSeleted, setCryptoSelected] = useState('');
+  const [currentCryptoPrice, setCurrentCryptoPrice] = useState('');
 
-  const getCurrentEthereumPrice = async () => {
+  const getCurrentCryptoPrice = async () => {
     const response = await fetch(
-      `${process.env.MAIN_API_ENDPOINT}/cryptocurrencies/get/eth/price`,
+      `${process.env.MAIN_API_ENDPOINT}/cryptocurrencies/get/price?symbol=${cryptoSymbolSelected}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -32,7 +40,7 @@ const Cryptocurrency = (props) => {
 
     const data = await response.json();
     console.log('data eth:', data);
-    setCurrentEthereumPrice(data);
+    setCurrentCryptoPrice(data);
   };
 
   const removeAllSelectedClass = () => {
@@ -42,56 +50,76 @@ const Cryptocurrency = (props) => {
     });
   };
 
-  const onClickSelected = (e) => {
+  const onClickCryptoSelected = (e, id) => {
     removeAllSelectedClass();
     e.currentTarget.classList.add('selected');
-    setEthereumSelected(true);
+    const result = cryptocurrencies.filter((obj) => {
+      return obj._id === id;
+    });
+    console.log('result:', result);
+    setCryptoSelected(true);
+    handleSetCryptoLogoSelected(result[0].cryptocurrency.logo);
+    handleSetCryptoSymbolSelected(result[0].cryptocurrency.symbol);
+    handleSetCryptoNameSelected(result[0].cryptocurrency.name);
+    handleonChangeCryptoWalletSelectedCompany(result[0].cryptocurrency.address);
   };
 
   useEffect(() => {
-    getCurrentEthereumPrice();
-  }, []);
+    if (cryptoSeleted) {
+      getCurrentCryptoPrice();
+    }
+  }, [cryptoSeleted, cryptoSymbolSelected]);
 
   return (
     <>
       <CryptocurrencyFlex>
-        <div
-          className='crypto'
-          onClick={(e) => {
-            onClickSelected(e);
-          }}
-        >
-          <FaEthereum />
-          <p>Ethereum</p>
-        </div>
+        {cryptocurrencies.map((cryptocurrency) => (
+          <div
+            className='crypto'
+            onClick={(e) => {
+              onClickCryptoSelected(e, cryptocurrency._id);
+            }}
+          >
+            <img src={cryptocurrency.cryptocurrency.logo} />
+            <p>{cryptocurrency.cryptocurrency.name}</p>
+          </div>
+        ))}
       </CryptocurrencyFlex>
-      {ethereumSelected && (
+      {cryptoSeleted && (
         <CryptoAddress>
           <p>
-            Enter your ethereum wallet address to charge the corresponding
-            amount in ETH.
-          </p>
-          <p>
-            The transfer will only be finalize once the checkout process is
-            completed.
+            Enter your <strong>{cryptoNameSelected}</strong> wallet address to
+            charge the corresponding amount in{' '}
+            <strong>{cryptoSymbolSelected}</strong>.
           </p>
           <p className='price'>
-            <strong>Current ETH Price:</strong> {currentEthereumPrice}
+            <strong>Current {cryptoSymbolSelected} Price:</strong> C${' '}
+            {currentCryptoPrice}
           </p>
-          <h4>Ethereum Wallet Address</h4>
-          <input type='text' onChange={onChangeCryptocurrencyWalletAddress} />
+          <h4>{cryptoNameSelected} Wallet Address</h4>
+          <input
+            type='text'
+            onChange={(e) => {
+              handleonChangeCryptoWalletSelectedCustomer(e);
+            }}
+          />
 
-          {cryptocurrencyWalletAddress.length > 0 ? (
+          {selectedCryptocurrencyWalletCustomer.length > 0 ? (
             <ChoosePaymentBtn
               onClick={() => {
-                handleChooseCryptocurrency();
+                handleChooseCryptocurrency(
+                  cryptoLogoSelected,
+                  cryptoSymbolSelected,
+                  cryptoNameSelected,
+                  selectedCryptocurrencyWalletCustomer
+                );
               }}
             >
-              Choose ETH
+              Choose {cryptoNameSelected}
             </ChoosePaymentBtn>
           ) : (
             <ChoosePaymentBtnDisabled disabled>
-              Choose ETH
+              Choose {cryptoNameSelected}
             </ChoosePaymentBtnDisabled>
           )}
         </CryptoAddress>

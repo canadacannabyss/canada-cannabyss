@@ -55,36 +55,52 @@ const PaymentMethod = ({ user, order }) => {
                       </>
                     )}
                   {order.data.paymentMethod.cryptocurrency.symbol !== null &&
-                    order.data.paymentMethod.cryptocurrency.address !==
+                    order.data.paymentMethod.cryptocurrency.customerAddress !==
                       null && (
                       <>
                         <P>Cryptocurrency</P>
                         <Label>Cryptocurrency</Label>
                         <P>{order.data.paymentMethod.cryptocurrency.symbol}</P>
-                        <Label>{`${
-                          order.data.paymentMethod.cryptocurrency.symbol ===
-                            'ETH' && 'Ethereum'
-                        } Wallet`}</Label>
-                        <P>{order.data.paymentMethod.cryptocurrency.address}</P>
+                        <Label>
+                          Sender {order.data.paymentMethod.cryptocurrency.name}{' '}
+                          Wallet
+                        </Label>
+                        <P>
+                          {
+                            order.data.paymentMethod.cryptocurrency
+                              .customerAddress
+                          }
+                        </P>
+                        <Label>
+                          Recipient{' '}
+                          {order.data.paymentMethod.cryptocurrency.name} Wallet
+                        </Label>
+                        <P>
+                          {
+                            order.data.paymentMethod.cryptocurrency
+                              .companyAddress
+                          }
+                        </P>
                       </>
                     )}
-                  {order.data.paymentMethod.eTransfer && (
-                    <>
-                      <P>e-Transfer</P>
-                      <Label>Sender</Label>
-                      <P>
-                        {!_.isEmpty(user.data) &&
-                          user.fetched &&
-                          !user.loading &&
-                          !user.error &&
-                          user.data.email}
-                      </P>
-                      <Label>Recipient</Label>
-                      <P>payments@canadacannabyss.com</P>
-                      <Label>Attach on e-Transfer message</Label>
-                      <P>{order.data._id}</P>
-                    </>
-                  )}
+                  {order.data.paymentMethod.eTransfer.isETransfer !== null &&
+                    order.data.paymentMethod.eTransfer.recipient !== null && (
+                      <>
+                        <P>e-Transfer</P>
+                        <Label>Sender</Label>
+                        <P>
+                          {!_.isEmpty(user.data) &&
+                            user.fetched &&
+                            !user.loading &&
+                            !user.error &&
+                            user.data.email}
+                        </P>
+                        <Label>Recipient</Label>
+                        <P>{order.data.paymentMethod.eTransfer.recipient}</P>
+                        <Label>Attach on e-Transfer message</Label>
+                        <P>{order.data._id}</P>
+                      </>
+                    )}
                 </>
               ) : (
                 <>

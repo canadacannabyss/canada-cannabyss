@@ -1,9 +1,9 @@
 import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
-async function getPaymentMethodETransferByUserApi(userId) {
+async function getPaymentMethodETransferByUserApi(userId, recipient) {
   const res = await fetch(
-    `${process.env.MAIN_API_ENDPOINT}/customers/payment-method/e-transfer/get/by/user/${userId}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/payment-method/e-transfer/get/by/user/${userId}/${recipient}`,
     {
       method: 'GET',
       mode: 'cors',
@@ -19,14 +19,11 @@ async function getPaymentMethodETransferByUserApi(userId) {
 }
 
 export default function* asyncGetPaymentMethodETransferApi(action) {
-  console.log(
-    'action.payload.userId asyncGetPaymentMethodETransferApi:',
-    action.payload.userId
-  );
   try {
     const response = yield call(
       getPaymentMethodETransferByUserApi,
-      action.payload.userId
+      action.payload.userId,
+      action.payload.recipient
     );
 
     yield put({

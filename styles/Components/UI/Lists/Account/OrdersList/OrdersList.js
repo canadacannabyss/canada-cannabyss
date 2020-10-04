@@ -21,6 +21,13 @@ export const OrderBtn = styled.div`
   }
 `;
 
+export const GroupSpan = styled.span`
+  font-size: 17px;
+  color: #777;
+  margin-bottom: 0.5rem;
+  display: block;
+`;
+
 export const EditBtn = styled.button`
   color: #18840f;
   font-size: 16px;
@@ -52,9 +59,10 @@ export const OrderDetailsDiv = styled.div`
 
 export const Grid = styled.div`
   display: grid;
+  grid-gap: 20px;
   grid-template-columns: repeat(2, 1fr);
   @media (max-width: 768px) {
-    grid-template-columns: unset;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
@@ -146,6 +154,14 @@ export const OrdersProductName = styled.h4`
 export const Status = styled.p`
   font-size: 16px;
   margin-bottom: 0.5rem;
+  word-break: break-all;
+  img {
+    height: 20px;
+    width: 20px;
+    margin-top: -8px;
+    transform: translateY(4px);
+    margin-right: 5px;
+  }
 `;
 
 export const Select = styled.select`

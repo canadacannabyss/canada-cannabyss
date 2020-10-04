@@ -137,15 +137,15 @@
   </url>
 
   <url>
+    <loc>https://canadacannabyss.com/reset-password/[token]</loc>
+  </url>
+
+  <url>
     <loc>https://canadacannabyss.com/reseller/login</loc>
   </url>
 
   <url>
     <loc>https://canadacannabyss.com/tag/[slug]</loc>
-  </url>
-
-  <url>
-    <loc>https://canadacannabyss.com/reset-password/[token]</loc>
   </url>
 
   <url>

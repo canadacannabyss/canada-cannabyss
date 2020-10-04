@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 
 async function setPaymentMethodByUserApi(userId, cryptocurrency) {
   const res = await fetch(
-    `${process.env.MAIN_API_ENDPOINT}/customers/payment-method/cryptocurrency/get/by/user/${userId}?symbol=${cryptocurrency.symbol}&address=${cryptocurrency.address}`,
+    `${process.env.MAIN_API_ENDPOINT}/customers/payment-method/cryptocurrency/get/by/user/${userId}?logo=${cryptocurrency.logo}&symbol=${cryptocurrency.symbol}&name=${cryptocurrency.name}&customerAddress=${cryptocurrency.customerAddress}&companyAddress=${cryptocurrency.companyAddress}`,
     {
       method: 'GET',
       mode: 'cors',

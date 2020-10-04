@@ -10,10 +10,21 @@ import {
   ETransferStatementVideo,
   Ol,
   ChoosePaymentBtn,
+  ChoosePaymentBtnDisabled,
+  ETransferStatementEmailSelect,
 } from '../../../../styles/Pages/Checkout/PaymentMethod';
 
 const ETransfer = (props) => {
-  const { user, order, handleChooseETranfer } = props;
+  const {
+    user,
+    order,
+    handleChooseETranfer,
+    eTransfers,
+    onChangeSelectRecipient,
+    selectedETransferRecipient,
+  } = props;
+
+  console.log('eTransfers:', eTransfers);
 
   return (
     <>
@@ -37,9 +48,13 @@ const ETransfer = (props) => {
             </li>
             <li>
               Send the money to the following email:{' '}
-              <ETransferStatementEmail>
-                payments@canadacannabyss.com
-              </ETransferStatementEmail>
+              <ETransferStatementEmailSelect onChange={onChangeSelectRecipient}>
+                {eTransfers.map((eTransfer) => (
+                  <option value={eTransfer.eTransfer.recipient}>
+                    {eTransfer.eTransfer.recipient}
+                  </option>
+                ))}
+              </ETransferStatementEmailSelect>
             </li>
             <li>
               Before finally send it make sure to write the order ID as a
@@ -144,13 +159,19 @@ const ETransfer = (props) => {
           </ETransferStatementVideo>
         </div>
       </ETransferStatement>
-      <ChoosePaymentBtn
-        onClick={() => {
-          handleChooseETranfer();
-        }}
-      >
-        Choose e-Transfer
-      </ChoosePaymentBtn>
+      {selectedETransferRecipient.length > 0 ? (
+        <ChoosePaymentBtn
+          onClick={() => {
+            handleChooseETranfer();
+          }}
+        >
+          Choose e-Transfer
+        </ChoosePaymentBtn>
+      ) : (
+        <ChoosePaymentBtnDisabled disabled>
+          Choose e-Transfer
+        </ChoosePaymentBtnDisabled>
+      )}
     </>
   );
 };

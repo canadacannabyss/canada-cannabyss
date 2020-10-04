@@ -59,11 +59,12 @@ export function getCryptoCurrencyAsPaymentMethod(userId, cryptocurrency) {
   };
 }
 
-export function createETranferAsPaymentMethod(userId) {
+export function createETranferAsPaymentMethod(userId, recipient) {
   return {
     type: 'REQUEST_CREATE_E_TRANSFER_AS_PAYMENT_METHOD',
     payload: {
       userId,
+      recipient,
     },
   };
 }
@@ -77,11 +78,12 @@ export function setETranferAsPaymentMethod(userId) {
   };
 }
 
-export function getETranferAsPaymentMethod(userId) {
+export function getETranferAsPaymentMethod(userId, recipient) {
   return {
     type: 'REQUEST_GET_E_TRANSFER_AS_PAYMENT_METHOD',
     payload: {
       userId,
+      recipient,
     },
   };
 }

@@ -1,7 +1,7 @@
 import 'isomorphic-fetch';
 import { call, put } from 'redux-saga/effects';
 
-async function createPaymentMethodETransfer(userId) {
+async function createPaymentMethodETransfer(userId, recipient) {
   const res = await fetch(
     `${process.env.MAIN_API_ENDPOINT}/customers/payment-method/e-transfer/create`,
     {
@@ -12,7 +12,7 @@ async function createPaymentMethodETransfer(userId) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userId }),
+      body: JSON.stringify({ userId, recipient }),
     }
   );
   const data = await res.json();
@@ -23,7 +23,8 @@ export default function* asyncCreatePaymentMethodETransferApi(action) {
   try {
     const response = yield call(
       createPaymentMethodETransfer,
-      action.payload.userId
+      action.payload.userId,
+      action.payload.recipient
     );
 
     yield put({

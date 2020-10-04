@@ -333,6 +333,27 @@ export default function order(state = initialState, action) {
         fetched: { $set: false },
         error: { $set: true },
       });
+    case 'REQUEST_UPDATE_TOTAL_IN_CRYPTOCURRENCY_ORDER':
+      return update(state, {
+        loading: { $set: true },
+      });
+    case 'SUCCESS_UPDATE_TOTAL_IN_CRYPTOCURRENCY_ORDER':
+      return update(state, {
+        data: {
+          totalInCryptocurrency: {
+            $set: action.payload.data.totalInCryptocurrency,
+          },
+        },
+        loading: { $set: false },
+        fetched: { $set: true },
+        error: { $set: false },
+      });
+    case 'FAILURE_UPDATE_TOTAL_IN_CRYPTOCURRENCY_ORDER':
+      return update(state, {
+        loading: { $set: false },
+        fetched: { $set: false },
+        error: { $set: true },
+      });
     default:
       return state;
   }

@@ -29,22 +29,41 @@ import {
 import { updatePaymentMethodOrder } from '../../../store/actions/order/order';
 import ETranfer from './ETransfer/ETransfer';
 import Cryptocurrency from './Cryptocurrency/Cryptocurrency';
+import {
+  getCryptocurrenciesPaymentMethods,
+  getETransfersPaymentMethods,
+} from '../../../store/actions/accepted-payment-methods/accepted-payment-methods';
 
 let count = 0;
 
 const mapStateToProps = (state) => {
-  const { user, billing, shipping, order, paymentMethod } = state;
+  const {
+    user,
+    billing,
+    shipping,
+    order,
+    paymentMethod,
+    acceptedPaymentMethods,
+  } = state;
   return {
     user,
     billing,
     shipping,
     order,
     paymentMethod,
+    acceptedPaymentMethods,
   };
 };
 
 const PaymentMethodCheckout = (props) => {
-  const { user, billing, shipping, order, paymentMethod } = props;
+  const {
+    user,
+    billing,
+    shipping,
+    order,
+    paymentMethod,
+    acceptedPaymentMethods,
+  } = props;
   const dispatch = useDispatch();
 
   const [cryptoCurrencyMethod, setCryptoCurrencyMethod] = useState(false);
@@ -64,10 +83,23 @@ const PaymentMethodCheckout = (props) => {
   const [cardName, setCardName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
 
+  const [cryptocurrencySymbol, setCryptocurrencySymbol] = useState('');
+
+  const [cryptoLogoSelected, setCryptoLogoSelected] = useState('');
+  const [cryptoSymbolSelected, setCryptoSymbolSelected] = useState('');
+  const [cryptoNameSelected, setCryptoNameSelected] = useState('');
   const [
-    cryptocurrencyWalletAddress,
-    setCryptocurrencyWalletAddress,
+    selectedCryptocurrencyWalletCustomer,
+    setSelectedCryptocurrencyWalletCustomer,
   ] = useState('');
+  const [
+    selectedCryptocurrencyWalletCompany,
+    setSelectedCryptocurrencyWalletCompany,
+  ] = useState('');
+
+  const [selectedETransferRecipient, setSelectedETransferRecipient] = useState(
+    ''
+  );
 
   useEffect(() => {
     if (
@@ -76,7 +108,9 @@ const PaymentMethodCheckout = (props) => {
       !paymentMethod.loading &&
       _.isEmpty(paymentMethod.data)
     ) {
-      dispatch(createETranferAsPaymentMethod(user.data._id));
+      dispatch(
+        createETranferAsPaymentMethod(user.data._id, selectedETransferRecipient)
+      );
     }
 
     if (
@@ -87,8 +121,11 @@ const PaymentMethodCheckout = (props) => {
     ) {
       dispatch(
         createCryptoCurrencyAsPaymentMethod(user.data._id, {
-          symbol: 'ETH',
-          address: cryptocurrencyWalletAddress,
+          logo: cryptoLogoSelected,
+          symbol: cryptoSymbolSelected,
+          name: cryptoNameSelected,
+          customerAddress: selectedCryptocurrencyWalletCustomer,
+          companyAddress: selectedCryptocurrencyWalletCompany,
         })
       );
     }
@@ -113,8 +150,11 @@ const PaymentMethodCheckout = (props) => {
     ) {
       dispatch(
         setCryptoCurrencyAsPaymentMethod(user.data._id, {
-          symbol: 'ETH',
-          address: cryptocurrencyWalletAddress,
+          logo: cryptoLogoSelected,
+          symbol: cryptoSymbolSelected,
+          name: cryptoNameSelected,
+          customerAddress: selectedCryptocurrencyWalletCustomer,
+          companyAddress: selectedCryptocurrencyWalletCompany,
         })
       );
       count += 1;
@@ -154,6 +194,26 @@ const PaymentMethodCheckout = (props) => {
       }
     }
   }, [order]);
+
+  const handleSetCryptoLogoSelected = (logo) => {
+    setCryptoLogoSelected(logo);
+  };
+
+  const handleSetCryptoSymbolSelected = (symbol) => {
+    setCryptoSymbolSelected(symbol);
+  };
+
+  const handleSetCryptoNameSelected = (name) => {
+    setCryptoNameSelected(name);
+  };
+
+  const handleonChangeCryptoWalletSelectedCustomer = (e) => {
+    setSelectedCryptocurrencyWalletCustomer(e.target.value);
+  };
+
+  const handleonChangeCryptoWalletSelectedCompany = (address) => {
+    setSelectedCryptocurrencyWalletCompany(address);
+  };
 
   useEffect(() => {
     if (_.isEmpty(billing.data) || _.isEmpty(shipping.data)) {
@@ -206,23 +266,51 @@ const PaymentMethodCheckout = (props) => {
   };
 
   const handleChooseETranfer = () => {
-    console.log('clicked etransfer');
-    dispatch(getETranferAsPaymentMethod(user.data._id));
+    dispatch(
+      getETranferAsPaymentMethod(user.data._id, selectedETransferRecipient)
+    );
   };
 
-  const onChangeCryptocurrencyWalletAddress = (e) => {
-    setCryptocurrencyWalletAddress(e.target.value);
+  const onChangeCryptocurrencySymbol = (symbol) => {
+    setCryptocurrencySymbol(symbol);
   };
 
   const handleChooseCryptocurrency = () => {
     console.log('clicked crypto');
     dispatch(
       getCryptoCurrencyAsPaymentMethod(user.data._id, {
-        symbol: 'ETH',
-        address: cryptocurrencyWalletAddress,
+        logo: cryptoLogoSelected,
+        symbol: cryptoSymbolSelected,
+        name: cryptoNameSelected,
+        customerAddress: selectedCryptocurrencyWalletCustomer,
+        companyAddress: selectedCryptocurrencyWalletCompany,
       })
     );
   };
+
+  const onChangeSelectRecipient = (e) => {
+    setSelectedETransferRecipient(e.target.value);
+  };
+
+  useEffect(() => {
+    if (cryptoCurrencyMethod) {
+      dispatch(getCryptocurrenciesPaymentMethods());
+    }
+  }, [cryptoCurrencyMethod]);
+
+  useEffect(() => {
+    if (eTransferMethod) {
+      dispatch(getETransfersPaymentMethods());
+    }
+  }, [eTransferMethod]);
+
+  useEffect(() => {
+    if (!_.isEmpty(acceptedPaymentMethods.data.eTransfers)) {
+      setSelectedETransferRecipient(
+        acceptedPaymentMethods.data.eTransfers[0].eTransfer.recipient
+      );
+    }
+  }, [acceptedPaymentMethods]);
 
   return (
     <Layout>
@@ -269,23 +357,51 @@ const PaymentMethodCheckout = (props) => {
         {creditCardMethod && <PaymentFormFunc />} */}
         {cryptoCurrencyMethod && (
           <>
-            <Cryptocurrency
-              cryptocurrencyWalletAddress={cryptocurrencyWalletAddress}
-              onChangeCryptocurrencyWalletAddress={
-                onChangeCryptocurrencyWalletAddress
-              }
-              handleChooseCryptocurrency={handleChooseCryptocurrency}
-            />
+            {!_.isEmpty(acceptedPaymentMethods.data) &&
+              acceptedPaymentMethods.fetched &&
+              !acceptedPaymentMethods.loading &&
+              !acceptedPaymentMethods.error && (
+                <Cryptocurrency
+                  cryptocurrencies={
+                    acceptedPaymentMethods.data.cryptocurrencies
+                  }
+                  onChangeCryptocurrencySymbol={onChangeCryptocurrencySymbol}
+                  handleChooseCryptocurrency={handleChooseCryptocurrency}
+                  handleSetCryptoLogoSelected={handleSetCryptoLogoSelected}
+                  cryptoLogoSelected={cryptoLogoSelected}
+                  handleSetCryptoSymbolSelected={handleSetCryptoSymbolSelected}
+                  cryptoSymbolSelected={cryptoSymbolSelected}
+                  handleSetCryptoNameSelected={handleSetCryptoNameSelected}
+                  cryptoNameSelected={cryptoNameSelected}
+                  handleonChangeCryptoWalletSelectedCustomer={
+                    handleonChangeCryptoWalletSelectedCustomer
+                  }
+                  selectedCryptocurrencyWalletCustomer={
+                    selectedCryptocurrencyWalletCustomer
+                  }
+                  handleonChangeCryptoWalletSelectedCompany={
+                    handleonChangeCryptoWalletSelectedCompany
+                  }
+                />
+              )}
           </>
         )}
         {creditCardMethod && <CommingSoon>Coming Soon</CommingSoon>}
         {eTransferMethod && (
           <>
-            <ETranfer
-              user={user}
-              order={order}
-              handleChooseETranfer={handleChooseETranfer}
-            />
+            {!_.isEmpty(acceptedPaymentMethods.data) &&
+              acceptedPaymentMethods.fetched &&
+              !acceptedPaymentMethods.loading &&
+              !acceptedPaymentMethods.error && (
+                <ETranfer
+                  user={user}
+                  order={order}
+                  handleChooseETranfer={handleChooseETranfer}
+                  eTransfers={acceptedPaymentMethods.data.eTransfers}
+                  onChangeSelectRecipient={onChangeSelectRecipient}
+                  selectedETransferRecipient={selectedETransferRecipient}
+                />
+              )}
           </>
         )}
         {!creditCardMethod && !cryptoCurrencyMethod && !eTransferMethod && (

@@ -6,6 +6,7 @@ import { connect, useDispatch } from 'react-redux';
 import {
   updateCompletedOrder,
   removeOrder,
+  updateTotalInCryptocurrencyOrder,
 } from '../../../store/actions/order/order';
 import {
   updateCompletedCart,
@@ -79,7 +80,55 @@ const Finish = (props) => {
 
   const [acceptTermsOfUse, setAcceptTermsOfUse] = useState(false);
 
+  const [totalInFiat, setTotalInFiat] = useState(0);
+
   const childRef = useRef();
+
+  const getTotalInCryptocurrency = async (
+    totalInFiat,
+    cryptocurrencySymbol
+  ) => {
+    const res = await fetch(
+      `${process.env.MAIN_API_ENDPOINT}/cryptocurrencies/get/total/cryptocurrency`,
+      {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ totalInFiat, cryptocurrencySymbol }),
+      }
+    );
+    const data = await res.json();
+    return data;
+  };
+
+  useEffect(() => {
+    const fetchTotalInFiat = async () => {
+      const totalInFiatResponse = await getTotalInCryptocurrency(
+        order.data.total,
+        order.data.paymentMethod.cryptocurrency.symbol
+      );
+      setTotalInFiat(totalInFiatResponse.totalInCryptocurrency);
+    };
+
+    if (
+      !_.isEmpty(order.data) &&
+      order.fetched &&
+      !order.loading &&
+      !order.error
+    ) {
+      if (
+        !order.data.paymentMethod.eTransfer.isETransfer &&
+        order.data.paymentMethod.cryptocurrency.symbol !== null &&
+        order.data.paymentMethod.cryptocurrency.address !== null
+      ) {
+        fetchTotalInFiat();
+      }
+    }
+  }, [order]);
 
   const disabledSubmitButton = () => {
     if (imagesArray.length === 1 && acceptTermsOfUse) {
@@ -141,6 +190,20 @@ const Finish = (props) => {
     imagesArray.map((image) => {
       imagesArrayObj.push(image.data._id);
     });
+    if (
+      !order.data.paymentMethod.eTransfer.isETransfer &&
+      order.data.paymentMethod.cryptocurrency.symbol !== null &&
+      order.data.paymentMethod.cryptocurrency.address !== null
+    ) {
+      console.log('cryptocurrency selected');
+      dispatch(
+        updateTotalInCryptocurrencyOrder(
+          order.data._id,
+          order.data.total,
+          order.data.paymentMethod.cryptocurrency.symbol
+        )
+      );
+    }
     dispatch(updateCompletedOrder(order.data._id, imagesArrayObj));
     dispatch(updateCompletedCart(cart.data._id));
     dispatch(takeAmountOfItemsPurchase(cart.data._id));
@@ -196,30 +259,36 @@ const Finish = (props) => {
             <PaymentMethod user={user} order={order} />
           </FinishDiv>
           <SubTotalDiv>
-            <Values order={order} />
+            <Values order={order} totalInFiat={totalInFiat} />
             {!_.isEmpty(order) &&
               order.fetched &&
               !order.loading &&
               !order.error && (
                 <>
-                  {order.data.paymentMethod.eTransfer && (
-                    <TransferReceipt>
-                      e-Transfer Receipt{' '}
-                      <button
-                        onClick={() => {
-                          handleToggleETransfer();
-                        }}
-                      >
-                        <FaInfoCircle />
-                      </button>
-                    </TransferReceipt>
-                  )}
+                  {order.data.paymentMethod.eTransfer.isETransfer !== null &&
+                    order.data.paymentMethod.eTransfer.recipient !== null && (
+                      <>
+                        {order.data.paymentMethod.eTransfer.isETransfer && (
+                          <TransferReceipt>
+                            e-Transfer Receipt{' '}
+                            <button
+                              onClick={() => {
+                                handleToggleETransfer();
+                              }}
+                            >
+                              <FaInfoCircle />
+                            </button>
+                          </TransferReceipt>
+                        )}
+                      </>
+                    )}
                   {order.data.paymentMethod.cryptocurrency.symbol !== null &&
                     order.data.paymentMethod.cryptocurrency.address !==
                       null && (
                       <>
                         <TransferReceipt>
-                          ETH Transfer Receipt{' '}
+                          {order.data.paymentMethod.cryptocurrency.symbol}{' '}
+                          Transfer Receipt{' '}
                           <button
                             onClick={() => {
                               handleToggleETransfer();

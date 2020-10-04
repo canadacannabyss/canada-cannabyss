@@ -26,8 +26,10 @@ import user from './user/user';
 import loginRequestCount from './loginRequestCount/loginRequestCount';
 import thankYou from './thankYou/thankYou';
 import search from './search/search';
+import acceptedPaymentMethods from './accepted-payment-methods/accepted-payment-methods';
 
 export default combineReducers({
+  acceptedPaymentMethods,
   billing,
   billingList,
   bundle,

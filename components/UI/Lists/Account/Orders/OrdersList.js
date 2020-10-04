@@ -12,6 +12,7 @@ import {
   OrdersProductName,
   OrdersProducts,
   OrderTotalPrice,
+  GroupSpan,
   Status,
 } from '../../../../../styles/Components/UI/Lists/Account/OrdersList/OrdersList';
 import DateFormatter from '../../../../../utils/DateFormatter';
@@ -19,47 +20,166 @@ import DateFormatter from '../../../../../utils/DateFormatter';
 const OrderDetails = (props) => {
   const { order } = props;
 
+  const dateFormatter = new DateFormatter();
+
   return (
     <OrderDetailsDiv className='details'>
+      <Grid>
+        <div>
+          <Label for='orderId'>Order ID</Label>
+          <Status>{order._id}</Status>
+        </div>
+        <div>
+          <Label>Order Status</Label>
+          <Status>{order.canceled ? 'Canceled' : 'Fulfilled'}</Status>
+        </div>
+      </Grid>
+      <Grid>
+        <div>
+          <Label>Purchased At</Label>
+          <Status>{dateFormatter.formatDateFullDate(order.purchasedAt)}</Status>
+        </div>
+        <div />
+      </Grid>
+      <br />
+      <GroupSpan>Shipping information</GroupSpan>
       <Grid>
         <div>
           <Label>Shipping Status</Label>
           <Status>
             {order.shipping.status.shipped ? 'Shipped' : 'Processing order'}
           </Status>
-          <Label>Payment Method</Label>
-          {order.paymentMethod.card.provider !== null &&
-            order.paymentMethod.card.id !== null && (
-              <Status>Credit Card</Status>
-            )}
-          {order.paymentMethod.cryptocurrency.symbol !== null &&
-            order.paymentMethod.cryptocurrency.address && (
-              <Status>Cryptocurrency</Status>
-            )}
-          {order.paymentMethod.eTransfer && <Status>e-Transfer</Status>}
-          <Label>Payment Status</Label>
-          {order.paid ? <Status>Paid</Status> : <Status>Pending</Status>}
         </div>
         <div>
-          <Label>Shipping Address</Label>
-          {order.shippingAddress !== null ? (
-            <Status>{`${order.shippingAddress.addressLine1}, ${order.shippingAddress.city}, ${order.shippingAddress.provinceState}, ${order.shippingAddress.country}`}</Status>
-          ) : (
-            <Status>Not Applied</Status>
-          )}
-
-          <Label>Coupon</Label>
-          {order.coupon !== null ? (
-            <Status>{order.coupon.couponName}</Status>
-          ) : (
-            <Status>Not Applied</Status>
-          )}
-          <Label>Total</Label>
-          <OrderTotalPrice>
-            <span>C$</span> <span className='price'>{order.total}</span>
-          </OrderTotalPrice>
+          <Label htmlFor='shippingAddress'>Shipping Address</Label>
+          <Status id='shippingAddress'>
+            {`${order.shippingAddress.addressLine1}, ${order.shippingAddress.city}, ${order.shippingAddress.provinceState}, ${order.shippingAddress.country}`}
+          </Status>
         </div>
       </Grid>
+      <Grid>
+        <div>
+          <Label>Shipped at</Label>
+          <Status>
+            {order.shipping.status.when ? (
+              <>
+                {dateFormatter.formatDateFullDate(order.shipping.status.when)}
+              </>
+            ) : (
+              'Not Shipped yet'
+            )}
+          </Status>
+        </div>
+      </Grid>
+      <br />
+      <GroupSpan>Billing information</GroupSpan>
+      <Label>Billing Address</Label>
+      <Status id='shippingAddress'>
+        {`${order.billingAddress.addressLine1}, ${order.billingAddress.city}, ${order.billingAddress.provinceState}, ${order.billingAddress.country}`}
+      </Status>
+      <br />
+      <GroupSpan>Payment information</GroupSpan>
+      <Grid>
+        <div>
+          <Label>Payment Method</Label>
+          <>
+            {order.paymentMethod.cryptocurrency.symbol !== null &&
+              order.paymentMethod.cryptocurrency.address !== null && (
+                <Status>Cryptocurrency</Status>
+              )}
+            {order.paymentMethod.eTransfer.isETransfer && (
+              <Status>e-Transfer</Status>
+            )}
+          </>
+        </div>
+        <div>
+          {order.paymentMethod.cryptocurrency.symbol !== null &&
+            order.paymentMethod.cryptocurrency.name !== null &&
+            order.paymentMethod.cryptocurrency.address !== null &&
+            order.paymentMethod.cryptocurrency.logo && (
+              <>
+                <Label>Cryptocurrency</Label>
+                <Status className='cryptoLogoSymbolName'>
+                  <img
+                    src={order.paymentMethod.cryptocurrency.logo}
+                    alt={`${order.paymentMethod.cryptocurrency.symbol} logo`}
+                  />
+                  {`${order.paymentMethod.cryptocurrency.symbol} - ${order.paymentMethod.cryptocurrency.name}`}
+                </Status>
+              </>
+            )}
+          {order.paymentMethod.eTransfer.isETransfer && (
+            <>
+              <Label>Customer Email</Label>
+              <Status>{order.customer.email}</Status>
+            </>
+          )}
+        </div>
+      </Grid>
+      <>
+        {order.paymentMethod.cryptocurrency.symbol !== null &&
+          order.paymentMethod.cryptocurrency.name !== null &&
+          order.paymentMethod.cryptocurrency.address !== null &&
+          order.paymentMethod.cryptocurrency.logo && (
+            <>
+              <Grid>
+                <div>
+                  <Label>
+                    {`Your ${order.paymentMethod.cryptocurrency.name} Wallet`}
+                  </Label>
+                  <Status>
+                    {order.paymentMethod.cryptocurrency.customerAddress}
+                  </Status>
+                </div>
+                <div>
+                  <Label>
+                    {`Canada Cannabyss ${order.paymentMethod.cryptocurrency.name} Wallet`}
+                  </Label>
+                  <Status>
+                    {order.paymentMethod.cryptocurrency.companyAddress}
+                  </Status>
+                </div>
+              </Grid>
+            </>
+          )}
+      </>
+      {order.paymentMethod.eTransfer.recipient !== null && (
+        <>
+          <Grid>
+            <div>
+              <Label>Recipient</Label>
+              <Status>{order.paymentMethod.eTransfer.recipient}</Status>
+            </div>
+            <div></div>
+          </Grid>
+        </>
+      )}
+      <Grid>
+        <div>
+          <Label>Payment Status</Label>
+          <Status>{order.paid ? 'Paid' : 'Pending'}</Status>
+        </div>
+        <div>
+          <Label>Total</Label>
+          <Status>C$ {order.total}</Status>
+        </div>
+      </Grid>
+      {order.paymentMethod.cryptocurrency.symbol !== null &&
+        order.paymentMethod.cryptocurrency.name !== null &&
+        order.paymentMethod.cryptocurrency.address !== null &&
+        order.paymentMethod.cryptocurrency.logo &&
+        order.totalInCryptocurrency !== null && (
+          <Grid>
+            <div>
+              <Label>
+                Total in {order.paymentMethod.cryptocurrency.symbol}
+              </Label>
+              <Status>{order.totalInCryptocurrency}</Status>
+            </div>
+            <div></div>
+          </Grid>
+        )}
+      <br />
       <Label>Items</Label>
       <OrdersProducts productsLength={order.cart.items.length}>
         {order.cart.items.map((item) => (
