@@ -255,6 +255,23 @@ const Product = (props) => {
             <Head>
               <title>{product.data.seo.title} - Canada Cannabyss</title>
               <meta name='description' content={product.data.seo.description} />
+              <meta
+                property='og:url'
+                content={`${process.env.MAIN_DOMAIN}/product/${product.data.slug}`}
+              />
+              <meta property='og:type' content='article' />
+              <meta
+                property='og:title'
+                content={`${product.data.productName} - Canada Cannabyss`}
+              />
+              <meta
+                property='og:description'
+                content={`${product.data.description}`}
+              />
+              <meta
+                property='og:image'
+                content={`${product.data.media[0].url}`}
+              />
             </Head>
             <Wrapper>
               <ProductDetailsWrapper>
