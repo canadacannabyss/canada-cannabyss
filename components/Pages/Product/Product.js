@@ -262,11 +262,11 @@ const Product = (props) => {
               <meta property='og:type' content='article' />
               <meta
                 property='og:title'
-                content={`${product.data.productName} - Canada Cannabyss`}
+                content={`${product.data.seo.title} - Canada Cannabyss`}
               />
               <meta
                 property='og:description'
-                content={`${product.data.description}`}
+                content={`${product.data.seo.description}`}
               />
               <meta
                 property='og:image'
