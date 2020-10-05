@@ -179,6 +179,21 @@ const OrderDetails = (props) => {
             <div></div>
           </Grid>
         )}
+      {order.tracking.number !== null && order.tracking.postalService !== null && (
+        <>
+          <br />
+          <Grid>
+            <div>
+              <Label>Tracking Number</Label>
+              <Status>{order.tracking.number}</Status>
+            </div>
+            <div>
+              <Label>Postal Service</Label>
+              <Status>{order.tracking.postalService.name}</Status>
+            </div>
+          </Grid>
+        </>
+      )}
       <br />
       <Label>Items</Label>
       <OrdersProducts productsLength={order.cart.items.length}>
