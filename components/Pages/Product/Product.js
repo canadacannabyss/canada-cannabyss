@@ -255,14 +255,16 @@ const Product = (props) => {
             <Head>
               <title>{product.data.seo.title} - Canada Cannabyss</title>
               <meta name='description' content={product.data.seo.description} />
-              <meta
-                property='og:url'
-                content={`${process.env.MAIN_DOMAIN}/product/${product.data.slug}`}
-              />
-              <meta property='og:type' content='article' />
+
+              {/* Open Graph */}
               <meta
                 property='og:title'
                 content={`${product.data.seo.title} - Canada Cannabyss`}
+              />
+              <meta property='og:type' content='article' />
+              <meta
+                property='og:url'
+                content={`${process.env.MAIN_DOMAIN}/product/${product.data.slug}`}
               />
               <meta
                 property='og:description'
@@ -272,6 +274,63 @@ const Product = (props) => {
                 property='og:image'
                 content={`${product.data.media[0].url}`}
               />
+              <meta property='og:site_name' content='Canada Cannabyss' />
+              <meta
+                property='og:price:amount'
+                content={product.data.prices.price}
+              />
+              <meta property='og:price:currency' content='CAD' />
+
+              {/* Google+ */}
+              <meta itemprop='name' content={product.data.seo.title} />
+              <meta
+                itemprop='description'
+                content={product.data.seo.description}
+              />
+              <meta itemprop='image' content={`${product.data.media[0].url}`} />
+
+              {/* Twitter */}
+
+              <meta name='twitter:card' content='product' />
+              <meta name='twitter:site' content='@canadacannabyss' />
+              <meta name='twitter:title' content={product.data.seo.title} />
+              <meta
+                name='twitter:description'
+                content={product.data.seo.description}
+              />
+              <meta name='twitter:creator' content='@canadacannabyss' />
+              <meta
+                name='twitter:image'
+                content={`${product.data.media[0].url}`}
+              />
+              <meta name='twitter:data1' content={product.data.prices.price} />
+              <meta name='twitter:label1' content='Price' />
+              {!(
+                product.data.variants.variantsOptionNames.length === 1 &&
+                product.data.variants.variantsOptionNames[0] === '' &&
+                product.data.variants.values.length === 0
+              ) && (
+                <>
+                  <meta
+                    name='twitter:data2'
+                    content={`${product.data.variants.uniqueValues[0][0]
+                      .substring(0, 1)
+                      .toUpperCase()}${product.data.variants.uniqueValues[0][0].substring(
+                      1,
+                      product.data.variants.uniqueValues[0][0].length
+                    )}`}
+                  />
+                  <meta
+                    name='twitter:label2'
+                    content={`${product.data.variants.variantsOptionNames[0]
+                      .substring(0, 1)
+                      .toUpperCase()}${product.data.variants.variantsOptionNames[0].substring(
+                      1,
+                      product.data.variants.variantsOptionNames[0].length
+                    )}`}
+                  />
+                </>
+              )}
             </Head>
             <Wrapper>
               <ProductDetailsWrapper>
