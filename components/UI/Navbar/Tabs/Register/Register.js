@@ -11,9 +11,11 @@ import {
   Wrapper,
   Warning,
   EmailSentToMessage,
+  BrandDiv,
 } from '../../../../../styles/Components/UI/Navbar/Tabs/Register/Register';
 import { fetchLoginUser } from '../../../../../store/actions/user/user';
 import { closeLoginTab } from '../../../../../store/actions/navbar';
+import Logo from '../../../../../assets/img/canada-cannabyss-logo.svg';
 
 const RegisterModal = (props) => {
   const dispatch = useDispatch();
@@ -297,7 +299,11 @@ const RegisterModal = (props) => {
       <Wrapper>
         {registerForm && (
           <SocialMediaRegisterDiv>
-            <h2>Register</h2>
+            <BrandDiv>
+              <img src={Logo} alt='Canada Cannabyss' />
+              <div className='sep' />
+              <h1>Register</h1>
+            </BrandDiv>
             <form onSubmit={handleRegisterUser}>
               <InputInline>
                 <div>
@@ -373,7 +379,11 @@ const RegisterModal = (props) => {
         )}
         {loginForm && (
           <SocialMediaRegisterDiv>
-            <h2>Login</h2>
+            <BrandDiv>
+              <img src={Logo} alt='Canada Cannabyss' />
+              <div className='sep' />
+              <h1>Login</h1>
+            </BrandDiv>
             <form onSubmit={handleLoginUser}>
               <Label htmlFor='email'>Email</Label>
               <Input
@@ -412,7 +422,11 @@ const RegisterModal = (props) => {
         )}
         {resetPasswordForm && (
           <SocialMediaRegisterDiv>
-            <h2>Reset Password</h2>
+            <BrandDiv>
+              <img src={Logo} alt='Canada Cannabyss' />
+              <div className='sep' />
+              <h1>Reset Password</h1>
+            </BrandDiv>
             <form onSubmit={handleSendResetPasswordEmail}>
               <Label htmlFor='email'>Email</Label>
               <Input

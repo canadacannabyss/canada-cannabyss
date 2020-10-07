@@ -11,25 +11,53 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  width: 300px;
   position: fixed;
-  width: 350px;
-  padding: 20px 40px;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  z-index: 99999;
   border-radius: 4px;
-  background-color: #fff;
-  overflow-y: scroll;
-  box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.2);
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  @media (max-width: 340px) {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  padding: 20px 20px;
+  z-index: 999999;
+  @media (max-width: 320px) {
     width: 90%;
-    padding: 20px 25px;
+  }
+`;
+
+export const BrandDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0rem 0.5rem 0.5rem 0.5rem;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+  p {
+    color: #18840f;
+    font-size: 15px;
+    line-height: 15px;
+    span {
+      font-weight: 900;
+      font-size: 16px;
+      color: #b01129;
+    }
+  }
+  .sep {
+    content: '';
+    width: 2px;
+    height: 20px;
+    background: #b01129;
+    position: relative;
+    display: block;
+    margin: 0 10px;
+  }
+  h1 {
+    color: #b01129;
+    font-size: 17px;
+    font-weight: 900;
   }
 `;
 
@@ -87,6 +115,9 @@ export const InputInline = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
+  @media (max-width: 320px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const Input = styled.input`
@@ -97,21 +128,17 @@ export const Input = styled.input`
   margin-top: 5px;
   padding-left: 12px;
   box-sizing: border-box;
-  -webkit-letter-spacing: 0.04em;
-  -moz-letter-spacing: 0.04em;
-  -ms-letter-spacing: 0.04em;
   letter-spacing: 0.04em;
-  border: 1px solid rgb(184, 196, 194);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(184, 196, 194);
   border-image: initial;
   border-radius: 4px;
-  background: rgb(255, 255, 255);
-  transition: all 0.2s ease-in-out;
+  background: #fff;
+  transition: all 0.2s ease-in-out 0s;
   &:focus {
     border-color: #18840f;
     outline: none;
-  }
-  &::placeholder {
-    color: 1px solid rgb(184, 196, 194);
   }
 `;
 
