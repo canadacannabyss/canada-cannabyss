@@ -12,6 +12,7 @@ import {
 import Layout from '../../Layout';
 import ProductsList from '../../UI/Lists/Products/ProductsList';
 import { getProducts } from '../../../store/actions/products/products';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const mapStateToProps = (state) => {
   const { products } = state;
@@ -28,6 +29,38 @@ const Products = (props) => {
     <Layout>
       <Head>
         <title>All Products - Canada Cannabyss</title>
+        <meta name='description' content='Canadian Cannabis Wholesaler.' />
+
+        {/* Open Graph */}
+        <meta property='og:title' content='All Products - Canada Cannabyss' />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/products`}
+        />
+        <meta
+          property='og:description'
+          content='Canadian Cannabis Wholesaler.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta itemprop='name' content='All Products - Canada Cannabyss' />
+        <meta itemprop='description' content='Canadian Cannabis Wholesaler' />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name='twitter:title' content='All Products - Canada Cannabyss' />
+        <meta
+          name='twitter:description'
+          content='Canadian Cannabis Wholesaler.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         <WrapperList

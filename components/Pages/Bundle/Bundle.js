@@ -162,6 +162,58 @@ const Bundle = (props) => {
           <>
             <Head>
               <title>{bundle.data.bundleName} - Canada Cannabyss</title>
+              <meta name='description' content={bundle.data.seo.description} />
+
+              {/* Open Graph */}
+              <meta
+                property='og:title'
+                content={`${bundle.data.seo.title} - Canada Cannabyss`}
+              />
+              <meta property='og:type' content='article' />
+              <meta
+                property='og:url'
+                content={`${process.env.MAIN_DOMAIN}/bundle/${bundle.data.slug}`}
+              />
+              <meta
+                property='og:description'
+                content={`${bundle.data.seo.description}`}
+              />
+              <meta
+                property='og:image'
+                content={`${bundle.data.products[0].media[0].url}`}
+              />
+              <meta property='og:site_name' content='Canada Cannabyss' />
+              <meta
+                property='og:price:amount'
+                content={bundle.data.prices.price}
+              />
+              <meta property='og:price:currency' content='CAD' />
+
+              {/* Google+ */}
+              <meta itemprop='name' content={bundle.data.seo.title} />
+              <meta
+                itemprop='description'
+                content={bundle.data.seo.description}
+              />
+              <meta
+                itemprop='image'
+                content={`${bundle.data.products[0].media[0].url}`}
+              />
+
+              {/* Twitter */}
+
+              <meta name='twitter:card' content='bundle' />
+              <meta name='twitter:site' content='@canadacannabyss' />
+              <meta name='twitter:title' content={bundle.data.seo.title} />
+              <meta
+                name='twitter:description'
+                content={bundle.data.seo.description}
+              />
+              <meta name='twitter:creator' content='@canadacannabyss' />
+              <meta
+                name='twitter:image'
+                content={`${bundle.data.products[0].media[0].url}`}
+              />
             </Head>
             <Wrapper>
               <ProductDetailsWrapper>

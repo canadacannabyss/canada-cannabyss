@@ -47,6 +47,7 @@ import Billing from './Finish/Billing';
 import PaymentMethod from './Finish/PaymentMethod';
 import Values from './Finish/Values';
 import AcceptTermsOfUse from '../../UI/Buttons/Checkbox/AcceptTermsOfUse';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const payment = {
   method: 'Credit Card',
@@ -227,6 +228,49 @@ const Finish = (props) => {
       )}
       <Head>
         <title>Finish | Checkout - Canada Cannabyss</title>
+        <meta
+          name='description'
+          content='Finish | Checkout - Canada Cannabysss.'
+        />
+
+        {/* Open Graph */}
+        <meta
+          property='og:title'
+          content='Finish | Checkout - Canada Cannabysss'
+        />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/ckeckout/finish`}
+        />
+        <meta
+          property='og:description'
+          content='Finish | Checkout - Canada Cannabysss.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta itemprop='name' content='Finish | Checkout - Canada Cannabysss' />
+        <meta
+          itemprop='description'
+          content='Finish | Checkout - Canada Cannabysss'
+        />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta
+          name='twitter:title'
+          content='Finish | Checkout - Canada Cannabysss'
+        />
+        <meta
+          name='twitter:description'
+          content='Finish | Checkout - Canada Cannabysss.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         <CheckoutProcessStep>

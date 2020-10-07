@@ -1,8 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-
 import Layout from '../../Layout';
-
 import { FaWind } from 'react-icons/fa';
 
 import {
@@ -15,12 +13,41 @@ import {
   SquareH3,
   SquareP,
 } from '../../../styles/Pages/About/About';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const About = () => {
   return (
     <Layout>
       <Head>
         <title>About Us - Canada Cannabyss</title>
+        <meta name='description' content='About Us - Canada Cannabyss.' />
+
+        {/* Open Graph */}
+        <meta property='og:title' content='About Us - Canada Cannabyss' />
+        <meta property='og:type' content='article' />
+        <meta property='og:url' content={`${process.env.MAIN_DOMAIN}/about`} />
+        <meta
+          property='og:description'
+          content='About Us - Canada Cannabyss.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta itemprop='name' content='About Us - Canada Cannabyss' />
+        <meta itemprop='description' content='About Us - Canada Cannabyss' />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name='twitter:title' content='About Us - Canada Cannabyss' />
+        <meta
+          name='twitter:description'
+          content='About Us - Canada Cannabyss.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <WhyChooseDiv>
         <Wrapper>

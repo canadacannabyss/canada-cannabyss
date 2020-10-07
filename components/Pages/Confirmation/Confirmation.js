@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { FaSpinner } from 'react-icons/fa';
 import _ from 'lodash';
-
 import Layout from '../../Layout';
-
 import {
   Wrapper,
   Title,
@@ -13,6 +11,7 @@ import {
   Loading,
   LoadingSpinner,
 } from '../../../styles/Pages/Confirmation/Confirmation';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const Confirmation = (props) => {
   const { token } = props;
@@ -63,6 +62,52 @@ const Confirmation = (props) => {
     <Layout>
       <Head>
         <title>Account Confirmation - Canada Cannabyss</title>
+        <meta
+          name='description'
+          content='Account Confirmation - Canada Cannabyss.'
+        />
+
+        {/* Open Graph */}
+        <meta
+          property='og:title'
+          content='Account Confirmation - Canada Cannabyss'
+        />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/confirmation`}
+        />
+        <meta
+          property='og:description'
+          content='Account Confirmation - Canada Cannabyss.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta
+          itemprop='name'
+          content='Account Confirmation - Canada Cannabyss'
+        />
+        <meta
+          itemprop='description'
+          content='Account Confirmation - Canada Cannabyss'
+        />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta
+          name='twitter:title'
+          content='Account Confirmation - Canada Cannabyss'
+        />
+        <meta
+          name='twitter:description'
+          content='Account Confirmation - Canada Cannabyss.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         <Title>Account Confirmation</Title>

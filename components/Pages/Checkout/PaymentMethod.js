@@ -33,6 +33,7 @@ import {
   getCryptocurrenciesPaymentMethods,
   getETransfersPaymentMethods,
 } from '../../../store/actions/accepted-payment-methods/accepted-payment-methods';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 let count = 0;
 
@@ -316,6 +317,52 @@ const PaymentMethodCheckout = (props) => {
     <Layout>
       <Head>
         <title>Payment Method | Checkout - Canada Cannabysss</title>
+        <meta
+          name='description'
+          content='Payment Method | Checkout - Canada Cannabysss.'
+        />
+
+        {/* Open Graph */}
+        <meta
+          property='og:title'
+          content='Payment Method | Checkout - Canada Cannabysss'
+        />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/ckeckout/payment-method`}
+        />
+        <meta
+          property='og:description'
+          content='Payment Method | Checkout - Canada Cannabysss.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta
+          itemprop='name'
+          content='Payment Method | Checkout - Canada Cannabysss'
+        />
+        <meta
+          itemprop='description'
+          content='Payment Method | Checkout - Canada Cannabysss'
+        />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta
+          name='twitter:title'
+          content='Payment Method | Checkout - Canada Cannabysss'
+        />
+        <meta
+          name='twitter:description'
+          content='Payment Method | Checkout - Canada Cannabysss.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         <CheckoutProcessStep>

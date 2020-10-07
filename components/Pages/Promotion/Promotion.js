@@ -38,6 +38,41 @@ const Promotion = (props) => {
               </>
             )}
         </title>
+        <meta name='description' content={promotion.data.seo.description} />
+
+        {/* Open Graph */}
+        <meta
+          property='og:title'
+          content={`${promotion.data.seo.title} - Canada Cannabyss`}
+        />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/promotion/${promotion.data.slug}`}
+        />
+        <meta
+          property='og:description'
+          content={`${promotion.data.seo.description}`}
+        />
+        <meta property='og:image' content={`${promotion.data.media.url}`} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta itemprop='name' content={promotion.data.seo.title} />
+        <meta itemprop='description' content={promotion.data.seo.description} />
+        <meta itemprop='image' content={`${promotion.data.media.url}`} />
+
+        {/* Twitter */}
+
+        <meta name='twitter:card' content='promotion' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name='twitter:title' content={promotion.data.seo.title} />
+        <meta
+          name='twitter:description'
+          content={promotion.data.seo.description}
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={`${promotion.data.media.url}`} />
       </Head>
       {promotion.loading && <LoadingPromotionHeader />}
       {promotion.fetched &&

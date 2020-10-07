@@ -23,6 +23,7 @@ import {
 import Layout from '../../Layout';
 import ListLocation from '../../../utils/ListLocation';
 import { getBillingAddresses } from '../../../store/actions/billing/billingList';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const mapStateToProps = (state) => {
   const { user, billingList } = state;
@@ -303,7 +304,50 @@ const Billing = (props) => {
   return (
     <Layout>
       <Head>
-        <title>Billing | Account - Canada Cannabyss</title>
+        <title>Billing | Billing | Account - Canada Cannabyss</title>
+        <meta
+          name='description'
+          content='Billing | Account - Canada Cannabyss.'
+        />
+
+        {/* Open Graph */}
+        <meta
+          property='og:title'
+          content='Billing | Account - Canada Cannabyss'
+        />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/account/billing`}
+        />
+        <meta
+          property='og:description'
+          content='Billing | Account - Canada Cannabyss.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta itemprop='name' content='Billing | Account - Canada Cannabyss' />
+        <meta
+          itemprop='description'
+          content='Billing | Account - Canada Cannabyss'
+        />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta
+          name='twitter:title'
+          content='Billing | Account - Canada Cannabyss'
+        />
+        <meta
+          name='twitter:description'
+          content='Billing | Account - Canada Cannabyss.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         {toggleEdit ? (

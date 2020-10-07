@@ -47,6 +47,7 @@ import {
 } from '../../../styles/Pages/Checkout/Checkout';
 import ListLocation from '../../../utils/ListLocation';
 import Layout from '../../Layout';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const mapStateToProps = (state) => {
   const { user, billing, billingList, shipping, shippingList, order } = state;
@@ -431,6 +432,52 @@ const Checkout = (props) => {
     <Layout>
       <Head>
         <title>Address | Checkout - Canada Cannabysss</title>
+        <meta
+          name='description'
+          content='Address | Checkout - Canada Cannabysss.'
+        />
+
+        {/* Open Graph */}
+        <meta
+          property='og:title'
+          content='Address | Checkout - Canada Cannabysss'
+        />
+        <meta property='og:type' content='article' />
+        <meta
+          property='og:url'
+          content={`${process.env.MAIN_DOMAIN}/ckeckout`}
+        />
+        <meta
+          property='og:description'
+          content='Address | Checkout - Canada Cannabysss.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta
+          itemprop='name'
+          content='Address | Checkout - Canada Cannabysss'
+        />
+        <meta
+          itemprop='description'
+          content='Address | Checkout - Canada Cannabysss'
+        />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta
+          name='twitter:title'
+          content='Address | Checkout - Canada Cannabysss'
+        />
+        <meta
+          name='twitter:description'
+          content='Address | Checkout - Canada Cannabysss.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         <CheckoutProcessStep>
