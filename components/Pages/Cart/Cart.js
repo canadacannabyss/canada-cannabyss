@@ -17,7 +17,7 @@ import {
 import Layout from '../../Layout';
 import CartListPage from '../../UI/Lists/Cart/CartListPage';
 import Coupons from '../../UI/Navbar/Tabs/Cart/Coupons/Coupons';
-import Logo from '../../../assets/img/canada-cannabyss-logo.svg';
+import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
 const mapStateToProps = (state) => {
   const { cart, order } = state;
