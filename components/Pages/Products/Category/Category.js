@@ -13,7 +13,7 @@ import {
 import Layout from '../../../Layout';
 import ProductsList from '../../../UI/Lists/Products/ProductsList';
 import { getProductsCategory } from '../../../../store/actions/products/products';
-import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
+import Logo from '../../../../assets/img/canada-cannabyss-logo.webp';
 
 const mapStateToProps = (state) => {
   const { products } = state;

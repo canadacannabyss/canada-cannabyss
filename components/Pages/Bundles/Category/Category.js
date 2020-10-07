@@ -13,7 +13,7 @@ import {
 import Layout from '../../../Layout';
 import BundlesList from '../../../UI/Lists/Bundles/BundlesList';
 import { getBundlesCategory } from '../../../../store/actions/bundles/bundles';
-import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
+import Logo from '../../../../assets/img/canada-cannabyss-logo.webp';
 
 const mapStateToProps = (state) => {
   const { bundles } = state;
