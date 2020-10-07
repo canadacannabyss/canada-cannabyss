@@ -17,6 +17,7 @@ import {
 import Layout from '../../Layout';
 import CartListPage from '../../UI/Lists/Cart/CartListPage';
 import Coupons from '../../UI/Navbar/Tabs/Cart/Coupons/Coupons';
+import Logo from '../../../assets/img/canada-cannabyss-logo.svg';
 
 const mapStateToProps = (state) => {
   const { cart, order } = state;
@@ -41,6 +42,41 @@ const Cart = (props) => {
     <Layout>
       <Head>
         <title>Cart - Canada Cannabysss</title>
+        <meta
+          name='description'
+          content='Canada Cannabyss shopping cart page.'
+        />
+
+        {/* Open Graph */}
+        <meta property='og:title' content='Cart - Canada Cannabysss' />
+        <meta property='og:type' content='article' />
+        <meta property='og:url' content={`${process.env.MAIN_DOMAIN}/cart`} />
+        <meta
+          property='og:description'
+          content='Canada Cannabyss shopping cart page.'
+        />
+        <meta property='og:image' content={Logo} />
+        <meta property='og:site_name' content='Canada Cannabyss' />
+
+        {/* Google+ */}
+        <meta itemprop='name' content='Cart - Canada Cannabysss' />
+        <meta
+          itemprop='description'
+          content='Canada Cannabyss shopping cart page'
+        />
+        <meta itemprop='image' content={Logo} />
+
+        {/* Twitter */}
+
+        <meta name='twitter:card' content='product' />
+        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name='twitter:title' content='Cart - Canada Cannabysss' />
+        <meta
+          name='twitter:description'
+          content='Canada Cannabyss shopping cart page.'
+        />
+        <meta name='twitter:creator' content='@canadacannabyss' />
+        <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
         <CartSubTotal>
