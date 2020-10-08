@@ -550,7 +550,7 @@ const Product = (props) => {
                 </>
               )}
               <ShareButtons
-                path={`${process.env.MAIN_DOMAIN}${props.pathname}`}
+                path={`${process.env.SECURED_MAIN_DOMAIN}${props.pathname}`}
                 size={32}
               />
               <TagsDiv>

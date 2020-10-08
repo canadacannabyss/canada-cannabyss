@@ -306,7 +306,7 @@ const Bundle = (props) => {
               </ProductDetailsWrapper>
               <ExtraInfo extraInfoArray={bundle.data.extraInfo} />
               <ShareButtons
-                path={`https://canadacannabyss.com${pathname}`}
+                path={`${process.env.SECURED_MAIN_DOMAIN}${props.pathname}`}
                 size={32}
               />
 
