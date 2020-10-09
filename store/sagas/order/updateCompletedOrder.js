@@ -19,6 +19,25 @@ async function updateOrderCompleted(orderId, imageObj) {
   return data;
 }
 
+async function sendFinishedOrder(orderId) {
+  // const bearerToken = `Bearer ${localStorage.getItem('user_token')}`;
+  const res = await fetch(
+    `${process.env.MAIN_API_ENDPOINT}/customers/order/send/finished-order/start`,
+    {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ orderId }),
+    }
+  );
+  const data = await res.json();
+  return data;
+}
+
 export default function* asyncUpdateCompletedOrderApi(action) {
   try {
     console.log('update completed order');
@@ -26,6 +45,11 @@ export default function* asyncUpdateCompletedOrderApi(action) {
       updateOrderCompleted,
       action.payload.orderId,
       action.payload.imageObj
+    );
+
+    const responseSendFinishedOrder = yield call(
+      sendFinishedOrder,
+      action.payload.orderId
     );
 
     yield put({
