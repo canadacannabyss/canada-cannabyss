@@ -62,7 +62,7 @@ const SideDrawer = (props) => {
                   <UserP>{`${user.data.names.firstName} ${user.data.names.lastName}`}</UserP>
                 </UserDiv>
               </label>
-              <article className='ac-large'>
+              <article className='ac-small'>
                 <Ul>
                   {user.data.isAdmin && (
                     <li>
@@ -97,7 +97,7 @@ const SideDrawer = (props) => {
           <div>
             <input id='ac-3' name='accordion-1' type='radio' />
             <label htmlFor='ac-3'>Products</label>
-            <article className='ac-medium'>
+            <article className='ac-large'>
               <Ul>
                 <li>
                   <Link href='/products' as='/products'>
@@ -131,7 +131,7 @@ const SideDrawer = (props) => {
               </Ul>
             </article>
           </div>
-          <div>
+          {/* <div>
             <input id='ac-4' name='accordion-1' type='radio' />
             <label htmlFor='ac-4'>Bundles</label>
             <article className='ac-medium'>
@@ -167,11 +167,11 @@ const SideDrawer = (props) => {
                 )}
               </Ul>
             </article>
-          </div>
+          </div> */}
           <div>
             <input id='ac-5' name='accordion-1' type='radio' />
             <label htmlFor='ac-5'>Help</label>
-            <article className='ac-large'>
+            <article className='ac-small'>
               <Ul>
                 <li>
                   <Link href='/contact' as='/'>

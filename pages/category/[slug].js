@@ -7,7 +7,7 @@ class CategoryIndex extends Component {
   static async getInitialProps(props) {
     const { store, isServer, asPath } = props.ctx;
     store.dispatch(getProducts());
-    store.dispatch(getBundles());
+    // store.dispatch(getBundles());
     return { isServer, asPath };
   }
   render() {

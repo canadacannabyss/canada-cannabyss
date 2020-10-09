@@ -13,7 +13,6 @@ export const Backgrond = styled.div`
 `;
 
 export const Nav = styled.nav`
-  border-right: 1px solid green;
   width: 230px;
   height: 100%;
   position: fixed;
@@ -67,13 +66,14 @@ export const Nav = styled.nav`
   }
 
   .ac-container label:hover {
-    background: #fff;
+    background: #aad1a6;
+    color: #18840f;
   }
 
   .ac-container input:checked + label,
   .ac-container input:checked + label:hover {
-    background: #f2f2f2;
-    color: #777;
+    background: #18840f;
+    color: #fff;
     height: 30px;
     padding: 10px 20px 30px 20px;
     line-height: 20px;
@@ -98,7 +98,8 @@ export const Nav = styled.nav`
   }
 
   .ac-container article {
-    background: rgba(255, 255, 255, 0.5);
+    background: #18840f33;
+    box-shadow: inset -1px 1px 3px 0px rgba(0, 0, 0, 0.2);
     margin-top: -1px;
     overflow: hidden;
     height: 0;
@@ -131,11 +132,11 @@ export const Nav = styled.nav`
     -o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
     -ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
     transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-    box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3);
+    /* box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3); */
   }
 
   .ac-container input:checked ~ article.ac-small {
-    height: 140px;
+    height: 90px;
   }
 
   .ac-container input:checked ~ article.ac-medium {
@@ -143,7 +144,7 @@ export const Nav = styled.nav`
   }
 
   .ac-container input:checked ~ article.ac-large {
-    height: 230px;
+    height: 300px;
   }
 `;
 
@@ -154,8 +155,8 @@ export const LinkTo = styled.a`
   width: 100%;
   cursor: pointer;
   &:hover {
-    background: #f2f2f2;
-    color: #777;
+    background: #aad1a6;
+    color: #18840f;
   }
 `;
 
@@ -169,8 +170,8 @@ export const Ul = styled.ul`
       padding: 13px 20px;
       text-decoration: none;
       &:hover {
-        background: #f2f2f2;
-        color: #777;
+        background: #18840f36;
+        color: #18840f;
       }
     }
   }
@@ -207,13 +208,14 @@ export const UserP = styled.p`
 export const UserLabel = styled.p``;
 
 export const Login = styled.button`
-  background: #18840f;
-  color: #fff;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  background: #18840f33;
+  border: 1px solid #18840f66;
+  color: #18840f;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
   font-size: 16px;
   margin: 10px 20px 20px 20px;
   padding: 7px 10px;
-  border: 1px solid #18840f;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   &:focus {
@@ -226,13 +228,14 @@ export const Login = styled.button`
 `;
 
 export const Logout = styled.button`
-  background: #fff;
+  background: #18840f33;
+  border: 1px solid #18840f66;
   color: #18840f;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
   font-size: 16px;
   margin: 10px 20px 20px 20px;
   padding: 7px 10px;
-  border: 1px solid #18840f;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   &:focus {

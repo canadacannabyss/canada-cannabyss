@@ -78,7 +78,7 @@ const Home = (props) => {
         <br />
         <BannerCarousel banners={banners} />
         <br />
-        <Bundles bundles={mainBundles} />
+        {/* <Bundles bundles={mainBundles} /> */}
         <RecentlyAdded products={newestProducts} />
         <PopularCategories categories={mainCategories} />
       </Wrapper>

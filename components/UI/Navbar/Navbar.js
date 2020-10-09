@@ -447,10 +447,10 @@ const Navbar = () => {
               Products
               <FaSortDown />
             </TabButton>
-            <TabButton onClick={handleToggleBundles}>
+            {/* <TabButton onClick={handleToggleBundles}>
               Bundles
               <FaSortDown />
-            </TabButton>
+            </TabButton> */}
             <TabButton onClick={handleToggleHelp}>
               Help
               <FaSortDown />

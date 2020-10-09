@@ -110,7 +110,7 @@ const Category = (props) => {
         <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
-        <ToggleBtnsList>
+        {/* <ToggleBtnsList>
           <ToggleBtn
             className='selected'
             onClick={(e) => {
@@ -126,7 +126,7 @@ const Category = (props) => {
           >
             Bundles
           </ToggleBtn>
-        </ToggleBtnsList>
+        </ToggleBtnsList> */}
 
         {products.loading && (
           <>
