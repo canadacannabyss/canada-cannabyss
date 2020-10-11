@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 400px;
   overflow: hidden;
+  border-radius: 8px;
   transition: all 0.2s ease-in-out;
   position: relative;
   &:hover {
@@ -21,6 +22,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 575px) {
     height: 200px;
+    border-radius: 0px;
   }
   @media (max-width: 440px) {
     height: 160px;

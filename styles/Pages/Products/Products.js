@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const WrapperList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
   ${(props) => {
     props.productLength > 0 &&
       props.productLength <= 4 &&
@@ -30,7 +31,6 @@ export const WrapperList = styled.div`
       props.productLength <= 12 &&
       `grid-template-rows: repeat(3, 1fr)`;
   }}
-  grid-gap: 25px;
   @media (max-width: 1199px) {
     grid-template-columns: repeat(3, 1fr);
     ${(props) => {
