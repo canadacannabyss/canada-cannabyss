@@ -157,3 +157,30 @@ export const LinkTo = styled.a`
   text-decoration: none;
   cursor: pointer;
 `;
+
+export const DiscountPercentage = styled.div`
+  background: #18840f;
+  display: flex;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  color: #fff;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform: rotate(-15deg) translate(6px, 10px);
+  p {
+    font-size: 16px;
+  }
+  @media (max-width: 440px) {
+    height: 45px;
+    width: 45px;
+    font-size: 14px;
+  }
+  @media (max-width: 330px) {
+    height: 40px;
+    width: 40px;
+    font-size: 12px;
+  }
+`;

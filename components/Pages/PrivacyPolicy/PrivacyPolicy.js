@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/privacy-policy`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/privacy-policy`}
         />
         <meta
           property='og:description'

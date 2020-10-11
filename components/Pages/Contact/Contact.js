@@ -24,7 +24,7 @@ const Contact = () => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/contact`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/contact`}
         />
         <meta
           property='og:description'

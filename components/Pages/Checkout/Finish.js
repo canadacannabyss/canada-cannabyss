@@ -241,7 +241,7 @@ const Finish = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/ckeckout/finish`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/ckeckout/finish`}
         />
         <meta
           property='og:description'

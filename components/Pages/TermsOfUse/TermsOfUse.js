@@ -27,7 +27,7 @@ const TermsOfUse = () => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/terms-of-use`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/terms-of-use`}
         />
         <meta
           property='og:description'

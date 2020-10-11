@@ -55,7 +55,7 @@ const Account = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/account`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/account`}
         />
         <meta property='og:description' content='Account - Canada Cannabyss.' />
         <meta property='og:image' content={Logo} />

@@ -318,7 +318,7 @@ const Billing = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/account/billing`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/account/billing`}
         />
         <meta
           property='og:description'

@@ -45,7 +45,7 @@ const Home = (props) => {
           content='Canada Cannabyss - Canadian Cannabis Wholesaler'
         />
         <meta property='og:type' content='article' />
-        <meta property='og:url' content={`${process.env.MAIN_DOMAIN}`} />
+        <meta property='og:url' content={`${process.env.SECURED_MAIN_DOMAIN}`} />
         <meta
           property='og:description'
           content='Canadian Cannabis Wholesaler.'

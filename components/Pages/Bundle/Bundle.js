@@ -172,7 +172,7 @@ const Bundle = (props) => {
               <meta property='og:type' content='article' />
               <meta
                 property='og:url'
-                content={`${process.env.MAIN_DOMAIN}/bundle/${bundle.data.slug}`}
+                content={`${process.env.SECURED_MAIN_DOMAIN}/bundle/${bundle.data.slug}`}
               />
               <meta
                 property='og:description'

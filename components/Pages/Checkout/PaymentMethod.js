@@ -330,7 +330,7 @@ const PaymentMethodCheckout = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/ckeckout/payment-method`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/ckeckout/payment-method`}
         />
         <meta
           property='og:description'

@@ -264,7 +264,7 @@ const Product = (props) => {
               <meta property='og:type' content='article' />
               <meta
                 property='og:url'
-                content={`${process.env.MAIN_DOMAIN}/product/${product.data.slug}`}
+                content={`${process.env.SECURED_MAIN_DOMAIN}/product/${product.data.slug}`}
               />
               <meta
                 property='og:description'

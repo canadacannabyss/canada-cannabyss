@@ -35,7 +35,7 @@ const Categories = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/categories`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/categories`}
         />
         <meta
           property='og:description'

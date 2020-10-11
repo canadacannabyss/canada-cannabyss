@@ -34,7 +34,7 @@ const Search = (props) => {
         {/* Open Graph */}
         <meta property='og:title' content='Terms of Use - Canada Cannabyss' />
         <meta property='og:type' content='article' />
-        <meta property='og:url' content={`${process.env.MAIN_DOMAIN}/search`} />
+        <meta property='og:url' content={`${process.env.SECURED_MAIN_DOMAIN}/search`} />
         <meta
           property='og:description'
           content='Terms of Use - Canada Cannabyss.'

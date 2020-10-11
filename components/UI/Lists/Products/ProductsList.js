@@ -16,6 +16,7 @@ import RoundFloatNumber from '../../../../utils/Calculate/roundFloatNumber';
 
 const ProductsList = (props) => {
   const { products } = props;
+  
   const roundFloatNumber = new RoundFloatNumber();
 
   return (

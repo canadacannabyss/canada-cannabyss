@@ -25,7 +25,7 @@ const About = () => {
         {/* Open Graph */}
         <meta property='og:title' content='About Us - Canada Cannabyss' />
         <meta property='og:type' content='article' />
-        <meta property='og:url' content={`${process.env.MAIN_DOMAIN}/about`} />
+        <meta property='og:url' content={`${process.env.SECURED_MAIN_DOMAIN}/about`} />
         <meta
           property='og:description'
           content='About Us - Canada Cannabyss.'

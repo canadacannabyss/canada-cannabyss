@@ -38,7 +38,7 @@ const ThankYouPage = ({ order, cart, thankYou }) => (
       <meta property='og:type' content='article' />
       <meta
         property='og:url'
-        content={`${process.env.MAIN_DOMAIN}/thank-you`}
+        content={`${process.env.SECURED_MAIN_DOMAIN}/thank-you`}
       />
       <meta property='og:description' content='Thank you for your order.' />
       <meta property='og:image' content={Logo} />

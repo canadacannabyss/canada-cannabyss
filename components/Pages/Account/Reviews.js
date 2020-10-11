@@ -58,7 +58,7 @@ const Reviews = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/account/reviews`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/account/reviews`}
         />
         <meta
           property='og:description'

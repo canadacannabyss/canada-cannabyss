@@ -75,7 +75,7 @@ const Confirmation = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/confirmation`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/confirmation`}
         />
         <meta
           property='og:description'

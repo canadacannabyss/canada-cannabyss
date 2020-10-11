@@ -445,7 +445,7 @@ const Checkout = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/ckeckout`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/ckeckout`}
         />
         <meta
           property='og:description'

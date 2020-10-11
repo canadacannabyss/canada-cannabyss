@@ -9,11 +9,16 @@ import {
   ProductNewPriceDiscount,
   ProductOldPriceDiscount,
   Price,
-  LinkTo
+  LinkTo,
+  DiscountPercentage
 } from '../../../../styles/Pages/Home/MostBought'
+import RoundFloatNumber from '../../../../utils/Calculate/roundFloatNumber';
+
 
 const MostBoughtList = (props) => {
   const { mostBought } = props;
+
+  const roundFloatNumber = new RoundFloatNumber();
 
   return (
     <>
@@ -22,6 +27,18 @@ const MostBoughtList = (props) => {
         <Link href='/product/[slug]' as={`/product/${bought.slug}`}>
           <LinkTo>
             <Container>
+              {bought.prices.compareTo !== null &&
+                bought.prices.compareTo > 0 && (
+                  <DiscountPercentage>
+                    <p>
+                      {roundFloatNumber.calculateDiscountPercentage(
+                        bought.prices.price,
+                        bought.prices.compareTo
+                      )}
+                      %
+                    </p>
+                  </DiscountPercentage>
+                )}
               <ProductImage src={bought.media.url} />
               <ContentDiv>
                 <Title>{bought.productName}</Title>

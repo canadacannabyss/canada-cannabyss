@@ -50,7 +50,7 @@ const Cart = (props) => {
         {/* Open Graph */}
         <meta property='og:title' content='Cart - Canada Cannabysss' />
         <meta property='og:type' content='article' />
-        <meta property='og:url' content={`${process.env.MAIN_DOMAIN}/cart`} />
+        <meta property='og:url' content={`${process.env.SECURED_MAIN_DOMAIN}/cart`} />
         <meta
           property='og:description'
           content='Canada Cannabyss shopping cart page.'

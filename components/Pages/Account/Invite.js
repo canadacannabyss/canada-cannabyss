@@ -83,7 +83,7 @@ const InviteFriends = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/account/invite`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/account/invite`}
         />
         <meta
           property='og:description'

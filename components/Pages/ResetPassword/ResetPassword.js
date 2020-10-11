@@ -127,7 +127,7 @@ const ResetPassword = (props) => {
           <meta property='og:type' content='article' />
           <meta
             property='og:url'
-            content={`${process.env.MAIN_DOMAIN}/reset-password`}
+            content={`${process.env.SECURED_MAIN_DOMAIN}/reset-password`}
           />
           <meta
             property='og:description'

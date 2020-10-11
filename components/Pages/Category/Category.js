@@ -75,7 +75,7 @@ const Category = (props) => {
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
-          content={`${process.env.MAIN_DOMAIN}/category/${categoryTitle}`}
+          content={`${process.env.SECURED_MAIN_DOMAIN}/category/${categoryTitle}`}
         />
         <meta
           property='og:description'
