@@ -17,13 +17,17 @@ const MostBought = (props) => {
 
   return (
     <Wrapper>
-      <H1>Best Sellers</H1>
-      <Grid>
-        {mostBought.fetched &&
+      {mostBought.fetched &&
           !_.isEmpty(mostBought.data) &&
           !mostBought.loading &&
-          !mostBought.error && <MostBoughtList mostBought={mostBought} />}
-      </Grid>
+          !mostBought.error && (
+            <>
+              <H1>Best Sellers</H1>
+              <Grid>
+                <MostBoughtList mostBought={mostBought} />
+              </Grid>
+            </>
+          )}
     </Wrapper>
   )
 }
