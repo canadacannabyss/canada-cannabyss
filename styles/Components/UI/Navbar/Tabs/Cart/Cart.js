@@ -49,7 +49,7 @@ export const Sep = styled.div`
 `;
 
 export const TotalDiv = styled.div`
-  padding: 5px 0 10px 0;
+  padding: 5px 0;
 `;
 
 export const TotalNumber = styled.p`

@@ -7,6 +7,9 @@ export const Product = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
   @media (max-width: 1160px) {
     height: 220px;
   }
@@ -84,6 +87,7 @@ export const Bg = styled.div`
   height: 100%;
   display: block;
   transition: all 0.2s ease-in-out;
+  border-radius: 8px;
 `;
 
 export const Title = styled.h5`
@@ -168,6 +172,43 @@ export const LinkTo = styled.a`
   width: 100%;
   height: 100%;
   cursor: pointer;
+  @media (max-width: 575px) {
+    #product-0 {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    #recentlyAddedBg-0 {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    #product-1 {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    #recentlyAddedBg-1 {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    #product-2 {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    #recentlyAddedBg-2 {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    #product-3 {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    #recentlyAddedBg-3 {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
 `;
 
 export const PostInfoDiv = styled.div`

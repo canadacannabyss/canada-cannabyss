@@ -36,11 +36,9 @@ const ProductsList = (props) => {
                     </p>
                   </DiscountPercentage>
                 )}
-              <ProductImage
-                style={{
-                  backgroundImage: `url('${product.media[0].url}')`,
-                }}
-              />
+              <ProductImage>
+                <img src={product.media[0].url} />
+              </ProductImage>
               <Details>
                 <ProductName>{product.productName}</ProductName>
                 {product.prices.compareTo !== null &&

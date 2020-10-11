@@ -28,34 +28,34 @@ export const DiscountPercentage = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  transform: rotate(-15deg);
+  transform: rotate(-15deg) translate(6px, 10px);
   p {
     font-size: 16px;
+  }
+  @media (max-width: 440px) {
+    height: 45px;
+    width: 45px;
+    font-size: 14px;
+  }
+  @media (max-width: 330px) {
+    height: 40px;
+    width: 40px;
+    font-size: 12px;
   }
 `;
 
 export const ProductImage = styled.div`
   display: block;
-  height: 200px;
-  width: 200px;
-  margin: 0 auto;
+  width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  @media (max-width: 1199px) {
-    height: 170px;
-    width: 170px;
-  }
-  @media (max-width: 575px) {
-    width: 180px;
-    height: 180px;
-  }
-  @media (max-width: 470px) {
-    width: 150px;
-    height: 150px;
-  }
-  @media (max-width: 400px) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
+  img {
     width: 100%;
+    margin-bottom: -4px;
   }
 `;
 

@@ -18,6 +18,7 @@ import MainCategoriesApi from './home/getMainCategories';
 import GetProductsCategoriesApi from './products/getProductsCategories';
 import GetMainProductsApi from './home/getMainProducts';
 import GetMainNewestProductsApi from './home/getNewestProducts';
+import GetMainMostBoughtApi from './home/getMainMostBought';
 import GetOrder from './order/getOrder';
 import UpdateSubtotalOrder from './order/updateSubtotalOrder';
 import GetCommentsProduct from './product/getCommentsProduct';
@@ -114,6 +115,7 @@ export default function* root() {
     takeLatest('REQUEST_GET_MAIN_PRODUCTS', GetMainProductsApi),
     takeLatest('REQUEST_GET_MAIN_BUNDLES', GetMainBundlesApi),
     takeLatest('REQUEST_MAIN_NEWEST_PRODUCTS', GetMainNewestProductsApi),
+    takeLatest('REQUEST_MAIN_MOST_BOUGHT', GetMainMostBoughtApi),
     takeLatest('REQUEST_MAIN_CATEGORIES', MainCategoriesApi),
     takeLatest('REQUEST_POST_COMMENT', PostComment),
     takeLatest('REQUEST_POST_COMMENT_BUNDLE', PostCommentBundle),

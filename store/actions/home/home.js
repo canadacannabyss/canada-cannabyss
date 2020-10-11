@@ -20,9 +20,15 @@ export function getMainProducts() {
   };
 }
 
-export function getBundles() {
+// export function getBundles() {
+//   return {
+//     type: 'REQUEST_GET_MAIN_BUNDLES',
+//   };
+// }
+
+export function getMostBought() {
   return {
-    type: 'REQUEST_GET_MAIN_BUNDLES',
+    type: 'REQUEST_MAIN_MOST_BOUGHT',
   };
 }
 

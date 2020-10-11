@@ -6,6 +6,7 @@ import {
   getMainCategories,
   getMainProducts,
   getNewestProducts,
+  getMostBought
 } from '../store/actions/home/home';
 
 class Index extends Component {
@@ -13,7 +14,8 @@ class Index extends Component {
     const { store, isServer, asPath } = props.ctx;
     store.dispatch(getMainProducts());
     store.dispatch(getBanners());
-    store.dispatch(getBundles());
+    // store.dispatch(getBundles());
+    store.dispatch(getMostBought())
     store.dispatch(getNewestProducts());
     store.dispatch(getMainCategories());
     return { isServer };

@@ -46,6 +46,7 @@ export const ProductImage = styled.img`
   width: 450px;
   height: 450px;
   margin: 0 auto;
+  border-radius: 8px;
   @media (max-width: 768px) {
     width: 100%;
   }

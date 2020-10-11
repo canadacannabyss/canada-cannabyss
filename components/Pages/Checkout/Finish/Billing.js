@@ -9,6 +9,7 @@ import {
   LoadingLabel,
   LoadingP,
   Label,
+  NotApplied
 } from '../../../../styles/Pages/Checkout/Finish';
 
 const Billing = ({ order }) => {

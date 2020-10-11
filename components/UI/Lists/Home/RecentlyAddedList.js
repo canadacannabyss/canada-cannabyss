@@ -36,7 +36,7 @@ const RecentlyAddedList = (props) => {
                     %
                   </DiscountPercentage>
                 )}
-              <Product key={key} backgroundImage={product.media.url}>
+              <Product key={key} backgroundImage={product.media.url} id={`product-${key}`}>
                 <Bg id={`recentlyAddedBg-${key}`} />
                 <PostInfoDiv
                   onMouseOver={() => {

@@ -20,7 +20,7 @@ export const SearchBarForm = styled.form`
   background: #fff;
   border: 1px solid #18840f;
   width: 65%;
-  box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
   input {
     border: none;
     background: transparent;
@@ -39,6 +39,7 @@ export const SearchBarForm = styled.form`
     color: #18840f;
     font-size: 16px;
     background: transparent;
+    cursor: pointer;
     &:focus {
       outline: none;
     }

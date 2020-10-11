@@ -5,6 +5,7 @@ import { Wrapper } from '../../../styles/Pages/Home/Home';
 import Layout from '../../Layout';
 import BannerCarousel from '../../UI/Carousel/Promotion';
 import Bundles from './Bundles';
+import MostBought from './MostBought'
 import PopularCategories from './Categories';
 import MainProducts from './MainProducts';
 import RecentlyAdded from './RecentlyAdded';
@@ -18,6 +19,7 @@ const mapStateToProps = (state) => {
     newestProducts: home.newestProducts,
     mainCategories: home.mainCategories,
     banners: home.banners,
+    mostBought: home.mostBought
   };
 };
 
@@ -28,6 +30,7 @@ const Home = (props) => {
     newestProducts,
     mainCategories,
     banners,
+    mostBought
   } = props;
 
   return (
@@ -79,6 +82,7 @@ const Home = (props) => {
         <BannerCarousel banners={banners} />
         <br />
         {/* <Bundles bundles={mainBundles} /> */}
+        <MostBought mostBought={mostBought} />
         <RecentlyAdded products={newestProducts} />
         <PopularCategories categories={mainCategories} />
       </Wrapper>

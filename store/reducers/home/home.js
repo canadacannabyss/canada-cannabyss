@@ -43,6 +43,12 @@ const initialState = {
     fetched: false,
     error: false,
   },
+  mostBought: {
+    data: [],
+    loading: false,
+    fetched: false,
+    error: false,
+  }
 };
 
 export default function home(state = initialState, action) {
@@ -110,6 +116,28 @@ export default function home(state = initialState, action) {
     case 'FAILURE_GET_MAIN_BUNDLES':
       return update(state, {
         mainBundles: {
+          fetched: { $set: true },
+          error: { $set: true },
+        },
+      });
+    case 'REQUEST_MAIN_MOST_BOUGHT':
+      return update(state, {
+        mostBought: {
+          loading: { $set: true },
+        },
+      });
+    case 'SUCCESS_MAIN_MOST_BOUGHT':
+      return update(state, {
+        mostBought: {
+          data: { $set: action.payload.data },
+          loading: { $set: false },
+          fetched: { $set: true },
+          error: { $set: false },
+        },
+      });
+    case 'FAILURE_MAIN_MOST_BOUGHT':
+      return update(state, {
+        mostBought: {
           fetched: { $set: true },
           error: { $set: true },
         },

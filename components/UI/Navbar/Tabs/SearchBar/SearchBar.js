@@ -37,8 +37,8 @@ const SearchBar = () => {
         <select id='type'>
           <option value='all'>All</option>
           <option value='products'>Products</option>
-          <option value='bundles'>Bundles</option>
-          {/* <option value='promotions'>Promotions</option>
+          {/* <option value='bundles'>Bundles</option>
+          <option value='promotions'>Promotions</option>
           <option value='categories'>Categories</option>
           <option value='tags'>Tags</option> */}
         </select>

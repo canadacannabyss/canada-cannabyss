@@ -78,6 +78,9 @@ export const Cover = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: ${(props) => `url('${props.src}')`};
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
+  overflow: hidden;
+  border-radius: 8px;
   @media (max-width: 768px) {
     height: 200px;
   }
@@ -120,6 +123,9 @@ export const BgMainCover = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: ${(props) => `url('${props.src}')`};
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
+  overflow: hidden;
+  border-radius: 8px;
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
@@ -153,6 +159,9 @@ export const CoverMain = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-image: ${(props) => `url('${props.src}')`};
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
+  overflow: hidden;
+  border-radius: 8px;
   @media (max-width: 1199px) {
     height: 415px;
   }
