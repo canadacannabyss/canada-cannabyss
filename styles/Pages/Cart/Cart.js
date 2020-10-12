@@ -50,10 +50,10 @@ export const ProceedLink = styled.div`
   margin: 10px 0;
   cursor: pointer;
   a {
-    background: #5a5a5a;
-    color: #fff;
+    background: #18840f33;
+    color: #18840f;
+    border: 1px solid #18840f66;
     border-radius: 4px;
-    border: 1px solid #5a5a5a;
     font-size: 16px;
     padding: 7px 10px;
     margin: 15px 0;
@@ -68,12 +68,12 @@ export const ProceedLinkDisable = styled.div`
   margin: 10px 0;
   cursor: not-allowed;
   a {
-    background: #e6e6e6;
-    color: #18840f;
-    padding: 7px 10px;
-    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.2);
+    background: #f1f1f1;
+    color: #5a5a5a;
     border-radius: 4px;
-    border: 1px solid #18840f;
+    border: 1px solid #d0d0d0;
+    padding: 7px 10px;
+    border-radius: 4px;
     font-size: 16px;
   }
 `;

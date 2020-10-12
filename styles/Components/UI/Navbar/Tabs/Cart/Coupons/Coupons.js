@@ -129,9 +129,9 @@ export const CouponForm = styled.form`
     font-size: 16px;
     color: #188110;
     padding: 8px 10px;
-    border: 1px solid #188110;
+    border: 1px solid #18840f66;
     border-radius: 4px;
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
     &:focus {
       outline: none;
     }
@@ -139,11 +139,13 @@ export const CouponForm = styled.form`
   button {
     border: none;
     border-radius: 4px;
-    background: #188110;
-    color: #fff;
+    background: #18840f33;
+    color: #18840f;
+    border: 1px solid #18840f66;
     font-size: 16px;
     padding: 6px;
     cursor: pointer;
+    box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
     &:focus {
       outline: none;
     }

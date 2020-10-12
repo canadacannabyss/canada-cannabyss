@@ -9,20 +9,25 @@ export const Wrapper = styled.div`
   width: 325px;
   overflow-y: scroll;
   color: #000;
-  top: 55px;
+  top: 60px;
   right: 11%;
   padding: 5px;
   grid-gap: 8px;
-  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
   &::-webkit-scrollbar {
     display: none;
   }
   @media (max-width: 991px) {
     right: 5%;
   }
-  @media (max-width: 360px) {
-    right: 5%;
-    width: 90%;
+  @media (max-width: 768px) {
+    width: 100%;
+    right: 0px;
+    top: 56px;
+    z-index: 0;
+    border-radius: 0px;
+    padding: 5px 15px 5px 5px;
   }
 `;
 
@@ -62,14 +67,20 @@ export const ToCheckout = styled.div`
   width: 100%;
   cursor: pointer;
   a {
-    text-align: center;
-    background: #18840f;
+    background: #18840f33;
+    color: #18840f;
     width: 100%;
-    padding: 11px 5px;
-    color: #fff;
     display: block;
+    font-size: 16px;
+    text-align: center;
+    padding: 13px 17px;
+    border: 1px solid #18840f66;
     border-radius: 4px;
-    border: none;
+    box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
     :focus {
       outline: none;
     }
@@ -82,16 +93,15 @@ export const LinkTo = styled.div`
   margin: 2px;
   a {
     font-size: 16px;
-    background: #18840f;
-    color: #fff;
+    background: #18840f33;
+    color: #18840f;
+    border: 1px solid #18840f66;
     padding: 5px 9px;
     cursor: pointer;
     text-decoration: none;
     border-radius: 4px;
     transition: all 0.2s ease-in-out;
-    &:hover {
-      background: #188110;
-    }
+    box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
   }
 `;
 
@@ -101,11 +111,12 @@ export const TopButtons = styled.div`
 `;
 
 export const ChangeCurrency = styled.button`
-  background: #fff;
-  border: none;
+  background: #18840f33;
+  color: #18840f;
+  border: 1px solid #18840f66;
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
   padding: 0px 8px;
   border-radius: 4px;
-  border: 1px solid #188110;
   &:focus {
     outline: none;
   }
@@ -128,11 +139,12 @@ export const CouponForm = styled.div`
   input {
     width: 100%;
     font-size: 16px;
-    color: #188110;
+    background: #18840f33;
+    color: #18840f;
     padding: 8px 10px;
-    border: 1px solid #188110;
+    border: 1px solid #18840f66;
     border-radius: 4px;
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
     &:focus {
       outline: none;
     }
@@ -140,7 +152,9 @@ export const CouponForm = styled.div`
   button {
     border: none;
     border-radius: 4px;
-    background: #188110;
+    background: #18840f33;
+    color: #18840f;
+    border: 1px solid #18840f66;
     color: #fff;
     font-size: 16px;
     padding: 6px;
@@ -165,7 +179,7 @@ export const CouponFormDisable = styled.div`
     background: #d0d0d0;
     border: 1px solid #d0d0d0;
     border-radius: 4px;
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
     &:focus {
       outline: none;
     }

@@ -85,11 +85,11 @@ const Promotion = (props) => {
               <PromotionHeaderInfoDiv>
                 <h1>{promotion.data.promotionName}</h1>
                 <br />
-                {/* <div
+                <div
                   dangerouslySetInnerHTML={{
                     __html: promotion.data.description,
                   }}
-                ></div> */}
+                ></div>
               </PromotionHeaderInfoDiv>
             </WrapperHeader>
           </PromotionHeader>

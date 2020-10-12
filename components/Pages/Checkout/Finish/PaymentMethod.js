@@ -21,7 +21,6 @@ const PaymentMethod = ({ user, order }) => {
         </ShippingBillingPaymentMethodH2>
         {/* {!order.loading && <FaPen />} */}
       </TitleDiv>
-      <Label>Method</Label>
 
       {order.loading ? (
         <>
@@ -43,6 +42,7 @@ const PaymentMethod = ({ user, order }) => {
                   {order.data.paymentMethod.card.provider !== null &&
                     order.data.paymentMethod.card.id !== null && (
                       <>
+                        <Label>Method</Label>
                         <P>{payment.method}</P>
                         <Label>Card Number</Label>
                         <P>{payment.cardInfo.cardNumber}</P>

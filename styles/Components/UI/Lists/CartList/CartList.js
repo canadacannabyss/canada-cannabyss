@@ -17,6 +17,8 @@ export const ProductImg = styled.img`
   width: 100%;
   display: block;
   cursor: pointer;
+  border-radius: 5px;
+  box-shadow: rgba(0,0,0,0.15) 0px 2px 4px, rgba(0,0,0,0.15) 0px 0px 2px;
 `;
 
 export const ProductName = styled.p`
