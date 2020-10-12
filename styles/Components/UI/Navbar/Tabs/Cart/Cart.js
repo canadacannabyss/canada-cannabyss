@@ -27,7 +27,6 @@ export const Wrapper = styled.div`
     top: 56px;
     z-index: 0;
     border-radius: 0px;
-    padding: 5px 15px 5px 5px;
   }
 `;
 
