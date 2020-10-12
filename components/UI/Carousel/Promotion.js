@@ -35,7 +35,7 @@ const Promotion = (props) => {
                       >
                         <DivImage
                           backgroundImage={promotion.media.url}
-                        ></DivImage>
+                        />
                       </Link>
                     </Fragment>
                   ))}

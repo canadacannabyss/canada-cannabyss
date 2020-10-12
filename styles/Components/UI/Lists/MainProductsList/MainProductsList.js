@@ -51,6 +51,11 @@ export const DiscountPercentage = styled.div`
   @media (max-width: 440px) {
     color: #fff;
     background: #18840f;
+    height: 45px;
+    width: 45px;
+    p {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -409,6 +414,9 @@ export const DiscountPricesDiv = styled.div`
   display: flex;
   flex-direction: row;
   transition: all 0.2s ease-in-out;
+  @media (max-width: 340px) {
+    flex-direction: column;
+  }
 `;
 
 export const ProductOldSmallPriceDiscount = styled.span`
@@ -418,7 +426,6 @@ export const ProductOldSmallPriceDiscount = styled.span`
   font-size: 18px;
   text-decoration: line-through;
   font-weight: 100;
-  margin-bottom: 1rem;
   @media (max-width: 440px) {
     display: block;
   }
@@ -429,7 +436,6 @@ export const ProductNewSmallPriceDiscount = styled.span`
   display: none;
   font-size: 20px;
   font-weight: 100;
-  margin-bottom: 1rem;
   @media (max-width: 440px) {
     display: block;
   }

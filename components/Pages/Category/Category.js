@@ -12,7 +12,7 @@ import {
   LoadingProductContainer,
 } from '../../../styles/Pages/Category/Category';
 import Layout from '../../Layout';
-import ProductsList from '../../UI/Lists/Category/ProductsList';
+import ProductsList from '../../UI/Lists/Products/ProductsList';
 import BundlesList from '../../UI/Lists/Category/BundlesList';
 import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 

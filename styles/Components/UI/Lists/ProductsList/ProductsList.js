@@ -84,6 +84,9 @@ export const ProductPrice = styled.span`
 export const DiscountPricesDiv = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 340px) {
+    flex-direction: column;
+  }
 `;
 
 export const ProductOldPriceDiscount = styled.span`

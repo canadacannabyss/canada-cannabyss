@@ -117,8 +117,10 @@ const SideDrawer = (props) => {
                           {productsCategories.data.map((category) => (
                             <li key={category._id}>
                               <Link
-                                href='/products/category/[slug]'
-                                as={`/products/category/${category.slug}`}
+                                href='/category/[slug]'
+                                as={`/category/${category.slug}`}
+                                // href='/products/category/[slug]'
+                                // as={`/products/category/${category.slug}`}
                               >
                                 <a>{category.categoryName}</a>
                               </Link>

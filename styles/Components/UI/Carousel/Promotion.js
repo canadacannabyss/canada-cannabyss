@@ -68,7 +68,7 @@ export const Div = styled.div`
 export const DivImage = styled.div`
   width: 100%;
   height: 400px;
-  background-image: ${(props) => `url('${props.backgroundImage}')`};
+  background: ${(props) => `url('${props.backgroundImage}')`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
