@@ -19,6 +19,7 @@ import { ImageUploader } from 'portrait-load';
 
 import Layout from '../../Layout';
 import ETransferModal from '../../UI/Modal/ETransferTutorial/ETransferTutorial';
+import CryptocurrencyModal from '../../UI/Modal/CryptocurrencyTutorial/CryptocurrencyTutorial';
 
 import {
   Wrapper,
@@ -78,6 +79,7 @@ const Finish = (props) => {
   const [imagesArrayLength, setImagesArrayLength] = useState(0);
 
   const [toggleETransferModal, setToggleETransferModal] = useState(false);
+  const [toggleCryptocurrencyModal, setToggleCryptocurrencyModal] = useState(false);
 
   const [acceptTermsOfUse, setAcceptTermsOfUse] = useState(false);
 
@@ -214,6 +216,10 @@ const Finish = (props) => {
     setToggleETransferModal(!toggleETransferModal);
   };
 
+  const handleToggleCryptocurrency = () => {
+    setToggleCryptocurrencyModal(!toggleCryptocurrencyModal);
+  };
+
   const handleCheckAcceptTermsOfUse = () => {
     setAcceptTermsOfUse(!acceptTermsOfUse);
   };
@@ -224,6 +230,16 @@ const Finish = (props) => {
         <ETransferModal
           handleToggleETransfer={handleToggleETransfer}
           transferAmount={order.data.total}
+        />
+      )}
+      {toggleCryptocurrencyModal && (
+        <CryptocurrencyModal 
+          handleToggleCryptocurrency={handleToggleCryptocurrency}
+          transferCryptocurrencyAmount={totalInFiat}
+          transferCryptocurrencySymbol={order.data.paymentMethod.cryptocurrency.symbol}
+          cryptocurrencyName={order.data.paymentMethod.cryptocurrency.name}
+          cryptocurrencyCompanyAddress={order.data.paymentMethod.cryptocurrency.companyAddress}
+          cryptocurrencyCustomerAddress={order.data.paymentMethod.cryptocurrency.customerAddress}
         />
       )}
       <Head>
@@ -335,7 +351,7 @@ const Finish = (props) => {
                           Transfer Receipt{' '}
                           <button
                             onClick={() => {
-                              handleToggleETransfer();
+                              handleToggleCryptocurrency();
                             }}
                           >
                             <FaInfoCircle />
