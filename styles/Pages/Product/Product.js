@@ -395,6 +395,26 @@ export const TagsDiv = styled.div`
   }
 `;
 
+export const AcceptedPaymentMethodH4 = styled.h4`
+  color: #18840f;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+`;
+
+export const AcceptedPaymentMethodDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  div {
+    margin-right: 6px;
+    margin-bottom: 4px;
+    img {
+      height: 32px;
+      width: 32px;
+    }
+  }
+`;
+
 export const LoadingAddToCart = styled.div`
   height: 46px;
   width: 200px;

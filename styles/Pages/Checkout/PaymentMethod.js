@@ -355,6 +355,11 @@ export const CryptocurrencyFlex = styled.div`
     p {
       color: #18840f;
     }
+    .discount {
+      font-size: 12px;
+      color: #18840f;
+      margin-left: 5px;
+    }
   }
   div {
     display: flex;
@@ -381,6 +386,11 @@ export const CryptocurrencyFlex = styled.div`
     p {
       font-size: 20px;
       color: #5a5a5a;
+    }
+    .discount {
+      font-size: 12px;
+      color: #5a5a5a;
+      margin-left: 5px;
     }
   }
 `;

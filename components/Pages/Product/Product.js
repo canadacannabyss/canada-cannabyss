@@ -45,6 +45,8 @@ import {
   LoadingCommentsDiv,
   LoadingCommentsTextArea,
   LoadingCommentsTextAreaButton,
+  AcceptedPaymentMethodH4,
+  AcceptedPaymentMethodDiv
 } from '../../../styles/Pages/Product/Product';
 import Layout from '../../Layout';
 import ShareButtons from '../../UI/Buttons/ShareButtons/ShareButtons';
@@ -55,17 +57,18 @@ import ProductsUser from './ProductsUser';
 let count = 0;
 
 const mapStateToProps = (state) => {
-  const { product, user, cart } = state;
+  const { product, user, cart, acceptedPaymentMethods } = state;
   return {
     product: product.product,
     resellerProducts: product.resellerProducts,
     user,
     cart,
+    acceptedPaymentMethods,
   };
 };
 
 const Product = (props) => {
-  const { product, resellerProducts, user, cart } = props;
+  const { product, resellerProducts, user, cart, acceptedPaymentMethods } = props;
   const dispatch = useDispatch();
   const roundFloatNumber = new RoundFloatNumber();
 
@@ -207,8 +210,6 @@ const Product = (props) => {
       dispatch(addItemToCart(productDetailsObj, cart.data._id));
     }
   };
-
-  console.log('variantsArray:', variantsArray);
 
   const onChangeSelectVariant = (e, index) => {
     const values = [...variantsArray];
@@ -562,6 +563,25 @@ const Product = (props) => {
                   </Link>
                 ))}
               </TagsDiv>
+              {!_.isEmpty(acceptedPaymentMethods.data) &&
+              acceptedPaymentMethods.fetched &&
+              !acceptedPaymentMethods.error &&
+              !acceptedPaymentMethods.loading &&
+              acceptedPaymentMethods.data.cryptocurrencies.length > 0 && (
+                <>
+                  <br />
+                  <AcceptedPaymentMethodH4>
+                    Accepted Cryptocurrencies
+                  </AcceptedPaymentMethodH4>
+                  <AcceptedPaymentMethodDiv>
+                    {acceptedPaymentMethods.data.cryptocurrencies.map((cryptocurrency) => (
+                      <div>
+                        <img src={cryptocurrency.cryptocurrency.logo} />
+                      </div>
+                    ))}
+                  </AcceptedPaymentMethodDiv>
+                </>
+              )}
               {product.data.reseller &&
                 !product.data.reseller.isCanadaCannabyssTeam && (
                   <ProductsUser

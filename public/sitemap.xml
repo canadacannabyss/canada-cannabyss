@@ -97,11 +97,11 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundles/index</loc>
+    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundle/[slug]</loc>
+    <loc>https://canadacannabyss.com/bundles/index</loc>
   </url>
 
   <url>
@@ -149,7 +149,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
+    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
   </url>
 
   <url>
@@ -157,10 +157,10 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/reseller/registration/[token]</loc>
+    <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundles/category/[slug]</loc>
+    <loc>https://canadacannabyss.com/reseller/registration/[token]</loc>
   </url>
 </urlset>

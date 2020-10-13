@@ -21,6 +21,8 @@ const Cryptocurrency = (props) => {
     handleonChangeCryptoWalletSelectedCustomer,
     selectedCryptocurrencyWalletCustomer,
     handleonChangeCryptoWalletSelectedCompany,
+    handleOnChangeCryptocurrencySelectedDiscountType,
+    handleOnChangeCryptocurrencySelectedDiscountAmount,
   } = props;
 
   const [cryptoSeleted, setCryptoSelected] = useState('');
@@ -62,6 +64,13 @@ const Cryptocurrency = (props) => {
     handleSetCryptoSymbolSelected(result[0].cryptocurrency.symbol);
     handleSetCryptoNameSelected(result[0].cryptocurrency.name);
     handleonChangeCryptoWalletSelectedCompany(result[0].cryptocurrency.address);
+    if (result[0].cryptocurrency.discount.amount !== null && result[0].cryptocurrency.discount.type !== null) {
+      handleOnChangeCryptocurrencySelectedDiscountType(result[0].cryptocurrency.discount.type)
+      handleOnChangeCryptocurrencySelectedDiscountAmount(result[0].cryptocurrency.discount.amount)
+    } else {
+      handleOnChangeCryptocurrencySelectedDiscountType(null)
+      handleOnChangeCryptocurrencySelectedDiscountAmount(null)
+    }
   };
 
   useEffect(() => {
@@ -82,6 +91,9 @@ const Cryptocurrency = (props) => {
           >
             <img src={cryptocurrency.cryptocurrency.logo} />
             <p>{cryptocurrency.cryptocurrency.name}</p>
+            {cryptocurrency.cryptocurrency.discount.amount !== null && cryptocurrency.cryptocurrency.discount.type !== null && (
+              <p className='discount'>{`- ${cryptocurrency.cryptocurrency.discount.amount}${cryptocurrency.cryptocurrency.discount.type === 'percentage' && '%'}`}</p>
+            )}
           </div>
         ))}
       </CryptocurrencyFlex>

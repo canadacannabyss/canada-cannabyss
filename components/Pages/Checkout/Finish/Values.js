@@ -3,14 +3,8 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import {
-  Div,
-  TitleDiv,
-  ShippingBillingPaymentMethodH2,
-  P,
-  LoadingLabel,
-  LoadingP,
-  Label,
   ValuesP,
+  ValuePDiscount,
 } from '../../../../styles/Pages/Checkout/Finish';
 const Values = ({ order, totalInFiat }) => {
   return (
@@ -21,7 +15,16 @@ const Values = ({ order, totalInFiat }) => {
         !order.error && (
           <>
             <ValuesP>
-              <b>Item(s) Subtotal:</b> C$ {order.data.subtotal}
+            <b>Item(s) Subtotal:</b> C$ {order.data.subtotal} {order.data.paymentMethod !== null && (
+              <>
+            {order.data.paymentMethod.cryptocurrency.discount.type !== null &&
+            order.data.paymentMethod.cryptocurrency.discount.type !== null && (
+              <ValuePDiscount>
+                {`-${order.data.paymentMethod.cryptocurrency.discount.amount}${order.data.paymentMethod.cryptocurrency.discount.type === 'percentage' && '%'}`}
+              </ValuePDiscount>
+            )}
+              </>
+            )}
             </ValuesP>
             <ValuesP>
               <b>Shipping & Handling:</b> C${' '}

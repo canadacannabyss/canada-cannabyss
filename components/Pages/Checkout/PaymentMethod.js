@@ -97,6 +97,8 @@ const PaymentMethodCheckout = (props) => {
     selectedCryptocurrencyWalletCompany,
     setSelectedCryptocurrencyWalletCompany,
   ] = useState('');
+  const [selectedCryptocurrencyDiscountType, setSelectedCryptocurrencyDiscountType] = useState(null)
+  const [selectedCryptocurrencyDiscountAmount, setSelectedCryptocurrencyDiscountAmount] = useState(null)
 
   const [selectedETransferRecipient, setSelectedETransferRecipient] = useState(
     ''
@@ -127,6 +129,10 @@ const PaymentMethodCheckout = (props) => {
           name: cryptoNameSelected,
           customerAddress: selectedCryptocurrencyWalletCustomer,
           companyAddress: selectedCryptocurrencyWalletCompany,
+          discount: {
+            type: selectedCryptocurrencyDiscountType,
+            amount: selectedCryptocurrencyDiscountAmount,
+          },
         })
       );
     }
@@ -156,6 +162,10 @@ const PaymentMethodCheckout = (props) => {
           name: cryptoNameSelected,
           customerAddress: selectedCryptocurrencyWalletCustomer,
           companyAddress: selectedCryptocurrencyWalletCompany,
+          discount: {
+            type: selectedCryptocurrencyDiscountType,
+            amount: selectedCryptocurrencyDiscountAmount,
+          },
         })
       );
       count += 1;
@@ -215,6 +225,14 @@ const PaymentMethodCheckout = (props) => {
   const handleonChangeCryptoWalletSelectedCompany = (address) => {
     setSelectedCryptocurrencyWalletCompany(address);
   };
+
+  const handleOnChangeCryptocurrencySelectedDiscountType = (type) => {
+    setSelectedCryptocurrencyDiscountType(type)
+  }
+
+  const handleOnChangeCryptocurrencySelectedDiscountAmount = (amount) => {
+    setSelectedCryptocurrencyDiscountAmount(amount)
+  }
 
   useEffect(() => {
     if (_.isEmpty(billing.data) || _.isEmpty(shipping.data)) {
@@ -428,6 +446,12 @@ const PaymentMethodCheckout = (props) => {
                   }
                   handleonChangeCryptoWalletSelectedCompany={
                     handleonChangeCryptoWalletSelectedCompany
+                  }
+                  handleOnChangeCryptocurrencySelectedDiscountType={
+                    handleOnChangeCryptocurrencySelectedDiscountType
+                  }
+                  handleOnChangeCryptocurrencySelectedDiscountAmount={
+                    handleOnChangeCryptocurrencySelectedDiscountAmount
                   }
                 />
               )}

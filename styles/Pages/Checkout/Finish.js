@@ -131,6 +131,13 @@ export const ValuesP = styled.p`
   margin-bottom: 1rem;
 `;
 
+export const ValuePDiscount = styled.span`
+  color: #18840f;
+  font-size: 12px;
+  transform: translateY(-9px);
+  display: inline-table;
+`;
+
 export const TransferReceipt = styled.p`
   margin-bottom: 1rem;
   font-size: 15px;

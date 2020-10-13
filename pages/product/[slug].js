@@ -4,6 +4,10 @@ import {
   getProduct,
   updateHowManyViewed,
 } from '../../store/actions/product/product';
+import {
+  getCryptocurrenciesPaymentMethods,
+  getETransfersPaymentMethods,
+} from '../../store/actions/accepted-payment-methods/accepted-payment-methods';
 
 class ProductIndex extends Component {
   static async getInitialProps(props) {
@@ -11,6 +15,7 @@ class ProductIndex extends Component {
     const slug = asPath.substring(9, asPath.length);
     store.dispatch(getProduct(slug));
     store.dispatch(updateHowManyViewed(slug));
+    store.dispatch(getCryptocurrenciesPaymentMethods())
     return { isServer, asPath };
   }
 
