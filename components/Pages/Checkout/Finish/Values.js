@@ -17,12 +17,12 @@ const Values = ({ order, totalInFiat }) => {
             <ValuesP>
             <b>Item(s) Subtotal:</b> C$ {order.data.subtotal} {order.data.paymentMethod !== null && (
               <>
-            {order.data.paymentMethod.cryptocurrency.discount.type !== null &&
-            order.data.paymentMethod.cryptocurrency.discount.type !== null && (
-              <ValuePDiscount>
-                {`-${order.data.paymentMethod.cryptocurrency.discount.amount}${order.data.paymentMethod.cryptocurrency.discount.type === 'percentage' && '%'}`}
-              </ValuePDiscount>
-            )}
+                {order.data.paymentMethod.cryptocurrency.discount.type !== null &&
+                order.data.paymentMethod.cryptocurrency.discount.type !== null && (
+                  <ValuePDiscount>
+                    {`-${order.data.paymentMethod.cryptocurrency.discount.amount}${order.data.paymentMethod.cryptocurrency.discount.type === 'percentage' && '%'}`}
+                  </ValuePDiscount>
+                )}
               </>
             )}
             </ValuesP>
