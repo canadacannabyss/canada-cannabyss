@@ -186,6 +186,11 @@ const Account = (props) => {
                 <a className='disabled'>Message support</a>
                 {/* </Link> */}
               </li>
+              <li>
+                <Link href='/account/reset-password' as='/account/reset-password'>
+                  <a>Reset Password</a>
+                </Link>
+              </li>
             </ul>
           </Menu>
         </MenusGrid>
