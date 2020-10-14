@@ -103,7 +103,7 @@ const Search = (props) => {
                       <h2>No Products</h2>
                     </NoItems>
                   )}
-                  <br />
+                  {/* <br />
                   {search.data.bundles.length > 0 ? (
                     <BundlesGrid>
                       <BundlesList bundles={search.data.bundles} />
@@ -113,7 +113,7 @@ const Search = (props) => {
                       <FaSadCry />
                       <h2>No Bundles</h2>
                     </NoItems>
-                  )}
+                  )} */}
                 </>
               )}
               {search.data.type === 'products' && (
@@ -138,7 +138,7 @@ const Search = (props) => {
                   )}
                 </>
               )}
-              {search.data.type === 'bundles' && (
+              {/* {search.data.type === 'bundles' && (
                 <>
                   {search.data.bundles.length > 0 ? (
                     <BundlesGrid>
@@ -151,7 +151,7 @@ const Search = (props) => {
                     </NoItems>
                   )}
                 </>
-              )}
+              )} */}
             </>
           )}
       </Wrapper>
