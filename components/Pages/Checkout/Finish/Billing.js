@@ -17,7 +17,7 @@ const Billing = ({ order }) => {
     <Div id='div-billing'>
       <TitleDiv>
         <ShippingBillingPaymentMethodH2>
-          Billing Address Address
+          Billing Address
         </ShippingBillingPaymentMethodH2>
         {/* {!order.loading && <FaPen />} */}
       </TitleDiv>
@@ -42,43 +42,43 @@ const Billing = ({ order }) => {
           <LoadingP />
         </>
       ) : (
-        <>
-          {order.fetched && (
-            <>
-              {!_.isEmpty(order.data) ? (
-                <>
-                  <Label>First Name</Label>
-                  <P>{order.data.billingAddress.name.first}</P>
-                  <Label>Last Name</Label>
-                  <P>{order.data.billingAddress.name.last}</P>
-                  <Label>Country</Label>
-                  <P>{order.data.billingAddress.country}</P>
-                  <Label>Province / State</Label>
-                  <P>{order.data.billingAddress.provinceState}</P>
-                  <Label>City</Label>
-                  <P>{order.data.billingAddress.city}</P>
-                  <Label>Address Line 1</Label>
-                  <P>{order.data.billingAddress.addressLine1}</P>
-                  <Label>Address Line 2</Label>
-                  {order.data.billingAddress.addressLine2.length == 0 ? (
-                    <NotApplied>No Applied</NotApplied>
-                  ) : (
-                    <P>{order.data.billingAddress.addressLine2}</P>
+          <>
+            {order.fetched && (
+              <>
+                {!_.isEmpty(order.data) ? (
+                  <>
+                    <Label>First Name</Label>
+                    <P>{order.data.billingAddress.name.first}</P>
+                    <Label>Last Name</Label>
+                    <P>{order.data.billingAddress.name.last}</P>
+                    <Label>Country</Label>
+                    <P>{order.data.billingAddress.country}</P>
+                    <Label>Province / State</Label>
+                    <P>{order.data.billingAddress.provinceState}</P>
+                    <Label>City</Label>
+                    <P>{order.data.billingAddress.city}</P>
+                    <Label>Address Line 1</Label>
+                    <P>{order.data.billingAddress.addressLine1}</P>
+                    <Label>Address Line 2</Label>
+                    {order.data.billingAddress.addressLine2.length == 0 ? (
+                      <NotApplied>No Applied</NotApplied>
+                    ) : (
+                        <P>{order.data.billingAddress.addressLine2}</P>
+                      )}
+                    <Label>Postal Code</Label>
+                    <P>{order.data.billingAddress.postalCode}</P>
+                  </>
+                ) : (
+                    <>
+                      <P>
+                        <strong>Error</strong>
+                      </P>
+                    </>
                   )}
-                  <Label>Postal Code</Label>
-                  <P>{order.data.billingAddress.postalCode}</P>
-                </>
-              ) : (
-                <>
-                  <P>
-                    <strong>Error</strong>
-                  </P>
-                </>
-              )}
-            </>
-          )}
-        </>
-      )}
+              </>
+            )}
+          </>
+        )}
     </Div>
   );
 };
