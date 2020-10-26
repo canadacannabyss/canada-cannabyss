@@ -222,8 +222,11 @@ export const Login = styled.button`
     outline: none;
   }
   &:hover {
-    background: #fff;
+    background: #18840f40;
     color: #18840f;
+  }
+  &:active {
+    background: #18840f54;
   }
 `;
 
@@ -242,8 +245,11 @@ export const Logout = styled.button`
     outline: none;
   }
   &:hover {
-    background: #18840f;
-    color: #fff;
+    background: #18840f40;
+    color: #18840f;
+  }
+  &:active {
+    background: #18840f54;
   }
 `;
 
