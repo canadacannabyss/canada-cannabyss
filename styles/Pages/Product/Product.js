@@ -364,7 +364,7 @@ export const DisabledAddToCart = styled.button`
   background: rgb(241, 241, 241);
   color: rgb(90, 90, 90);
   border: 1px solid rgb(208, 208, 208);
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   width: 200px;
   padding: 12px 0;
