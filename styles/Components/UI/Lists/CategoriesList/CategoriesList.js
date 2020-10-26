@@ -74,6 +74,7 @@ export const CategoryName = styled.div`
     font-weight: 900;
     padding: 10px;
     background: #fff;
+    border-radius: 4px;
     z-index: 0;
     text-align: center;
   }

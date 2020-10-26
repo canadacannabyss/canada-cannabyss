@@ -361,12 +361,12 @@ export const AddToCart = styled.button`
 `;
 
 export const DisabledAddToCart = styled.button`
-  background: rgba(0, 0, 0, 0.3);
-  color: #fff;
+  background: rgb(241, 241, 241);
+  color: rgb(90, 90, 90);
+  border: 1px solid rgb(208, 208, 208);
   font-size: 18px;
   text-align: center;
   width: 200px;
-  border: none;
   padding: 12px 0;
   margin: 20px 0;
   cursor: pointer;

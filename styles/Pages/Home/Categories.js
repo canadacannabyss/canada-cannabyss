@@ -65,6 +65,7 @@ export const AllCategories = styled.a`
   display: table;
   background: #18840f33;
   color: #18840f;
+  border: 1px solid #18840f66;
   font-size: 16px;
   padding: 13px 17px;
   border-radius: 4px;
