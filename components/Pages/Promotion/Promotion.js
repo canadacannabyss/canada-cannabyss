@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import _ from 'lodash';
+import sanitizeHtml from 'sanitize-html';
 import { connect } from 'react-redux';
 import {
   Wrapper,
@@ -54,14 +55,14 @@ const Promotion = (props) => {
               />
               <meta property='og:image' content={`${promotion.data.media.url}`} />
               <meta property='og:site_name' content='Canada Cannabyss' />
-      
+
               {/* Google+ */}
               <meta itemprop='name' content={promotion.data.seo.title} />
               <meta itemprop='description' content={promotion.data.seo.description} />
               <meta itemprop='image' content={`${promotion.data.media.url}`} />
-      
+
               {/* Twitter */}
-      
+
               <meta name='twitter:card' content='promotion' />
               <meta name='twitter:site' content='@canadacannabyss' />
               <meta name='twitter:title' content={promotion.data.seo.title} />
@@ -87,7 +88,7 @@ const Promotion = (props) => {
                 <br />
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: promotion.data.description,
+                    __html: sanitizeHtml(promotion.data.description),
                   }}
                 ></div>
               </PromotionHeaderInfoDiv>

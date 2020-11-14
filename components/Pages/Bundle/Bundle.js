@@ -2,6 +2,7 @@ import _ from 'lodash';
 import Head from 'next/head';
 import Carousel from 'nuka-carousel';
 import PropTypes from 'prop-types';
+import sanitizeHtml from 'sanitize-html';
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { addItemToCart } from '../../../store/actions/cart/cart';
@@ -235,10 +236,10 @@ const Bundle = (props) => {
                     ))}
                   </Carousel>
                 ) : (
-                  <EmptyMedias>
-                    <p>No products</p>
-                  </EmptyMedias>
-                )}
+                    <EmptyMedias>
+                      <p>No products</p>
+                    </EmptyMedias>
+                  )}
                 <ProductDetailsDiv>
                   {bundle.data.prices.compareTo > 0 && (
                     <DiscountPercentage>
@@ -275,11 +276,11 @@ const Bundle = (props) => {
                       </DiscountPricesDiv>
                     </>
                   ) : (
-                    <ProductPrice>C$ {bundle.data.prices.price}</ProductPrice>
-                  )}
+                      <ProductPrice>C$ {bundle.data.prices.price}</ProductPrice>
+                    )}
                   <ProductDescription
                     dangerouslySetInnerHTML={{
-                      __html: bundle.data.description,
+                      __html: sanitizeHtml(bundle.data.description),
                     }}
                   />
                   <ProductQuantityP>Quantity</ProductQuantityP>
@@ -300,8 +301,8 @@ const Bundle = (props) => {
                       Add to cart
                     </AddToCart>
                   ) : (
-                    <DisabledAddToCart disabled>Add to cart</DisabledAddToCart>
-                  )}
+                      <DisabledAddToCart disabled>Add to cart</DisabledAddToCart>
+                    )}
                 </ProductDetailsDiv>
               </ProductDetailsWrapper>
               <ExtraInfo extraInfoArray={bundle.data.extraInfo} />

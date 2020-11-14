@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import sanitizeHtml from 'sanitize-html';
 import {
   Container,
   Features,
@@ -16,13 +17,13 @@ const FeaturesWhatInsideTheBox = (props) => {
       <FeaturesDiv>
         <FeaturesInsideTheBoxH3>Features</FeaturesInsideTheBoxH3>
         {!_.isEmpty(features) && (
-          <Features dangerouslySetInnerHTML={{ __html: features }} />
+          <Features dangerouslySetInnerHTML={{ __html: sanitizeHtml(features) }} />
         )}
       </FeaturesDiv>
       <InsideTheBoxDiv>
         <FeaturesInsideTheBoxH3>What's inside the box</FeaturesInsideTheBoxH3>
         {!_.isEmpty(insideTheBox) && (
-          <InsideTheBox dangerouslySetInnerHTML={{ __html: insideTheBox }} />
+          <InsideTheBox dangerouslySetInnerHTML={{ __html: sanitizeHtml(insideTheBox) }} />
         )}
       </InsideTheBoxDiv>
     </Container>

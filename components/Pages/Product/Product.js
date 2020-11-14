@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
 import PropTypes from 'prop-types';
+import sanitizeHtml from 'sanitize-html';
 import React, { useState, useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../../store/actions/cart/cart';
@@ -79,6 +80,8 @@ const Product = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [variantPrice, setVariantPrice] = useState(1);
   const [variantCompareTo, setVariantCompareTo] = useState(1);
+
+  console.log('sanitiza-html:', sanitizeHtml(product.data.description))
 
   useEffect(() => {
     if (
@@ -311,27 +314,27 @@ const Product = (props) => {
                 product.data.variants.variantsOptionNames[0] === '' &&
                 product.data.variants.values.length === 0
               ) && (
-                <>
-                  <meta
-                    name='twitter:data2'
-                    content={`${product.data.variants.uniqueValues[0][0]
-                      .substring(0, 1)
-                      .toUpperCase()}${product.data.variants.uniqueValues[0][0].substring(
-                      1,
-                      product.data.variants.uniqueValues[0][0].length
-                    )}`}
-                  />
-                  <meta
-                    name='twitter:label2'
-                    content={`${product.data.variants.variantsOptionNames[0]
-                      .substring(0, 1)
-                      .toUpperCase()}${product.data.variants.variantsOptionNames[0].substring(
-                      1,
-                      product.data.variants.variantsOptionNames[0].length
-                    )}`}
-                  />
-                </>
-              )}
+                  <>
+                    <meta
+                      name='twitter:data2'
+                      content={`${product.data.variants.uniqueValues[0][0]
+                        .substring(0, 1)
+                        .toUpperCase()}${product.data.variants.uniqueValues[0][0].substring(
+                          1,
+                          product.data.variants.uniqueValues[0][0].length
+                        )}`}
+                    />
+                    <meta
+                      name='twitter:label2'
+                      content={`${product.data.variants.variantsOptionNames[0]
+                        .substring(0, 1)
+                        .toUpperCase()}${product.data.variants.variantsOptionNames[0].substring(
+                          1,
+                          product.data.variants.variantsOptionNames[0].length
+                        )}`}
+                    />
+                  </>
+                )}
             </Head>
             <Wrapper>
               <ProductDetailsWrapper>
@@ -345,22 +348,22 @@ const Product = (props) => {
                           <>
                             {product.data.variants.variantsOptionNames.length >
                               0 &&
-                            product.data.variants.values.length > 0 &&
-                            product.data.variants.uniqueValues.length > 0 ? (
-                              <>
-                                {roundFloatNumber.calculateDiscountPercentage(
-                                  variantPrice,
-                                  variantCompareTo
-                                )}
-                              </>
-                            ) : (
-                              <>
-                                {roundFloatNumber.calculateDiscountPercentage(
-                                  product.data.prices.price,
-                                  product.data.prices.compareTo
-                                )}
-                              </>
-                            )}
+                              product.data.variants.values.length > 0 &&
+                              product.data.variants.uniqueValues.length > 0 ? (
+                                <>
+                                  {roundFloatNumber.calculateDiscountPercentage(
+                                    variantPrice,
+                                    variantCompareTo
+                                  )}
+                                </>
+                              ) : (
+                                <>
+                                  {roundFloatNumber.calculateDiscountPercentage(
+                                    product.data.prices.price,
+                                    product.data.prices.compareTo
+                                  )}
+                                </>
+                              )}
                           </>
                         )}
                       %
@@ -383,22 +386,22 @@ const Product = (props) => {
                             <>
                               {product.data.variants.variantsOptionNames
                                 .length > 0 &&
-                              product.data.variants.values.length > 0 &&
-                              product.data.variants.uniqueValues.length > 0 ? (
-                                <>
-                                  {roundFloatNumber.calculateDiscountPercentage(
-                                    variantPrice,
-                                    variantCompareTo
-                                  )}
-                                </>
-                              ) : (
-                                <>
-                                  {roundFloatNumber.calculateDiscountPercentage(
-                                    product.data.prices.price,
-                                    product.data.prices.compareTo
-                                  )}
-                                </>
-                              )}
+                                product.data.variants.values.length > 0 &&
+                                product.data.variants.uniqueValues.length > 0 ? (
+                                  <>
+                                    {roundFloatNumber.calculateDiscountPercentage(
+                                      variantPrice,
+                                      variantCompareTo
+                                    )}
+                                  </>
+                                ) : (
+                                  <>
+                                    {roundFloatNumber.calculateDiscountPercentage(
+                                      product.data.prices.price,
+                                      product.data.prices.compareTo
+                                    )}
+                                  </>
+                                )}
                             </>
                           )}
                         %
@@ -416,36 +419,36 @@ const Product = (props) => {
                             <>
                               {product.data.variants.variantsOptionNames
                                 .length > 0 &&
-                              product.data.variants.values.length > 0 &&
-                              product.data.variants.uniqueValues.length > 0 ? (
-                                <>
-                                  <ProductOldPriceDiscount>
-                                    C$ {variantCompareTo}
-                                  </ProductOldPriceDiscount>
-                                  <ProductNewPriceDiscount>
-                                    C$ {variantPrice}
-                                  </ProductNewPriceDiscount>
-                                </>
-                              ) : (
-                                <>
-                                  <ProductOldPriceDiscount>
-                                    C$ {product.data.prices.compareTo}
-                                  </ProductOldPriceDiscount>
-                                  <ProductNewPriceDiscount>
-                                    C$ {product.data.prices.price}
-                                  </ProductNewPriceDiscount>
-                                </>
-                              )}
+                                product.data.variants.values.length > 0 &&
+                                product.data.variants.uniqueValues.length > 0 ? (
+                                  <>
+                                    <ProductOldPriceDiscount>
+                                      C$ {variantCompareTo}
+                                    </ProductOldPriceDiscount>
+                                    <ProductNewPriceDiscount>
+                                      C$ {variantPrice}
+                                    </ProductNewPriceDiscount>
+                                  </>
+                                ) : (
+                                  <>
+                                    <ProductOldPriceDiscount>
+                                      C$ {product.data.prices.compareTo}
+                                    </ProductOldPriceDiscount>
+                                    <ProductNewPriceDiscount>
+                                      C$ {product.data.prices.price}
+                                    </ProductNewPriceDiscount>
+                                  </>
+                                )}
                             </>
                           )}
                       </DiscountPricesDiv>
                     </>
                   ) : (
-                    <ProductPrice>C$ {product.data.prices.price}</ProductPrice>
-                  )}
+                      <ProductPrice>C$ {product.data.prices.price}</ProductPrice>
+                    )}
                   <ProductDescription
                     dangerouslySetInnerHTML={{
-                      __html: product.data.description,
+                      __html: sanitizeHtml(product.data.description),
                     }}
                   />
                   {!_.isEmpty(product.data) &&
@@ -455,64 +458,64 @@ const Product = (props) => {
                       <>
                         {!(
                           product.data.variants.variantsOptionNames.length ===
-                            1 &&
+                          1 &&
                           product.data.variants.variantsOptionNames[0] === '' &&
                           product.data.variants.values.length === 0
                         ) && (
-                          <ProductVariantSelectGrid
-                            variantsLength={
-                              product.data.variants.variantsOptionNames.length
-                            }
-                          >
-                            {product.data.variants.uniqueValues.map(
-                              (value, index) => (
-                                <div>
-                                  <ProductVariantSelectLabel
-                                    htmlFor={
-                                      product.data.variants.variantsOptionNames[
+                            <ProductVariantSelectGrid
+                              variantsLength={
+                                product.data.variants.variantsOptionNames.length
+                              }
+                            >
+                              {product.data.variants.uniqueValues.map(
+                                (value, index) => (
+                                  <div>
+                                    <ProductVariantSelectLabel
+                                      htmlFor={
+                                        product.data.variants.variantsOptionNames[
+                                        index
+                                        ]
+                                      }
+                                    >
+                                      {`${product.data.variants.variantsOptionNames[
                                         index
                                       ]
-                                    }
-                                  >
-                                    {`${product.data.variants.variantsOptionNames[
-                                      index
-                                    ]
-                                      .substring(0, 1)
-                                      .toUpperCase()}${product.data.variants.variantsOptionNames[
-                                      index
-                                    ].substring(
-                                      1,
-                                      product.data.variants.variantsOptionNames[
-                                        index
-                                      ].length
-                                    )}`}
-                                  </ProductVariantSelectLabel>
-                                  <ProductVariantSelect
-                                    id={
-                                      product.data.variants.variantsOptionNames[
-                                        index
-                                      ]
-                                    }
-                                    onChange={(e) => {
-                                      onChangeSelectVariant(e, index);
-                                    }}
-                                  >
-                                    {value.map((row) => (
-                                      <>
-                                        <option value={row}>{`${row
-                                          .substring(0, 1)
-                                          .toUpperCase()}${row.substring(
+                                        .substring(0, 1)
+                                        .toUpperCase()}${product.data.variants.variantsOptionNames[
+                                          index
+                                        ].substring(
                                           1,
-                                          row.length
-                                        )}`}</option>
-                                      </>
-                                    ))}
-                                  </ProductVariantSelect>
-                                </div>
-                              )
-                            )}
-                          </ProductVariantSelectGrid>
-                        )}
+                                          product.data.variants.variantsOptionNames[
+                                            index
+                                          ].length
+                                        )}`}
+                                    </ProductVariantSelectLabel>
+                                    <ProductVariantSelect
+                                      id={
+                                        product.data.variants.variantsOptionNames[
+                                        index
+                                        ]
+                                      }
+                                      onChange={(e) => {
+                                        onChangeSelectVariant(e, index);
+                                      }}
+                                    >
+                                      {value.map((row) => (
+                                        <>
+                                          <option value={row}>{`${row
+                                            .substring(0, 1)
+                                            .toUpperCase()}${row.substring(
+                                              1,
+                                              row.length
+                                            )}`}</option>
+                                        </>
+                                      ))}
+                                    </ProductVariantSelect>
+                                  </div>
+                                )
+                              )}
+                            </ProductVariantSelectGrid>
+                          )}
                       </>
                     )}
                   <ProductQuantityP>Quantity</ProductQuantityP>
@@ -532,14 +535,14 @@ const Product = (props) => {
                       Add to cart
                     </AddToCart>
                   ) : (
-                    <DisabledAddToCart
-                      onClick={() => {
-                        dispatch(openLoginTab());
-                      }}
-                    >
-                      Add to cart
-                    </DisabledAddToCart>
-                  )}
+                      <DisabledAddToCart
+                        onClick={() => {
+                          dispatch(openLoginTab());
+                        }}
+                      >
+                        Add to cart
+                      </DisabledAddToCart>
+                    )}
                 </ProductDetailsDiv>
               </ProductDetailsWrapper>
               {product.data.extraInfo.length > 0 && (
@@ -564,24 +567,24 @@ const Product = (props) => {
                 ))}
               </TagsDiv>
               {!_.isEmpty(acceptedPaymentMethods.data) &&
-              acceptedPaymentMethods.fetched &&
-              !acceptedPaymentMethods.error &&
-              !acceptedPaymentMethods.loading &&
-              acceptedPaymentMethods.data.cryptocurrencies.length > 0 && (
-                <>
-                  <br />
-                  <AcceptedPaymentMethodH4>
-                    Accepted Cryptocurrencies
+                acceptedPaymentMethods.fetched &&
+                !acceptedPaymentMethods.error &&
+                !acceptedPaymentMethods.loading &&
+                acceptedPaymentMethods.data.cryptocurrencies.length > 0 && (
+                  <>
+                    <br />
+                    <AcceptedPaymentMethodH4>
+                      Accepted Cryptocurrencies
                   </AcceptedPaymentMethodH4>
-                  <AcceptedPaymentMethodDiv>
-                    {acceptedPaymentMethods.data.cryptocurrencies.map((cryptocurrency) => (
-                      <div>
-                        <img src={cryptocurrency.cryptocurrency.logo} />
-                      </div>
-                    ))}
-                  </AcceptedPaymentMethodDiv>
-                </>
-              )}
+                    <AcceptedPaymentMethodDiv>
+                      {acceptedPaymentMethods.data.cryptocurrencies.map((cryptocurrency) => (
+                        <div>
+                          <img src={cryptocurrency.cryptocurrency.logo} />
+                        </div>
+                      ))}
+                    </AcceptedPaymentMethodDiv>
+                  </>
+                )}
               {product.data.reseller &&
                 !product.data.reseller.isCanadaCannabyssTeam && (
                   <ProductsUser
