@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { fadeText } from '../../../Animations/Animations';
 
 export const Wrapper = styled.div`
-  margin-top: 30px;
   width: 100%;
   height: 400px;
   .slider-control-centerright,

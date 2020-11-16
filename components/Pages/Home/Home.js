@@ -77,14 +77,18 @@ const Home = (props) => {
         <meta name='twitter:image' content={Logo} />
       </Head>
       <Wrapper>
-        <MainProducts products={mainProducts} />
-        <br />
         <BannerCarousel banners={banners} />
-        <br />
-        {/* <Bundles bundles={mainBundles} /> */}
-        <MostBought mostBought={mostBought} />
-        <RecentlyAdded products={newestProducts} />
         <PopularCategories categories={mainCategories} />
+        <br />
+        <MostBought mostBought={mostBought} />
+        <br />
+        <MainProducts products={mainProducts} />
+
+        {/* <br /> */}
+        {/* <Bundles bundles={mainBundles} /> */}
+
+        {/* <RecentlyAdded products={newestProducts} /> */}
+
       </Wrapper>
     </Layout>
   );
