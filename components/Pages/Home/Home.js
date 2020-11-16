@@ -78,13 +78,13 @@ const Home = (props) => {
       </Head>
       <Wrapper>
         <BannerCarousel banners={banners} />
+        <br />
         <PopularCategories categories={mainCategories} />
         <br />
         <MostBought mostBought={mostBought} />
         <br />
         <MainProducts products={mainProducts} />
-
-        {/* <br /> */}
+        <br />
         {/* <Bundles bundles={mainBundles} /> */}
 
         {/* <RecentlyAdded products={newestProducts} /> */}
