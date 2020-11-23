@@ -157,6 +157,12 @@ const Finish = (props) => {
   };
 
   useEffect(() => {
+    if (!_.isEmpty(order) && order.fetched && !order.loading && !order.error) {
+      setGlobalVariable();
+    }
+  }, [order]);
+
+  useEffect(() => {
     if (imagesArray.length > 0) {
       if (imagesArray[0].data !== null && imagesArray[0].data !== undefined) {
         if (imagesArray.length === imagesArrayLength) {
@@ -187,6 +193,27 @@ const Finish = (props) => {
       Router.push('/');
     }
   }, [order, cart]);
+
+  const setGlobalVariable = async () => {
+    const bodyRequest = {
+      type: 'transfer-receipts',
+      title: order.data._id
+    };
+    const response = await fetch(
+      `${process.env.MAIN_API_ENDPOINT}/customers/order/set/global-variable`,
+      {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyRequest)
+      }
+    );
+    return response;
+  };
 
   const handleCompleteOrder = () => {
     const imagesArrayObj = [];
@@ -233,7 +260,7 @@ const Finish = (props) => {
         />
       )}
       {toggleCryptocurrencyModal && (
-        <CryptocurrencyModal 
+        <CryptocurrencyModal
           handleToggleCryptocurrency={handleToggleCryptocurrency}
           transferCryptocurrencyAmount={totalInFiat}
           transferCryptocurrencySymbol={order.data.paymentMethod.cryptocurrency.symbol}
@@ -344,7 +371,7 @@ const Finish = (props) => {
                     )}
                   {order.data.paymentMethod.cryptocurrency.symbol !== null &&
                     order.data.paymentMethod.cryptocurrency.address !==
-                      null && (
+                    null && (
                       <>
                         <TransferReceipt>
                           {order.data.paymentMethod.cryptocurrency.symbol}{' '}
@@ -391,10 +418,10 @@ const Finish = (props) => {
                 Finish Checkout
               </FinishCheckoutBtn>
             ) : (
-              <FinishCheckoutBtnDisable>
-                Finish Checkout
-              </FinishCheckoutBtnDisable>
-            )}
+                <FinishCheckoutBtnDisable>
+                  Finish Checkout
+                </FinishCheckoutBtnDisable>
+              )}
           </SubTotalDiv>
         </FinishPricesDiv>
       </Wrapper>

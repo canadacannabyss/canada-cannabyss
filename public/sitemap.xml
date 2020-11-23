@@ -101,7 +101,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/bundles/index</loc>
+    <loc>https://canadacannabyss.com/category/[slug]</loc>
   </url>
 
   <url>
@@ -109,7 +109,7 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/category/[slug]</loc>
+    <loc>https://canadacannabyss.com/bundles/index</loc>
   </url>
 
   <url>
