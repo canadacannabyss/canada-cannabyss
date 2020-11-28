@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 import {
   Container,
   AuthorName,
@@ -14,8 +14,8 @@ import {
   UserInfoWrapper,
   CommentedOn,
   Wrapper,
-} from '../../../../../styles/Components/UI/Lists/Account/Reviews/ReviewsList';
-import DateFormatter from '../../../../../utils/DateFormatter';
+} from "../../../../../styles/Components/UI/Lists/Account/Reviews/ReviewsList";
+import DateFormatter from "../../../../../utils/DateFormatter";
 
 const ReviewsList = (props) => {
   const { reviews } = props;
@@ -26,25 +26,25 @@ const ReviewsList = (props) => {
       {reviews.commentsProduct.length > 0 && (
         <>
           {reviews.commentsProduct.map((review) => (
-            <Link href='/product/[slug]' as={`/product/${review.product.slug}`}>
+            <Link href="/product/[slug]" as={`/product/${review.product.slug}`}>
               <Wrapper key={review._id}>
                 <UserInfoWrapper>
                   <ul>
-                    <li className='img-li'>
+                    <li className="img-li">
                       <LinkToProfile>
                         <AuthorPicture src={review.customer.profileImage.url} />
                       </LinkToProfile>
                     </li>
-                    <li className='user-info'>
+                    <li className="user-info">
                       <LinkToProfile>
                         <AuthorName>
-                          {review.customer.names.firstName}{' '}
+                          {review.customer.names.firstName}{" "}
                           {review.customer.names.lastName}
                         </AuthorName>
                       </LinkToProfile>
 
                       <PostedOn>
-                        {formatter.formatDateFullDate(review.createdOn)}
+                        {formatter.formatDateFullDate(review.createdAt)}
                       </PostedOn>
                     </li>
                   </ul>
@@ -52,7 +52,7 @@ const ReviewsList = (props) => {
                 <Content>{review.content}</Content>
                 <CommentedOn>
                   <p>
-                    <strong>Reviewed on:</strong>{' '}
+                    <strong>Reviewed on:</strong>{" "}
                     <span>{review.product.productName}</span>
                   </p>
                 </CommentedOn>
@@ -64,25 +64,25 @@ const ReviewsList = (props) => {
       {reviews.commentsBundle.length > 0 && (
         <>
           {reviews.commentsBundle.map((review) => (
-            <Link href='/bundle/[slug]' as={`/bundle/${review.bundle.slug}`}>
+            <Link href="/bundle/[slug]" as={`/bundle/${review.bundle.slug}`}>
               <Wrapper key={review._id}>
                 <UserInfoWrapper>
                   <ul>
-                    <li className='img-li'>
+                    <li className="img-li">
                       <LinkToProfile>
                         <AuthorPicture src={review.user.profileImage.url} />
                       </LinkToProfile>
                     </li>
-                    <li className='user-info'>
+                    <li className="user-info">
                       <LinkToProfile>
                         <AuthorName>
-                          {review.user.names.firstName}{' '}
+                          {review.user.names.firstName}{" "}
                           {review.user.names.lastName}
                         </AuthorName>
                       </LinkToProfile>
 
                       <PostedOn>
-                        {formatter.formatDateFullDate(review.createdOn)}
+                        {formatter.formatDateFullDate(review.createdAt)}
                       </PostedOn>
                     </li>
                   </ul>
@@ -90,7 +90,7 @@ const ReviewsList = (props) => {
                 <Content>{review.content}</Content>
                 <CommentedOn>
                   <p>
-                    <strong>Reviewed on:</strong>{' '}
+                    <strong>Reviewed on:</strong>{" "}
                     <span>{review.bundle.bundleName}</span>
                   </p>
                 </CommentedOn>

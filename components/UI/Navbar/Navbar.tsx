@@ -7,7 +7,7 @@ import Logo from '../../../assets/img/canada-cannabyss-logo.svg';
 import { fetchLoginUser } from '../../../store/actions/user/user';
 import { updateOrderValue } from '../../../store/actions/order/order';
 import { addOneToCount } from '../../../store/actions/loginRequestCount/loginRequestCount';
-import { openLoginTab } from '../../../store/actions/navbar';
+import { openLoginForm } from '../../../store/actions/navbar/navbar';
 import {
   BarsCartDiv,
   BrandFlexMobile,
@@ -51,7 +51,9 @@ import Cart from './Tabs/Cart/Cart';
 import Help from './Tabs/Help/Help';
 import Login from './Tabs/Login/Login';
 import Products from './Tabs/Products/Products';
-import Register from './Tabs/Register/Register';
+import RegisterForm from './Modals/Register/Register';
+import LoginForm from './Modals/Login/Login';
+import ResetPasswordForm from './Modals/ResetPassword/ResetPassword';
 import SideDrawer from './Tabs/SideDrawer/SideDrawer';
 import UserMenu from './Tabs/UserMenu/UserMenu';
 import SearchBar from './Tabs/SearchBar/SearchBar';
@@ -190,7 +192,7 @@ const Navbar = () => {
       setToggleBundles(false);
       // setToggleRegister(!toggleRegister);
       setToggleSearch(false);
-      dispatch(openLoginTab());
+      dispatch(openLoginForm());
       setToggleLogin(false);
       setToggleCart(false);
       setToggleDrawer(false);
@@ -320,17 +322,17 @@ const Navbar = () => {
       <Navigation>
         <TopGroup>
           <TopGroupWapper>
-            <DrawerBtn type='button' onClick={handleToggleDrawer}>
+            <DrawerBtn type="button" onClick={handleToggleDrawer}>
               <FaBars />
             </DrawerBtn>
             <BrandFlex>
-              <Link href='/' as='/'>
+              <Link href="/" as="/">
                 <a>
                   <BrandDiv>
                     <Brand
                       src={Logo}
-                      alt='Canada Cannabyss'
-                      title='Canada Cannabyss'
+                      alt="Canada Cannabyss"
+                      title="Canada Cannabyss"
                     />
                   </BrandDiv>
                   <BrandName>
@@ -342,13 +344,13 @@ const Navbar = () => {
               </Link>
             </BrandFlex>
             <BrandFlexMobile>
-              <Link href='/' as='/'>
+              <Link href="/" as="/">
                 <a>
                   <BrandDiv>
                     <Brand
                       src={Logo}
-                      alt='Canada Cannabyss'
-                      title='Canada Cannabyss'
+                      alt="Canada Cannabyss"
+                      title="Canada Cannabyss"
                     />
                   </BrandDiv>
                   <BrandName>
@@ -391,7 +393,7 @@ const Navbar = () => {
                       <p>
                         Hello, <span>{user.data.names.firstName}</span>
                       </p>
-                      <p className='account'>Account</p>
+                      <p className="account">Account</p>
                     </UserButtonName>
                   </>
                 )}
@@ -487,9 +489,11 @@ const Navbar = () => {
             <Cart />
           </OutsideAlerter>
         )}
-        {navbar.showLoginTab && _.isEmpty(user.data) && (
-          <Register handleCloseRegister={handleCloseRegister} />
+        {navbar.openResetPasswordForm && _.isEmpty(user.data) && (
+          <ResetPasswordForm />
         )}
+        {navbar.openRegisterForm && _.isEmpty(user.data) && <RegisterForm />}
+        {navbar.openLoginForm && _.isEmpty(user.data) && <LoginForm />}
         {toggleLogin && <Login handleCloseLogin={handleCloseLogin} />}
       </Navigation>
     </>

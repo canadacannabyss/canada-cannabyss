@@ -101,15 +101,15 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/category/[slug]</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/bundle/[slug]</loc>
   </url>
 
   <url>
     <loc>https://canadacannabyss.com/bundles/index</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/category/[slug]</loc>
   </url>
 
   <url>

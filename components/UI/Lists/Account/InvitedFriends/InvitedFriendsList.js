@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 import {
   Container,
   AuthorName,
@@ -15,8 +15,8 @@ import {
   CommentedOn,
   Wrapper,
   NotVerified,
-} from '../../../../../styles/Components/UI/Lists/Account/InvitedFriendsList/InvitedFriendsList';
-import DateFormatter from '../../../../../utils/DateFormatter';
+} from "../../../../../styles/Components/UI/Lists/Account/InvitedFriendsList/InvitedFriendsList";
+import DateFormatter from "../../../../../utils/DateFormatter";
 
 const InvitedFriendsList = (props) => {
   const { invitedFriends } = props;
@@ -30,12 +30,12 @@ const InvitedFriendsList = (props) => {
             <Wrapper key={user._id}>
               <UserInfoWrapper>
                 <ul>
-                  <li className='img-li'>
+                  <li className="img-li">
                     <LinkToProfile>
                       <AuthorPicture src={user.profileImage.url} />
                     </LinkToProfile>
                   </li>
-                  <li className='user-info'>
+                  <li className="user-info">
                     <LinkToProfile>
                       <AuthorName>
                         {user.names.firstName} {user.names.lastName}
@@ -43,7 +43,7 @@ const InvitedFriendsList = (props) => {
                     </LinkToProfile>
 
                     <PostedOn>
-                      {formatter.formatDateFullDate(user.createdOn)}
+                      {formatter.formatDateFullDate(user.createdAt)}
                     </PostedOn>
                     {!user.isVerified && (
                       <NotVerified>Not verified</NotVerified>

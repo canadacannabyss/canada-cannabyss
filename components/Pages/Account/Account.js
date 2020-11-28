@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import React from 'react';
-import { connect } from 'react-redux';
-import _ from 'lodash';
+import Link from "next/link";
+import Head from "next/head";
+import React from "react";
+import { connect } from "react-redux";
+import _ from "lodash";
 import {
   Grid,
   LinkTo,
@@ -19,10 +19,10 @@ import {
   CopyToClipBoard,
   MenusGrid,
   Menu,
-} from '../../../styles/Pages/Account/Account';
-import Layout from '../../Layout';
-import DateFormatter from '../../../utils/DateFormatter';
-import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
+} from "../../../styles/Pages/Account/Account";
+import Layout from "../../Layout";
+import DateFormatter from "../../../utils/DateFormatter";
+import Logo from "../../../assets/img/canada-cannabyss-logo.webp";
 
 const mapStateToProps = (state) => {
   const { user } = state;
@@ -35,12 +35,12 @@ const Account = (props) => {
   const dateFormatter = new DateFormatter();
 
   const onCopyToClipboard = () => {
-    console.log('CLick');
+    console.log("CLick");
     var range = document.createRange();
-    range.selectNode(document.getElementById('referral'));
+    range.selectNode(document.getElementById("referral"));
     window.getSelection().removeAllRanges(); // clear current selection
     window.getSelection().addRange(range); // to select text
-    document.execCommand('copy');
+    document.execCommand("copy");
     window.getSelection().removeAllRanges(); // to deselect
   };
 
@@ -48,34 +48,34 @@ const Account = (props) => {
     <Layout>
       <Head>
         <title>Account - Canada Cannabyss</title>
-        <meta name='description' content='Account - Canada Cannabyss.' />
+        <meta name="description" content="Account - Canada Cannabyss." />
 
         {/* Open Graph */}
-        <meta property='og:title' content='Account - Canada Cannabyss' />
-        <meta property='og:type' content='article' />
+        <meta property="og:title" content="Account - Canada Cannabyss" />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:url'
+          property="og:url"
           content={`${process.env.SECURED_MAIN_DOMAIN}/account`}
         />
-        <meta property='og:description' content='Account - Canada Cannabyss.' />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta property="og:description" content="Account - Canada Cannabyss." />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop='name' content='Account - Canada Cannabyss' />
-        <meta itemprop='description' content='Account - Canada Cannabyss' />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="name" content="Account - Canada Cannabyss" />
+        <meta itemprop="description" content="Account - Canada Cannabyss" />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
-        <meta name='twitter:title' content='Account - Canada Cannabyss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
+        <meta name="twitter:title" content="Account - Canada Cannabyss" />
         <meta
-          name='twitter:description'
-          content='Account - Canada Cannabyss.'
+          name="twitter:description"
+          content="Account - Canada Cannabyss."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         <UserInfoDiv>
@@ -90,13 +90,13 @@ const Account = (props) => {
                     {user.data.names.firstName} {user.data.names.lastName}
                   </UserInfoName>
                   <UserInfoDate>
-                    Since{' '}
-                    {dateFormatter.formatDateFullDate(user.data.createdOn)}
+                    Since{" "}
+                    {dateFormatter.formatDateFullDate(user.data.createdAt)}
                   </UserInfoDate>
                   <ReferralLink>
                     <p>Referral:</p>
                     <span
-                      id='referral'
+                      id="referral"
                       onClick={() => {
                         onCopyToClipboard();
                       }}
@@ -114,12 +114,12 @@ const Account = (props) => {
             <h3>Billings & Shipping</h3>
             <ul>
               <li>
-                <Link href='/account/billing' as='/account/billing'>
+                <Link href="/account/billing" as="/account/billing">
                   <a>Billing List</a>
                 </Link>
               </li>
               <li>
-                <Link href='/account/shipping' as='/account/shipping'>
+                <Link href="/account/shipping" as="/account/shipping">
                   <a>Shipping List</a>
                 </Link>
               </li>
@@ -133,17 +133,17 @@ const Account = (props) => {
                   href='/account/payment/credit-card'
                   as='/account/credit-card'
                 > */}
-                <a className='disabled'>Credit Card</a>
+                <a className="disabled">Credit Card</a>
                 {/* </Link> */}
               </li>
               <li>
                 {/* <Link href='/account/payment/cryptocurrency' as='/account/payment/cryptocurrency'> */}
-                <a className='disabled'>Cryptocurrency</a>
+                <a className="disabled">Cryptocurrency</a>
                 {/* </Link> */}
               </li>
               <li>
                 {/* <Link href='/account/payment/e-transfer' as='/account/payment/e-transfer'> */}
-                <a className='disabled'>e-Tranfer</a>
+                <a className="disabled">e-Tranfer</a>
                 {/* </Link> */}
               </li>
             </ul>
@@ -152,13 +152,13 @@ const Account = (props) => {
             <h3>Orders</h3>
             <ul>
               <li>
-                <Link href='/account/orders' as='/account/orders'>
+                <Link href="/account/orders" as="/account/orders">
                   <a>Orders</a>
                 </Link>
               </li>
               <li>
                 {/* <Link href='/account/returns' as='/account/returns'> */}
-                <a className='disabled'>Returns</a>
+                <a className="disabled">Returns</a>
                 {/* </Link> */}
               </li>
             </ul>
@@ -167,12 +167,12 @@ const Account = (props) => {
             <h3>Miscellaneous</h3>
             <ul>
               <li>
-                <Link href='/account/reviews' as='/account/reviews'>
+                <Link href="/account/reviews" as="/account/reviews">
                   <a>Reviews</a>
                 </Link>
               </li>
               <li>
-                <Link href='/account/invite' as='/account/invite'>
+                <Link href="/account/invite" as="/account/invite">
                   <a>Invite friend</a>
                 </Link>
               </li>
@@ -183,11 +183,14 @@ const Account = (props) => {
             <ul>
               <li>
                 {/* <Link href='/account/orders' as='/account/orders'> */}
-                <a className='disabled'>Message support</a>
+                <a className="disabled">Message support</a>
                 {/* </Link> */}
               </li>
               <li>
-                <Link href='/account/reset-password' as='/account/reset-password'>
+                <Link
+                  href="/account/reset-password"
+                  as="/account/reset-password"
+                >
                   <a>Reset Password</a>
                 </Link>
               </li>

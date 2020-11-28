@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../../../store/actions/user/user';
-import { closeLoginTab } from '../../../../../store/actions/navbar';
+import { closeLoginForm } from '../../../../../store/actions/navbar/navbar';
 import {
   LinkTo,
   MenuOpitionLi,
@@ -18,7 +18,7 @@ const UserMenu = (props) => {
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
-    dispatch(closeLoginTab());
+    dispatch(closeLoginForm());
     dispatch(logoutUser());
   };
 
@@ -28,31 +28,31 @@ const UserMenu = (props) => {
         <MenuOpitionUl>
           {user.data.isAdmin && (
             <MenuOpitionLi>
-              <Link href='/admin/index' as='/admin'>
+              <Link href="/admin/index" as="/admin">
                 <LinkTo onClick={handleToggleUserMenu}>Admin</LinkTo>
               </Link>
             </MenuOpitionLi>
           )}
           {user.data.isReseller && (
             <MenuOpitionLi>
-              <Link href='/reseller/index' as='/reseller'>
+              <Link href="/reseller/index" as="/reseller">
                 <LinkTo onClick={handleToggleUserMenu}>Reseller</LinkTo>
               </Link>
             </MenuOpitionLi>
           )}
           <MenuOpitionLi>
-            <Link href='/account' as='/account'>
+            <Link href="/account" as="/account">
               <LinkTo onClick={handleToggleUserMenu}>Account</LinkTo>
             </Link>
           </MenuOpitionLi>
           <MenuOpitionLi>
-            <Link href='/account/orders' as='/account/orders'>
+            <Link href="/account/orders" as="/account/orders">
               <LinkTo onClick={handleToggleUserMenu}>Orders</LinkTo>
             </Link>
           </MenuOpitionLi>
           <MenuOpitionLi>
-            <Link href='/' as='/'>
-              <LinkTo onClick={handleLogout} className='last'>
+            <Link href="/" as="/">
+              <LinkTo onClick={handleLogout} className="last">
                 Sign out
               </LinkTo>
             </Link>

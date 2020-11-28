@@ -54,7 +54,7 @@ const Layout = (props) => {
   }, [cart]);
 
   return (
-    <div className='Layout' style={layoutStyle}>
+    <div className="Layout" style={layoutStyle}>
       <Navbar />
       <Content>{props.children}</Content>
       <Footer />

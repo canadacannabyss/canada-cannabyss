@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import Link from 'next/link';
-import React from 'react';
-import { connect } from 'react-redux';
+import _ from "lodash";
+import Link from "next/link";
+import React from "react";
+import { connect } from "react-redux";
 import {
   AuthorName,
   AuthorPicture,
@@ -14,9 +14,9 @@ import {
   PostedOn,
   UserInfoWrapper,
   Wrapper,
-} from '../../../styles/Pages/Product/Comments';
-import DateFormatter from '../../../utils/DateFormatter';
-import AddComment from './AddComment';
+} from "../../../styles/Pages/Product/Comments";
+import DateFormatter from "../../../utils/DateFormatter";
+import AddComment from "./AddComment";
 
 let count = 0;
 
@@ -50,21 +50,21 @@ const Comments = (props) => {
             <Wrapper key={comment._id}>
               <UserInfoWrapper>
                 <ul>
-                  <li className='img-li'>
+                  <li className="img-li">
                     <LinkToProfile>
                       <AuthorPicture src={comment.customer.profileImage.url} />
                     </LinkToProfile>
                   </li>
-                  <li className='user-info'>
+                  <li className="user-info">
                     <LinkToProfile>
                       <AuthorName>
-                        {comment.customer.names.firstName}{' '}
+                        {comment.customer.names.firstName}{" "}
                         {comment.customer.names.lastName}
                       </AuthorName>
                     </LinkToProfile>
 
                     <PostedOn>
-                      {formatter.formatDateFullDate(comment.createdOn)}
+                      {formatter.formatDateFullDate(comment.createdAt)}
                     </PostedOn>
                   </li>
                 </ul>

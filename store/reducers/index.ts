@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import app from './app/app';
 import billing from './billing/billing';
 import billingList from './billing/billingList';
 import post from './blog/post';
@@ -11,7 +12,6 @@ import bundlesCategories from './bundles/bundlesCategories';
 import cart from './cart/cart';
 import categories from './categories/categories';
 import home from './home/home';
-import navbar from './navbar';
 import order from './order/order';
 import orders from './orders/orders';
 import paymentMethod from './paymentMethod/paymentMethod';
@@ -27,8 +27,10 @@ import loginRequestCount from './loginRequestCount/loginRequestCount';
 import thankYou from './thankYou/thankYou';
 import search from './search/search';
 import acceptedPaymentMethods from './accepted-payment-methods/accepted-payment-methods';
+import navbar from './navbar/navbar';
 
 export default combineReducers({
+  app,
   acceptedPaymentMethods,
   billing,
   billingList,
