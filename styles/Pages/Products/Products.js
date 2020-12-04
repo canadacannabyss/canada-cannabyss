@@ -191,3 +191,7 @@ export const Pages = styled.button`
     outline: none;
   }
 `;
+
+export const DescriptionDiv = styled.div`
+  margin: 20px 0 40px 0;
+`;

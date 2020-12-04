@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   .slider-control-bottomcenter {
     display: none;
   }
-  @media (max-width: 991px) {
+  /* @media (max-width: 991px) {
     height: 370px;
   }
   @media (max-width: 768px) {
@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 320px) {
     height: 240px;
-  }
+  } */
 `;
 
 export const LoadingWrapper = styled.div`
@@ -37,7 +37,7 @@ export const LoadingWrapper = styled.div`
   height: 400px;
   background: rgba(0, 0, 0, 0.15);
   animation: ${fadeText} 1s infinite;
-  @media (max-width: 991px) {
+  /* @media (max-width: 991px) {
     height: 370px;
   }
   @media (max-width: 768px) {
@@ -54,7 +54,7 @@ export const LoadingWrapper = styled.div`
   }
   @media (max-width: 320px) {
     height: 240px;
-  }
+  } */
 `;
 
 export const Div = styled.div`
