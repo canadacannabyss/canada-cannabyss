@@ -199,7 +199,8 @@ export const DescriptionDiv = styled.div`
 export const LoadingDescriptionDiv = styled.div`
   background: rgba(0, 0, 0, 0.15);
   width: 100%;
-  height: 40px;
+  height: 20px;
   animation: ${fadeText} 1s infinite;
   display: block;
+  margin-bottom: 40px;
 `;

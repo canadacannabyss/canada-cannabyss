@@ -72,7 +72,7 @@ const Shipping = (props) => {
       shippingProvinceState.length > 0 &&
       shippingCity.length > 0 &&
       shippingAddressLine1.length > 0 &&
-      shippingAddressLine2.length > 0 &&
+      // shippingAddressLine2.length > 0 &&
       shippingPostalCode.length > 0
     ) {
       setAllFieldsFilled(true);
@@ -110,7 +110,7 @@ const Shipping = (props) => {
     if (e.target.value === 'CA') {
       setShippingCountry(e.target.value);
       setShippingProvincesStatesList(
-        await listLocation.mapThroughtCanadaProvinces()
+        await listLocation.mapThroughtCanadaProvinces(),
       );
     } else if (e.target.value === 'US') {
       setShippingCountry(e.target.value);
@@ -124,7 +124,7 @@ const Shipping = (props) => {
     setShippingProvinceState(e.target.value);
     if (e.target.value !== '-') {
       setShippingCitiesList(
-        await listLocation.mapThroughtCanadaCities(e.target.value)
+        await listLocation.mapThroughtCanadaCities(e.target.value),
       );
     }
   };
@@ -186,7 +186,7 @@ const Shipping = (props) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(shippingObj),
-      }
+      },
     );
     const data = await response.json();
     return data;
@@ -204,7 +204,7 @@ const Shipping = (props) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(shippingObj),
-      }
+      },
     );
     const data = await response.json();
     return data;
@@ -221,7 +221,7 @@ const Shipping = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     const data = await response.json();
     return data;
@@ -307,48 +307,48 @@ const Shipping = (props) => {
       <Head>
         <title>Shipping | Account - Canada Cannabyss</title>
         <meta
-          name='description'
-          content='Shipping | Account - Canada Cannabyss.'
+          name="description"
+          content="Shipping | Account - Canada Cannabyss."
         />
 
         {/* Open Graph */}
         <meta
-          property='og:title'
-          content='Shipping | Account - Canada Cannabyss'
+          property="og:title"
+          content="Shipping | Account - Canada Cannabyss"
         />
-        <meta property='og:type' content='article' />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:url'
+          property="og:url"
           content={`${process.env.SECURED_MAIN_DOMAIN}/account/shipping`}
         />
         <meta
-          property='og:description'
-          content='Shipping | Account - Canada Cannabyss.'
+          property="og:description"
+          content="Shipping | Account - Canada Cannabyss."
         />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop='name' content='Shipping | Account - Canada Cannabyss' />
+        <meta itemprop="name" content="Shipping | Account - Canada Cannabyss" />
         <meta
-          itemprop='description'
-          content='Shipping | Account - Canada Cannabyss'
+          itemprop="description"
+          content="Shipping | Account - Canada Cannabyss"
         />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
         <meta
-          name='twitter:title'
-          content='Shipping | Account - Canada Cannabyss'
+          name="twitter:title"
+          content="Shipping | Account - Canada Cannabyss"
         />
         <meta
-          name='twitter:description'
-          content='Shipping | Account - Canada Cannabyss.'
+          name="twitter:description"
+          content="Shipping | Account - Canada Cannabyss."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         {toggleEdit ? (
@@ -401,19 +401,19 @@ const Shipping = (props) => {
                   <SelectEdit
                     onChange={handleShippingCountrySelect}
                     value={shippingCountry}
-                    id='shipping_country'
+                    id="shipping_country"
                   >
-                    <option value='-'>CHOOSE COUNTRY</option>
-                    <option value='CA'>CANADA</option>
+                    <option value="-">CHOOSE COUNTRY</option>
+                    <option value="CA">CANADA</option>
                     {/* <option value="US">UNITED STATES</option> */}
                   </SelectEdit>
                   <label>Province / State</label>
                   <SelectEdit
                     onChange={handleShippingProvinceStateSelect}
                     value={shippingProvinceState}
-                    id='shipping_province_state'
+                    id="shipping_province_state"
                   >
-                    <option value='-'>PROVINCE/STATE</option>
+                    <option value="-">PROVINCE/STATE</option>
                     {shippingProvincesStatesList.map((province) => (
                       <option key={province.abbr} value={province.abbr}>
                         {province.name}
@@ -424,9 +424,9 @@ const Shipping = (props) => {
                   <SelectEdit
                     onChange={handleShippingCitySelect}
                     value={shippingCity}
-                    id='shipping_city'
+                    id="shipping_city"
                   >
-                    <option value='-'>CITY</option>
+                    <option value="-">CITY</option>
                     {shippingCitiesList.map((city) => (
                       <option key={city} value={city}>
                         {city}
@@ -491,7 +491,11 @@ const Shipping = (props) => {
                   <label>Address Line 1</label>
                   <p>{shipping.addressLine1}</p>
                   <label>Address Line 2</label>
-                  <p>{shipping.addressLine2}</p>
+                  {shipping.addressLine2.length !== 0 ? (
+                    <p>{shipping.addressLine2}</p>
+                  ) : (
+                    <p>Not applied</p>
+                  )}
                   <label>Postal Code</label>
                   <p>{shipping.postalCode}</p>
                   <SubmitButton
@@ -525,19 +529,19 @@ const Shipping = (props) => {
             <SelectEdit
               onChange={handleShippingCountrySelect}
               value={shippingCountry}
-              id='shipping_country'
+              id="shipping_country"
             >
-              <option value='-'>CHOOSE COUNTRY</option>
-              <option value='CA'>CANADA</option>
+              <option value="-">CHOOSE COUNTRY</option>
+              <option value="CA">CANADA</option>
               {/* <option value="US">UNITED STATES</option> */}
             </SelectEdit>
             <label>Province / State</label>
             <SelectEdit
               onChange={handleShippingProvinceStateSelect}
               value={shippingProvinceState}
-              id='shipping_province_state'
+              id="shipping_province_state"
             >
-              <option value='-'>PROVINCE/STATE</option>
+              <option value="-">PROVINCE/STATE</option>
               {shippingProvincesStatesList.map((province) => (
                 <option key={province.abbr} value={province.abbr}>
                   {province.name}
@@ -548,9 +552,9 @@ const Shipping = (props) => {
             <SelectEdit
               onChange={handleShippingCitySelect}
               value={shippingCity}
-              id='shipping_city'
+              id="shipping_city"
             >
-              <option value='-'>CITY</option>
+              <option value="-">CITY</option>
               {shippingCitiesList.map((city) => (
                 <option key={city} value={city}>
                   {city}

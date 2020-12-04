@@ -79,7 +79,9 @@ const Finish = (props) => {
   const [imagesArrayLength, setImagesArrayLength] = useState(0);
 
   const [toggleETransferModal, setToggleETransferModal] = useState(false);
-  const [toggleCryptocurrencyModal, setToggleCryptocurrencyModal] = useState(false);
+  const [toggleCryptocurrencyModal, setToggleCryptocurrencyModal] = useState(
+    false,
+  );
 
   const [acceptTermsOfUse, setAcceptTermsOfUse] = useState(false);
 
@@ -89,7 +91,7 @@ const Finish = (props) => {
 
   const getTotalInCryptocurrency = async (
     totalInFiat,
-    cryptocurrencySymbol
+    cryptocurrencySymbol,
   ) => {
     const res = await fetch(
       `${process.env.MAIN_API_ENDPOINT}/cryptocurrencies/get/total/cryptocurrency`,
@@ -102,7 +104,7 @@ const Finish = (props) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ totalInFiat, cryptocurrencySymbol }),
-      }
+      },
     );
     const data = await res.json();
     return data;
@@ -112,7 +114,7 @@ const Finish = (props) => {
     const fetchTotalInFiat = async () => {
       const totalInFiatResponse = await getTotalInCryptocurrency(
         order.data.total,
-        order.data.paymentMethod.cryptocurrency.symbol
+        order.data.paymentMethod.cryptocurrency.symbol,
       );
       setTotalInFiat(totalInFiatResponse.totalInCryptocurrency);
     };
@@ -157,12 +159,6 @@ const Finish = (props) => {
   };
 
   useEffect(() => {
-    if (!_.isEmpty(order) && order.fetched && !order.loading && !order.error) {
-      setGlobalVariable();
-    }
-  }, [order]);
-
-  useEffect(() => {
     if (imagesArray.length > 0) {
       if (imagesArray[0].data !== null && imagesArray[0].data !== undefined) {
         if (imagesArray.length === imagesArrayLength) {
@@ -194,27 +190,6 @@ const Finish = (props) => {
     }
   }, [order, cart]);
 
-  const setGlobalVariable = async () => {
-    const bodyRequest = {
-      type: 'transfer-receipts',
-      title: order.data._id
-    };
-    const response = await fetch(
-      `${process.env.MAIN_API_ENDPOINT}/customers/order/set/global-variable`,
-      {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(bodyRequest)
-      }
-    );
-    return response;
-  };
-
   const handleCompleteOrder = () => {
     const imagesArrayObj = [];
     imagesArray.map((image) => {
@@ -230,8 +205,8 @@ const Finish = (props) => {
         updateTotalInCryptocurrencyOrder(
           order.data._id,
           order.data.total,
-          order.data.paymentMethod.cryptocurrency.symbol
-        )
+          order.data.paymentMethod.cryptocurrency.symbol,
+        ),
       );
     }
     dispatch(updateCompletedOrder(order.data._id, imagesArrayObj));
@@ -263,78 +238,84 @@ const Finish = (props) => {
         <CryptocurrencyModal
           handleToggleCryptocurrency={handleToggleCryptocurrency}
           transferCryptocurrencyAmount={totalInFiat}
-          transferCryptocurrencySymbol={order.data.paymentMethod.cryptocurrency.symbol}
+          transferCryptocurrencySymbol={
+            order.data.paymentMethod.cryptocurrency.symbol
+          }
           cryptocurrencyName={order.data.paymentMethod.cryptocurrency.name}
-          cryptocurrencyCompanyAddress={order.data.paymentMethod.cryptocurrency.companyAddress}
-          cryptocurrencyCustomerAddress={order.data.paymentMethod.cryptocurrency.customerAddress}
+          cryptocurrencyCompanyAddress={
+            order.data.paymentMethod.cryptocurrency.companyAddress
+          }
+          cryptocurrencyCustomerAddress={
+            order.data.paymentMethod.cryptocurrency.customerAddress
+          }
         />
       )}
       <Head>
         <title>Finish | Checkout - Canada Cannabyss</title>
         <meta
-          name='description'
-          content='Finish | Checkout - Canada Cannabysss.'
+          name="description"
+          content="Finish | Checkout - Canada Cannabysss."
         />
 
         {/* Open Graph */}
         <meta
-          property='og:title'
-          content='Finish | Checkout - Canada Cannabysss'
+          property="og:title"
+          content="Finish | Checkout - Canada Cannabysss"
         />
-        <meta property='og:type' content='article' />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:url'
+          property="og:url"
           content={`${process.env.SECURED_MAIN_DOMAIN}/ckeckout/finish`}
         />
         <meta
-          property='og:description'
-          content='Finish | Checkout - Canada Cannabysss.'
+          property="og:description"
+          content="Finish | Checkout - Canada Cannabysss."
         />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop='name' content='Finish | Checkout - Canada Cannabysss' />
+        <meta itemprop="name" content="Finish | Checkout - Canada Cannabysss" />
         <meta
-          itemprop='description'
-          content='Finish | Checkout - Canada Cannabysss'
+          itemprop="description"
+          content="Finish | Checkout - Canada Cannabysss"
         />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
         <meta
-          name='twitter:title'
-          content='Finish | Checkout - Canada Cannabysss'
+          name="twitter:title"
+          content="Finish | Checkout - Canada Cannabysss"
         />
         <meta
-          name='twitter:description'
-          content='Finish | Checkout - Canada Cannabysss.'
+          name="twitter:description"
+          content="Finish | Checkout - Canada Cannabysss."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         <CheckoutProcessStep>
           <CheckoutFlex>
-            <div className='div'>
-              <div className='step'>
+            <div className="div">
+              <div className="step">
                 <FaStream />
               </div>
-              <p className='letter'>Billing | Shipping</p>
+              <p className="letter">Billing | Shipping</p>
             </div>
-            <div className='div'>
-              <div className='step'>
+            <div className="div">
+              <div className="step">
                 <FaCreditCard />
               </div>
-              <p className='letter'>Payment Method</p>
+              <p className="letter">Payment Method</p>
             </div>
-            <div className='div'>
-              <div className='current'>
+            <div className="div">
+              <div className="current">
                 <FaFile />
               </div>
-              <p className='letter'>Review Order</p>
+              <p className="letter">Review Order</p>
             </div>
           </CheckoutFlex>
         </CheckoutProcessStep>
@@ -371,7 +352,7 @@ const Finish = (props) => {
                     )}
                   {order.data.paymentMethod.cryptocurrency.symbol !== null &&
                     order.data.paymentMethod.cryptocurrency.address !==
-                    null && (
+                      null && (
                       <>
                         <TransferReceipt>
                           {order.data.paymentMethod.cryptocurrency.symbol}{' '}
@@ -388,19 +369,20 @@ const Finish = (props) => {
                     )}
                   <ImageUploader
                     ref={childRef}
-                    width='100%'
-                    height='120px'
+                    width="100%"
+                    height="120px"
                     imagesArray={imagesArray}
                     handleSetImagesArray={handleSetImagesArray}
-                    isDragNotAcceptColor='rgba(0, 0, 0, 0.3)'
-                    isDragAcceptColor='#18840f'
-                    isDragRejectColor='#ff0000'
-                    textColor='#18840f'
-                    textSize='14px'
+                    isDragNotAcceptColor="rgba(0, 0, 0, 0.3)"
+                    isDragAcceptColor="#18840f"
+                    isDragRejectColor="#ff0000"
+                    textColor="#18840f"
+                    textSize="14px"
                     multipleFiles={false}
-                    onDragMessage='Drop files here'
-                    defaultMessage='Drag and Drop the payment receipt'
+                    onDragMessage="Drop files here"
+                    defaultMessage="Drag and Drop the payment receipt"
                     apiEndpoint={`${process.env.MAIN_API_ENDPOINT}/customers/order/create/payment-receipt`}
+                    destinationFolder={`transfer-receipts/${order.data._id}`}
                   />
                   <br />
                   <AcceptTermsOfUse
@@ -418,10 +400,10 @@ const Finish = (props) => {
                 Finish Checkout
               </FinishCheckoutBtn>
             ) : (
-                <FinishCheckoutBtnDisable>
-                  Finish Checkout
-                </FinishCheckoutBtnDisable>
-              )}
+              <FinishCheckoutBtnDisable>
+                Finish Checkout
+              </FinishCheckoutBtnDisable>
+            )}
           </SubTotalDiv>
         </FinishPricesDiv>
       </Wrapper>
