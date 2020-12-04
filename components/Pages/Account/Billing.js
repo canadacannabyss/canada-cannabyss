@@ -50,7 +50,7 @@ const Billing = (props) => {
   const [billingLastName, setBillingLastName] = useState('');
   const [billingCountry, setBillingCountry] = useState('');
   const [billingProvincesStatesList, setBillingProvincesStatesList] = useState(
-    []
+    [],
   );
   const [billingProvinceState, setBillingProvinceState] = useState('');
   const [billingCitiesList, setBillingCitiesList] = useState([]);
@@ -71,7 +71,7 @@ const Billing = (props) => {
       billingProvinceState.length > 0 &&
       billingCity.length > 0 &&
       billingAddressLine1.length > 0 &&
-      billingAddressLine2.length > 0 &&
+      // billingAddressLine2.length > 0 &&
       billingPostalCode.length > 0
     ) {
       setAllFieldsFilled(true);
@@ -109,7 +109,7 @@ const Billing = (props) => {
     if (e.target.value === 'CA') {
       setBillingCountry(e.target.value);
       setBillingProvincesStatesList(
-        await listLocation.mapThroughtCanadaProvinces()
+        await listLocation.mapThroughtCanadaProvinces(),
       );
     } else if (e.target.value === 'US') {
       setBillingCountry(e.target.value);
@@ -123,7 +123,7 @@ const Billing = (props) => {
     setBillingProvinceState(e.target.value);
     if (e.target.value !== '-') {
       setBillingCitiesList(
-        await listLocation.mapThroughtCanadaCities(e.target.value)
+        await listLocation.mapThroughtCanadaCities(e.target.value),
       );
     }
   };
@@ -185,7 +185,7 @@ const Billing = (props) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(billingObj),
-      }
+      },
     );
     const data = await response.json();
     return data;
@@ -203,7 +203,7 @@ const Billing = (props) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(billingObj),
-      }
+      },
     );
     const data = await response.json();
     return data;
@@ -220,7 +220,7 @@ const Billing = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     const data = await response.json();
     return data;
@@ -243,6 +243,7 @@ const Billing = (props) => {
         postalCode: billingPostalCode.toUpperCase(),
       };
       const edited = await fetchEditBilling(billingObj);
+      console.log('edited:', edited);
       if (edited.ok) {
         emptyFields();
         dispatch(getBillingAddresses(user.data._id));
@@ -306,48 +307,48 @@ const Billing = (props) => {
       <Head>
         <title>Billing | Billing | Account - Canada Cannabyss</title>
         <meta
-          name='description'
-          content='Billing | Account - Canada Cannabyss.'
+          name="description"
+          content="Billing | Account - Canada Cannabyss."
         />
 
         {/* Open Graph */}
         <meta
-          property='og:title'
-          content='Billing | Account - Canada Cannabyss'
+          property="og:title"
+          content="Billing | Account - Canada Cannabyss"
         />
-        <meta property='og:type' content='article' />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:url'
+          property="og:url"
           content={`${process.env.SECURED_MAIN_DOMAIN}/account/billing`}
         />
         <meta
-          property='og:description'
-          content='Billing | Account - Canada Cannabyss.'
+          property="og:description"
+          content="Billing | Account - Canada Cannabyss."
         />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop='name' content='Billing | Account - Canada Cannabyss' />
+        <meta itemprop="name" content="Billing | Account - Canada Cannabyss" />
         <meta
-          itemprop='description'
-          content='Billing | Account - Canada Cannabyss'
+          itemprop="description"
+          content="Billing | Account - Canada Cannabyss"
         />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
         <meta
-          name='twitter:title'
-          content='Billing | Account - Canada Cannabyss'
+          name="twitter:title"
+          content="Billing | Account - Canada Cannabyss"
         />
         <meta
-          name='twitter:description'
-          content='Billing | Account - Canada Cannabyss.'
+          name="twitter:description"
+          content="Billing | Account - Canada Cannabyss."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         {toggleEdit ? (
@@ -400,19 +401,19 @@ const Billing = (props) => {
                   <SelectEdit
                     onChange={handleBillingCountrySelect}
                     value={billingCountry}
-                    id='billing_country'
+                    id="billing_country"
                   >
-                    <option value='-'>CHOOSE COUNTRY</option>
-                    <option value='CA'>CANADA</option>
+                    <option value="-">CHOOSE COUNTRY</option>
+                    <option value="CA">CANADA</option>
                     {/* <option value="US">UNITED STATES</option> */}
                   </SelectEdit>
                   <label>Province / State</label>
                   <SelectEdit
                     onChange={handleBillingProvinceStateSelect}
                     value={billingProvinceState}
-                    id='billing_province_state'
+                    id="billing_province_state"
                   >
-                    <option value='-'>PROVINCE/STATE</option>
+                    <option value="-">PROVINCE/STATE</option>
                     {billingProvincesStatesList.map((province) => (
                       <option key={province.abbr} value={province.abbr}>
                         {province.name}
@@ -423,9 +424,9 @@ const Billing = (props) => {
                   <SelectEdit
                     onChange={handleBillingCitySelect}
                     value={billingCity}
-                    id='billing_city'
+                    id="billing_city"
                   >
-                    <option value='-'>CITY</option>
+                    <option value="-">CITY</option>
                     {billingCitiesList.map((city) => (
                       <option key={city} value={city}>
                         {city}
@@ -490,7 +491,11 @@ const Billing = (props) => {
                   <label>Address Line 1</label>
                   <p>{billing.addressLine1}</p>
                   <label>Address Line 2</label>
-                  <p>{billing.addressLine2}</p>
+                  {billing.addressLine2.length !== 0 ? (
+                    <p>{billing.addressLine2}</p>
+                  ) : (
+                    <p>Not applied</p>
+                  )}
                   <label>Postal Code</label>
                   <p>{billing.postalCode}</p>
                   <SubmitButton
@@ -524,19 +529,19 @@ const Billing = (props) => {
             <SelectEdit
               onChange={handleBillingCountrySelect}
               value={billingCountry}
-              id='billing_country'
+              id="billing_country"
             >
-              <option value='-'>CHOOSE COUNTRY</option>
-              <option value='CA'>CANADA</option>
+              <option value="-">CHOOSE COUNTRY</option>
+              <option value="CA">CANADA</option>
               {/* <option value="US">UNITED STATES</option> */}
             </SelectEdit>
             <label>Province / State</label>
             <SelectEdit
               onChange={handleBillingProvinceStateSelect}
               value={billingProvinceState}
-              id='billing_province_state'
+              id="billing_province_state"
             >
-              <option value='-'>PROVINCE/STATE</option>
+              <option value="-">PROVINCE/STATE</option>
               {billingProvincesStatesList.map((province) => (
                 <option key={province.abbr} value={province.abbr}>
                   {province.name}
@@ -547,9 +552,9 @@ const Billing = (props) => {
             <SelectEdit
               onChange={handleBillingCitySelect}
               value={billingCity}
-              id='billing_city'
+              id="billing_city"
             >
-              <option value='-'>CITY</option>
+              <option value="-">CITY</option>
               {billingCitiesList.map((city) => (
                 <option key={city} value={city}>
                   {city}

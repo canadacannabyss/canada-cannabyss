@@ -8021,10 +8021,10 @@ pnp-webpack-plugin@1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-portrait-load@1.0.22:
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/portrait-load/-/portrait-load-1.0.22.tgz#2e6592aece38898000610be1a0b213ec66786618"
-  integrity sha512-DDFCazJlnEyVg4aCat/h5Qq+MST8JWzbQvYtvDRZkBNioarUkNEuW5NUHvBrIiZseMKNakGPNKsTFsYEugBmng==
+portrait-load@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/portrait-load/-/portrait-load-1.1.1.tgz#cc1befed0529beaea31516aeb10abfd744eef542"
+  integrity sha512-FeDh5Y8E2viUvJ8NkrvLsMUclmjeVx5NqR3HMRjCsyoGu+fvx7nlWsRENyKcTN29HmlpRr0//TBZA5asvvZoFg==
   dependencies:
     axios "^0.19.2"
     filesize "^6.1.0"

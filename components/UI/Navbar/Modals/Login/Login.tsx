@@ -10,6 +10,7 @@ import {
   Submit,
   Wrapper,
   Background,
+  Warning,
 } from '../../../../../styles/Components/UI/Navbar/Modals/Register/Register';
 
 import Logo from '../../../../../assets/img/canada-cannabyss-logo.svg';
@@ -21,7 +22,13 @@ import {
 } from '../../../../../store/actions/navbar/navbar';
 import { fetchLoginUser } from '../../../../../store/actions/user/user';
 
-const LoginModal = () => {
+const mapStateToProps = (state) => {
+  const { user } = state;
+
+  return { user };
+};
+
+const LoginModal = ({ user }) => {
   const dispatch = useDispatch();
 
   const [loginEmail, setLoginEmail] = useState('');
@@ -115,7 +122,7 @@ const LoginModal = () => {
               type="password"
               value={loginPassword}
             />
-            <Submit>Login</Submit>
+            <Submit type="submit">Login</Submit>
           </form>
           <OpenFormButton
             onClick={() => {
@@ -138,4 +145,4 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+export default connect(mapStateToProps)(LoginModal);
