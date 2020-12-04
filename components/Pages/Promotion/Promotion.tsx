@@ -94,7 +94,6 @@ const Promotion = (props) => {
         !promotion.error &&
         !promotion.loading && (
           <PromotionHeader backgroundImage={promotion.data.media.url}>
-            <PromotionHeaderBg />
             <WrapperHeader>
               <PromotionHeaderInfoDiv />
             </WrapperHeader>
