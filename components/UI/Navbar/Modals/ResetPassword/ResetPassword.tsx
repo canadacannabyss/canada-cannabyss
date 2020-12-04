@@ -11,6 +11,7 @@ import {
   Wrapper,
   Background,
   EmailSentToMessage,
+  Warning,
 } from '../../../../../styles/Components/UI/Navbar/Modals/Register/Register';
 
 import Logo from '../../../../../assets/img/canada-cannabyss-logo.svg';

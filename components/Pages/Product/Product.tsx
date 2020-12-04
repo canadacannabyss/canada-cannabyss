@@ -292,12 +292,12 @@ const Product = (props) => {
               <meta property="og:price:currency" content="CAD" />
 
               {/* Google+ */}
-              <meta itemprop="name" content={product.data.seo.title} />
+              <meta itemProp="name" content={product.data.seo.title} />
               <meta
-                itemprop="description"
+                itemProp="description"
                 content={product.data.seo.description}
               />
-              <meta itemprop="image" content={`${product.data.media[0].url}`} />
+              <meta itemProp="image" content={`${product.data.media[0].url}`} />
 
               {/* Twitter */}
 

@@ -64,12 +64,12 @@ const Promotion = (props) => {
               <meta property="og:site_name" content="Canada Cannabyss" />
 
               {/* Google+ */}
-              <meta itemprop="name" content={promotion.data.seo.title} />
+              <meta itemProp="name" content={promotion.data.seo.title} />
               <meta
-                itemprop="description"
+                itemProp="description"
                 content={promotion.data.seo.description}
               />
-              <meta itemprop="image" content={`${promotion.data.media.url}`} />
+              <meta itemProp="image" content={`${promotion.data.media.url}`} />
 
               {/* Twitter */}
 

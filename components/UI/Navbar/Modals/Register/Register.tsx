@@ -14,7 +14,10 @@ import {
   BrandDiv,
 } from '../../../../../styles/Components/UI/Navbar/Modals/Register/Register';
 
-import { closeRegisterForm } from '../../../../../store/actions/navbar/navbar';
+import {
+  closeRegisterForm,
+  openLoginForm,
+} from '../../../../../store/actions/navbar/navbar';
 
 import Logo from '../../../../../assets/img/canada-cannabyss-logo.svg';
 
@@ -39,6 +42,11 @@ const RegisterModal = (props) => {
   const [warningMsg, setWarningMsg] = useState([]);
   const [emailSent, setEmailSent] = useState(false);
   const [emailSendTo, setEmailSentTo] = useState('');
+
+  function handleOpenLoginForm(): void {
+    dispatch(closeRegisterForm());
+    dispatch(openLoginForm());
+  }
 
   useEffect(() => {
     if (userRegistrationSubmit) {
