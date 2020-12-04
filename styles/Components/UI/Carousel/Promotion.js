@@ -32,7 +32,6 @@ export const Wrapper = styled.div`
 `;
 
 export const LoadingWrapper = styled.div`
-  margin-top: 30px;
   width: 100%;
   height: 400px;
   background: rgba(0, 0, 0, 0.15);

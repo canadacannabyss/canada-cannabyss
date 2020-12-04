@@ -112,8 +112,8 @@ export const PromotionHeader = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: 1200px;
-  height: 200px;
-  margin: 0 auto;
+  height: 220px;
+  margin: -49px auto 0 auto;
   @media (max-width: 1460px) {
     width: 100%;
   }
@@ -194,4 +194,12 @@ export const Pages = styled.button`
 
 export const DescriptionDiv = styled.div`
   margin: 20px 0 40px 0;
+`;
+
+export const LoadingDescriptionDiv = styled.div`
+  background: rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 40px;
+  animation: ${fadeText} 1s infinite;
+  display: block;
 `;

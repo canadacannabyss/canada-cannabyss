@@ -13,6 +13,7 @@ import {
   PromotionHeaderInfoDiv,
   LoadingProductContainer,
   DescriptionDiv,
+  LoadingDescriptionDiv,
 } from '../../../styles/Pages/Products/Products';
 import Layout from '../../Layout';
 import ProductsList from '../../UI/Lists/Products/ProductsList';
@@ -100,11 +101,17 @@ const Promotion = (props) => {
           </PromotionHeader>
         )}
       <Wrapper>
-        <DescriptionDiv
-          dangerouslySetInnerHTML={{
-            __html: sanitizeHtml(promotion.data.description),
-          }}
-        />
+        {promotion.loading && <LoadingDescriptionDiv />}
+        {promotion.fetched &&
+          !_.isEmpty(promotion.data) &&
+          !promotion.error &&
+          !promotion.loading && (
+            <DescriptionDiv
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(promotion.data.description),
+              }}
+            />
+          )}
         <WrapperList>
           {promotion.loading && (
             <>
