@@ -15,16 +15,25 @@ const Values = ({ order, totalInFiat }) => {
         !order.error && (
           <>
             <ValuesP>
-            <b>Item(s) Subtotal:</b> C$ {order.data.subtotal} {order.data.paymentMethod !== null && (
-              <>
-                {order.data.paymentMethod.cryptocurrency.discount.type !== null &&
-                order.data.paymentMethod.cryptocurrency.discount.type !== null && (
-                  <ValuePDiscount>
-                    {`-${order.data.paymentMethod.cryptocurrency.discount.amount}${order.data.paymentMethod.cryptocurrency.discount.type === 'percentage' && '%'}`}
-                  </ValuePDiscount>
-                )}
-              </>
-            )}
+              <b>Item(s) Subtotal:</b> C$ {order.data.subtotal}{' '}
+              {order.data.paymentMethod !== null && (
+                <>
+                  {order.data.paymentMethod.cryptocurrency.discount.type !==
+                    null &&
+                    order.data.paymentMethod.cryptocurrency.discount.type !==
+                      null && (
+                      <ValuePDiscount>
+                        {`-${
+                          order.data.paymentMethod.cryptocurrency.discount
+                            .amount
+                        }${
+                          order.data.paymentMethod.cryptocurrency.discount
+                            .type === 'percentage' && '%'
+                        }`}
+                      </ValuePDiscount>
+                    )}
+                </>
+              )}
             </ValuesP>
             <ValuesP>
               <b>Shipping & Handling:</b> C${' '}
@@ -38,15 +47,15 @@ const Values = ({ order, totalInFiat }) => {
                 <>{order.data.coupon.couponName}</>
               )}
             </ValuesP>
-            <ValuesP>
+            {/* <ValuesP>
               <b>Total Before Tax:</b> C$ {order.data.totalBeforeTax}
-            </ValuesP>
-            <ValuesP>
+            </ValuesP> */}
+            {/* <ValuesP>
               <b>Estimated GST/HST:</b> C$ {order.data.gstHst}
-            </ValuesP>
-            <ValuesP>
+            </ValuesP> */}
+            {/* <ValuesP>
               <b>Estimated PST/RST:</b> C$ {order.data.pstRst}
-            </ValuesP>
+            </ValuesP> */}
             <ValuesP>
               <b>Total:</b> C$ {order.data.total}
             </ValuesP>

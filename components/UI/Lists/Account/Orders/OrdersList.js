@@ -23,10 +23,10 @@ const OrderDetails = (props) => {
   const dateFormatter = new DateFormatter();
 
   return (
-    <OrderDetailsDiv className='details'>
+    <OrderDetailsDiv className="details">
       <Grid>
         <div>
-          <Label for='orderId'>Order ID</Label>
+          <Label for="orderId">Order ID</Label>
           <Status>{order._id}</Status>
         </div>
         <div>
@@ -39,7 +39,14 @@ const OrderDetails = (props) => {
           <Label>Purchased At</Label>
           <Status>{dateFormatter.formatDateFullDate(order.purchasedAt)}</Status>
         </div>
-        <div />
+        {order.coupon ? (
+          <div>
+            <Label>Coupon applied</Label>
+            <Status>{order.coupon.couponName}</Status>
+          </div>
+        ) : (
+          <div />
+        )}
       </Grid>
       <br />
       <GroupSpan>Shipping information</GroupSpan>
@@ -51,8 +58,8 @@ const OrderDetails = (props) => {
           </Status>
         </div>
         <div>
-          <Label htmlFor='shippingAddress'>Shipping Address</Label>
-          <Status id='shippingAddress'>
+          <Label htmlFor="shippingAddress">Shipping Address</Label>
+          <Status id="shippingAddress">
             {`${order.shippingAddress.addressLine1}, ${order.shippingAddress.city}, ${order.shippingAddress.provinceState}, ${order.shippingAddress.country}`}
           </Status>
         </div>
@@ -74,7 +81,7 @@ const OrderDetails = (props) => {
       <br />
       <GroupSpan>Billing information</GroupSpan>
       <Label>Billing Address</Label>
-      <Status id='shippingAddress'>
+      <Status id="shippingAddress">
         {`${order.billingAddress.addressLine1}, ${order.billingAddress.city}, ${order.billingAddress.provinceState}, ${order.billingAddress.country}`}
       </Status>
       <br />
@@ -99,7 +106,7 @@ const OrderDetails = (props) => {
             order.paymentMethod.cryptocurrency.logo && (
               <>
                 <Label>Cryptocurrency</Label>
-                <Status className='cryptoLogoSymbolName'>
+                <Status className="cryptoLogoSymbolName">
                   <img
                     src={order.paymentMethod.cryptocurrency.logo}
                     alt={`${order.paymentMethod.cryptocurrency.symbol} logo`}
@@ -200,7 +207,7 @@ const OrderDetails = (props) => {
         {order.cart.items.map((item) => (
           <div key={item._id}>
             {item.type === 'product' && (
-              <Link href='/product/[slug]' as={`/product/${item.slug}`}>
+              <Link href="/product/[slug]" as={`/product/${item.slug}`}>
                 <a>
                   <OrdersProductImg src={item.media.url} />
                   <OrdersProductName>{item.itemName}</OrdersProductName>
@@ -208,7 +215,7 @@ const OrderDetails = (props) => {
               </Link>
             )}
             {item.type === 'bundle' && (
-              <Link href='/bundle/[slug]' as={`/bundle/${item.slug}`}>
+              <Link href="/bundle/[slug]" as={`/bundle/${item.slug}`}>
                 <a>
                   <OrdersProductImg src={item.media.url} />
                   <OrdersProductName>{item.itemName}</OrdersProductName>
@@ -235,10 +242,10 @@ const OrdersList = (props) => {
     <>
       {orders.map((order) => (
         <li key={order._id}>
-          <OrderBtn onClick={handleToggle} className='orderDiv' id={order._id}>
+          <OrderBtn onClick={handleToggle} className="orderDiv" id={order._id}>
             <OrderDetailsDateDiv>
               <OrderId>
-                <span>Order ID:</span> <span className='id'>{order._id}</span>
+                <span>Order ID:</span> <span className="id">{order._id}</span>
               </OrderId>
               <OrderDate>
                 {order.purchasedAt !== null ? (
