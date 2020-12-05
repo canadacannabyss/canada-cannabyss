@@ -39,14 +39,14 @@ const Values = ({ order, totalInFiat }) => {
               <b>Shipping & Handling:</b> C${' '}
               {order.data.shipping.shippingHandling}
             </ValuesP>
-            <ValuesP>
+            {/* <ValuesP>
               <b>Coupon:</b>{' '}
               {order.data.coupon === null ? (
                 <>{'Not Applied'}</>
               ) : (
                 <>{order.data.coupon.couponName}</>
               )}
-            </ValuesP>
+            </ValuesP> */}
             {/* <ValuesP>
               <b>Total Before Tax:</b> C$ {order.data.totalBeforeTax}
             </ValuesP> */}

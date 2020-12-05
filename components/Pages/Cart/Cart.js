@@ -102,14 +102,14 @@ const Cart = (props) => {
                   <b>Shipping {'&'} Handling:</b> C${' '}
                   {toFloatNumber(order.data.shipping.shippingHandling)}
                 </Values>
-                <Values>
+                {/* <Values>
                   <b>Coupon:</b>{' '}
                   {order.data.coupon === null ? (
                     <>{'Not Applied'}</>
                   ) : (
                     <>{order.data.coupon.couponName}</>
                   )}
-                </Values>
+                </Values> */}
                 {/* <Values>
                   <b>Total Before Tax:</b> C${' '}
                   {toFloatNumber(order.data.totalBeforeTax)}
