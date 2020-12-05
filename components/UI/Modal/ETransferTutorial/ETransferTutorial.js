@@ -12,7 +12,7 @@ import {
 } from '../../../../styles/Components/UI/Modal/ETransferTutorial/ETransferTutorial';
 
 const ETransferTutorial = (props) => {
-  const { handleToggleETransfer, transferAmount } = props;
+  const { handleToggleETransfer, transferAmount, recipient } = props;
 
   return (
     <Background
@@ -32,9 +32,8 @@ const ETransferTutorial = (props) => {
         </BeforeStatement>
         <Ol>
           <li>
-            Send <span>C$ {transferAmount}</span> to{' '}
-            <span>payments@canadacannabyss.com</span> using your online banking
-            app.
+            Send <span>C$ {transferAmount}</span> to <span>{recipient}</span>{' '}
+            using your online banking app.
           </li>
           <li>Screenshot or download your e-Transfer receipt.</li>
           <li>

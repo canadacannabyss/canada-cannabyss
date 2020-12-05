@@ -43,40 +43,43 @@ const Cart = (props) => {
       <Head>
         <title>Cart - Canada Cannabysss</title>
         <meta
-          name='description'
-          content='Canada Cannabyss shopping cart page.'
+          name="description"
+          content="Canada Cannabyss shopping cart page."
         />
 
         {/* Open Graph */}
-        <meta property='og:title' content='Cart - Canada Cannabysss' />
-        <meta property='og:type' content='article' />
-        <meta property='og:url' content={`${process.env.SECURED_MAIN_DOMAIN}/cart`} />
+        <meta property="og:title" content="Cart - Canada Cannabysss" />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:description'
-          content='Canada Cannabyss shopping cart page.'
+          property="og:url"
+          content={`${process.env.SECURED_MAIN_DOMAIN}/cart`}
         />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta
+          property="og:description"
+          content="Canada Cannabyss shopping cart page."
+        />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop='name' content='Cart - Canada Cannabysss' />
+        <meta itemprop="name" content="Cart - Canada Cannabysss" />
         <meta
-          itemprop='description'
-          content='Canada Cannabyss shopping cart page'
+          itemprop="description"
+          content="Canada Cannabyss shopping cart page"
         />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
 
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
-        <meta name='twitter:title' content='Cart - Canada Cannabysss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
+        <meta name="twitter:title" content="Cart - Canada Cannabysss" />
         <meta
-          name='twitter:description'
-          content='Canada Cannabyss shopping cart page.'
+          name="twitter:description"
+          content="Canada Cannabyss shopping cart page."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         <CartSubTotal>
@@ -99,22 +102,22 @@ const Cart = (props) => {
                   <b>Shipping {'&'} Handling:</b> C${' '}
                   {toFloatNumber(order.data.shipping.shippingHandling)}
                 </Values>
-                <Values>
+                {/* <Values>
                   <b>Coupon:</b>{' '}
                   {order.data.coupon === null ? (
                     <>{'Not Applied'}</>
                   ) : (
                     <>{order.data.coupon.couponName}</>
                   )}
-                </Values>
-                <Values>
+                </Values> */}
+                {/* <Values>
                   <b>Total Before Tax:</b> C${' '}
                   {toFloatNumber(order.data.totalBeforeTax)}
-                </Values>
-                <Values>
+                </Values> */}
+                {/* <Values>
                   <b>Estimated GST/HST:</b> C${' '}
                   {toFloatNumber(order.data.gstHst)}
-                </Values>
+                </Values> */}
                 {/* <Values>
                   <b>Estimated PST/RST:</b> Calculated later on checkout
                   </Values> */}
@@ -132,7 +135,7 @@ const Cart = (props) => {
             />
             <br />
             {!_.isEmpty(cart.data) && cart.data.items.length ? (
-              <Link href='/checkout' as='/checkout'>
+              <Link href="/checkout" as="/checkout">
                 <ProceedLink>
                   <a>Checkout</a>
                 </ProceedLink>

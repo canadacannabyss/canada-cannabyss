@@ -39,7 +39,14 @@ const OrderDetails = (props) => {
           <Label>Purchased At</Label>
           <Status>{dateFormatter.formatDateFullDate(order.purchasedAt)}</Status>
         </div>
-        <div />
+        {order.coupon ? (
+          <div>
+            <Label>Coupon applied</Label>
+            <Status>{order.coupon.couponName}</Status>
+          </div>
+        ) : (
+          <div />
+        )}
       </Grid>
       <br />
       <GroupSpan>Shipping information</GroupSpan>

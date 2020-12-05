@@ -232,6 +232,7 @@ const Finish = (props) => {
         <ETransferModal
           handleToggleETransfer={handleToggleETransfer}
           transferAmount={order.data.total}
+          recipient={order.data.paymentMethod.eTransfer.recipient}
         />
       )}
       {toggleCryptocurrencyModal && (
