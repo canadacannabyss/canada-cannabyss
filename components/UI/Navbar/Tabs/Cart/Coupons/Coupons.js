@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { applyCouponOrder } from '../../../../../../store/actions/order/order';
+import { updateOrderValue } from '../../../../../../store/actions/order/order';
 import {
   ChangeCurrency,
   CouponForm,
@@ -31,26 +32,25 @@ const Coupons = (props) => {
     e.preventDefault();
     console.log('coupon cart tab order._id:', order._id);
     dispatch(applyCouponOrder(order.data._id, couponName));
+    // dispatch(updateOrderValue(order.data._id, order.data.subtotal));
     setCouponName('');
   };
-
-  console.log('coupon cart tab order:', order);
 
   return (
     <>
       {order.data.subtotal > 0 ? (
         <CouponForm onSubmit={submitCoupon}>
           <input
-            type='text'
-            placeholder='Coupon'
+            type="text"
+            placeholder="Coupon"
             onChange={onChangeCouponName}
             value={couponName}
           />
-          <button type='submit'>Apply</button>
+          <button type="submit">Apply</button>
         </CouponForm>
       ) : (
         <CouponFormDisable>
-          <input type='text' placeholder='Coupon' disabled />
+          <input type="text" placeholder="Coupon" disabled />
           <button disabled>Apply</button>
         </CouponFormDisable>
       )}
