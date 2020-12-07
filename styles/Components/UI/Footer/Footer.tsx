@@ -65,10 +65,13 @@ export const Newsletter = styled.div`
   justify-content: end;
   background: #fff;
   margin-bottom: 15px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
   input {
     border: none;
     background: transparent;
-    padding: 8px 0px 8px 14px;
+    padding: 12px 7px 12px 16px;
     color: #18840f;
     background: #fff;
     &:focus {
@@ -82,14 +85,14 @@ export const Newsletter = styled.div`
     background: transparent;
     border: none;
     color: #18840f;
-    padding: 0;
+    padding-right: 13px;
     background: #fff;
     cursor: pointer;
     &:focus {
       outline: none;
     }
     svg {
-      transform: translateY(4px);
+      transform: translateY(2px);
     }
   }
 `;

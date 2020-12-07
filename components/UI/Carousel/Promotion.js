@@ -22,24 +22,16 @@ const Promotion = (props) => {
         !banners.error &&
         !banners.loading && (
           <Wrapper>
-            <Carousel
-            // autoplay
-            >
+            <Carousel autoplay>
               {banners.data.map((banner) => (
-                <Div key={banner._id} columns={banner.promotions.length}>
-                  {banner.promotions.map((promotion) => (
-                    <Fragment key={promotion._id}>
-                      <Link
-                        href='/promotion/[slug]'
-                        as={`/promotion/${promotion.slug}`}
-                      >
-                        <DivImage
-                          backgroundImage={promotion.media.url}
-                        />
-                      </Link>
-                    </Fragment>
-                  ))}
-                </Div>
+                <Link
+                  href="/promotion/[slug]"
+                  as={`/promotion/${banner.promotions[0].slug}`}
+                >
+                  <DivImage>
+                    <Image src={banner.promotions[0].media.url} />
+                  </DivImage>
+                </Link>
               ))}
             </Carousel>
           </Wrapper>

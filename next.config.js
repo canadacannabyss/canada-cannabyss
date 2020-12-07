@@ -12,7 +12,7 @@ module.exports = withImage(
       cssModules: true,
       serverRuntimeConfig,
       publicRuntimeConfig,
-      target: "serverless",
+      target: 'serverless',
       webpack: (config, { isServer }) => {
         if (isServer) {
           require('./scripts/generate-sitemap');
@@ -23,8 +23,7 @@ module.exports = withImage(
         USER_API_ENDPOINT: process.env.USER_API_ENDPOINT,
         MAIN_API_ENDPOINT: process.env.MAIN_API_ENDPOINT,
         SECURED_MAIN_DOMAIN: process.env.SECURED_MAIN_DOMAIN,
-        SECURED_MAIN_DOMAIN: process.env.SECURED_MAIN_DOMAIN,
       },
-    })
-  )
+    }),
+  ),
 );

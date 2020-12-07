@@ -66,7 +66,7 @@ const RegisterReferral = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     const data = await res.json();
     setIsReferralValid(data);
@@ -78,14 +78,14 @@ const RegisterReferral = (props) => {
     const res = await fetch(
       `${process.env.USER_API_ENDPOINT}/referral/customer?referral=${referral}`,
       {
-        method: 'GET',
+        method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     const data = await res.json();
     setReferralUser(data);
@@ -105,7 +105,7 @@ const RegisterReferral = (props) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(userInfoObj),
-      }
+      },
     );
     const data = await response.json();
     console.log('data register:', data);
@@ -178,48 +178,48 @@ const RegisterReferral = (props) => {
       <Head>
         <title>Register Referral - Canada Cannabyss</title>
         <meta
-          name='description'
-          content='Register Referral - Canada Cannabyss.'
+          name="description"
+          content="Register Referral - Canada Cannabyss."
         />
 
         {/* Open Graph */}
         <meta
-          property='og:title'
-          content='Register Referral - Canada Cannabyss'
+          property="og:title"
+          content="Register Referral - Canada Cannabyss"
         />
-        <meta property='og:type' content='article' />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:url'
+          property="og:url"
           content={`${process.env.SECURED_MAIN_DOMAIN}/register`}
         />
         <meta
-          property='og:description'
-          content='Register Referral - Canada Cannabyss.'
+          property="og:description"
+          content="Register Referral - Canada Cannabyss."
         />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop='name' content='Register Referral - Canada Cannabyss' />
+        <meta itemprop="name" content="Register Referral - Canada Cannabyss" />
         <meta
-          itemprop='description'
-          content='Register Referral - Canada Cannabyss'
+          itemprop="description"
+          content="Register Referral - Canada Cannabyss"
         />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
         <meta
-          name='twitter:title'
-          content='Register Referral - Canada Cannabyss'
+          name="twitter:title"
+          content="Register Referral - Canada Cannabyss"
         />
         <meta
-          name='twitter:description'
-          content='Register Referral - Canada Cannabyss.'
+          name="twitter:description"
+          content="Register Referral - Canada Cannabyss."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         {loading ? (
@@ -232,7 +232,7 @@ const RegisterReferral = (props) => {
                   <>
                     {emailSent && (
                       <>
-                        <EmailSentToMessage top='20px'>
+                        <EmailSentToMessage top="20px">
                           <p>
                             An account verification link has been sent to{' '}
                             <span>{emailSendTo}</span>
@@ -254,63 +254,63 @@ const RegisterReferral = (props) => {
                         )}
                       </>
                     )}
-                    <Form method='post' onSubmit={handleRegisterUserReferral}>
+                    <Form method="post" onSubmit={handleRegisterUserReferral}>
                       <h2>Register</h2>
                       <InputInline>
                         <div>
-                          <Label htmlFor='firstName'>First Name</Label>
+                          <Label htmlFor="firstName">First Name</Label>
                           <Input
-                            type='text'
-                            name='firstName'
-                            id='firstName'
+                            type="text"
+                            name="firstName"
+                            id="firstName"
                             value={firstName}
-                            autoComplete='off'
+                            autoComplete="off"
                             onChange={handleFirstName}
                           />
                         </div>
                         <div>
-                          <Label htmlFor='lastName'>Last Name</Label>
+                          <Label htmlFor="lastName">Last Name</Label>
                           <Input
-                            type='text'
-                            name='lastName'
-                            id='lastName'
+                            type="text"
+                            name="lastName"
+                            id="lastName"
                             value={lastName}
-                            autoComplete='off'
+                            autoComplete="off"
                             onChange={handleLastName}
                           />
                         </div>
                       </InputInline>
-                      <Label htmlFor='username'>Username</Label>
+                      <Label htmlFor="username">Username</Label>
                       <Input
-                        type='text'
-                        name='user'
-                        id='username'
+                        type="text"
+                        name="user"
+                        id="username"
                         value={username}
-                        autoComplete='off'
+                        autoComplete="off"
                         onChange={handleUsername}
                       />
-                      <Label htmlFor='email'>Email</Label>
+                      <Label htmlFor="email">Email</Label>
                       <Input
-                        type='email'
-                        name='email'
-                        id='email'
+                        type="email"
+                        name="email"
+                        id="email"
                         value={email}
-                        autoComplete='off'
+                        autoComplete="off"
                         onChange={handleEmail}
                       />
-                      <Label htmlFor='password'>Password</Label>
+                      <Label htmlFor="password">Password</Label>
                       <Input
-                        type='password'
-                        name='password'
-                        id='password'
+                        type="password"
+                        name="password"
+                        id="password"
                         value={password}
                         onChange={handlePassword}
                       />
-                      <Label htmlFor='password2'>Confirm Password</Label>
+                      <Label htmlFor="password2">Confirm Password</Label>
                       <Input
-                        type='password'
-                        name='password2'
-                        id='password2'
+                        type="password"
+                        name="password2"
+                        id="password2"
                         value={password2}
                         onChange={handlePassword2}
                       />
@@ -321,7 +321,7 @@ const RegisterReferral = (props) => {
                           ))}
                         </>
                       )}
-                      <Submit type='submit'>Register</Submit>
+                      <Submit type="submit">Register</Submit>
                     </Form>
                   </>
                 ) : (

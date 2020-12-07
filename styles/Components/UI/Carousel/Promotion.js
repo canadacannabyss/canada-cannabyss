@@ -2,14 +2,21 @@ import styled from 'styled-components';
 import { fadeText } from '../../../Animations/Animations';
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 400px;
+  width: 1200px;
+  margin: 0 auto;
+  height: 600px;
+  overflow: hidden;
   .slider-control-centerright,
   .slider-control-centerleft {
     display: none;
   }
   .slider-control-bottomcenter {
     display: none;
+  }
+  @media (max-width: 1200px) {
+    height: unset;
+    width: 100%;
+    margin: unset;
   }
   /* @media (max-width: 991px) {
     height: 370px;
@@ -33,9 +40,12 @@ export const Wrapper = styled.div`
 
 export const LoadingWrapper = styled.div`
   width: 100%;
-  height: 400px;
+  height: 600px;
   background: rgba(0, 0, 0, 0.15);
   animation: ${fadeText} 1s infinite;
+  @media (max-width: 1200px) {
+    height: unset;
+  }
   /* @media (max-width: 991px) {
     height: 370px;
   }
@@ -58,16 +68,20 @@ export const LoadingWrapper = styled.div`
 
 export const Div = styled.div`
   width: 100%;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
 `;
 
 export const DivImage = styled.div`
+  height: 600px;
+  overflow: hidden;
+  @media (max-width: 1200px) {
+    height: unset;
+  }
+`;
+
+export const Image = styled.img`
   width: 100%;
-  height: 400px;
-  background: ${(props) => `url('${props.backgroundImage}')`};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  transform: translateY(-36px);
+  @media (max-width: 1200px) {
+    transform: unset;
+  }
 `;
