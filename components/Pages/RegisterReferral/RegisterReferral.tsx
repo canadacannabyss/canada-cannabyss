@@ -17,7 +17,7 @@ import {
   InvitationMessage,
 } from '../../../styles/Pages/RegisterReferral/RegisterReferral';
 import Layout from '../../Layout';
-import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
+import Logo from '../../../assets/img/canada-cannabyss-logo.svg';
 
 import { openLoginForm } from '../../../store/actions/navbar/navbar';
 
@@ -29,7 +29,7 @@ const RegisterReferral = (props) => {
   const [userRegistrationSubmit, setUserRegistrationSubmit] = useState(false);
 
   const [isReferralValid, setIsReferralValid] = useState(false);
-  const [referralUser, setReferralUser] = useState({});
+  const [referralUser, setReferralUser] = useState<any>({});
   const [loadingReferralUser, setLoadingReferralUser] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fetchedReferralUser, setFetchedReferralUser] = useState(false);
