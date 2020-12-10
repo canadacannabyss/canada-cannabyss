@@ -66,6 +66,41 @@ export const LoadingSpinner = styled.div`
   }
 `;
 
+export const BrandDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0rem 0.5rem 0.5rem 0.5rem;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+  p {
+    color: #18840f;
+    font-size: 15px;
+    line-height: 15px;
+    span {
+      font-weight: 900;
+      font-size: 16px;
+      color: #b01129;
+    }
+  }
+  .sep {
+    content: '';
+    width: 2px;
+    height: 20px;
+    background: #b01129;
+    position: relative;
+    display: block;
+    margin: 0 10px;
+  }
+  h1 {
+    color: #b01129;
+    font-size: 17px;
+    font-weight: 900;
+  }
+`;
+
 export const Warning = styled.div`
   border: 1px solid #d42626;
   border-radius: 3px;
@@ -80,7 +115,7 @@ export const Warning = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin: 20px auto 50px auto;
+  margin: 40px auto;
   width: 1200px;
   @media (max-width: 1460px) {
     width: 80%;
@@ -105,14 +140,13 @@ export const Title = styled.h1`
 `;
 
 export const Form = styled.form`
-  display: table;
-  margin: 0 auto;
-  width: 350px;
-  padding: 15px;
-  background: #fff;
-  border: 1px solid #18840f85;
+  width: 300px;
   border-radius: 4px;
-  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.2);
+  margin: 20px auto 0 auto;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  padding: 20px 20px;
+  z-index: 999999;
   @media (max-width: 370px) {
     width: 100%;
   }

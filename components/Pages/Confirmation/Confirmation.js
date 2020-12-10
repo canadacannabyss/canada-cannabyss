@@ -18,6 +18,7 @@ const Confirmation = (props) => {
   const [user, setUser] = useState({});
   const [warning, setWarning] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState([]);
   const [invalid, setInvalid] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,20 +37,18 @@ const Confirmation = (props) => {
           headers: {
             'Content-Type': 'application/json',
           },
-        }
+        },
       );
       const data = await response.json();
-      if (data._id) {
+      console.log('confirmation:', data);
+      if (data.statusCode === 200) {
         setSuccess(true);
-        setUser(data);
+        setUser(data.results);
       }
-      if (data.error) {
+      if (data.errors.length > 0) {
         setWarning(true);
         setError(true);
-      }
-      if (data.notValid) {
-        setWarning(true);
-        setInvalid(true);
+        setErrorMsg(data.errors);
       }
       setLoading(false);
     };
@@ -63,51 +62,51 @@ const Confirmation = (props) => {
       <Head>
         <title>Account Confirmation - Canada Cannabyss</title>
         <meta
-          name='description'
-          content='Account Confirmation - Canada Cannabyss.'
+          name="description"
+          content="Account Confirmation - Canada Cannabyss."
         />
 
         {/* Open Graph */}
         <meta
-          property='og:title'
-          content='Account Confirmation - Canada Cannabyss'
+          property="og:title"
+          content="Account Confirmation - Canada Cannabyss"
         />
-        <meta property='og:type' content='article' />
+        <meta property="og:type" content="article" />
         <meta
-          property='og:url'
+          property="og:url"
           content={`${process.env.SECURED_MAIN_DOMAIN}/confirmation`}
         />
         <meta
-          property='og:description'
-          content='Account Confirmation - Canada Cannabyss.'
+          property="og:description"
+          content="Account Confirmation - Canada Cannabyss."
         />
-        <meta property='og:image' content={Logo} />
-        <meta property='og:site_name' content='Canada Cannabyss' />
+        <meta property="og:image" content={Logo} />
+        <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
         <meta
-          itemprop='name'
-          content='Account Confirmation - Canada Cannabyss'
+          itemprop="name"
+          content="Account Confirmation - Canada Cannabyss"
         />
         <meta
-          itemprop='description'
-          content='Account Confirmation - Canada Cannabyss'
+          itemprop="description"
+          content="Account Confirmation - Canada Cannabyss"
         />
-        <meta itemprop='image' content={Logo} />
+        <meta itemprop="image" content={Logo} />
 
         {/* Twitter */}
-        <meta name='twitter:card' content='product' />
-        <meta name='twitter:site' content='@canadacannabyss' />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@canadacannabyss" />
         <meta
-          name='twitter:title'
-          content='Account Confirmation - Canada Cannabyss'
+          name="twitter:title"
+          content="Account Confirmation - Canada Cannabyss"
         />
         <meta
-          name='twitter:description'
-          content='Account Confirmation - Canada Cannabyss.'
+          name="twitter:description"
+          content="Account Confirmation - Canada Cannabyss."
         />
-        <meta name='twitter:creator' content='@canadacannabyss' />
-        <meta name='twitter:image' content={Logo} />
+        <meta name="twitter:creator" content="@canadacannabyss" />
+        <meta name="twitter:image" content={Logo} />
       </Head>
       <Wrapper>
         <Title>Account Confirmation</Title>
@@ -119,14 +118,13 @@ const Confirmation = (props) => {
           </Loading>
         )}
         {warning && error && (
-          <ConfirmationMessageError>
-            <p>This link is expired</p>
-          </ConfirmationMessageError>
-        )}
-        {warning && invalid && (
-          <ConfirmationMessageError>
-            <p>This link is not valid</p>
-          </ConfirmationMessageError>
+          <>
+            {errorMsg.map((msg) => (
+              <ConfirmationMessageError>
+                <p>{msg}</p>
+              </ConfirmationMessageError>
+            ))}
+          </>
         )}
         {success && !_.isEmpty(user) && (
           <ConfirmationMessage>

@@ -95,9 +95,8 @@ const LoginModal = ({ user }) => {
       email: loginEmail,
       password: loginPassword,
     };
+
     dispatch(fetchLoginUser(userInfoObj));
-    setLoginEmail('');
-    setLoginPassword('');
   };
 
   return (
