@@ -25,17 +25,51 @@ export const Title = styled.h1`
   margin-bottom: 0.5rem;
 `;
 
+export const BrandDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0rem 0.5rem 0.5rem 0.5rem;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+  p {
+    color: #18840f;
+    font-size: 15px;
+    line-height: 15px;
+    span {
+      font-weight: 900;
+      font-size: 16px;
+      color: #b01129;
+    }
+  }
+  .sep {
+    content: '';
+    width: 2px;
+    height: 20px;
+    background: #b01129;
+    position: relative;
+    display: block;
+    margin: 0 10px;
+  }
+  h1 {
+    color: #b01129;
+    font-size: 17px;
+    font-weight: 900;
+  }
+`;
+
 export const Form = styled.form`
-  display: table;
-  margin: 25px auto 0 auto;
-  width: 350px;
-  padding: 15px;
-  background: #fff;
-  border: 1px solid #18840f85;
+  width: 300px;
   border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 0px 2px rgba(0, 0, 0, 0.08);
-  @media (max-width: 370px) {
-    width: 100%;
+  margin: 20px auto 0 auto;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
+  padding: 20px 20px;
+  z-index: 999999;
+  @media (max-width: 320px) {
+    width: 90%;
   }
   svg {
     font-size: 18px;
@@ -144,16 +178,11 @@ export const EmailSentToMessage = styled.div`
   display: table;
   padding: 7px 13px;
   text-align: center;
-  position: fixed;
-  top: ${(props) => props.top};
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 99999;
   margin: 10px auto;
   border: 1px solid #18840f66;
   border-image: initial;
   border-radius: 4px;
-  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
   background: #d1e6cf;
   color: #18840f;
   p {

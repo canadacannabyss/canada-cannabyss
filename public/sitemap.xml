@@ -157,14 +157,14 @@
   </url>
 
   <url>
-    <loc>https://canadacannabyss.com/products/category/[slug]</loc>
-  </url>
-
-  <url>
     <loc>https://canadacannabyss.com/reseller/confirmation/[token]</loc>
   </url>
 
   <url>
     <loc>https://canadacannabyss.com/reseller/registration/[token]</loc>
+  </url>
+
+  <url>
+    <loc>https://canadacannabyss.com/products/category/[slug]</loc>
   </url>
 </urlset>

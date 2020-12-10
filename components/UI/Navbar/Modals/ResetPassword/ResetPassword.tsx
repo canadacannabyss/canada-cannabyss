@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import {
@@ -23,6 +23,11 @@ import {
 
 const ResetPasswordForm = () => {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const [resetPasswordEmail, setResetPasswordEmail] = useState('');
   const [resetPasswordWarning, setResetPasswordWarning] = useState(false);
@@ -104,6 +109,7 @@ const ResetPasswordForm = () => {
               id="email"
               type="email"
               value={resetPasswordEmail}
+              ref={inputRef}
             />
             <Submit>Reset Password</Submit>
           </form>

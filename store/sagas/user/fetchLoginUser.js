@@ -13,7 +13,7 @@ async function fetchLoginUserApi(userInfo) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userInfo),
-    }
+    },
   );
   const data = await response.json();
   return data;
@@ -21,6 +21,7 @@ async function fetchLoginUserApi(userInfo) {
 
 async function fetchLoginLocalStorageApi() {
   const bearerToken = `Bearer ${localStorage.getItem('accessToken')}`;
+  console.log('bearerToken:', bearerToken);
   const res = await fetch(
     `${process.env.USER_API_ENDPOINT}/customers/auth/decode/token`,
     {
@@ -35,16 +36,13 @@ async function fetchLoginLocalStorageApi() {
       body: JSON.stringify({
         accessToken: localStorage.getItem('accessToken'),
       }),
-    }
+    },
   );
   const data = await res.json();
   return data;
 }
 
 export default function* asyncLoginUser(action) {
-  console.log(
-    `process.env.USER_API_ENDPOINT: ${process.env.USER_API_ENDPOINT}`
-  );
   try {
     if (window !== undefined) {
       let decodedAccessToken = {};
@@ -56,16 +54,16 @@ export default function* asyncLoginUser(action) {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
         const response = yield call(fetchLoginUserApi, action.payload.userInfo);
-        localStorage.setItem('accessToken', response.accessToken);
-        localStorage.setItem('refreshToken', response.refreshToken);
+        localStorage.setItem('accessToken', response.results.accessToken);
+        localStorage.setItem('refreshToken', response.results.refreshToken);
         decodedAccessToken = yield call(
           fetchLoginLocalStorageApi,
-          localStorage.getItem('accessToken')
+          localStorage.getItem('accessToken'),
         );
       } else {
         decodedAccessToken = yield call(
           fetchLoginLocalStorageApi,
-          localStorage.getItem('accessToken')
+          localStorage.getItem('accessToken'),
         );
       }
       yield put({

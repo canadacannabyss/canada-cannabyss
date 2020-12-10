@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import {
@@ -30,9 +30,14 @@ const mapStateToProps = (state) => {
 
 const LoginModal = ({ user }) => {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
 
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const onChangeLoginEmail = (e) => {
     setLoginEmail(e.target.value);
@@ -113,6 +118,7 @@ const LoginModal = ({ user }) => {
               id="email"
               type="email"
               value={loginEmail}
+              ref={inputRef}
             />
             <Label htmlFor="password">Password</Label>
             <Input

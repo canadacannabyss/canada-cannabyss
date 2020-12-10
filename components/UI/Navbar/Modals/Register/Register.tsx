@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Background,
@@ -23,6 +23,8 @@ import Logo from '../../../../../assets/img/canada-cannabyss-logo.svg';
 
 const RegisterModal = (props) => {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
+
   const user = useSelector((state) => state.user);
   const navbar = useSelector((state) => state.navabar);
 
@@ -47,6 +49,10 @@ const RegisterModal = (props) => {
     dispatch(closeRegisterForm());
     dispatch(openLoginForm());
   }
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   useEffect(() => {
     if (userRegistrationSubmit) {
@@ -109,15 +115,17 @@ const RegisterModal = (props) => {
         body: JSON.stringify(userInfoObj),
       },
     );
+
     const arrayMsgs = [];
     const data = await response.json();
+
     if (data.errors && data.errors.length > 0) {
       data.errors.map((errorMsg) => {
         arrayMsgs.push(errorMsg);
       });
       setWarningMsg(arrayMsgs);
     }
-    console.log('data registration:', data);
+
     if (data.results.ok) {
       setUserRegistrationSubmit(true);
       setEmailSentTo(email);
@@ -146,7 +154,8 @@ const RegisterModal = (props) => {
       },
     );
     const data = await response.json();
-    if (data.ok) {
+    console.log('data register:', data);
+    if (data.statusCode === 200) {
       setUserRegistrationSubmit(true);
     }
   };
@@ -156,8 +165,10 @@ const RegisterModal = (props) => {
     setWarning(false);
     setWarningMsg([]);
     const userInfoObj = {
-      firstName: firstName,
-      lastName: lastName,
+      names: {
+        firstName: firstName,
+        lastName: lastName,
+      },
       username: username,
       email: email,
       password: password,
@@ -207,6 +218,7 @@ const RegisterModal = (props) => {
                   value={firstName}
                   name="firstName"
                   id="firstName"
+                  ref={inputRef}
                 />
               </div>
               <div>

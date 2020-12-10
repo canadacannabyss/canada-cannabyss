@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { useDispatch } from 'react-redux';
 import Head from 'next/head';
 import Router from 'next/router';
 import {
   Form,
+  BrandDiv,
   Input,
   InputInline,
   Label,
@@ -17,8 +19,12 @@ import {
 import Layout from '../../Layout';
 import Logo from '../../../assets/img/canada-cannabyss-logo.webp';
 
+import { openLoginForm } from '../../../store/actions/navbar/navbar';
+
 const RegisterReferral = (props) => {
   const { referral } = props;
+
+  const dispatch = useDispatch();
 
   const [userRegistrationSubmit, setUserRegistrationSubmit] = useState(false);
 
@@ -41,6 +47,15 @@ const RegisterReferral = (props) => {
   const [warningMsg, setWarningMsg] = useState([]);
   const [emailSent, setEmailSent] = useState(false);
   const [emailSendTo, setEmailSentTo] = useState('');
+
+  useEffect(() => {
+    if (emailSent) {
+      setTimeout(() => {
+        dispatch(openLoginForm());
+        Router.push('/');
+      }, 3000);
+    }
+  }, [emailSent]);
 
   useEffect(() => {
     if (warningMsg.length > 0) {
@@ -107,17 +122,20 @@ const RegisterReferral = (props) => {
         body: JSON.stringify(userInfoObj),
       },
     );
+
+    const arrayMsgs = [];
     const data = await response.json();
+
     console.log('data register:', data);
-    if (Array.isArray(data)) {
-      const arrayMsgs = [];
-      data.map((msg) => {
-        arrayMsgs.push(msg.msg);
+
+    if (data.errors && data.errors.length > 0) {
+      data.errors.map((errorMsg) => {
+        arrayMsgs.push(errorMsg);
       });
       setWarningMsg(arrayMsgs);
     }
-    console.log('data registration:', data);
-    if (data.ok) {
+
+    if (data.results.ok) {
       setUserRegistrationSubmit(true);
       setEmailSentTo(email);
       setEmailSent(true);
@@ -135,23 +153,25 @@ const RegisterReferral = (props) => {
     verifyReferralApi();
   }, []);
 
-  const handleRegisterUserReferral = (e) => {
+  function handleRegisterUserReferral(e: ChangeEvent): void {
     e.preventDefault();
     const userInfoObj = {
-      firstName: firstName,
-      lastName: lastName,
-      username: username,
-      email: email,
-      password: password,
-      password2: password2,
+      names: {
+        firstName,
+        lastName,
+      },
+      username,
+      email,
+      password,
+      password2,
       referralId: referral,
     };
     fetchRegisterUserReferral(userInfoObj);
-  };
+  }
 
-  const handleFirstName = (e) => {
+  function handleFirstName(e): void {
     setFirstName(e.target.value);
-  };
+  }
 
   const handleLastName = (e) => {
     setLastName(e.target.value);
@@ -200,12 +220,12 @@ const RegisterReferral = (props) => {
         <meta property="og:site_name" content="Canada Cannabyss" />
 
         {/* Google+ */}
-        <meta itemprop="name" content="Register Referral - Canada Cannabyss" />
+        <meta itemProp="name" content="Register Referral - Canada Cannabyss" />
         <meta
-          itemprop="description"
+          itemProp="description"
           content="Register Referral - Canada Cannabyss"
         />
-        <meta itemprop="image" content={Logo} />
+        <meta itemProp="image" content={Logo} />
 
         {/* Twitter */}
         <meta name="twitter:card" content="product" />
@@ -232,7 +252,7 @@ const RegisterReferral = (props) => {
                   <>
                     {emailSent && (
                       <>
-                        <EmailSentToMessage top="20px">
+                        <EmailSentToMessage>
                           <p>
                             An account verification link has been sent to{' '}
                             <span>{emailSendTo}</span>
@@ -246,7 +266,7 @@ const RegisterReferral = (props) => {
                       </InvitationMessage>
                     ) : (
                       <>
-                        {fetchedReferralUser && (
+                        {!emailSent && fetchedReferralUser && (
                           <InvitationMessage>
                             You have been invited by{' '}
                             <span>{`${referralUser.names.firstName} ${referralUser.names.lastName}`}</span>
@@ -255,7 +275,11 @@ const RegisterReferral = (props) => {
                       </>
                     )}
                     <Form method="post" onSubmit={handleRegisterUserReferral}>
-                      <h2>Register</h2>
+                      <BrandDiv>
+                        <img src={Logo} alt="Canada Cannabyss" />
+                        <div className="sep" />
+                        <h1>Register</h1>
+                      </BrandDiv>
                       <InputInline>
                         <div>
                           <Label htmlFor="firstName">First Name</Label>
