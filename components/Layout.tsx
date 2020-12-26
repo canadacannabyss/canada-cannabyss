@@ -1,19 +1,23 @@
 import _ from 'lodash';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { getCart } from '../store/actions/cart/cart';
 import { getOrder } from '../store/actions/order/order';
 import { getProductsCategories } from '../store/actions/products/products';
 import { getBundlesCategories } from '../store/actions/bundles/bundles';
-import { Content } from '../styles/Components/UI/Layout';
+
 import Footer from './UI/Footer/Footer';
 import Navbar from './UI/Navbar/Navbar';
+import AgeRestriction from './UI/Modal/AgeRestriction/AgeRestriction';
 
 const layoutStyle = {
   height: '100%',
   width: '100%',
 };
+
+import { Content } from '../styles/Components/UI/Layout';
 
 const Layout = (props) => {
   const dispatch = useDispatch();
@@ -22,12 +26,29 @@ const Layout = (props) => {
   const order = useSelector((state) => state.order);
   const loginRequestCount = useSelector((state) => state.loginRequestCount);
 
-  useEffect(() => {
-    dispatch(getProductsCategories());
-  }, []);
+  const [isAgeRestricted, setIsAgeRestricted] = useState<boolean>(true);
+
+  function toggleIsAgeRestricted(ageRestriction: boolean): void {
+    setIsAgeRestricted(ageRestriction);
+  }
+
+  function checkForAgeRestriction() {
+    if (
+      localStorage.getItem('isAgeRestricted') !== undefined ||
+      localStorage.getItem('isAgeRestricted') !== null
+    ) {
+      if (localStorage.getItem('isAgeRestricted') === 'false') {
+        setIsAgeRestricted(false);
+      } else {
+        setIsAgeRestricted(true);
+      }
+    }
+  }
 
   useEffect(() => {
+    dispatch(getProductsCategories());
     dispatch(getBundlesCategories());
+    checkForAgeRestriction();
   }, []);
 
   useEffect(() => {
@@ -55,6 +76,9 @@ const Layout = (props) => {
 
   return (
     <div className="Layout" style={layoutStyle}>
+      {isAgeRestricted && (
+        <AgeRestriction toggleIsAgeRestricted={toggleIsAgeRestricted} />
+      )}
       <Navbar />
       <Content>{props.children}</Content>
       <Footer />

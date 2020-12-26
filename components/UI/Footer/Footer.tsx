@@ -106,14 +106,18 @@ const Footer = () => {
               <FaEnvelope />
             </button>
           </Newsletter>
-          <SocialMediaP>Follow us on our social medias:</SocialMediaP>
+          <SocialMediaP>Follow us on our social media:</SocialMediaP>
           <SocialMedia>
             <li>
-              <a>
+              <a
+                href="https://www.instagram.com/canadacannabyss/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaInstagram />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a>
                 <FaFacebookF />
               </a>
@@ -122,7 +126,7 @@ const Footer = () => {
               <a>
                 <FaTwitter />
               </a>
-            </li>
+            </li> */}
           </SocialMedia>
         </Div>
       </FooterGrid>
