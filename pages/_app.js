@@ -8,6 +8,7 @@ import Logo from '../assets/img/canada-cannabyss-logo.svg';
 import createStore from '../store';
 import { loginUser } from '../store/actions/user/user';
 import '../styles/_app.css';
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -26,7 +27,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <Head>
-          <link rel='icon' type='image/png' href={Logo} />
+          <link rel="icon" type="image/png" href={Logo} />
         </Head>
         <Component {...pageProps} />
       </Provider>

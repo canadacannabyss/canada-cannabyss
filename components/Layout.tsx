@@ -26,7 +26,7 @@ const Layout = (props) => {
   const order = useSelector((state) => state.order);
   const loginRequestCount = useSelector((state) => state.loginRequestCount);
 
-  const [isAgeRestricted, setIsAgeRestricted] = useState<boolean>(true);
+  const [isAgeRestricted, setIsAgeRestricted] = useState<boolean>(false);
 
   function toggleIsAgeRestricted(ageRestriction: boolean): void {
     setIsAgeRestricted(ageRestriction);
