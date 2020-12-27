@@ -60,7 +60,7 @@ export const BrandDiv = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Form: any = styled.form`
   width: 300px;
   border-radius: 4px;
   margin: 20px auto 0 auto;

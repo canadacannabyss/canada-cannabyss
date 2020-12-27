@@ -477,8 +477,13 @@ export const LiUser = styled.li`
   }
 `;
 
-export const DrawerBtn = styled.div`
+export const DrawerBtn = styled.button`
   display: none;
+  border: none;
+  background: transparent;
+  &:focus {
+    outline: 0;
+  }
   @media (max-width: 768px) {
     display: flex;
     justify-self: center;

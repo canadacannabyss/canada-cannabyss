@@ -209,13 +209,13 @@ export const Warning = styled.div`
   text-align: center;
 `;
 
-export const EmailSentToMessage = styled.div`
+export const EmailSentToMessage: any = styled.div`
   width: 350px;
   display: table;
   padding: 7px 13px;
   text-align: center;
   position: fixed;
-  top: ${(props) => props.top};
+  top: ${(props: any) => props.top};
   left: 50%;
   transform: translateX(-50%);
   z-index: 99999;
