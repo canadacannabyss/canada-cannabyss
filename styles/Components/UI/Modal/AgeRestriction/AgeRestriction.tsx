@@ -10,7 +10,7 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 99999999999;
+  z-index: 999999999999999;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 0px 2px;
   @media (max-width: 336px) {
     width: 90%;
@@ -22,6 +22,7 @@ export const Background = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.15);
+  z-index: 99999999999999;
 `;
 
 export const H1Div = styled.h1`
