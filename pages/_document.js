@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
     const sheet = new ServerStyleSheet();
 
     const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />)
+      sheet.collectStyles(<App {...props} />),
     );
 
     const styleTags = sheet.getStyleElement();
@@ -25,19 +25,25 @@ export default class MyDocument extends Document {
         <Head>
           {process.env.NODE_ENV !== 'production' && (
             <link
-              rel='stylesheet'
-              type='text/css'
+              rel="stylesheet"
+              type="text/css"
               href={'/_next/static/css/styles.chunk.css?v=' + Date.now()}
             />
           )}
+          {/* <link
+            href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+            rel="stylesheet"
+          /> */}
           <link
-            href='https://fonts.googleapis.com/css?family=Montserrat&display=swap'
-            rel='stylesheet'
+            rel="preload"
+            href="../assets/fonts/Montserrat-Regular.ttf"
+            as="font"
+            type="font/ttf"
           />
           {this.props.styleTags}
           <script
             async
-            src='https://www.googletagmanager.com/gtag/js?id=UA-179966128-1'
+            src="https://www.googletagmanager.com/gtag/js?id=UA-179966128-1"
           />
           <script
             dangerouslySetInnerHTML={{
@@ -51,7 +57,7 @@ export default class MyDocument extends Document {
             }}
           />
           <meta
-            name='copyright'
+            name="copyright"
             content={`© ${new Date().getFullYear()} Canada Cannabyss`}
           />
         </Head>
